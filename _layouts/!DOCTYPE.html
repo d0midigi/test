@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="{{ site.url }}">
+        <img src="{{ "/assets/images/logo.png" | relative_url }}" alt="Logo">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="{{ site.url }}/documentation">Documentation</a></li>
+        <li><a href="{{ site.url }}/blog">Blog</a></li>
+        <li><a href="{{ site.url }}/community">Community</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <div class="container">
+    <div class="sidebar">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#reference">Reference</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      {{ content }}
+    </div>
+  </div>
+
+  <footer>
+    <p>Last updated: {{ site.time | date: "%B %d, %Y" }}</p>
+  </footer>
+</body>
+</html>
