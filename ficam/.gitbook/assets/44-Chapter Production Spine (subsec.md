@@ -1,0 +1,228 @@
+44-Chapter Production Spine (subsections not included yet - only parent)
+
+
+
+PART I - FOUNDATIONS \& TERRAIN (Chapters 1-8)
+
+
+
+Chapter 1 - Identity as the Battlefield: Why Active Directory Security Is a Federal Mission Problem
+
+
+
+Chapter 2 - The Architecture of Authority: Forests, Domains, Global Catalogs, and the Shape of Trust
+
+
+
+Chapter 3 - The Directory Networking Substrate: DNS, Sites, Subnets, RPC, Replication, and Domain Protocol Dependencies
+
+
+
+Chapter 4 - Federal Identity Governance: FICAM, DoD ICAM, Mission Assurance, PIV/CAC/ EDIPI, and Zero Trust Architecture
+
+
+
+Chapter 5 - Active Directory FICAM Protocols and the Mechanics of Domain Trust: LM, NTLM, and Kerberos v5
+
+
+
+Chapter 6 - Enterprise Identity Services (EIS): PKI, AD CS, AD FS, Entra ID, Federation, and Hybrid Identities
+
+
+
+Chapter 7 - Policy Delivery and Directory Data: Group Policy, SYSVOL, and NTDS.dit
+
+
+
+Chapter 8 - Identity Security Assessment and Baseline Engineering: Scoping, Tier 0, STIGs, SRGs, Domain Hardening, and Identity Validation
+
+
+
+===================
+
+
+
+PART II - THE IDENTITY ATTACK LIFECYCLE / OFFENSE (Chapters 9-26)
+
+
+
+*Stage 1 - Passive Domain Reconnaissance*
+
+Chapter 9 - Passive Domain Identity Reconnaissance: External Exposure, DNS, Certificate Transparency, and Federation Metadata
+
+
+
+*Stage 2 - Active Domain Enumeration*
+
+Chapter 10 - Active Directory Domain Enumeration and Graph Pathing: Objects, ACLs, GPOs, SPNs, BloodHound, and AI-Driven Path Optimization
+
+
+
+Chapter 11 - AD CS Certificate Template and FPKI Enumeration
+
+
+
+*Stage 3 - Initial Domain Identity Acquisition*
+
+Chapter 12 - Password Spraying, Credential Stuffing, and Lockout-Aware Brute-Force
+
+
+
+Chapter 13 - Domain Name-Resolution Poisoning: LLMNR, NBT-NS, and WPAD
+
+
+
+Chapter 14 - Authentication Coercion and Relay: NTLM/LDAP/Kerberos Relay, PrinterBug, and PetitPotam
+
+
+
+Chapter 15 - Phishing, MFA Fatigue, OAuth Consent, and Cloud/Hybrid Footholds
+
+
+
+*Stage 4 - Domain Credential Acquisition*
+
+Chapter 16 - AS-REP Roasting and Kerberoasting
+
+
+
+Chapter 17 - LSASS, SAM, GPP, cpassword, and Cached Credential Extraction
+
+
+
+Chapter 18 - Pass-the-Hash, Overpass-the-Hash, and Pass-the-Ticket Session Replay
+
+
+
+Chapter 19 - Cloud Tokens: Refresh Tokens, Primary Refresh Tokens (PRTs), Session Cookies, and Certificate/Key Theft
+
+
+
+*Stage 5 - Domain Identity Authority Expansion*
+
+Chapter 20 - ACL/DACL/ACE Abuse: GenericAll, GenericWrite, WriteDACL, WriteOwner, ForceChangePassword
+
+
+
+Chapter 21 - Domain Protocol Delegation Abuse: Unconstrained, Constrained, and Resource-Based Constrained Delegation (RBCD)
+
+
+
+Chapter 22 - AD CS Domain Escalation: ESC1-ESC16+, Shadow Credentials, and KEYCREDENTIAL\_LINK Abuse
+
+
+
+Chapter 23 - Entra ID Administrative Role Abuse, Sync Service Exploitation, and Hybrid Escalation
+
+
+
+*Stage 6 - Enterprise Domain Identity Mobility*
+
+Chapter 24 - Remote-Service Movement: SMB, WinRM, WMI, DCOM, RDP, PsExec, and Scheduled Tasks
+
+
+
+Chapter 25 - Cross-Domain and Cross-Forest Traversal
+
+
+
+*Stage 7 - Network Persistence and Domain Dominance*
+
+Chapter 26 - Domain Dominance and Network Persistence: NTDS.dit, DCSync, DCShadow, krbtgt, Golden/Silver/Diamond/Sapphire Tickets, Skeleton Key, DSRM, AdminSDHolder, SID History, Rogue CA/Federation, and Golden SAML
+
+
+
+====================
+
+
+
+PART III - DEFENSE: ENGINEERING, DETECTION, AND RECOVERY (Chapters 27-43)
+
+
+
+*Privilege Isolation and Architecture*
+
+Chapter 27 - Domain Tiered Administration and the ESAE / Red Forest Architecture
+
+
+
+Chapter 28 - End-User Isolation: PAWs/SAWs, Protected Users, Credential Guard, LSASS Protection, and Windows LAPS
+
+
+
+*Hardening the Exploited Surfaces*
+
+Chapter 29 - Domain Service Account and gMSA Hardening
+
+
+
+Chapter 30 - AD CS / PKI Hardening
+
+
+
+Chapter 31 - AD FS and Federation Hardening: Phishing-Resistant MFA and FIDO2
+
+
+
+Chapter 32 - Name-Resolution and Relay Hardening: EPA, SMB Signing, and Channel Binding
+
+
+
+*Detection and Hunting*
+
+Chapter 33 - Identity Telemetry and Audit Architecture
+
+
+
+Chapter 34 - Detection Engineering: Kerberos, NTLM, LDAP, and Credential-Access Correlation
+
+
+
+Chapter 35 - Detecting Replication Abuse and Lateral Movement: DCSync, DCShadow, and Remote Services
+
+
+
+Chapter 36 - Threat Hunting the Directory: ACL/Delegation Pathways, NTDS.dit, and Backdoors
+
+
+
+Chapter 37 - Deception: Honeytokens and Decoy Identity Infrastructure
+
+
+
+*Response and Recovery*
+
+Chapter 38 - Identity Forensics: LSASS, Memory, Token, and Directory-Change Analysis
+
+
+
+Chapter 39 - Incident Response Playbooks and SOAR Containment
+
+
+
+Chapter 40 - KRBTGT Double-Reset and Kerberos Trust Restoration
+
+
+
+Chapter 41 - Tier 0 Forest Recovery, AD CS Recovery, and Federation Trust Repair
+
+
+
+*Governance and Cloud*
+
+Chapter 42 - Hybrid and Entra ID Defense; Sync Hardening, Token Revocation, and Conditional Access
+
+
+
+Chapter 43 - Risk Management Framework (RMF) on the Identity Plane; eMASS Evidence, Continuous ATO, POA\&M, IAVA, and OSCAL Automation
+
+
+
+====================
+
+
+
+PART IV - CLOSING (Chapter 44)
+
+Chapter 44 - Operational Lessons and the Future of Identity-Centric Defense and Warfare
+

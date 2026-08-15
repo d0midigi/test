@@ -1,0 +1,619 @@
+<div class="notebook-container">
+  <!-- Left Side: Tabs (A-Z) -->
+  <div class="notebook-tabs" role="tablist" aria-label="Notebook Sections">
+    <button class="tab-btn active" data-target="panel-main" role="tab" aria-selected="true" aria-controls="panel-main">
+      <span>📝 AD Attack Notes</span>
+    </button>
+    <button class="tab-btn" data-target="panel-a" role="tab" aria-selected="false" aria-controls="panel-a"><span>📅 A Attacks</span></button>
+    <button class="tab-btn" data-target="panel-b" role="tab" aria-selected="false" aria-controls="panel-b"><span>🚀 B Attacks</span></button>
+    <button class="tab-btn" data-target="panel-c" role="tab" aria-selected="false" aria-controls="panel-c"><span>🚀 C Attacks</span></button>
+    <button class="tab-btn" data-target="panel-d" role="tab" aria-selected="false" aria-controls="panel-d"><span>🚀 D Attacks</span></button>
+    <button class="tab-btn" data-target="panel-e" role="tab" aria-selected="false" aria-controls="panel-e"><span>🚀 E Attacks</span></button>
+    <button class="tab-btn" data-target="panel-f" role="tab" aria-selected="false" aria-controls="panel-f"><span>🚀 F Attacks</span></button>
+    <button class="tab-btn" data-target="panel-g" role="tab" aria-selected="false" aria-controls="panel-g"><span>🚀 G Attacks</span></button>
+    <button class="tab-btn" data-target="panel-h" role="tab" aria-selected="false" aria-controls="panel-h"><span>🚀 H Attacks</span></button>
+    <button class="tab-btn" data-target="panel-i" role="tab" aria-selected="false" aria-controls="panel-i"><span>🚀 I Attacks</span></button>
+    <button class="tab-btn" data-target="panel-j" role="tab" aria-selected="false" aria-controls="panel-j"><span>🚀 J Attacks</span></button>
+    <button class="tab-btn" data-target="panel-k" role="tab" aria-selected="false" aria-controls="panel-k"><span>🚀 K Attacks</span></button>
+    <button class="tab-btn" data-target="panel-l" role="tab" aria-selected="false" aria-controls="panel-l"><span>🚀 L Attacks</span></button>
+    <button class="tab-btn" data-target="panel-m" role="tab" aria-selected="false" aria-controls="panel-m"><span>🚀 M Attacks</span></button>
+    <button class="tab-btn" data-target="panel-n" role="tab" aria-selected="false" aria-controls="panel-n"><span>🚀 N Attacks</span></button>
+    <button class="tab-btn" data-target="panel-o" role="tab" aria-selected="false" aria-controls="panel-o"><span>🚀 O Attacks</span></button>
+    <button class="tab-btn" data-target="panel-p" role="tab" aria-selected="false" aria-controls="panel-p"><span>🚀 P Attacks</span></button>
+    <button class="tab-btn" data-target="panel-q" role="tab" aria-selected="false" aria-controls="panel-q"><span>🚀 Q Attacks</span></button>
+    <button class="tab-btn" data-target="panel-r" role="tab" aria-selected="false" aria-controls="panel-r"><span>🚀 R Attacks</span></button>
+    <button class="tab-btn" data-target="panel-s" role="tab" aria-selected="false" aria-controls="panel-s"><span>🚀 S Attacks</span></button>
+    <button class="tab-btn" data-target="panel-t" role="tab" aria-selected="false" aria-controls="panel-t"><span>🚀 T Attacks</span></button>
+    <button class="tab-btn" data-target="panel-u" role="tab" aria-selected="false" aria-controls="panel-u"><span>🚀 U Attacks</span></button>
+    <button class="tab-btn" data-target="panel-v" role="tab" aria-selected="false" aria-controls="panel-v"><span>🚀 V Attacks</span></button>
+    <button class="tab-btn" data-target="panel-w" role="tab" aria-selected="false" aria-controls="panel-w"><span>🚀 W Attacks</span></button>
+    <button class="tab-btn" data-target="panel-x" role="tab" aria-selected="false" aria-controls="panel-x"><span>🚀 X Attacks</span></button>
+    <button class="tab-btn" data-target="panel-y" role="tab" aria-selected="false" aria-controls="panel-y"><span>🚀 Y Attacks</span></button>
+    <button class="tab-btn" data-target="panel-z" role="tab" aria-selected="false" aria-controls="panel-z"><span>🚀 Z Attacks</span></button>
+  </div>
+
+  <!-- Right Side: Content Panels -->
+  <div class="notebook-panels">
+    <div id="panel-main" class="panel active" role="tabpanel" tabindex="0">
+      <center>   <h1>Active Directory A-Z Attack Notes</h1></center><br>
+      <p>Understanding the full spectrum that comprises the security landscape of Active Directory is essential for maintaining a strong and resilient enterprise defense security posture against the myriad of attacks that plague this directory infrastructure. This list highlights many of the most popular and commonly used security vulnerabilities and conceptual risks that organizations seek to monitor to protect their identity infrastructure.</p><br>
+      <p>Select a letter tab on the left to view specific Active Directory threat vectors, exploit pathways, and definitions.</p>
+    </div>
+
+    <div id="panel-a" class="panel" role="tabpanel" tabindex="0">
+      <h2 style="text-align: center;"><span style="color: #fe2c5a;">ACTIVE DIRECTORY ATTACKS STARTING WITH THE LETTER 'A'</span></h2>
+<p style="text-align: center;">&bull;&bull;&bull;</p>
+<ul>
+<li>
+<h4>ACCESS CONTROL LIST / ACCESS CONTROL ENTRY (ACL/ACE)-BASED ATTACKS</h4>
+<p>Attackers target weak Active Directory Object Access Control Lists (ACLs) to gain control over high-value objects. A common vector is abusing <code>GenericAll</code>, <code>GenericWrite</code>, or <code>WriteDacl</code> permissions over a user or group. If an attacker controls an account with <code>WriteDacl</code> over a target object (like a Domain Admin or a targeted user), they can modify Access Control Entries (ACEs) to grant themselves explicit full control (<code>GenericAll</code>) or force a password reset.</p>
+</li><br>
+<li style="text-align: left;">
+<h4><span style="color: #000000;">ATTACKER 
+  
+  <ul><li style="text-align: left;">
+<h4><span style="color: #000000;">ATTACK DEMONSTRATION<br /></span></h4>
+      <div class="code-block">
+  <pre><code>&gt;# Import PowerView module
+Import-Module .\PowerView.ps1
+
+# Add GenericAll rights for the compromised account (e.g., "evil_user") over the target account (e.g., "target_admin")
+
+Add-DomainObjectAcl -TargetIdentity "target_admin" -PrincipalIdentity "evil_user" -Rights GenericAll -Verbose
+</code></pre></div>
+  <p style="text-align: center;">&bull;&bull;&bull;</p>
+<li style="text-align: left;">
+<h4><span style="color: #000000;">DEFENDER PERSPECTIVE<br /></span></h4>
+  <p>Defending against ACL attacks requires two layers:  <em>Detection</em> (monitoring changes to high-value ACLs) and <em>Remediation</em> (auditing and fixing weak permissions, especially tracking objects whose <code>adminCount</code> attribute is set to <code>'1'</code> via the AdminSDHolder process).</p><br>
+  <li style="text-align: left;">
+<h4><span style="color: #000000;">DETECTION STRATEGY (KQL / MICROSOFT SENTINEL) DEMONSTRATION<br /></span></h4>
+    <p>To catch this, monitor Event ID 4662 (<em>An operation was performed on an object</em>) on Domain Controllers. Look for modifications (<code>WriteDacl</code> access) targeting sensitive object classes where the performing user is not a standard administrative account.</p><br>
+    <div class="code-block">
+  <pre><code>&gt;SecurityEvent
+  | where EventID == 4662
+  | extend ObjectProperties = parse_xml(EventData)
+| extend ObjectType = tostring(ObjectProperties.EventData.Data.[0])
+
+| extend AccessMask = tostring(ObjectProperties.EventData.Data.[3])
+| extend AccountName = tostring(ObjectProperties.EventData.Data.[1])
+| where AccessMask in~ ("0x40000", "0x100") // WriteDacl or Control Access
+
+| where ObjectProperties.EventData.Data.[5] contains "bf967a86-0de6-11d0-a285-00aa003049e2" // GUID for User Object Class
+| project TimeGenerated, AccountName, ObjectProperties.EventData.Data.[4], AccessMask
+</code></pre></div>
+  <p style="text-align: center;">&bull;&bull;&bull;</p>
+ <li style="text-align: left;">
+<h4><span style="color: #000000;">REMEDIATION SNIPPET (ACTIVE DIRECTORY HARDENING)<br /></span></h4>
+   <p>This defensive PowerShell script automates the detection of non-default, dangerous ACL modifications (like <code>GenericAll</code> or <code>WriteDacl</code>) applied to Organizational Units (OUs) or users by scanning for explicit permissions assigned to low-privileged groups.</p><br>
+   <div class="code-block">
+  <pre><code>&gt;# Query ACLs for a specific sensitive OU to find non-standard explicit allows
+$TargetOU = "OU=Privileged Users,DC=domain,DC=local"
+(Get-Acl -Path "AD:\$TargetOU").Access | Where-Object {
+    $_.IsInherited -eq $false -and 
+    ($_.ActiveDirectoryRights -match "GenericAll" -or $_.ActiveDirectoryRights -match "WriteDacl") -and
+    $_.IdentityReference -notmatch "Domain Admins|Enterprise Admins|SYSTEM"
+} | Select-Object IdentityReference, ActiveDirectoryRights, AccessControlType
+</code></pre></div>
+  <p style="text-align: center;">&bull;&bull;&bull;</p>
+ 
+        
+        
+        <li><strong>Active Directory Certificate Services (AD CS) Relay (ESC8)</strong><br>
+          In an ESC8 attack, an attacker forces a domain-joined machine (often a Domain Controller via the MS-EFSR PetitPotam protocol) to authenticate against another domain-joined machine they control via NTLM. The attacker then relays this NTLM authentication session to an unauthenticated HTTP Web Enrollment endpoint hosted by Active Directory Certificate Services (AD CS). Because the endpoint allows NTLM authentication and converts it into an X.509 certificate enrollment request, the attacker successfully requests a client authentication certificate impersonating the victim machine, granting them full domain compromise.</li><br>
+  <li style="text-align: left;">
+<h4><span style="color: #000000;">ATTACKER PERSPECTIVE<br /></span></h4>
+<p>An attacker is essentially looking to conduct a Man-in-the-Middle (MitM) and NTLM relay exploit attack that targets Active Directory Certificate Services (AD CS) to achieve instant, silent domain dominance. It bypasses the need for misconfigured certificate templates.</p>
+        <li><strong>Active Directory Federation Services (AD FS) Signing Key Theft</strong><br>
+Stealing the private token-signing certificate from an Active Directory Federation Services (AD FS) server to forge SAML assertions and access cloud resources.</li><br>
+        <li><strong>AdminSDHolder DACL (Discretionary Access Control List) Tampering</strong><br>
+Directly modifying the Discretionary Access Control List (DACL) of the AdminSDHolder container to introduce silent, persistent administrative permissions.</li><br>
+        <li><strong>AdminSDHolder Exploitation</strong><br>
+Injecting a malicious account into the AdminSDHolder object's ACL, causing Active Directory to automatically push persistent administrative privileges to that account every 60 minutes.</li><br>
+        <li><strong><code>AdFind</code> Automated Reconnaissance</strong><br>
+          Utilizing the popular command-line utility <code>AdFind</code> to execute broad, unstructured queries that quickly pull extensive lists of users, groups, and domain trusts.</li><br>
+        <li><strong><code>ADPrep</code> Vulnerability Exploitation</strong><br>
+Target-hunting for legacy schema extensions or old installation artifacts from previous Active Directory upgrades to exploit known privilege management flaws.</li><br>
+        <li><strong>Anonymous Lightweight Directory Access Protocol (LDAP) Binding</strong><br>
+Querying an unhardened Domain Controller without any authentication credentials to fully enumerate domain users, groups, and system structures.</li><br>
+        <li><strong>AS-REP Roasting</strong><br>
+Targeting domain accounts that do not require Kerberos pre-authentication. An attacker requests a Kerberos authentication ticket (AS-REP) for those accounts without knowing their original plaintext passwords, receiving an encrypted packet that they can crack offline to harvest the plaintext credential.</li><br>
+        <li><strong>Authentication Pre-Authentication Risks</strong><br>
+          Monitoring accounts that do not require Kerberos pre-authentication as these can be targeted for offline analysis if service responses are intercepted.</li><br>
+        <li><strong>Authentication Silo Bypass</strong><br>
+Finding gaps or unassigned systems outside an active Authentication Policy Silo to bypass strict credential restrictions applied to high-privileged accounts.</li><br>
+        <li><strong>Azure AD Connect Account Hijacking</strong><br>
+          Target-hunting the specific <code>MSOL_</code> on-premises account used by synchronization engines to exploit its high replication privileges.</li><br>
+        <li><strong>Azure AD Connect Password Sync Extraction</strong><br>
+Extracting the decryption key and credentials used by Azure AD Connect synchronization accounts to sync on-premises AD hashes to Entra ID.</li>
+      </ul>
+    </div>
+
+    <div id="panel-b" class="panel" role="tabpanel" tabindex="0">
+      <h2>Active Directory Attacks Starting with the Letter 'B'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center>
+</h2>
+      <ul>
+        <li><strong>Backup <code>NTDS.dit</code> Theft</strong><br>
+Locating and copying poorly secured backup files or disaster recovery images of Domain Controllers to extract the primary AD credential database.</li><br>
+        <li><strong>Backup Operators Abuse</strong><br>
+          Leveraging membership in the Backup Operators group to read sensitive system files, including the <code>NTDS.dit</code> database.</li><br>
+        <li><strong>Backup Operators Domain Hijacking</strong><br>
+Abusing members of the Backup Operators group to read sensitive system files or replace registry hives on a Domain Controller.</li><br>
+        <li><strong>BitLocker Key Extraction from Active Directory (AD)</strong><br>
+          Querying the <code>msFVE-RecoveryInformation</code> directory attribute to steal stored BitLocker volume recovery keys for domain-joined endpoints.</li><br>
+<li><strong>BitLocker Recovery Password Harvesting via Lightweight Directory Access Protocol (LDAP)</strong><br>
+Executing unmonitored LDAP queries to pull full plaintext drive-encryption keys stored in computer object attributes.</li><br>
+        <li><strong>BloodHound Path Exploitation</strong><br>
+          Utilizing graph theory toolsets to automatically discover and execute complex, nested privilege escalation pathways.</li><br>
+        <li><strong>Brute-Force Attack on Kerberos Pre-Authentication</strong><br>
+Bombarding the Kerberos service with guesses specifically for accounts that do not require pre-authentication, collecting response packages to crack offline.</li><br>
+        <li><strong>Built-In Group Exploitation</strong><br>
+Target-hunting for unmonitored default groups, such as Account Operators, Print Operators, or Backup Operators that hold unexpected local or domain-wide administrative permissions.</li><br>
+        <li><strong>Bypass User Access Control (UAC)</strong><br>
+Executing specific administrative tasks on domain-joined machines by pivoting through misconfigured system files or high-integrity processes to execute unauthorized code.</li><br>
+        <li><strong>Bypassing AppLocker via Active Directory</strong><br>
+          Utilizing misconfigured Active Directory Group Policy Objects (GPOs) to run unauthorized administrative tools on domain-joined workstations.</li>
+</ul>
+    </div>
+
+    <div id="panel-c" class="panel" role="tabpanel" tabindex="0">
+      <h2>Active Directory Attacks Starting with the Letter 'C'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Certificates Relaying via HTTP (ESC8)</strong><br>Intercepting NTLM network authentication requests and relaying them to an AD CS Web Enrollment endpoint to enroll a high-privilege user certificate.</li><br>
+        <li><strong>Certificated Privilege Escalation (ESC1 to ESC15)</strong><br>
+Exploiting structural design flaws across common Active Directory Certificate Services (AD CS) template parameters to escalate from a standard domain user to Domain Admin.</li><br>
+        <li><strong>Computer Account Password Recycling
+</strong><br>Extracting old computer account passwords from machine memory to access specific resources before the domain updates the secret.
+</li><br>
+        <li><strong>Computer Account Takeover
+</strong><br>Modifying attributes of a domain-joined machine account through missing write permissions, giving an attacker administrative access to that host.
+</li><br>
+        <li><strong>Constrained Delegation Exploitation
+</strong><br>Compromising an account trusted for Kerberos constrained delegation, allowing the attacker to impersonate any domain user to specific authorized target services.
+</li><br>
+        <li><strong>Credential Dumping (LSASS)
+</strong><br>Scraping the Local Security Authority Subsystem Service (LSASS) memory on domain-joined workstations or servers to extract plaintext passwords and Kerberos tickets of logged-in domain users.
+</li><br>
+        <li><strong>Cross-Forest NTLM Relay
+</strong><br>Catching an authentication request from an adjacent forest and relaying it across a trust relationship to execute administrative actions inside the targeted network.
+</li><br>
+        <li><strong>CVE-2022-26923 (Certifried)
+</strong><br>        Exploiting a flaw in AD CS where an attacker modifies a machine account's <code>dNSHostName</code> to match a Domain Controller, generating a certificate that impersonates the DC.
+</li><br>
+        <li><strong>CVE-2022-26932 (Layer 2 Tunneling Protocol (L2TP) Vulnerability)
+</strong><br>Exploiting a critical remote code execution vulnerability within Windows Network Policy Server or Remote Access framework running on Domain Controllers.
+</li></ul>
+    </div>
+
+    <div id="panel-d" class="panel" role="tabpanel" tabindex="0">
+  <h2>Active Directory Attacks Starting with the Letter 'D'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul><li><strong>DCShadow</strong><br> Registering a rogue system as a temporary Domain Controller in Active Directory memory, an attacker with administrative privileges can inject malicious configuration changes such as implementing backdoor credentials or modify group memberships - directly into the enterprise replication stream, completely bypassing standard security event logging mechanisms.
+</li><br>
+        <li><strong> DCSync</strong><br>
+          Simulating the behaviors of a Domain Controller using the Directory Replication Service Remote Protocol (MS-DRSR) to request password hashes directly from the domain.</li><br>
+        <li><strong> Default Password Spraying</strong><br>
+          Testing common corporate credentials, such as `Welcome123!` across all discovered domain accounts simultaneously to bypass individual account lockout thresholds.</li><br>
+        <li><strong> Diamond Ticket Attack</strong><br>
+          Using the <code> krbtgt</code> account's long-term key to decrypt a valid Ticket Granting Ticket (TGT), attacker modify its contents (such as adding high-privileged group SIDs) and then re-encrypt it. Because the attacker requests a legitimate TGT from the Domain Controller first and only alters the existing ticket, the final forged credential bypasses many common detection rules that scan for anomalous or missing ticket properties.</li><br>
+        <li><strong>Directory Services Restore Mode (DSRM) Account Abuse</strong><br>
+          Extracting the local administrator password hash of the DSRM account on a DC, then using it to gain persistent, alternative domain control via Pass-the-Hash (PtH).</li><br>
+        <li><strong>Directory Services Restore Mode (DSRM) Exploitation</strong><br>
+          Using the <code> GetNCChanges</code> request through specialized security tools to mimic a Domain Controller and pull password hashes directly from the domain database <code>(NTDS.dit)</code>.</li><br>
+        <li><strong>Directory Services Restore Mode (DSRM) Password Syncing</strong><br>
+          Forcing the local Directory Services Restore Mode (DSRM) password to sync with a domain account hash, opening a backdoor via legacy authentication.</li><br>
+        <li><strong>Distributed Component Object Model (DCOM) Privilege Escalation</strong><br>
+          Executing arbitrary code with <code>SYSTEM</code> privileges on domain-joined assets by abusing Distributed Component Object Model (DCOM) applications that lack proper access controls.</li><br>
+        <li><strong>Distributed File System (DFS) Interception</strong><br>
+          Setting up unauthorized DFS targets or mimicking name namespaces to intercept and alter software distribution data or administrative files.</li><br>
+        <li><strong>Domain Name Service (DNS) Admins Abuse</strong><br>
+          Exploiting membership in the <code>DNSAdmins</code> group to force the DNS service on a Domain Controller to execute a malicious Dynamic Link Library (DLL) object at <code>SYSTEM</code>-level.</li><br>
+        <li><strong>Domain Name Service (DNS) Zone Scavenging Vulnerabilities</strong><br>
+          Manipulating AD-integrated DNS zones through insecure dynamic updates to hijack internal traffic, intercept authentication attempts, or conduct man-in-the-middle attacks.</li><br>
+        <li><strong>Dynamic DNS Poisoning via Dynamic Host Configuration Protocol (DHCP)</strong><br>
+          Forcing unauthenticated name changes on internal servers through a compromised DHCP server to alter the domain's central name resolution path.</li>
+      </ul>
+    </div>
+
+      <div id="panel-e" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'E'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Encrypted Group Policy Object (GPO) Password Scavenging</strong><br>
+          Searching custom scripts or older Group Policy configurations for hardcoded passwords that were encrypted with known, public static keys.</li><br>
+        <li><strong>Endpoint Detection and Response (EDR) Policy Deactivation via GPO</strong><br>
+          Pushing unauthorized registry changes via domain Group Policy Objects (GPOs) to explicitly disable endpoint detection software across all domain-joined workstations.</li><br>
+        <li><strong>Edge-Device Password Invalidation</strong><br>
+          Attacking internet-facing domain authentication points (like AD FS) with targeted credential sprays to rapidly disable production accounts through internal lockouts.</li><br>
+        <li><strong>Enterprise Admins Hijacking</strong><br>
+          Targeting specific cross-forest configurations to compromise parent forest structures from a compromised child domain.</li><br>
+        <li><strong>Enterprise Admin Token Theft</strong><br>
+          Monitoring active sessions across a domain to steal the access tokens of Enterprise Administrators who interact with compromised low-tier servers.</li><br>
+        <li><strong>Entra ID / Azure AD Hybrid Identity Pivot</strong><br>
+          Moving laterally from a compromised on-premises AD environment up into a connected cloud tenant by abusing synchronization service permissions.</li><br>
+        <li><strong>Entra ID Seamless Single Sign-On (SSO) Extraction</strong><br>
+          Extracting the decryption keys for the <code> AZUREADSSOACC</code> computer account to forge authentication cookies for cloud Single Sign-On (cSSO).</li><br>
+        <li><strong>Enumeration via Lightweight Directory Access Protocol (LDAP)</strong><br>
+          Conducting systematic, unauthorized directory mapping using unauthenticated or low-privileged LDAP queries to find high-value targets within a forest domain structure.</li><br>
+        <li><strong>ESC1 to ESC13 (Active Directory Certificate Services (AD CS) Flaws)</strong><br>
+          Exploiting misconfigured certificate templates (such as allowing <code>SAN</code> (Subject Attribute Name) specification or domain client authentication) to escalate privileges.</li><br>
+        <li><strong>Event Log Clearing</strong><br>
+          Programmatically deleting Security or System event logs on Domain Controllers to erase administrative audit trails and hinder forensic investigations.</li></ul>
+      </div>
+    
+    <div id="panel-f" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'F'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>File Classification Infrastructure (FCI) Data Harvesting</strong><br>
+Intercepting or abusing Microsoft's automated data classification scripts on domain file servers to discover and steal highly confidential corporate records.</li><br>
+        <li><strong>File Sharing Credential Hunting</strong><br>
+          Scanning open <code> SYSVOL</code>, <code> NETLOGON</code>, or departmental network file shares for configuration files, scripts, and documentation containing hardcoded domain credentials.</li><br>
+        <li><strong>Fine-Grained Password Policy (FGPP) Enumeration</strong><br>
+Querying the Password Settings Containers (PSC) inside AD to determine which high-value groups have weak password complexity thresholds.</li><br>
+        <li><strong>Fine-Grained Password Policy (FGPP) Overrides</strong><br>
+Injecting specific, weak Password Settings Objects (PSOs) directly into targeted high-value user objects to circumvent global domain password strength requirements.</li><br>
+        <li><strong>Flexible Single Master Operation (FSMO) Role Targeting</strong><br>
+Targeting the specific Domain Controllers holding unique FSMO roles (like the PDC Emulator) to disrupt authentication or execute targeted time-sync attacks.</li><br>
+        <li><strong>Foreign Security Principals (FSP) Abuse</strong><br>
+Exploiting trust boundaries by adding malicious users from an external or untrusted forest directly into groups within the target forest.</li><br>
+        <li><strong>Foreign Security Principal (FSP) Escalation</strong><br>
+Injecting a malicious object from an unmonitored external domain into a highly privileged group within the trusted targeted domain.</li><br>
+        <li><strong>Forest-Trust Blind Spots</strong><br>
+          Leveraging historical NTLM fallback mechanisms across selective cross-forest trusts to access unauthorized shared resources.<li></ul>
+</div>
+
+    <div id="panel-g" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'G'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Global Catalog (GC) Data Harvesting</strong><br>
+Querying specific Global Catalog ports (3268/3269) to bypass typical domain-level monitoring and quietly extract forest-wide user information.</li><br>
+        <li><strong>Global Catalog (GC) Pass-the-Hash (PtH)</strong><br>
+Using a stolen user account hash to authenticate against Global Catalog ports across a multi-domain forest to pull universal group configurations.</li><br>
+        <li><strong>Golden Certificate Attack</strong><br>
+Stealing the private key of an Active Directory Certificate Services (AD CS) CA certificate to forge arbitrary authentication certificates valid for any user indefinitely.</li><br>
+        <li><strong>Group Policy Object (GPO) Container Deletion</strong><br>
+Deleting or replacing the Active Directory container reference for a critical GPO to immediately disable host defenses across the enterprise.</li><br>
+        <li><strong>Group Policy Object (GPO) Permissions Hijacking</strong><br>
+Editing the access controls of an existing Group Policy Object (GPO) to push malicious scripts, scheduled tasks, or local administrator additions to all linked domain machines.</li><br>
+        <li><strong>Group Policy Object (GPO) Script Modification Persistence</strong><br>
+Overwriting structural startup or shutdown scripts inside the SYSVOL file structure to ensure malicious code runs with <code> SYSTEM</code>-level rights at boot time.</li><br>
+        <li><strong>Group Policy Object (GPO) Symbolic Link Exploitation</strong><br>
+Creating symbolic links inside a GPO share directory to force client machines into modifying local system files during policy updates.</li><br>
+        <li><strong>Group Policy Preference (GPP) Password Decryption</strong><br>
+          Finding legacy Group Policy Preference (GPP) XML files containing encrypted passwords (known as '<code>cpassword</code>') and decrypting them using standard static AES keys.</li>      </ul>
+        
+      </div>
+    
+    <div id="panel-h" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'H'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Hash Cracking (Offline)</strong><br>
+Using brute-force cluster tools like Hashcat to crack stolen NTLM or Kerberos TGS/TGT hashes retrieved from an AD database or network capture.</li><br>
+        <li><strong>Heuristics Mapping (BloodHound Recon)</strong><br>
+          Mass-harvesting session data and session data properties to identify logons of highly-privileged users using weak hosts.</li><br>
+        <li><strong>Honeytoken Evasion</strong><br>
+Analyzing structural domain metadata like creation dates of Active Directory accounts (in an unauthorized manner) to actively avoid triggering deceptive defender trap (honey) accounts.</li><br>
+        <li><strong>Honeytoken Triggering</strong><br>
+Identifying and probing deceptive AD objects placed by defenders, inadvertently alerting security teams to active reconnaissance or lateral movement.</li><br>
+        <li><strong>Host-to-DC Coercion via PetitPotam</strong><br>
+Forcing a Domain Controller to automatically initiate an NTLM authentication request back to an attacker-controlled endpoint using legacy MS-EFSR protocols.</li><br>
+        <li><strong>Host-to-DC NTLM Coercion</strong><br>
+Forcing a Domain Controller to automatically initiate an authentication request back to an attacker-controlled endpoint using legacy protocols or specialized printing requests.</li><br>
+        <li><strong>Hybrid Identity Registration Abuse</strong><br>
+Registering rogue, unmanaged devices into the hybrid domain environment to bypass conditional access policies and obtain valid user tokens.</li><br>
+        <li><strong>Hybrid Join Identity Spoofing</strong><br>
+Simulating a legitimate workplace join sequence to introduce an unmanaged, malicious machine into an enterprise hybrid identity infrastructure.</li>
+          </ul>
+          </div>
+    
+    <div id="panel-i" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'I'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Inbound Trust Poisoning</strong><br>
+Modifying the attributes of an incoming trust link within a multi-domain architecture to allow cross-realm privilege inheritance.</li><br>
+<li><strong>Insecure Lightweight Directory Access Protocol (LDAP) Channel Binding Manipulation</strong><br>
+Exploiting unencrypted authentication handshakes when a domain fails to enforce LDAP Channel Binding Tokens (CBT).</li><br>
+        <li><strong>Insecure Service Principal Names (SPNs)</strong><br>
+Assigning SPNs to high-privileged standard user accounts instead of managed service accounts, making them highly vulnerable to offline cracking attacks.</li><br>
+        <li><strong>Inter-Forest Trust Exploitation</strong><br>
+Leveraging weak validation settings across external or forest trusts to cross security boundaries and compromise resources in a connected organization.</li><br>
+        <li><strong>Inter-Forest Trust Key Harvesting</strong><br>
+Dumping trust routing keys from a Domain Controller's Local Security Authority (LSA) database to compromise adjacent trusted networks.</li><br>
+        <li><strong>Interactive Logon Credential Caching Abuse</strong><br>
+Extracting cached domain user credentials from the local registry of a disconnected laptop to compromise an employee's profile offline.</li><br>
+<li><strong>
+  Internal Phishing (IdP Impersonation Attack)</strong><br>
+Sending targeted phishing emails from a compromised internal domain account to other domain users to harvest additional high-privileged credentials.</li>
+      </ul>
+      </div>
+    
+    <div id="panel-j" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'J'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>JavaScript Object Notation (JSON) Web Token (JWT) Bypasses</strong><br>
+Exploiting weaknesses in modern hybrid AD environments where federated authentication identity providers issue improperly signed web tokens.</li><br>
+        <li><strong>Juicy Potato</strong><br>
+Using localized privilege escalation tools on a compromised server to intercept internal COM/RPC network traffic and force a SYSTEM-level token creation.</li><br>
+        <li><strong>Juicy Potato Local Token Stealing</strong><br>
+Using localized privilege escalation tools on an already-compromised server to intercept internal COM/RPC network traffic and force a SYSTEM-level token creation.</li><br>
+        <li><strong>Just-Enough-Administration (JEA) Deserialization</strong><br>
+Exploiting insecure coding practices or formatting flaws within a JEA configuration file to break out of a restricted PowerShell endpoint.</li><br>
+        <li><strong>Just-Enough-Administration (JEA) Session Configuration Overwriting</strong><br>
+Modifying the text configurations of Just-Enough-Administration (JEA) endpoints to execute unrestricted administrative PowerShell modules.</li><br>
+        <li><strong>Just-In-Time (JIT) PAM (Privileged Access Management) Abuse</strong><br>
+Targeting Privileged Access Management (PAM) accounts or systems that provision temporary domain administrative access, exploiting timing windows or misconfigured approval workflows.</li>
+          </ul>
+          </div>
+    
+    <div id="panel-k" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'K'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Kerberoasting</strong><br>
+        <li><strong>Kerberos Brute-Forcing</strong><br>
+Bombarding the Kerberos Key Distribution Center (KDC) with rapid authentication requests to guess valid passwords while monitoring for specific Kerberos event codes.</li><br>
+        <li><strong>Kerberos Pre-Authentication Bypass</strong><br>
+Forcing old or legacy authentication protocols that skep Kerberos pre-authentication checks entirely, exposing encrypted timestamps to immediate offline cracking.</li><br>
+        <li><strong>Kerberos Privileged Attribute Certificate (PAC) Modification</strong><br>
+Forging or altering the Privileged Attribute Certificate (PAC) inside a Kerberos ticket to falsify group memberships and artificially claim Domain Admin rights.</li><br>
+        <li><strong>Kerberos Replay Attack</strong><br>
+Intercepting valid Kerberos authentication tokens on an unencrypted or poorly configured local network segment and re-sending them before they expire.</li><br>
+        <li><strong>Key Distribution Center (KDC) Asymmetric Key Forgery</strong><br>
+Creating a self-signed certificate matching a target domain's infrastructure to spoof responses coming from the Kerberos Key Distribution Center (KDC).</li><br>
+        <li><strong>Key Distribution Center (KDC) Spoofing (ESC6)</strong><br>
+Setting up a fake Kerberos Key Distribution Center (KDC) on a local subnet to trick domain client machines into authenticating against an attacker-controlled infrastructure; exploiting misconfigured certificate settings that trust user-supplied Subject Alternative Names (SANs), allowing the generation of forged tickets from the Key Distribution Center (KDC).</li>
+          </ul>
+      </div>
+    
+    <div id="panel-l" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'L'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Local Administrator Password Solution (LAPS) Write Manipulation</strong><br>
+          Exploiting weak access privileges on computer objects to overwrite the <code> ms-MCS-AdmPwd</code> attribute, blocking legitimate administrators from reading the local password.</li><br>
+        <li><strong>Local Administrator Password Solution (LAPS) Cleartext Reading</strong><br>
+          Querying the Active Directory attribute <code>ms-MCS-AdmPwd</code> to read local administrator passwords in plaintext due to poorly restricted read permissions.</li><br>
+        <li><strong>Local Directory Access Protocol (LDAP) Insecure Channel Downgrade</strong><br>
+Forcing a domain client machine to drop secure LDAP/S or signing requirements, exposing all subsequent traffic to local network sniffers.</li><br>
+        <li><strong>Local Group Policy Abuse</strong><br>
+Overriding domain-wide policies on specific high-value domain-joined servers by manipulating the local security policy database directly.</li><br>
+        <li><strong>Local Security Authority (LSA) Secrets Extraction</strong><br>
+Pulling persistent authentication tokens, service account credentials, and computer passwords directly from the host registry of a domain asset.</li><br>
+        <li><strong>Local Security Authority Subservice System (LSASS) Memory Dumping</strong><br>
+          Accessing and scraping the <code>lsass.exe</code> process memory on domain-joined machines to retrieve stored NTLM hashes and Kerberos-generated tickets.</li><br>
+        <li><strong>Local Security Authority Subservice System (LSASS) Memory Protection Bypasses</strong><br>
+Utilizing custom drivers or process mirroring techniques to bypass security controls like LSA Protection (<code>RunAsPPL</code>) to dump domain credentials.</li>
+          </ul>
+          </div>
+    
+      <div id="panel-m" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'M'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong><code>MachineAccountQuota</code> Domain-Join Exploitation</strong><br>
+Utilizing a standard user account to join up to ten new rogue computer accounts to the domain to manipulate Service Principal Names (SPNs).</li><br>
+        <li><strong>Malicious Service Creation</strong><br>
+Using domain administrative rights to remotely install and start a malicious Windows service on a targeted Domain Controller or critical application server.</li><br>
+        <li><strong>Managed Service Account (MSA) Hash Extraction</strong><br>
+Extracting the automatically rotating, complex password hashes of MSAs from the AD database to impersonate automated background AD infrastructure.</li><br>
+        <li><strong>Managed Service Account (MSA) Kerberoasting</strong><br>
+Targeting the complex service account passwords natively managed by Windows to gather hashes via standardized ticketing requests.</li><br>
+        <li><strong>Microsoft Security Account Manager Remote (MS-SAMR) User Enumeration</strong><br>
+Utilizing the Security Account Manager Remote (SAMR) protocol to query Domain Controllers for lists of domain users, bypassing standard event logging mechanisms.</li><br>
+        <li><strong><code>ms-DS-MachineAccountQuota</code> Zeroing</strong><br>
+Systematically creating the maximum number of permitted machine accounts allowed by default settings to exhaust resource space or clear path tracking.</li><br>
+        <li><strong>Multicast Domain Name System (mDNS) Spoofing</strong><br>
+Answering active local subnet naming requests with malicious responses to harvest user authentication hashes from adjacent systems.</li>      
+        </ul>    
+      </div>
+    
+      <div id="panel-n" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'N'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong><code>Netlogon</code> Elevation of Privilege</strong><br>
+Exploiting unauthenticated connection channels in the Netlogon protocol to manipulate secure channels between domain-joined workstations and Domain Controllers.</li><br>
+        <li><strong><code>Netlogon</code> Spoofing (CVE-2022-26925)</strong><br>
+Exploiting an anonymous man-in-the-middle flaw within the Windows Local Security Authority (LSA) to force a domain asset to pass its credentials to an attacker.</li><br>
+<li><strong>Network Sniffing for Link-Local Multicast Name Resolution / NetBIOS Naming Service (LLMNR/NBT-NS)</strong><br>
+Listening on the local subnet in an unauthorized manner for Link-Local Multicast Name Resolution (LLMNR) queries to harvest user hashes by sending fake responses via tools like Responder.</li><br>
+        <li><strong>New Technology Directory Services Directory Information Tree <code>(NTDS.dit)</code> Database Shadow Copy Theft</strong><br>
+Forcing a Volume Shadow Copy (VSC) snapshot on a Domain Controller to copy and extract the live, locked Active Directory database file.</li><br>
+        <li><strong>New Technology LAN Manager (NTLM) Protocol Downgrade</strong><br>
+Forcing client machines or servers to abandon NTLMv2 in favor of the much weaker NTLMv1 protocol, making the intercepted handshakes trivial to crack.</li><br>
+        <li><strong>New Technology LAN Manager (NTLM) Relay Attack</li><br>
+Intercepting network authentication requests and relaying them to a different domain-joined server to automatically execute commands or authenticate as the victim host.</li><br>
+        <li><strong>New Technology LAN Manager (NTLM) Relay Attack on Domain Controllers</strong><br>
+Capturing a network authentication handshake from a domain-joined workstation and immediately passing it to a Domain Controller to authenticate as that user.</li>
+</ul>    
+      </div>
+  
+      <div id="panel-o" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'O'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Object Access Control List (ACL) Backdooring</strong><br>
+          Appending a hidden Access Control Entry (ACE) granting <code>GenericAll</code> rights over a high-value group to a low-privileged compromised account.</li><br>
+        <li><strong>Object Access Control List (ACL) Overwriting</strong><br>
+Forcibly replacing the Security Descriptor of a sensitive AD asset via specialized configuration tools to deny access to authorized administrators.</li><br>
+        <li><strong>Organizational Unit (OU) Inheritance Block</strong><br>
+Modifying OU settings to block global policy inheritance, actively disabling centralized enterprise endpoint defense configurations.</li><br>
+        <li><strong>Organizational Unit (OU) Link Hijacking</strong><br>
+Linking a malicious Group Policy Object (GPO) to an existing, high-importance Organizational Unit (OU) to quickly push malware to all child systems.</li><br>
+        <li><strong>Organizational Unit (OU) Permissions Hijacking</strong><br>
+Modifying the permissions of an Organizational Unit (OU) container to gain control over all current and future user accounts or computers stored inside it.</li><br>
+        <li><strong>Orphaned Account Exploitation</strong><br>
+Finding and activating long-dormant or unmonitored employee accounts that still retain active administration group memberships.</li><br>
+        <li><strong>Overpass-the-Hash (OtH)</strong><br>
+Using a stolen NTLM password hash to request a legitimate Kerberos Ticket Granting Ticket (TGT) from the Domain Controller, upgrading the attack to the Kerberos authentication protocol.</li>
+</ul>    
+      </div>
+
+        <div id="panel-p" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'P'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Pass-the-Hash (PtH)</strong><br>
+Reusing a stolen NTLM password hash directly to authenticate to remote domain resources without needing the original plaintext password.</li><br>
+        <li><strong>Pass-the-Ticket (PtT)</strong><br>
+Extracting a valid Kerberos Ticket Granting Ticket (TGT) from system memory and injecting it into a different session to access domain resources without valid authenticated credentials.</li><br>
+        <li><strong>Password History Circumvention</strong><br>
+Forcing password resets through scripts to rapidly cycle an account through its password history limit, allowing the reuse of an older, compromised password to be used.</li><br>
+        <li><strong>PowerView Automated Enumeration</strong><br>
+Utilizing specialized offensive PowerShell frameworks to query and parse the entire Active Directory structure for misconfigurations and hidden relationships.</li><br>
+        <li><strong>Primary Refresh Token (PRT) Theft</strong><br>
+Extracting active hybrid-cloud authentication tokens from memory on a domain-joined workstation to completely bypass multi-factor authentication (MFA) on cloud-based portals.</li><br>
+        <li><strong>Protected Users Group Evasion</strong><br>
+Targeting administrative accounts that have been left out of the "Protected Users" group, exposing them to weaker legacy authentication protocols.</li><br>
+        <li><strong>Protected Users Group Exclusion Exploitation</strong><br>
+Searching for legacy service accounts that have been deliberately excluded from the Protected Users security group to target them with weak authentication types.</li>
+</ul>    
+      </div>
+
+  <div id="panel-q" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'Q'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Querying Group Policy Object (GPO) Pathing</strong><br>
+          Parsing the <code>gPCFileSysPath</code> attribute of all Group Policy Objects (GPOs) to quickly pinpoint where policy configuration files reside on the network file shares.</li><br>
+        <li><strong>Querying Local Administrator Password Solution (LAPS) Expiration</strong><br>
+Monitoring the expiration dates of local administrator passwords in AD to determine when a target host's administrative credential is about to rotate.</li><br>
+        <li><strong>Querying <code>msDS-AllowedToActOnBehalfOfOtherIdentity</code?</strong><br>
+Parsing this specific computer attribute across the domain to locate machines vulnerable to Resource-Based Constrained Delegation (RBCD).</li><br>
+          <li><strong>Querying <code>msDS-KeyCredentialLink</code></strong><br>
+Searching for computer and user objects that lack protective write controls to prepare Windows Hello to Business certificate injection attacks.</li><br>
+          <li><strong>Querying Sensitive Groups via Security Accounts Manager Remote (SAMR) Protocol</strong><br>
+Interrogating the SAM Remote protocol to map out high-value administrative accounts while evading standard LDAP auditing configurations.</li><br>
+          <li><strong>Querying Service Principal Names (SPNs)</strong><br>
+Running rapid unprivileged LDAP queries looking for specific service types (like MSOLAP or MSSQL) to locate highly valuable backend application servers.</li><br>
+          <li><strong>Querying Trusted Domains</strong><br>
+Utilizing command-line utilities to enumerate all incoming and outgoing trust paths, discovering the full topology of external network connections.</li>
+</ul>    
+      </div>
+
+    <div id="panel-r" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'R'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Registry-Based Group Policy Object (GPO) Injection</strong><br>
+          Directly editing the registry tracking file <code>(registry.pol)</code> within a target Group Policy directory to quietly deploy unauthorized administrative configurations.</li><br>
+        <li><strong>Remote Desktop Protocol (RDP) Restricted Admin Mode Abuse</strong><br>
+Leveraging an active RDP configuration to authenticate to a target system using only an NTLM hash, bypassing the requirement for plaintext passwords.</li><br>
+        <li><strong>Remote Registry Credential Harvesting</strong><br>
+Remotely connecting to the registry of domain-joined systems to dump stored secrets, LSA secrets, and cached domain credentials.</li><br>
+        <li><strong>Replication Access Abuse</strong><br>
+Granting an attacker-controlled account the "Replicating Directory Changes" permissions, allowing them to perform DCSync attacks at will.</li><br>
+        <li><strong>Resource-Based Constrained Delegation (RBCD) Injection</strong><br>
+          Configuring the <code>msDS-AllowedToActOnBehalfOfOtherIdentity</code> attribute on a targeted domain-joined machine to allow a compromised computer object to fully impersonate users against it.</li><br>
+        <li><strong>Rogue Dynamic Host Configuration Protocol (DHCP) Server Deployment</strong><br>
+Introducing an unauthorized DHCP server into a domain subnet to assign malicious DNS servers, redirecting domain traffic to attacker-controlled infrastructure.</li><br>
+<li><strong>Rogue Dynamic Host Configuration Protocol (DHCP) Domain Name Service (DNS) Hijacking</strong><br>
+Introducing an unmanaged DHCP server to push malicious DNS configuration stacks, redirecting Active Directory authentication traffic to an attacker-controlled listener.</li>
+</ul>    
+      </div>
+
+      <div id="panel-s" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'S'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Sapphire Ticket Attack</strong><br>
+          Stealing and using the <code>krbtgt</code> account's long-term key to modify legitimate Ticket Granting Tickets (TGTs). Instead of forging or manually altering the Privilege Attribute Certificate (PAC) attributes - which can trigger detection alerts - attackers abuse the S4U2Self and User-to-User (U2U) protocol extensions to request and substitute the legitimate PAC of a highly privileged user. This results in a stealthy, authentic-looking ticket with no structural or group membership discrepancies relative to Active Directory.</li><br>
+        <li><strong>Security Identifier (SID) History Injection</strong><br>
+Appending the Security Identifier (SID) of a high-privileged group (like Domain Admins) into the <code>sIDHistory</code> attribute of a low-privileged account to grant it stealthy administrative access indefinitely.</li><br>
+        <li><strong>Service Account Password Spraying</strong><br>
+Running single, targeted common passwords specifically against known domain service accounts, which often have predictable names and long lockout expirations.</li><br>
+        <li><strong>Service Account Takeover</strong><br>
+Identifying service accounts with high domain privileges and targeting them via brute-forcing, relaying, or Kerberoasting due to their rarely changed passwords.</li><br>
+        <li><strong>Silver Ticket Attack</strong><br>
+Forging a Kerberos Ticket Granting Service (TGS) ticket created by an attacker using a service account's stolen NTLM password hash. Because the attacker directly generates the ticket for a specific service like CIFS, HTTP, or MSSQL, they can gain instant, unauthorized administrative access to that target asset without ever interacting with the Domain Controller.</li><br>
+        <li><strong>Silver Ticket Forgery</strong><br>
+Forging a Kerberos Ticket Granting Service (TGS) ticket using a compromised service account's NTLM hash to gain unauthorized access to that specific service.</li><br>
+        <li><strong>Skeleton Key Attack</strong><br>
+          A post-exploitation technique where malware patches the <code>lsass.exe</code> process in a Domain Controller's memory to inject a single master password. This allows attackers to authenticate as any domain user using that master credential, while legitimate users can still log in normally using their original passwords.</li><br>
+        <li><strong>Sub-CA (Certificate Authority) Key Theft</strong><br>
+Stealing the private key of a secondary or subordinate Certificate Authority (CA) within the enterprise to forge authentication paths without triggering root-level alerts.</li><br>
+        <li><strong>System Volume <code>(SYSVOL)</code> Exploitation</strong><br>
+          Modifying configuration templates or installation files directly within the public <code>SYSVOL</code> share to force malicious software deployment across the entire domain.</li>
+</ul>    
+      </div>
+
+        <div id="panel-t" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'T'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Tethered Device Pivoting</strong><br>
+Leveraging a compromised mobile device or laptop connected via VPN (Virtual Private Network) to launch direct Active Directory authentication attacks from outside the corporate firewall or security trust boundary.</li><br>
+        <li><strong>Ticket Granting Ticket (TGT) Delegation Abuse</strong><br>
+Forcing a user to leverage unconstrained delegation properties over a network connection to harvest their TGT directly from server memory.</li><br>
+        <li><strong>Time Synchronization Tampering Attack</strong><br>
+Manipulating NTP (Network Time Protocol) or time services on a Domain Controller to disrupt Kerberos authentication, which relies on strict clock synchronization to prevent replay attacks.</li><br>
+        <li><strong>Trusted-to-Auth Delegation Exploitation</strong><br>
+          Manipulating the <code>msDS-AllowedToDelegateTo</code> attribute on an object to force the domain into authenticating unauthorized target systems.</li><br>
+        <li><strong>Trust Key Extraction</strong><br>
+Extracting the inter-domain trust passwords or keys from a Domain Controller's memory to forge cross-realm tickets and compromise trusted adjacent domains.</li>
+</ul>    
+      </div>
+
+          <div id="panel-u" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'U'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Unattended Installation File Searches</strong><br>
+          Scanning domain deployment shares for leftover <code>unattend.xml</code> or <code>sysprep.inf</code> files that may contain plaintext local administrator credentials.</li><br>
+        <li><strong>Unauthenticated Dynamic DNS Record Overwriting</strong><br>
+Exploiting open, unauthenticated DNS zones on a Domain Controller to overwrite existing server mappings and hijack core domain traffic.</li><br>
+        <li><strong>Unauthenticated DNS Updates</strong><br>
+Injecting rogue resource records directly into Active Directory-integrated DNS zones that do not enforce secure dynamic update restrictions.</li><br>
+        <li><strong>Unconstrained Delegation Harvesting Attack</strong><br>
+Compromising a server configured with unconstrained delegation and waiting for domain administrators to connect to it to troubleshoot, and then automatically storing their Kerberos TGTs in memory.</li><br>
+        <li><strong>User Account Control (UAC) Attribute Manipulation</strong><br>
+          Modifying a user account's <code>userAccountControl</code> flags in AD to explicitly disable Kerberos pre-authentication or activate delegation properties in an unauthorized manner.</li><br>
+        <li><strong>User Principal Name (UPN) Spoofing</strong><br>
+Changing or matching a target user's UPN attribute to create authentication confusion or exploit misconfigured federated Single Sign-On (SSO) systems.</li>
+</ul>    
+      </div>
+
+            <div id="panel-v" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'V'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Virtual Disk File Theft</strong><br>
+          Stealing <code>.vhdx</code> or <code>.vmdk</code> virtual hard disk files belonging to virtualized Domain Controllers form hypervisor storage to parse the <code>NTDS.dit</code> database offline.</li><br>
+        <li><strong>Virtual Machine Snapshot Extraction</strong><br>
+Taking a live snapshot of a virtualized Domain Controller host through the hypervisor management interface to scrape active memory for domain credentials.</li><br>
+        <li><strong>Volume Shadow Copy Modification</strong><br>
+Erasing or altering the system volume shadow copies on a Domain Controller to remove file state logs and disable immediate system recovery options.</li><br>
+        <li><strong>Volume Shadow Copy Service-Service Interruption</strong><br>
+Intentionally disabling or crashing the VSS service on a Domain Controller to prevent security tools from creating baseline backups and integrity snapshots.</li><br>
+        <li><strong>Vulnerable Group Policy Object (GPO) Extension Exploitation</strong><br>
+Exploiting outdated or legacy client-side extensions in Group Policy that improperly execute administrative tasks with elevated system rights applied.</li>
+</ul>    
+      </div>
+
+              <div id="panel-w" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'W'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Weak Password Policy Exploitation</strong><br>
+Finding domains that lack Fine-Grained Password Policies (FGPPs) to successfully execute broad password-spraying attacks against short or simple user credentials.</li><br>
+        <li><strong>Windows Management Instrumentation (WMI) Lateral Movement</strong><br>
+Utilizing domain credentials to connect to remote domain-joined computers via WMI to execute malicious commands or persist within the network.</li><br>
+        <li><strong>Windows Remote Management (WinRM) Abuse</strong><br>
+Exploiting poorly restricted WinRM configurations on domain servers to establish remote PowerShell sessions and execute administrative code.</li><br>
+        <li><strong>Windows Remote Management (WinRM) Listener Hijacking</strong><br>
+Setting up a secondary, unmonitored WinRM listener on a domain-joined system to maintain administrative remote access over standardized administrative ports.</li><br>
+        <li><strong><code>WriteProperty</code> Attribute Exploitation</strong><br>
+          Using localized <code>WriteProperty</code> permissions on a targeted domain group to inject a malicious user account directly into its membership list.</li>
+</ul>    
+  </div>
+
+                <div id="panel-x" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'X'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>X.509 Authority Information Access (AIA) Hijacking</strong><br>
+Intercepting or spoofing AIA paths in certificates to route validation checks through malicious or subverted servers.</li><br>
+        <li><strong>X.509 Certificate Revocation List (CRL) Denial of Service (DoS)</strong><br>
+Blocking access to CRL distribution points to force domain-joined systems into either failing securely or accepting revoked/compromised certificates.</li><br>
+        <li><strong>X.509 Certificate Subject Alternative Name (SAN) Forgery</strong><br>
+Injecting specific, unauthorized email or user principles into a certificate request to trick the domain into authenticating the request as a different user.</li><br>
+<li><strong>X.509 Certificate Template Misconfiguration <code>(EDITF\_ATTRIBUTESUBJECTALTNAME2)</code></strong><br>
+Exploiting an AD CS certificate template configured with this specific flag, allowing any user to request a certificate and supply an arbitrary alternative name (like Domain Admin).</li><br>
+        <li><strong>X.509 Extension Manipulation</strong><br>
+Altering the designated use flags (such as Client Authentication) on an enrolled certificate to gain unauthorized access to core directory services.</li>
+</ul>    
+      </div>
+
+                  <div id="panel-y" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'Y'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>YARA Rule Evasion in AD Monitoring</strong><br>
+Crafting customized, obfuscated PowerShell memory scripts or payloads to bypass corporate YARA signatures monitoring Active Directory administrative tasks.</li><br>
+        <li><strong>YARA Rule Evasion via Base64 Obfuscation</strong><br>
+Encoding Active Directory queries and administrative scripts inside complex layers of Base64 or XOR encryption to completely bypass defensive detection patterning technologies.</li><br>
+        <li><strong>YubiKey PIN Exhaustion Locking</strong><br>
+Flooding physical authentication interfaces with malicious requests to lock out hardware tokens, forcing the domain environment to downgrade to standard password mechanisms.</li><br>
+        <li><strong>YubiKey / Smart Card Enforcement Bypass</strong><br>
+Forcing authentication down to legacy NTLM protocols or password-based Kerberos on accounts that are supposed to strictly require hardware token authentication.</li>
+</ul>    
+      </div>
+
+                    <div id="panel-z" class="panel" role="tabpanel" tabindex="0"><h2>Active Directory Attacks Starting with the Letter 'Z'<center><h4 style="color: #000000;">&bull;&bull;&bull;</center></h2>
+      <ul>
+        <li><strong>Zero-Day Exploitation of Key Distribution Center (KDC)</strong><br>
+Weaponizing newly discovered, unpatched vulnerabilities within the Windows Kerberos Key Distribution Center (KDC) service to achieve unauthenticated remote code execution on a DC.</li><br>
+        <li><strong>ZeroLogon (CVE-2020-1472)</strong><br>
+Exploiting a cryptographic flaws in the Netlogon protocol to manipulate secure channels, allowing an attacker to instantly reset a Domain Controller's machine account password to blank.</li><br>
+        <li><strong>Zombie Account Reactivation</strong><br>
+Identifying disabled administrative accounts and exploiting structural permission flaws to re-enable them, establishing a stealthy persistence mechanism.</li><br>
+        <li><strong>Zombie Group Policy Object (GPO) Reactivation</strong><br>
+Re-linking long-abandoned or unmonitored Group Policy Objects (GPOs) that contain old, weak security settings to downgrade the defenses of an Organizational Unit (OU).</li><br>
+        <li><strong>Zone Data Tampering</strong><br>
+Modifying the raw text backend file of an Active Directory-integrated DNS zone to inject malicious records or redirect critical name lookups and queries.</li><br>
+        <li><strong>Zone Transfer Exploitation (AXFR)</stronmg><br>
+Executing full anonymous DNS zone transfers against poorly secured internal Domain Controllers to instantly map out the entire corporate network topology.</li>
+          </ul>
+  </div>
+                      </div>

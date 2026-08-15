@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Hub - Modern Security Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        /* ======================
+           COLOR SCHEME VARIABLES
+        ====================== */
+        :root {
+            --pink-primary: #f6339a;
+            --pink-dark: #d61a7a;
+            --pink-light: #ff6bb3;
+            --pink-neon: #ff1493;
+            --white: #ffffff;
+            --grey-light: #f5f5f5;
+            --grey-medium: #e0e0e0;
+            --grey-dark: #9e9e9e;
+            --black: #212121;
+            --black-dark: #000000;
+        }
+
+        /* ======================
+           GLOBAL RESET + FONT
+        ====================== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--white);
+            color: var(--black);
+            font-size: 13px;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* ======================
+           DOT ANIMATION BACKGROUND
+        ====================== */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+            display: block;
+        }
+
+        /* ======================
+           NEW SIDEBAR CSS (Based on Boxicons structure)
+        ====================== */
+        /* Import Google font - Poppins */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+        
+        :root {
+            --white-color: #fff;
+            --pink-color: #f6339a;
+            --pink-dark: #d61a7a;
+            --grey-color: #707070;
+            --grey-color-light: #aaa;
+            --grey-medium: #e0e0e0;
+            --black: #212121;
+        }
+        
+        /* Boxicons CSS */
+        @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+        
+        /* navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            background-color: var(--white-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            z-index: 1000;
+            box-shadow: 0 0 2px var(--grey-color-light);
+        }
+        
+        .logo_item {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--pink-color);
+        }
+        
+        .navbar img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+        
+        .search_bar {
+            height: 47px;
+            max-width: 430px;
+            width: 100%;
+        }
+        
+        .search_bar input {
+            height: 100%;
+            width: 100%;
+            border-radius: 25px;
+            font-size: 18px;
+            outline: none;
+            background-color: var(--white-color);
+            color: var(--grey-color);
+            border: 1px solid var(--grey-color-light);
+            padding: 0 20px;
+        }
+        
+        .navbar_content {
+            display: flex;
+            align-items: center;
+            column-gap: 25px;
+        }
+        
+        .navbar_content i {
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--grey-color);
+        }
+        
+        /* sidebar */
+        .sidebar {
+            background-color: var(--white-color);
+            width: 260px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding: 80px 20px;
+            z-index: 100;
+            overflow-y: scroll;
+            box-shadow: 0 0 1px var(--grey-color-light);
+            transition: all 0.5s ease;
+        }
+        
+        .sidebar.close {
+            padding: 60px 0;
+            width: 80px;
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .menu_content {
+            position: relative;
+        }
+        
+        .menu_title {
+            margin: 15px 0;
+            padding: 0 20px;
+            font-size: 18px;
+        }
+        
+        .sidebar.close .menu_title {
+            padding: 6px 30px;
+        }
+        
+        .menu_title::before {
+            color: var(--grey-color);
+            white-space: nowrap;
+        }
+        
+        .menu_dashboard::before {
+            content: "Dashboard";
+        }
+        
+        .menu_editor::before {
+            content: "Editor";
+        }
+        
+        .menu_setting::before {
+            content: "Setting";
+        }
+        
+        .sidebar.close .menu_title::before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 18px;
+            border-radius: 12px;
+            background: var(--grey-color-light);
+        }
+        
+        .menu_items {
+            padding: 0;
+            list-style: none;
+        }
+        
+        .navlink_icon {
+            position: relative;
+            font-size: 22px;
+            min-width: 50px;
+            line-height: 40px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 6px;
+        }
+        
+        .navlink_icon::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: calc(100% + 100px);
+            left: -20px;
+        }
+        
+        .navlink_icon:hover {
+            background: var(--pink-color);
+            color: white;
+        }
+        
+        .sidebar .nav_link {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 4px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--grey-color);
+            white-space: nowrap;
+        }
+        
+        .sidebar.close .navlink {
+            display: none;
+        }
+        
+        .nav_link:hover {
+            color: var(--white-color);
+            background: var(--pink-color);
+        }
+        
+        .sidebar.close .nav_link:hover {
+            background: var(--white-color);
+            color: var(--pink-color);
+        }
+        
+        .submenu_item {
+            cursor: pointer;
+        }
+        
+        .submenu {
+            display: none;
+        }
+        
+        .submenu_item .arrow-left {
+            position: absolute;
+            right: 10px;
+            display: inline-block;
+            margin-right: auto;
+        }
+        
+        .sidebar.close .submenu {
+            display: none;
+        }
+        
+        .show_submenu ~ .submenu {
+            display: block;
+        }
+        
+        .show_submenu .arrow-left {
+            transform: rotate(90deg);
+        }
+        
+        .submenu .sublink {
+            padding: 15px 15px 15px 52px;
+            color: var(--grey-color);
+            text-decoration: none;
+            display: block;
+        }
+        
+        .submenu .sublink:hover {
+            background: rgba(246, 51, 154, 0.1);
+            color: var(--pink-color);
+        }
+        
+        .bottom_content {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            width: 260px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        
+        .bottom {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            left: 0;
+            justify-content: space-around;
+            padding: 18px 0;
+            text-align: center;
+            width: 100%;
+            color: var(--grey-color);
+            border-top: 1px solid var(--grey-color-light);
+            background-color: var(--white-color);
+        }
+        
+        .bottom i {
+            font-size: 20px;
+        }
+        
+        .bottom span {
+            font-size: 18px;
+        }
+        
+        .sidebar.close .bottom_content {
+            width: 50px;
+            left: 15px;
+        }
+        
+        .sidebar.close .bottom span {
+            display: none;
+        }
+        
+        .sidebar.hoverable .collapse_sidebar {
+            display: none;
+        }
+        
+        #sidebarOpen {
+            display: none;
+        }
+        
+        @media screen and (max-width: 768px) {
+            #sidebarOpen {
+                font-size: 25px;
+                display: block;
+                margin-right: 10px;
+                cursor: pointer;
+                color: var(--grey-color);
+            }
+            .sidebar.close {
+                left: -100%;
+            }
+            .search_bar {
+                display: none;
+            }
+            .sidebar.close .bottom_content {
+                left: -100%;
+            }
+        }
+
+        /* ======================
+           RIGHT SIDEBAR (Adjusted for new left sidebar)
+        ====================== */
+        .right-sidebar {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            bottom: 15px;
+            width: 200px;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border: 2px solid var(--pink-primary);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 8px 25px rgba(246, 51, 154, 0.15);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        /* ======================
+           MAIN CONTENT
+        ====================== */
+        .main-content {
+            margin-left: 260px;
+            margin-right: 230px;
+            padding: 80px 20px 20px 20px; /* Added top padding for navbar */
+            max-width: calc(100% - 460px);
+        }
+
+        /* ======================
+           HEADER SECTION
+        ====================== */
+        .top-header {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-neon));
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(246, 51, 154, 0.25);
+        }
+
+        .top-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .top-header:hover::before {
+            left: 100%;
+        }
+
+        /* ======================
+           SEARCH SECTION
+        ====================== */
+        .search-section {
+            background: var(--grey-light);
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--grey-medium);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .search-section input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--grey-medium);
+            font-size: 13px;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-section input:focus {
+            outline: none;
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 0 2px rgba(246, 51, 154, 0.1);
+        }
+
+        /* ======================
+           SECTION TITLES
+        ====================== */
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--black);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--pink-primary);
+            border-radius: 2px;
+        }
+
+        /* ======================
+           CARD GRID
+        ====================== */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .grid-card {
+            background: white;
+            border: 1px solid var(--grey-medium);
+            border-radius: 10px;
+            padding: 14px;
+            color: var(--black);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink-primary), var(--pink-neon));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .grid-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .grid-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(246, 51, 154, 0.15);
+            border-color: var(--pink-primary);
+        }
+
+        .grid-card i {
+            font-size: 22px;
+            color: var(--pink-primary);
+            margin-bottom: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .grid-card h4 {
+            font-size: 14px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .grid-card p {
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--grey-dark);
+        }
+
+        /* ======================
+           BOXED SECTIONS
+        ====================== */
+        .boxed-section {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--grey-medium);
+            padding: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .boxed-section:hover {
+            box-shadow: 0 6px 20px rgba(246, 51, 154, 0.1);
+        }
+
+        /* ======================
+           TABLE STYLING
+        ====================== */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        .table-container table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .table-container th,
+        .table-container td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--grey-medium);
+        }
+
+        .table-container th {
+            color: var(--pink-primary);
+            font-weight: 600;
+            background: var(--grey-light);
+        }
+
+        .table-container tr:hover {
+            background: rgba(246, 51, 154, 0.03);
+        }
+
+        .severity-pill {
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 10px;
+            font-weight: 600;
+            border-radius: 12px;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .severity-critical { background: #d32f2f; }
+        .severity-high { background: #f57c00; }
+        .severity-medium { background: #fbc02d; color: var(--black); }
+        .severity-low { background: #1976d2; }
+
+        /* ======================
+           ACCORDION STYLING
+        ====================== */
+        .accordion {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .accordion li {
+            border-top: 1px solid var(--grey-medium);
+            padding: 12px 0;
+            position: relative;
+        }
+
+        .accordion h2 {
+            font-size: 16px;
+            cursor: pointer;
+            user-select: none;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .accordion input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .accordion p {
+            max-height: 500px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+            color: var(--grey-dark);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .accordion input:checked ~ p {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        /* ======================
+           ANIMATED ELEMENTS
+        ====================== */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* ======================
+           FOOTER
+        ====================== */
+        .main-footer {
+            text-align: center;
+            padding: 16px;
+            color: var(--pink-primary);
+            font-size: 12px;
+            margin-top: 30px;
+            border-top: 1px solid var(--grey-medium);
+        }
+
+        /* ======================
+           RESPONSIVE DESIGN
+        ====================== */
+        @media(max-width: 1024px) {
+            .main-content {
+                margin-left: 20px;
+                margin-right: 20px;
+                max-width: calc(100% - 40px);
+                padding: 20px; /* Remove top padding for navbar */
+            }
+            .sidebar { 
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .right-sidebar { display: none; }
+            .navbar { display: none; } /* Hide navbar on mobile */
+        }
+
+        @media(max-width: 768px) {
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+            .top-header {
+                font-size: 20px;
+                height: 100px;
+            }
+        }
+
+        /* ======================
+           SCROLLBAR STYLING
+        ====================== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--grey-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--pink-primary);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--pink-dark);
+        }
+
+        /* ======================
+           FOOTER STYLES
+        ====================== */
+        .main-footer {
+            text-align: center;
+            padding: 20px;
+            color: #660073;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        .centered-gif {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px;
+        }
+
+        .centered-gif img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(246, 51, 154, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Dot Animation Canvas -->
+    <canvas id="dotAnimation"></canvas>
+
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo_item">
+            <i class="bx bx-menu" id="sidebarOpen"></i>
+            <span style="color: var(--pink-color); font-weight: 600;">HackHerWay</span>
+        </div>
+        <div class="search_bar">
+            <input type="text" placeholder="Search..." />
+        </div>
+        <div class="navbar_content">
+            <i class="bx bx-sun" id="darkLight"></i>
+            <i class="bx bx-bell"></i>
+            <img src="https://via.placeholder.com/35x35.png?text=U" alt="" class="profile" />
+        </div>
+    </nav>
+    
+    <!-- sidebar -->
+    <nav class="sidebar">
+        <div class="menu_content">
+            <ul class="menu_items">
+                <div class="menu_title menu_dashboard"></div>
+                <!-- Dashboard Section -->
+                <li class="item">
+                    <div href="#" class="nav_link submenu_item">
+                        <span class="navlink_icon">
+                            <i class="bx bx-home-alt"></i>
+                        </span>
+                        <span class="navlink">Home</span>
+                        <i class="bx bx-chevron-right arrow-left"></i>
+                    </div>
+                    <ul class="menu_items submenu">
+                        <a href="#" class="nav_link sublink">Dashboard</a>
+                        <a href="#" class="nav_link sublink">Overview</a>
+                        <a href="#" class="nav_link sublink">Analytics</a>
+                        <a href="#" class="nav_link sublink">Reports</a>
+                    </ul>
+                </li>
+                <li class="item">
+                    <div href="#" class="nav_link submenu_item">
+                        <span class="navlink_icon">
+                            <i class="bx bx-shield-alt"></i>
+                        </span>
+                        <span class="navlink">Security</span>
+                        <i class="bx bx-chevron-right arrow-left"></i>
+                    </div>
+                    <ul class="menu_items submenu">
+                        <a href="#" class="nav_link sublink">Threat Analysis</a>
+                        <a href="#" class="nav_link sublink">Vulnerability Scan</a>
+                        <a href="#" class="nav_link sublink">Incident Response</a>
+                        <a href="#" class="nav_link sublink">Access Control</a>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="menu_items">
+                <div class="menu_title menu_editor"></div>
+                <!-- Tools Section -->
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-wrench"></i>
+                        </span>
+                        <span class="navlink">Network Scanner</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-key"></i>
+                        </span>
+                        <span class="navlink">Password Manager</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-file"></i>
+                        </span>
+                        <span class="navlink">Log Analyzer</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-cloud-upload"></i>
+                        </span>
+                        <span class="navlink">Upload Tool</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu_items">
+                <div class="menu_title menu_setting"></div>
+                <!-- Settings Section -->
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-flag"></i>
+                        </span>
+                        <span class="navlink">Notice Board</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-medal"></i>
+                        </span>
+                        <span class="navlink">Awards</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-cog"></i>
+                        </span>
+                        <span class="navlink">Settings</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-layer"></i>
+                        </span>
+                        <span class="navlink">Features</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Sidebar Open / Close -->
+            <div class="bottom_content">
+                <div class="bottom expand_sidebar">
+                    <span>Expand</span>
+                    <i class="bx bx-log-in"></i>
+                </div>
+                <div class="bottom collapse_sidebar">
+                    <span>Collapse</span>
+                    <i class="bx bx-log-out"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- RIGHT SIDEBAR -->
+    <div class="right-sidebar">
+        <div class="sidebar-header">
+            <h3 style="color: var(--pink-primary); font-size: 14px; margin-bottom: 8px;">Quick Stats</h3>
+        </div>
+        <ul class="navbar-nav">
+            <li><a href="#"><i class="fas fa-exclamation-triangle fa-fw"></i> Active Alerts: 3</a></li>
+            <li><a href="#"><i class="fas fa-bug fa-fw"></i> Vulnerabilities: 12</a></li>
+            <li><a href="#"><i class="fas fa-shield-alt fa-fw"></i> Protected: 98%</a></li>
+            <li><a href="#"><i class="fas fa-clock fa-fw"></i> Last Scan: 2m ago</a></li>
+        </ul>
+        
+        <div style="margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--grey-medium);">
+            <h4 style="color: var(--pink-primary); font-size: 12px; margin-bottom: 8px;">Recent Activity</h4>
+            <div style="font-size: 11px; color: var(--grey-dark);">
+                <div style="margin-bottom: 6px;">• Suspicious login blocked</div>
+                <div style="margin-bottom: 6px;">• New vulnerability found</div>
+                <div style="margin-bottom: 6px;">• System scan completed</div>
+                <div>• Security patch applied</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+            <div style="text-align: center;"></div>
+    <div class="centered-gif">
+        <img src="https://media.giphy.com/media/https://i.imgur.com/L5xDTPF.gif" alt="Hacking GIF">
+    </div>
+                <div style="font-size: 24px; margin-bottom: 4px;">🔒 Cybersecurity Hub</div>
+                <div style="font-size: 14px; opacity: 0.9;">Advanced Threat Detection & Analysis</div>
+            </div>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-section">
+            <input type="search" placeholder="Search threats, vulnerabilities, indicators...">
+        </div>
+
+        <!-- THREAT OVERVIEW CARDS -->
+        <div class="boxed-section fade-in-up">
+            <div class="section-title">Threat Overview</div>
+            <div class="grid-cards">
+                <div class="grid-card" onclick="showDetails('malware')">
+                    <i class="fas fa-virus"></i>
+                    <h4>Malware Detection</h4>
+                    <p>Advanced heuristic analysis to identify and neutralize malicious software patterns.</p>
+                </div>
+                <div class="grid-card" onclick="showDetails('phishing')">
+                    <i class="fas fa-fish"></i>
+                    <h4>Phishing Protection</h4>
+                    <p>Real-time URL analysis and email scanning to prevent credential theft attacks.</p>
+                </div>
+                <div class="grid-card" onclick="showDetails('ransomware')">
+                    <i class="fas fa-lock"></i>
+                    <h4>Ransomware Shield</h4>
+                    <p>Behavioral monitoring to detect encryption activities and stop ransomware attacks.</p>
+                </div>
+                <div class="grid-card" onclick="showDetails('ddos')">
+                    <i class="fas fa-sitemap"></i>
+                    <h4>DDoS Mitigation</h4>
+                    <p>Traffic analysis and filtering to protect against distributed denial of service attacks.</p>
+                </div>
+                <div class="grid-card" onclick="showDetails('apt')">
+                    <i class="fas fa-user-ninja"></i>
+                    <h4>APT Detection</h4>
+                    <p>Advanced persistent threat identification through anomaly detection algorithms.</p>
+                </div>
+                <div class="grid-card" onclick="showDetails('insider')">
+                    <i class="fas fa-user-secret"></i>
+                    <h4>Insider Threat</h4>
+                    <p>User behavior analytics to identify malicious or compromised internal accounts.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECURITY METRICS TABLE -->
+        <div class="boxed-section fade-in-up">
+            <div class="section-title">Security Metrics</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current Value</th>
+                            <th>Status</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Threat Detection Rate</td>
+                            <td>99.2%</td>
+                            <td><span class="severity-pill severity-low">Optimal</span></td>
+                            <td><i class="fas fa-arrow-up" style="color: #4caf50;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>False Positive Rate</td>
+                            <td>0.8%</td>
+                            <td><span class="severity-pill severity-low">Good</span></td>
+                            <td><i class="fas fa-arrow-down" style="color: #4caf50;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Response Time</td>
+                            <td>1.2s</td>
+                            <td><span class="severity-pill severity-medium">Average</span></td>
+                            <td><i class="fas fa-minus" style="color: #ff9800;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Blocked Attacks</td>
+                            <td>1,247</td>
+                            <td><span class="severity-pill severity-high">Elevated</span></td>
+                            <td><i class="fas fa-arrow-up" style="color: #f44336;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>System Uptime</td>
+                            <td>99.9%</td>
+                            <td><span class="severity-pill severity-low">Excellent</span></td>
+                            <td><i class="fas fa-check" style="color: #4caf50;"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- RECENT THREATS ACCORDION -->
+        <div class="boxed-section fade-in-up">
+            <div class="section-title">Recent Threat Activity</div>
+            <ul class="accordion">
+                <li>
+                    <input type="checkbox" checked>
+                    <h2>🚨 Critical: Zerologon Exploit Attempt</h2>
+                    <p>Detected attempted exploitation of CVE-2020-1472 targeting domain controller. Attack was blocked and logged. Immediate investigation initiated.</p>
+                </li>
+                <li>
+                    <input type="checkbox" checked>
+                    <h2>⚠️ High: Suspicious Network Scanning</h2>
+                    <p>Internal host 192.168.1.45 conducting port scans across network segments. Possible reconnaissance activity or compromised endpoint.</p>
+                </li>
+                <li>
+                    <input type="checkbox" checked>
+                    <h2>ℹ️ Medium: Multiple Failed Logins</h2>
+                    <p>User account showing unusual login failure patterns. Potential brute force attack or user credential issues requiring review.</p>
+                </li>
+                <li>
+                    <input type="checkbox" checked>
+                    <h2>✅ Low: Security Patch Applied</h2>
+                    <p>Successfully deployed critical security updates to 47 endpoints. No service interruptions reported during maintenance window.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="boxed-section fade-in-up">
+            <div class="section-title">Quick Actions</div>
+            <div class="grid-cards">
+                <div class="grid-card" onclick="runScan()">
+                    <i class="fas fa-search"></i>
+                    <h4>Run Full Scan</h4>
+                    <p>Initiate comprehensive system vulnerability assessment.</p>
+                </div>
+                <div class="grid-card" onclick="updateSignatures()">
+                    <i class="fas fa-download"></i>
+                    <h4>Update Signatures</h4>
+                    <p>Download latest threat intelligence and detection rules.</p>
+                </div>
+                <div class="grid-card" onclick="generateReport()">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Generate Report</h4>
+                    <p>Create detailed security status report for stakeholders.</p>
+                </div>
+                <div class="grid-card" onclick="backupConfig()">
+                    <i class="fas fa-save"></i>
+                    <h4>Backup Config</h4>
+                    <p>Export current security configuration for disaster recovery.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <p>&copy; 2024 Cybersecurity Hub | Advanced Threat Detection Platform</p>
+            <p style="font-size: 10px; margin-top: 4px; opacity: 0.7;">Made with 💖 for secure digital future</p>
+        </footer>
+    </div>
+
+    <script>
+        // Dot Animation Script (Preserved from original)
+        const canvas = document.getElementById('dotAnimation');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        const particles = [];
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = 8;
+                this.speedX = (Math.random() * 2 - 1) * 2.5;
+                this.speedY = (Math.random() * 2 - 1) * 2.5;
+                this.color = getColor();
+                this.life = 1.0;
+                this.decay = 0.015;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.life -= this.decay;
+                this.size *= 0.98;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.life;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+                
+                // Add sparkle effect
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + this.life * 0.5 + ')';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 0.3, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function getColor() {
+            const colors = [
+                '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', 
+                '#ff9ff3', '#54a0ff', '#5f27cd', '#00d2d3', '#ff9f43', 
+                '#10ac84', '#ee5a24', '#0652DD', '#9980FA', '#FDA7DF',
+                '#f6339a', '#ff1493', '#ff6bb3', '#d61a7a', '#ff69b4'
+            ];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function addParticle(e) {
+            const posX = e.clientX || (e.touches && e.touches[0].clientX);
+            const posY = e.clientY || (e.touches && e.touches[0].clientY);
+            
+            if (!posX || !posY) return;
+
+            for (let i = 0; i < 6; i++) {
+                particles.push(new Particle(posX, posY));
+            }
+        }
+
+        function handleParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                if (particles[i].life <= 0 || particles[i].size <= 0.1) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            requestAnimationFrame(animate);
+        }
+
+        // Event Listeners
+        window.addEventListener('mousemove', addParticle);
+        window.addEventListener('touchstart', addParticle);
+        window.addEventListener('touchmove', addParticle);
+
+        window.addEventListener('resize', () => {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+        });
+
+        animate();
+
+        // Interactive Functions
+        function toggleSub(el) {
+            el.parentElement.classList.toggle('open');
+        }
+
+        function showDetails(type) {
+            const details = {
+                malware: 'Malware Detection: Advanced heuristic analysis using machine learning algorithms to identify malicious patterns and behaviors.',
+                phishing: 'Phishing Protection: Real-time analysis of URLs, emails, and websites to prevent credential theft and social engineering attacks.',
+                ransomware: 'Ransomware Shield: Behavioral monitoring detects encryption activities and stops ransomware before files are compromised.',
+                ddos: 'DDoS Mitigation: Traffic analysis and filtering protects against distributed denial of service attacks.',
+                apt: 'APT Detection: Advanced persistent threat identification through anomaly detection and threat intelligence.',
+                insider: 'Insider Threat: User behavior analytics identify malicious or compromised internal accounts.'
+            };
+            alert(details[type] || 'Feature details coming soon!');
+        }
+
+        function runScan() {
+            alert('Initiating comprehensive vulnerability scan... This may take several minutes.');
+        }
+
+        function updateSignatures() {
+            alert('Downloading latest threat intelligence signatures...');
+        }
+
+        function generateReport() {
+            alert('Generating detailed security report... Report will be available in Downloads.');
+        }
+
+        function backupConfig() {
+            alert('Exporting security configuration backup...');
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: entry.target,
+                        opacity: [0, 1],
+                        translateY: [20, 0],
+                        duration: 600,
+                        easing: 'easeOutCubic'
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Sidebar JavaScript
+        const body = document.querySelector("body");
+        const darkLight = document.querySelector("#darkLight");
+        const sidebar = document.querySelector(".sidebar");
+        const submenuItems = document.querySelectorAll(".submenu_item");
+        const sidebarOpen = document.querySelector("#sidebarOpen");
+        const sidebarClose = document.querySelector(".collapse_sidebar");
+        const sidebarExpand = document.querySelector(".expand_sidebar");
+
+        // Toggle sidebar open/close
+        sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
+
+        // Collapse sidebar
+        sidebarClose.addEventListener("click", () => {
+            sidebar.classList.add("close", "hoverable");
+        });
+
+        // Expand sidebar
+        sidebarExpand.addEventListener("click", () => {
+            sidebar.classList.remove("close", "hoverable");
+        });
+
+        // Hover behavior for collapsible sidebar
+        sidebar.addEventListener("mouseenter", () => {
+            if (sidebar.classList.contains("hoverable")) {
+                sidebar.classList.remove("close");
+            }
+        });
+
+        sidebar.addEventListener("mouseleave", () => {
+            if (sidebar.classList.contains("hoverable")) {
+                sidebar.classList.add("close");
+            }
+        });
+
+        // Dark/Light mode toggle
+        darkLight.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                darkLight.classList.replace("bx-sun", "bx-moon");
+            } else {
+                darkLight.classList.replace("bx-moon", "bx-sun");
+            }
+        });
+
+        // Submenu toggle
+        submenuItems.forEach((item, index) => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("show_submenu");
+                submenuItems.forEach((item2, index2) => {
+                    if (index !== index2) {
+                        item2.classList.remove("show_submenu");
+                    }
+                });
+            });
+        });
+
+        // Mobile responsive
+        if (window.innerWidth < 768) {
+            sidebar.classList.add("close");
+        } else {
+            sidebar.classList.remove("close");
+        }
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+            if (window.innerWidth < 768) {
+                sidebar.classList.add("close");
+            } else {
+                sidebar.classList.remove("close");
+            }
+        });
+    </script>
+    
+    <!-- Centered GIF Section -->
+    <div class="centered-gif">
+        <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" alt="Hacking GIF">
+    </div>
+
+
+    
+    <!-- Original Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Made with 💖 by mindhackdiva❣hackherway[~]a08🩷02•j10💙b25•d08💚k14• Null rights reserved.</p>
+    </footer>
+</body>
+</html>

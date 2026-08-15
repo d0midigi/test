@@ -1,0 +1,30 @@
+\chapter{Active Directory Enumeration}
+
+In this chapter, we examine the capabilities of PowerShell Empire for Active Directory reconnaissance, enumeration, and post-exploitation. PowerShell Empire is a post-exploitation framework that includes a suite of situational awareness modules that enable in-depth enumeration of domain environments. PowerShell Empire is bundled as an integration with PowerView, a powerful toolset specifically designed for extracting and analyzing Active Directory data. Together, these tools allow attackers and ethical hackers to gather detailed information about domain structures, users, groups, and trusts, making them critical components in modern ethical hacking operations.
+
+\section{Introduction}
+PowerView is a post-enumeration tool that allows hackers to perform enumeration against an Active Directory domain and offers a wide range of techniques for gathering domain information. Many of those features also exist within PowerShell Empire, but Empire introduces additional interactive modules that offer more dynamic control and flexibility.
+
+For this chapter, our focus here is to demonstrate how data can be used to support privilege escalation and lateral movement within a domain.
+
+PowerView,ginally veloped  Will Schroeder (aka harmj0y) as part of the PowerSploit framework, has come a core toolkit for conducting Active Directory reconnaissance and attacks. In this chapter, we will use PowerShell Empire to showcase how PowerView modules operate within post-exploitation workflows.
+
+\section{What is Situational Awareness?}
+Situational awareness in the context of cybersecurity refers to understanding the structure, status, and risks of a network at a specific point in time. It involves gathering intelligence about the current environment, identifying vulnerabilities or threats, and projecting how those conditions might evolve. Within tools like Empire, situational awareness modules help  hackers map out the network and assess opportunities for further exploitation.
+
+\section{Get User}
+In our Active Directory lab setup, we configure eight users with varying roles and privileges. When we emulate an attack on an AD environment using PowerShell Empire from the Kali Linux penetration testing distribution, we run the following module:
+
+bash
+`usemodule situational\_awareness/network/powerview/et\_user execute`
+
+The output includes more than just usernames. Each enumerated user entry provides multiple data points:
+`LogonCount`-Indicates how often a user has logged in, helping identify active versus inactive accounts.
+`BadPasswordTime`-Shows the last date and time someone attempted a login with an incorrect password for that account.
+`Description`-Offers a brief summary of the user account, often including job roles or notes.
+Group Memberships-Lists the domain groups to which the user belongs.
+
+We are going to take a glance at some simple graph concepts as well. As I composed this book, I'm very conscious about my stance on the shoulders of giants. That includes Will Schroeder and Justin Warner, PowerShell Empire project founders, as well as Andy Robbins.
+
+\section{CrackMapExec and Power}
+Now let us take a side trip into a neat little hacking utility called \texttt{crackmapexec}. Can a Swiss Army Knife adequately describe CrackMapExec? That term gets thrown around a lot in software and hacking forums, but it gets close in describing the capabilities that CME provides. It is a \texttt{psexec}-like

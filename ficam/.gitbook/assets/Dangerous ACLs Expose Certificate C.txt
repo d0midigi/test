@@ -1,0 +1,56 @@
+Dangerous ACLs Expose Certificate Containers
+
+Risk Summary
+Non-default principals with elevated permissions on the NTAuthCertificates container can escalate privileges by adding a malicious Certificate Authority (CA) to the Active Directory trust hierarchy, enabling domain compromise. 
+
+Severity: Critical
+
+Platform: Active Directory
+
+Category: Privileged Access Management 
+
+MITRE ATT&CK Tactics: Credential Access
+
+MITRE D3FEND Tactics: Credential Hardening 
+
+Description
+Non-default principals with elevated permissions on the NTAuthCertificates container pose a severe security risk. 
+
+Improper Access Control Lists (ACLs) can allow attackers to insert a rogue CA, enabling the issuance of fraudulent certificates trusted by the domain. 
+
+This undermines authentication integrity, facilitates credential theft, and can lead to full domain compromise. 
+
+
+Real-World Scenario
+An attacker gains access to an account with delegated permissions over the NTAuthCertificates container. Without immediate detection, the attacker uses these rights to add a malicious CA to the environment. This CA issues valid-looking certificates, allowing the attacker to authenticate as privileged users, sign code, or decrypt traffic. The attack remains stealthy, bypassing many standard defenses, until critical systems are compromised. 
+
+Remediation Steps
+Follow these steps to remove the vulnerability:
+
+1. Open the ADSI Edit tool.
+2. Navigate to the Configuration container > Services > Public Key Services.
+3. Select NTAuthCertificates.
+4. Right-click to select Properties.
+5. Select the Security tab.
+6. Remove unexpected permissions.
+
+How to Prevent It
+Defenders can proactively detect and alert on Dangerous ACLs expose certificate containers by configuring threat detection signatures that continuously monitor Active Directory, Entra ID, Microsoft 365, and Intune for over 200 misconfigurations, providing early warning before attackers can exploit them. 
+
+
+FAQ
+What does Dangerous ACLs Expose Certificate Containers mean?
+
+Why are dangerous ACLs on certificate containers considered critical?
+
+How can attackers abuse exposed certificate container permissions?
+
+How does Cayosoft Guardian detect dangerous ACLs on certificate containers?
+
+How does Cayosoft Guardian help reduce certificate-based attack risks?
+
+References
+Microsoft – Configure the NTAuth store 
+
+Final Thought
+Proactive monitoring and timely remediation of configuration risks is essential to maintaining a secure Active Directory and Microsoft 365 environment. By addressing issues like dangerous ACLs on certificate containers, you reduce attack surfaces and strengthen your organization’s overall security posture.

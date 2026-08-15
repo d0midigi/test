@@ -1,0 +1,135 @@
+Chapter 3. The Risk Management Framework (RMF) and Identity-Centric Security Engineering for Federal and Military Active Directory Environments
+3.1	     Understanding the Evolution of the Risk Management Framework (RMF) in Federal and Military Active Directory Environments
+3.1.1	From DITSCAP to DIACAP to RMF: Tracing Legacy Certification Pipelines to Modern Lifecycle Risk Frameworks
+3.1.2	Why RMF Replaced Earlier Certification and Accreditation (C&A) Models: Replacing Point-In-Time Paper Compliance with Active Technical Defense Evaluations
+3.1.3	The Shift From Compliance-Based Security to Risk-Based Security: Moving Past Checkbox Security to Neutralize Active Living-Off-The-Land (LOTL) Adversary Tradecraft
+3.1.4	Command and Combatant Mission Assurance and Risk-Informed Decision Making: Evaluating Directory Compromise Against Tactical Weapons Availability
+3.1.5	Identity as a Critical Mission Dependency: Why Directory Authentication Planes Represent a Single Point of Failure for Joint-Force Operations
+3.1.6	Why Security Engineers Uphold RMF in the Highest Importance: Bridging Abstract Risk Authorization with Daily Tier 0 Directory Object Protection
+
+3.2	     RMF Governance Roles and Responsibilities
+3.2.1	Authorizing Officials (AO): The Final Sign-Off Authority for Accepting Domain Vulnerabilities, Identity Platform Weaknesses, and Information System Residual Risk
+3.2.2	Security Control Assessors (SCA): Independent Technical Auditors Verifying Enterprise Integrity Using Blue Team Scanning Toolkits and Inspection Protocols
+3.2.3	Information System Owners (ISO): Programmatic Leaders Accountable Governing the Entire Lifecycle of an Identity Enclave
+3.2.4	Information Systems Security Managers (ISSM): Managers Enforcing Security Baselines Across the Organization’s Enterprise Directory Topologies
+3.2.5	Information Systems Security Officers (ISSO): On-the-Ground Technical Compliance Enforcers Validating Daily Directory Security States
+3.2.6	Information Systems Security Engineers (ISSE): Architects Building Security Controls Directly Into the Active Directory Schema and Logical Layout
+3.2.7	Common Control Providers: Enterprise Teams Hosting Core Identity Services Inherited by Downstream Applications
+3.2.8	Active Directory Systems Administrators (SA) and Identity Engineers: Hand-On Engineers Implementing Technical Configurations While Managing Privileged Credential Attack Surfaces
+3.2.9	Cybersecurity Service Providers and Defensive Operations Teams: SOC and Blue Team Operators Monitoring Identity Boundaries for Active Exploitation Signatures
+3.2.10	Mission Owners and Operational Stakeholders: End-Users and Military Leadership Whose Operational Capabilities Depend on Directory Confidentiality, Integrity, and Availability
+
+3.3	     Identity Systems as Common Control Providers
+3.3.1	Understanding Common Controls: Defining Security Capabilities Implemented Once and Inherited by Thousands of Information Systems Across an Enclave
+3.3.2	Enterprise Active Directory as a Shared Security Service Platform: How Central AD Architecture Serves as the Primary Security Root of Trust for Defense Enclaves
+3.3.3	Authentication Services as Common Controls: Providing Centralized Kerberos Smart Card Validation Services to Eradicate Local, Phish-Prone Password Entry Points
+3.3.4	Authorization Services as Common Controls: Governing Application Token Privileges via Domain Groups to Block Unauthorized Lateral Access
+3.3.5	Public Key Infrastructure (PKI) and Active Directory Certificate Services (AD CS) Services as Common Controls: Hosting Enterprise Certificate Authorities (CAs) to Validate Client Identities While Exposing an Attack Surface to Asymmetric Certificate Forging
+3.3.6	Active Directory Federation Services (AD FS) as Common Controls: Managing Cross-Boundary Authentication Bridges That Handle Highly Targeted SAML Token-Signing Assets
+3.3.7	Inherited Controls and Authorization Boundary Dependencies: How an Exploitation Event at the Shared Identity Provider (IdP) Level Automatically Compromises All Downstream Applications
+3.3.8	Comon Control Provider Risk and Vulnerability Considerations: Securing Tier 0 Shared Infrastructure to Mitigate Single Point-of-Failure Compromise Vectors
+
+3.4	     RMF Step One: Categorize Federal Information Systems (FIS)
+3.4.1	FIPS 199 Security Categorization: Defining Macro Security Parameters for Organizational Identity Platforms
+3.4.2	The CIA Triad and Risk Management Framework (RMF) Impact Levels: Quantifying Organizational Damage if Identity Components Are Actively Exploited
+3.4.2.1	Confidentiality Impact Levels: Systemic Damage Following Bulk Hash Extraction via Malicious NTDS.dit Volume Shadow Copy (VSS) Theft
+3.4.2.2	Integrity Impact Levels: Impact of an Adversary Injecting Unauthorized Rogue SIDs and Backdoor Schema Modifications
+3.4.2.3	Availability Impact Levels: Impact of an Identity-Targeted Ransomware Attack and KDC Service Denial Attacks Targeting Combat Information Systems
+3.4.3	Categorizing Identity Infrastructure Components: Why Domain Controllers Automatically Default to a High-Impact Categorization Baseline
+3.4.4	Mission Impact of Active Directory Component Failure: Tracing Kerberos Infrastructure Faults to Immediate Cross-Enclave Communications Blackout States
+3.4.5	Categorizing Shared Authentication Services: Setting Rigorous Assurance Parameters for Authentication Boundaries to Protect Identity Pipelines Feeding Weapon and Intelligence Platforms
+3.4.6	Case Study: Categorizing Military Identity Infrastructure: Establishing a FIPS 199 Baseline for a Multi-Branch Joint-Force Theatre Deployment
+
+3.5	     RMF Step Two: Security Control Selection Process
+3.5.1	NIST SP 800-53 Security Controls Families: Navigating the Massive Catalog of Federal Safeguards to Secure Identity Data
+3.5.2	Baseline Selection: Applying the High-Impact Control Allocation Baseline to Protect Tier 0 Directory Infrastructure
+3.5.3	Control Overlaying Concepts: Tailoring Standard Security Baselines with Specialized Rules Specifically Designed for Military Directory Boundaries
+3.5.4	National Security Systems (NSS) Considerations: Applying CNSSI 1253 Parameters to Adjust Security Controls for Classified Identity Data Spaces
+3.5.5	Identity and Authentication (IA) Control Families: Isolating Specific Controls Governing Multi-Factor Validation and Cryptographic Authenticators
+3.5.6	Access Control (AC) Families: Selecting Rules to Govern the Principle of Least Privilege and Block Unauthorized Directory Tree Exploitation
+3.5.7	Audit and Accountability (AA) Families: Allocating Logging Rules to Capture Security Event Logs and Track Lateral Movements
+3.5.8	Configuration Management (CM) Families: Mandating Strict Software and System Configuration Baselines to Prevent Administrative Configuration Drift
+3.5.9	Security Control Tailoring and Risk Acceptance: Documenting Technical Adjustments When Strict Compliance Conflicts with Unique Tactical Field Constraints
+
+3.6	     RMF Step Three: Implementing Identity-Centric Security Controls
+3.6.1	Implementing Authentication Controls: Enforcing Kerberos PKINIT and Disabling NTLM to Stop Pass-the-Hash (PtH) Attacks
+3.6.2	Implementing Authorization Controls Through Group Memberships and Access Control Lists (ACLs): Hardening Domain Object ACLs to Stop DACL Abuse and Unauthorized Security Group Modifications
+3.6.3	Implementing Public Key Infrastructure (PKI) Controls via Active Directory Certificate Services (AD CS): Hardening Certificate Templates to Block ESC1 Through ESC8 Domain Escalation Methodologies
+3.6.4	Implementing Federation Controls via Active Directory Federation Services (AD FS): Isolating Token-Signing Private Keys From General Local Server Administrators to Block Golden SAML Creation
+3.6.5	Implementing Privileged Access Controls: Deploying an ESAE Administrative Forest Design Pattern to Separate Administrative Identities From Everyday Internet Enclaves
+3.6.6	Implementing Audit Controls: Configuring Advanced Security Audit Policies to Capture Kerberos Ticket Requests and Privilege Use
+3.6.7	Implementing Configuration Change Management Controls: Using Group Policy Object (GPO) Locking Mechanism to Enforce Desired-State Baselines Globally
+3.6.8	Mapping Security Controls to Production Active Directory Configurations: Translating Text-Based NIST Requirements Into Enforceable Production Registry Keys and System Settings
+
+3.7	     RMF Step Four: Assessing Identity Security Controls
+3.7.1	Security Control Assessment Methodologies: Combining Technical Scanning, Manual Code Review, and Configuration Interview to Evaluate Directory Security
+3.7.2	Reviewing Active Directory Secure Configurations: Using Automated Tools to Identify Domain Administrative Trust Blind Spots and Orphaned High-Value Objects
+3.7.3	Evaluating Authentication Mechanisms: Testing the Domain Boundary to Verify the Total Eradication of Weak, Phish-Prone Fallback Pathways
+3.7.4	Assessing PKI Implementations: Auditing AD CS Templates for Malicious Configurations Using Automated Validation Scanners
+3.7.5	Assessing Federation Architecture: Reviewing Claims Provider Trusts to Identify Vulnerabilities to External Token Manipulation
+3.7.6	Reviewing Administrative Access Models: Analyzing Attack Pathways Using Graph-Theory Scanners to Locate Latent Tier 0 Privilege Escalation Routes
+3.7.7	Identifying Identity-Centric Security Weaknesses, Flaws, and Gaps: Documenting Structural Design Oversights That Bypass Traditional Compliance Scanners
+3.7.8	Common Assessment Findings Within Federal and Military Active Directory Environments: Deconstructing Recurring Vulnerability Trends Discovered During Joint-Cyber Inspection Regimes
+
+3.8	     RMF Step Five: Authorizing Risk
+3.8.1	Understanding Authorization Decision Making: Weighing Technical Active Directory Exploitation Paths Against Vital Mission Requirements
+3.8.1.1	Authorization to Operate (ATO) Decisions: Granting Full System Access When the Directory Layer Proves Resilient to Standard Adversary Toolsets
+3.8.1.2	Interim Authorization to Operate (IATO) Decisions: Awarding Temporary Operational Status Under Strict, Timed Technical Remediation Bounds
+3.8.1.3	Denial of Authorization to Operate (DATO) Decisions: Shutting Down Directory Operations Due to Fatal, Unmitigated Tier 0 Architectural Gaps
+3.8.2	Residual Risk Analysis: Calculating the Threat Surface Remaining in the Directory Environment After Applying All Defensive Security Controls
+3.8.3	Identity-Related Risks That Concern Authorizing Officials: Mapping Hidden Transitive Across-Trust Risks and Blind Spots in Authentication Auditing Streams
+3.8.4	Mission Impact and Risk Acceptance: The Strategic Compromise – Formally Accepting Local Directory Vulnerabilities to Sustain Critical Field Combat Operations
+3.8.5	Case Study: Authorization Decisions Following Identity Assessment Findings: Walkthrough of an AO Negotiating Risk Acceptance Rules After Discovering Systemic DACL Flaws on Domain Controllers
+
+3.9	     RMF Step Six: Continuous Monitoring of Federal and Military Identity Infrastructure
+3.9.1	Continuous Monitoring Strategy Development: Moving Beyond Periodic Audits to Construct a Real-Time Identity Telemetry and Threat Detection Loop
+3.9.2	Active Directory Security Monitoring: Ingesting Replication and Attribute Telemetry to Detect Unauthorized Schema Backdoors and DCSync Behaviors
+3.9.3	Authentication Process Monitoring: Tracking Anomalous TGT/ST Requests to Alert on Golden Ticket, Silver Ticket, and AS-REP Roasting Indicators
+3.9.4	Privileged Access Monitoring: Enforcing Instant, Zero Delay Alarms on Additions to Tier 0 Domain Groups (Domain Admins, Enterprise Admins, Built-In Administrators)
+3.9.5	PKI Monitoring: Real-Time Parsing of Certificate Authority (CA) Issuance Events to Detect Rogue Certificate Registrations Against High-Value Accounts
+3.9.6	Federation Monitoring: Analyzing AD FS Proxy Traffic to Capture Inbound Claims Forgeries and Anomalous Federated Identity Movements
+3.9.7	Vulnerability Monitoring: Implementing Automated Scanners to Flag Unpatched Domain Controller Software Vulnerabilities Within Hours of RTW (Release to World)
+3.9.8	Configuration Drift Monitoring: Deploying Desired-State Checks to Automatically Detect and Revert Local Group Policy Misconfigurations Attempted by Rogue Administrators
+3.9.9	Reporting Continuous Monitoring Results: Feeding Dynamic Directory Risk Ratings Into Executive SIEM Dashboards for Instant CISO and Operational Visibility
+
+3.10	Identity-Centric Risk Management
+3.10.1	Domain and Information Systems (IS) Authentication Risk: Mitigating Password-Spraying and Brute-Force Exploits by Hardening Kerberos and Exterminating Legacy Dialects
+3.10.2	Domain and Information Systems (IS) Authorization Risk: Neutralizing Account Takeover Vectors by Hardening Delegated Administrative Boundaries and Object Permissions
+3.10.3	Domain Credential Risk: Blocking Mimikatz LSASS Harvesting and Pass-the-Ticket (PtT) Attacks via Windows Credential Guard and Protected Users Groups
+3.10.4	Domain Federation Risk: Securing Inter-Enclave Bridges Against Cloud-Pivoting Attacks and SAML Signing Certificate Compromises
+3.10.5	Domain Privileged Access Risk: Eliminating Administrative Host Contamination via Dedicated Privileged Access Workstations (PAWs) and Clean-Source Pipelines
+3.10.6	Domain Certificate Trust Risk: Hardening Enterprise CA Certificate Infrastructures to Prevent Arbitrary Domain Admin Certificate Generation
+3.10.7	Domain Replication Risk: Monitoring Access Rights to Block Unauthorized DCSync Directory Replication Attacks
+3.10.8	Hybrid Domain Identity Risk: Preventing Lateral Cloud-to-On-Premises Pivots by Securing Identity Synchronizer Hubs and Restricting Cloud Directory Writebacks
+3.10.9	Supply Chain Identity Risk: Mitigating External Entry Points by Securing Trust Relationships and Restricting Third-Party Contractor Account Rights
+
+3.11	Common RMF Findings in Federal and Military Active Directory Environments
+3.11.1	Legacy Authentication Protocols: The Danger of Leaving NTLMv1, WDigest, and LLMNR Active to Accommodate Outdated Weapon Systems
+3.11.2	Weak Administrative Network Separation and Segmentation: Allowing Tier 0 Domain Administrators to Authenticate From Insecure, Phish-Prone User Subnets
+3.11.3	Excessive Privileges and Permissions Creep: Cumulative Domain Group Access Assignments That Accidentally Expand an Attacker’s Attack Surface
+3.11.4	Inadequate Audit Logging Controls Configuration: Missing Subcategory Advanced Audit Flags, Leaving Incident Response Teams Blind to Account Forgeries
+3.11.5	Insecure Active Directory Certificate Services (AD CS) and Certificate Authority (CA) Templates: Misconfigured Templates Left Open to Misuse, Leading to Domin Takeover
+3.11.6	Federation Trust Misconfigurations: Leaving Signing Certificates Unrotated and Allowing for Weak, Broad Claims Mapping Across Tenant Boundaries
+3.11.7	Unmanaged High-Level Service Accounts: Allowing High-Privilege Domain Accounts to Retain Static Passwords, Exposing Them to Kerberoasting Attacks
+3.11.8	Domain Controller (DC) Replication Permission Misconfigurations: Granting Over-Privileged WriteDACL Rights to Non-Tier 0 Objects, Enabling Malicious DCSync Attacks
+3.11.9	Failure to Implement Enterprise-Wide and Domain- and Host-Level Principle of Least Privilege (PoLP): Over-Relying on Broad Administrative Groups Instead of Granular, Role-Based Access Control (RBAC)
+
+3.12	The Risk Management Framework (RMF) Through the Eyes of an Active Directory Security Engineer
+3.12.1	What RMF Looks Like During Daily Operations: Converting Theoretical RMF Governance Guidelines Into Concrete, Day-to-Day Server Engineering Steps
+3.12.2	Translating Security Controls Into Technical Configurations: Mapping Stringent NIST Text Requirements Into Enforceable Group Policies, Registry Tweaks, and Schema Attributes
+3.12.3	Supporting Security Control Assessments: Providing Validated System Artifacts and Evidence to Auditors Without Introducing Unintended System Exposures
+3.12.4	Generating Assessment Risk and Vulnerability Artifacts and Evidentiary Documentation: Using Automated Tooling to Prove a Hardened Active Directory Security Baseline State During Audits
+3.12.5	Supporting Authorizing Officials (AO) and Designated Authorizing Officials (DAO): Providing Accurate, Quantitative Technical Risk Metrics to Help Leadership Make Operationally Sound Deployment Decisions
+3.12.6	Maintaining and Adhering to Compliance Objectives Without Sacrificing Security: Avoiding the “Compliance Trap” by Ensuring Audit Preparation Deepens True Directory Defense Postures
+3.12.7	Balancing Command Mission Requirements and Tailored Security Requirements: Creating Rigorous Compensating Controls When Operational Realities Prevent Standard GPO Enforcements
+
+3.13	Case Study: Applying the Risk Management Framework (RMF) to a Federal and Military Active Directory Enterprise
+3.13.1	Federal Information System (FIS) Categorization: Setting a High-Impact Security Matrix for a Massive, Multi-Forest Combined Operations Network
+3.13.2	Security Control Selection: Applying Customized Defensive Overlays to Mandate Phishing-Resistant Identity Tokens Across All Enterprise Layers
+3.13.3	Active Directory Security Control implementation: Enforcing Tightened GPOs, Hardened AD CS Certificate Templates, and Disabling Legacy Protocols En Masse
+3.13.4	Security Assessment Activities: Subjecting the Hybrid Directory Mesh to Aggressive Red Team Penetration Exploits and SCA Analysis
+3.13.5	Authorization Decision Making Process: Evaluating Remediation Success to Secure a Formal Authority to Operate (ATO) From Command Leadership
+3.13.6	Continuous Monitoring (ConMon) Activities: Establishing Centralized SIEM Log Ingestion and Continuous Scanning to Intercept Configuration Drift Instantly
+3.13.7	Discovery of Identity-Related Security Findings: Spotting a Hidden, Exploitable DACL Misconfiguration on a High-Value Service Account During Operational Telemetry Audits
+3.13.8	Remediation and POA&M Development for Risk Tracking and Command Vulnerability Accountability and Transparency: Creating a Formal Plan of Action and Milestones (POA&M) File to Legally Track the Lifecycle and Milestones of Identity Remediation and Mitigation
+3.13.9	Lessons Learned: Why Operational Visibility, Aggressive Testing, and Engineering Automation Outrank Static Governance Paperwork During Active Combat Engagements

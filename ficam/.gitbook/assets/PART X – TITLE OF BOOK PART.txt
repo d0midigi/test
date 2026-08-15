@@ -1,0 +1,21 @@
+PART X – TITLE OF BOOK PART
+
+CHAPTER X. TITLE
+________________________________________
+CHAPTER ABSTRACT
+Chapter abstract text
+________________________________________
+LEARNING OBJECTIVES
+Upon completion of this chapter, readers will be able to:
+•	Enter learning objective
+
+________________________________________
+CHAPTER STRUCTURE
+X.X Title
+	X.X.X Topic
+________________________________________
+INCLUDED FIGURES
+
+________________________________________
+INCLUDED TABLES
+

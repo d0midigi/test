@@ -1,0 +1,31 @@
+Control Systems in the Department of Defense (DoD)
+
+1.1 Introduction
+
+Control systems carry the operations of all DoD-related missions and are key elements in many diverse DoD operating environments. Control systems, which typically consist of controllers and user interfaces that monitor and control certain aspects of equipment, are prevalent and essential to the primary functions of Command and Combatant components such as weapons systems, utilities, facilities, medical systems, manufacturing and the Defense Industrial Base (DIB). This variance in government mission functions and disciplines means that these communities of interest have different terminology and accepted norms; however, there are also areas of commonality in terms of system objectives and the cybersecurity activities necessary to protect in conjunction with protecting them from all types of cybersecurity threats and risks at the same time.
+
+Federal and military control systems carry their own unique attack surfaces and thus pose and introduce unique risks to the operating environment due to their interactions with the physical world. These cyber, or digital-to-real-world can have unintended and disastrous implications if not implemented and managed properly. For instance, at a NASA research facility: "a security patch caused key network monitoring equipment in a large engineering oven to stop running, resulting in a fire that destroyed spacecraft hardware inside the oven. The computer reboot caused by the software upgrade also impeded alarm activation, leaving the fire undetected for an entire 3.5 hours before it was finally discovered." Though highly unintended, this cyber-to-physical real-world highlights risks that adversaries could leverage to not just delay or stop mission-critical and business functions that Command's rely upon, but also carries opportunity to cause environmental and physical harm, including the loss of human life.
+
+These threats and risks increase aggressively from the proliferation of cyber physical information systems in the National Security AD environment. The combination of the importance of control systems bundled with the relevance to overall National Security well-being, requires specific considerations, guidance, and high-level authoritative decisions to be made to ensure that all risk and threats are managed according to internal risk management operating procedures; therefore, understanding National Security Systems (NSS) and their critical system dependencies on control systems must be treated with high priority be enterprise defenders and those same dependencies should be priority factor for all system owners when managing risks to the enclaves in which these systems reside.
+
+The Control Systems Security Requirements Guide (SRG), an accompanying security companion to the Secure Technical Implementation Guide (STIG) seeks to streamline and unify the Command's risk-based approaches to managing the overall cyber hygiene and cybersecurity posture of these control systems. The SRG utilizes and guides enterprise defenders towards integrating the NIST Cybersecurity Framework (NIST CSF) to aid Command and Combatant risk management objectives while providing support to the DoD Risk Management Framework (RMF) to further enable risk management-driven initiatives and RMF policy and compliance adherence.
+
+A traditional SRG focuses primarily on security control implementations in specific information systems or technology stacks. The SRG also provides higher-level orientation to inform Command cybersecurity activities for all control information systems in the DOD in addition to providing the guidance that drives security requirements adoption for control systems, regardless of individual system type or unique operating environment. This broader approach is necessary to enhance planning, high-level decision making, and overall execution of critical cybersecurity risk management for federal and military control systems as cybersecurity maturity in may of these systems is minimal to none or technically unfeasible or unrealistic in contrast to commercial, or "traditional" systems.
+
+Typical audiences for this SRG primarily include:
+
+DoD Commands, Combatants, and Components, Program Executive Offices, Program Offices and Mission Owners using, or considering the use of control systems
+
+DoD programs that utilize control systems or operate in control system environments
+
+DoD Authorizing Officials (AOs) and their representatives
+
+Control System Operators
+
+The following section consists of three primary sections that have their own unique focus. First, foundational material to orient the reader to the scope, applicability, cybersecurity concepts and terminology used in the SRG. Second, a Cybersecurity Framework (CSF) profile, a specific artifact to help Commands and stakeholders with the Prepare step to organize cybersecurity implementations at a high organizational level. Third, specific security requirements that drives guidance to aid information systems to better shape and describe the spirit and intent of security requirements for federal and military-related National Security and control systems.
+
+Scope and Applicability
+
+An SRG, in support of Department of Defense Initiative (DoDI) 8510.01, establishes the DoD security objectives for all control systems. Enterprise defenders and security teams may apply SRGs to environments that are classified as publicly releasable up to and including TOP SECRET General Service (GENSER). Missions including control systems with a Sensitive Compartmented Information (SCI) classification must, however, follow existing DoD and INtelligence Community (IC) policies, as applicable.
+
+Note: SRGs do not provide guidance for operational environments with SCI classification levels.

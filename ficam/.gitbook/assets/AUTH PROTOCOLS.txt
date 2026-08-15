@@ -1,0 +1,91 @@
+The following protocols listed below handle network login and security verification, divided into basic password checks, Microsoft and Cisco methods, and Extensible Authentication Protocol (EAP) frameworks.
+
+Basic and Older Protocols
+
+PAP (Password Authentication Protocol) - Sends user passwords in cleartext over the wire; very unsafe to use by modern security standards.
+
+CHAP (Challenge Handshake Authentication Protocol) - Sends a random challenge string instead of the password, but is vulnerable to replay attacks like NTLM is.
+
+MS-CHAP / MS-CHAPv1 / MS-CHAPv2 - Microsoft's improved versions of CHAP for Windows networks, adding manual-like checks and stronger encryption, though v1 is most vulnerable since it is the oldest. <---how is this when there was an MS-CHAP?
+
+LEAP (Lightweight EAP) - An old, flawed Cisco wireless method that leaks data and can be cracked easily.
+
+The EAP Framework and Basic Types
+
+EAP (Extensible Authentication Protocol) - A general framework used in WiFi and Point-to-Point (PPP / P2P) WAN links that lets systems pick different custom login methods.
+
+EAP-MD5 - A basic EAP method using MD5 hashes; only checks the client one way and is easily hacked.
+
+Tunneled and Certificate-Based EAP Methods
+
+EAP-TLS (Extensible Authentication Protocol - Transport Layer Security) - Uses digital certificates on both the client device and the server for maximum security, but is hard to set up. <--- why?
+
+PEAP / EAP-PEAP (Extensible Authentication Protocol) - PEAP - Protected EAP builds an encrypted TLS tunnel using a server certificate, then passes inner passwords over the wire safely.
+
+EAP-TTLS (Extensible Authentication Protocol - Tunneled Transport Layer Security) - Tunneled TLS builds a safe logical tunnel using a server certificate and allows older inner protocols like PAP or CHAP to run safely inside.
+
+EAP-FAST (Extensible Authentication Protocol) FAST - Extensible Authentication via Secure Tunneling uses a lightweight shared secret called the PAC <--- is this the same as privileged attribute cert? ---> instead of certificates to build its secure tunnel.
+
+EAP-PEAP (synonymous with PEAP) - Often paired with MS-CHAPv2 as its inner login method.
+
+EAP-SIM - Uses subscriber identity module cards for mobile device and cellular network authentication.
+
+EAP-AKA - Uses authentication and key agreement mechanisms, often deployed with 3G, 4G, and 5G networks.
+
+EAP-GTC - Supports generic token cards and hardware-based or software-based token authenticators.
+
+EAP-TEAP (Extensible Authentication Protocol-Tunnel Extensible Authentication Protocol)
+* Provides tunneled extensible authentication protocol supporting multiple inner identity requests.
+* Authenticates both the user and the machine in a single login session.
+* Establishes a protected Transport Layer Security (TLS) tunnel to safely pass credentials over the wire.
+
+MS-CHAPv1 (Microsoft-Challenge Handshake Authentication Protocol Version 1) - Represents the older first version of Microsoft's challenge handshake protocol.
+
+
+DID YOU KNOW?
+When you hear a network engineer or anyone in cybersecurity or IT say or refer to as something traveling "over the wire," they just mean sending data across a network from one device (node) to another.
+
+Why Is It Said, You Ask?
+Old Habits. In the early days of computers, everything had to travel through a physical, copper cable (a wire); however, the modern meaning for today is that "the wire" is used as a metaphor. Data that is sent "over the wire" could be traveling through a blue internet cable, a glass fiber-optic line, or even through the air via WiFi, microwave, RF, satellite, or 5G.
+
+Common Examples You Might Hear Along Your Way
+
+"Let's look at the packets on the wire," or "let's watch the packets cross the wire:" This means using a software tool such as Wireshark to sniff network traffic for many reasons such as packet capturing, sniffing protocol use traffic, to spy, intercept and extract packet-line data, or block data as it travels across the network "wire" to see what is breaking or what is going on.
+
+"The password was sent in plaintext over the wire:" This means someone sent a password without hiding or encrypting it, so anyone snooping on the network "wire" could easily read it.
+
+======
+
+Cybersecurity Femme Fatale
+
+1. How to Get Into Physical Penetration Testing Legally
+Transitioning from digital ethical hacking to physical security requires shifting your focus from network protocols to human psychology, physical locks, and building architecture.
+
+* Master the Core Frameworks: Read "Social Engineering: The Science of Human Hacking," by Christopher Hadnagy. This is the industry bible for understanding how to manipulate human decisions ethically.
+* Learn Physical Bypass Techniques: Buy a lockpicking practice kit. Learn how door mechanisms work, including how to bypass latch locks with a plastic shim (shimming) and how to trigger automated exit sensors using canned air or a heat source (Request-to-Exit/RTE bypass).
+* Get Certified: Look into certifications like Certified Red Team Operator (CRTO), or specific social engineering tracks at conferences like DEFCON (specifically the Social Engineering Community).
+* Join a Consultancy: Most physical penetration testing is done by specialized boutique Red Team firms (like Netragard, TrustedSec, or Bishop Fox). Look for "Red Team Consultant," or "Physical Penetration Tester" roles. You will usually start as a digital or network testier and shadow senior team members on physical engagements.
+
+2. What a Real Rules of Engagement (RoE) Looks Like
+
+The Rules of Engagement (RoE) is a legally binding contract between the hacking team and the client company's highest executives (like the CEO or CISO). It dictates exactly what you can and cannot do. Without it, you are just committing a felony.
+
+A real-world physical RoE contains these strict parameters:
+
+* The "Get Out of Jail Free" Card: A physical document printed on company letterhead signed by the CISO, containing their direct 24x7x365 cell phone numbers. If you are caught by local police or aggressive security guards, you present this immediately to prove you are authorized.
+
+* Allowed Time Windows: It specifies the exact dates and hours you can attempt a break-in (e.g., "Between 9:00PM and 4:00AM from Oct 12 to Oct 15").
+
+Strict Out-of-Bounds Areas: The contract will list areas you are legally forbidden from entering or accessing, such as daycares on corporate campuses, executive home residences, or specific highly sensitive labs.
+The "No-Touch" Physical Safety Rule: It explicitly states that you cannot physically assault, trap, or touch security guards or employees. If a guard grabs your arm, you must instantly surrender, hand over the letter, and end the drill.
+The Technology Destruction Link: It states whether you can physically smash a window or cut a fence (rarely allowed) or if you must rely strictly on stealth, lock bypassing, and social engineering.
+
+3. Real Pretexts Female Social Engineers Use
+
+A "pretext" is the fake identity and store you use to trick people. Female social engineers excel in this field because society often defaults to viewing woman as helpful, non-threatening, or vulnerable.
+
+Here are real, highly effective pretexts used by female operators that leverage psychology rather than sexuality:
+
+The "Overwhelmed New Mother" (Empathy Trigger)
+The Setup: The operative walks up to a badge-locked corporate door wearing professional attire, carrying a large box of donuts, holding a travel mug, and wearing a fake pregnancy belly (or carrying a diaper bag, or milk pump).
+The Psychology: Human beings are hardwired to help someone who looks physically burdened or vulnerable. Employees will actively sprint ahead to open and hold a secure door for her, completely bypassing the badge scanner for her ("tailgating").

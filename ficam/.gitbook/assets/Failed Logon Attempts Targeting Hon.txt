@@ -1,0 +1,53 @@
+Failed Logon Attempts Targeting Honey Accounts
+
+Risk Summary
+Honey accounts are non-operational, decoy accounts intentionally created to attract and monitor unauthorized access attempts by threat actors. A series of failed logon attempts targeting these accounts may indicate brute-force attacks, reconnaissance activity, or the presence of an unauthorized user probing the environment. Because honey accounts are not used for any legitimate business activity, any authentication attempt against a honey account is inherently suspicious. 
+
+Severity: Medium
+
+Platform: Active Directory
+
+Category: Account protection 
+
+MITRE ATT&CK Tactics: Credential Access, Discovery
+
+MITRE D3FEND Tactics: Domain Account Monitoring, D3-CCSA (Credential Compromise Scope Analysis) 
+
+Description
+Honey accounts are non-operational, decoy accounts intentionally created to attract and monitor unauthorized access attempts by threat actors. A series of failed logon attempts targeting these accounts may indicate brute-force attacks, reconnaissance activity, or the presence of an unauthorized user probing the environment. Such activity often precedes lateral movement or privilege escalation attempts. Because honey accounts are not used in legitimate operations, any authentication attempt against a honey account is considered inherently suspicious. 
+
+For more information about the underlying audit signal, see Microsoft’s documentation on Event ID 4625 – An account failed to log on (Microsoft Docs). 
+
+Real-World Scenario
+An attacker gains a foothold on a workstation and begins running automated tools to discover valid credentials in the domain. The attacker’s tooling repeatedly attempts to log on to a decoy honey account such as IGASVC (example from configuration), generating multiple Event ID 4625 failures in a short period. Because the honey account is never used by legitimate users or services, the repeated failures are a strong signal of malicious reconnaissance or brute-force activity. The attacker may intend to pivot to lateral movement or privilege escalation once valid credentials are found, while trying to blend into normal logon-failure noise. The SIEMs threat definition detects the failed logon attempts against the honey account within the defined lookback window and raises an alert before the attacker can progress further. 
+
+How to Prevent It
+
+Use clearly labeled, non-operational honey accounts with no legitimate business use to maximize the signal value of any authentication attempt. 
+
+Limit knowledge of honey accounts to a small, trusted security operations group to reduce the risk of accidental use. 
+
+Ensure auditing for Event ID 4625 is enabled and logs are retained long enough for investigation and correlation.
+ 
+Maintain and review SIEM alerts for threat IDs regularly, tuning honey account names and the lookback window to align with your environment and threat model. 
+
+Integrate alerts with your SIEM or SOAR platform to automate triage steps such as host isolation or creating incident tickets. 
+
+FAQ
+What does “Failed logon attempts targeting honey account” indicate?
+
+Why are logon attempts against a honey account considered suspicious?
+
+What types of attacks commonly trigger Honey account abuse?
+
+How does Cayosoft Guardian detect failed logon attempts against honey accounts?
+
+How does Cayosoft Guardian support credential compromise scope analysis using honey accounts?
+
+References
+
+Microsoft documentation: Event ID 4625 – An account failed to log on (Security Auditing). 
+
+Final Thought
+Proactive monitoring and timely remediation of configuration risks is essential to maintaining a secure Active Directory and Microsoft 365 environment. By addressing issues like Failed logon attempts targeting honey account, you reduce attack surfaces and strengthen your organization’s overall security posture. 
+

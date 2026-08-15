@@ -1,0 +1,18 @@
+r/CompTIA
+r/CompTIACertifications
+r/CompTIA_ExamPrep
+r/compsci
+r/SCICertifcations: A subreddit to discuss Microsoft Security, Compliance, and Identity certifications. If you are new there, read the pinned guide for all relevant information.
+r/cybersecurity_help: This subreddit is r/techsupport but focused on solving individuals' cybersecurity concerns, removing malware, and more. Please be sure to follow the posting guide for accurate and helpful responses and answers.
+r/compsci: Computer Science Theory and Application. They share and discuss any content that computer scientists find interesting. People from all walks of life welcome including hackers, hobbyists, professionals, and academics.
+
+r/CSCareerHacking: The community for people applying to security-related jobs currently. Post response rate data, ATS experiences, and share what's working and what's not. The community is around shortlist.jobs, a free job automation tool that automates all of the best job hunt strategies. Post feedback or shortlist questions there.
+
+r/CyberGuides: This sub is for discussing cybersecurity and online privacy topics, news, and resources, as well as sharing guides and helpful info.
+
+r/FreeITCourses: Free IT & Cybersecurity courses: Cloud, AI, AppSec, Pentesting, Red Team, Vulnerability Management, and more. A community focused on real-world IT and cybersecurity skills including networking, cloud, AI security, appsec, defensive security, bug bounty, pentesting, and more. Built for learners, professionals, career changers, and curious minds looking for practical resources, hands-on projects, and career-focused growth without the fluff.
+
+r/AI_Security_Course: Welcome to AI Cybersecurity Certification: The community for security professionals and AI engineers passionate about AI in cybersecurity. Discover the latest trends, tools, and updates on AI-driven threat detection, automated defenses, and certifications to keep your skills sharp. Join them to discuss how AI is reshaping cybersecurity, share insights, and stay on the cutting edge of the field.
+
+r/cybersources: Welcome to Cybersources Collective! This community is for sharing, exploring, and contributing cybersecurity resources like tools, guides, and tutorials. Whether you're a pro or beginner, join them in expanding the Cybersources GitHub repository and building a valuable resource for all.
+

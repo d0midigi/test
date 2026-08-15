@@ -1,0 +1,25 @@
+Key differences boil down to scope (device-wide vs. single app), encryption (protecting your data), and routing (how many middlemen your traffic bounces through).
+
+1. IP Masking
+* How it works: IP masking is the concept of hiding your real IP address by routing traffic through an intermediary server. Websites you visit see the server's IP instead of your real one.
+* Anonymity Level: Low. It only changes your virtual location. It does not encrypt your data, meaning your Internet Service Provider (ISP) or network administrator can still see every website you visit.
+
+2. SOCKS (SOCKS5 Proxy)
+* How it works: A technical protocol (SOCKS5) used by intermediary servers to route network packets from a user to a server. It operates at the application level (e.g., configuring it specifically inside a torrent client or browser).
+* Anonymity Level: Low to Medium. It acts as an IP mask but provides not data encryption. It is highly effective for bypassing geo-restrictions and increasing speeds, but your unencrypted data can still be intercepted by your ISP.
+
+3. VPN (Virtual Private Network)
+* How it works: A VPN works at the operating system level, rerouting all traffic from your device through a secure tunnel to a VPN server. It masks both your IP and strongly encrypts your data.
+* Anonymity Level: Medium to High. Because your traffic is encrypted, your ISP and local network can only see that you are connected to a VPN, not the actual websites or data you are interacting with. True anonymity depends on the VPN provider's no-logging policies.
+
+4. Anonymizers
+* How it works: Anonymizers (like the Tor network) are designed from the ground up for privacy rather than just circumventing blocks. They remove or heavily obfuscate identifying metadata from your traffic and bounce it through a distribute, volunteer-run network (node layers) rather than a single server.
+* Anonymity Level: Very High. They triple-encrypt your traffic and distribute it so that no single node in the network knows both who you are (your IP) and where you are going (the destination website).
+
+5. Proxychains
+* How it works: A command-line tool that chains multiple proxy servers (such as Tor, SOCKS, or HTTP) together. Traffic bounces through Server A, then to Server B, then to Server C before reaching the destination.
+* Anonymity Level: High. It significantly increases anonymity by ensuring no single server can trace the traffic back to the original client device, as long as the proxies in the chain themselves keep no logs.
+
+6. IP Spoofing
+* How it works: Instead of routing traffic through a server to change your publicly visible IP address, spoofing involves forging the header of data packets to falsely claim they are coming from a trusted, legitimate IP address.
+Anonymity Level: Deceptive/High-Risk: This is primarily an attack mechanism rather than a privacy tool. It is used in network attacks to bypass IP-based authentication, though it provides no secure tunnel or actual defense for a user's web browsing.o77

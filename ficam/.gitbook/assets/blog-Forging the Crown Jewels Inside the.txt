@@ -1,0 +1,37 @@
+Forging the Crown Jewels: Inside the Golden Ticket Active Directory Attack
+
+Automating Chaos - The Brutal Efficiency of Credential Stuffing
+
+Living Off The Land - Why Cybercriminals Love Them Some PowerShell
+
+The Attacker's Toolkit - Weaponized Languages Hiding In Your Network
+
+Race Against the Clock - The Anatomy and Breakdown of a Zero Day Exploit
+
+ZeroLogon - The Flaw That Lets Outsiders Become Insiders as Domain Admins Instantly
+
+The Hafnium Blueprint - Deconstructing a Nation-State Exchange Breach
+
+Fortifying the Core - Stopping Malware Before It Claims Your Active Directory
+
+Roasting Kerberos - Exploiting Service Principal Names (SPNs) for Fun and Profit
+
+The AD Nightmare - Turning Kerberoasting and DCSync Into a Total Takeover
+
+Silent Recon: How Attackers Map Your Network via LDAP
+
+The Invisible Intercept - Wiretapping Traffic Inside Active Directory
+
+Stealing From The Vault - How Attackers Extract the NTDS.dit Database
+
+Beyond Password - The Differences Between PtH, PtT, and OtH
+
+Ticket to Ride - Hijacking Kerberos Tickets for Silent Privilege Escalation
+
+Cleartext and Vulnerable - How Malware Steals Passwords From Memory
+
+Pre-Computed Hacking - Why Short Passwords Still Fail Against Rainbow Table Attacks
+
+The Silver Ticket Threat - Forging Access Without Touching a DC
+
+The Skeleton Key - How Malware Bypasses All Active Directory Authentication

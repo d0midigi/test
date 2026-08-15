@@ -1,0 +1,137 @@
+Chapter 4: Understanding Security Requirements Guides (SRGs) and Security Technical Implementation Guides (STIGs)
+4.1	     Understanding Security Requirements Guides (SRGs) and Security    Technical Implementation Guides (STIGs)
+4.1.1	Evolution of Federal and Military Security Configuration Standards: Tracing the Path From Legacy Local Registry Customizations to Centralized DISA Enforcement
+4.1.2	Origins of Security Requirements Guides (SRGs): Understanding High-Level, Vendor-Agnostic Technology Compliance Frameworks
+4.1.3	Origins of Security Technical Implementation Guides (STIGs): The Transition to Product-Specific, Actionable Scripted Hardening Baselines
+4.1.4	Relationship Between RMF, SRGs, and STIGs: How STIG Check and Fix Actions Directly Satisfy NIST SP 800-53 Technical Control Allocation
+4.1.5	Why STIGs Exist: Eradicating Default Vendor Credentials, Vulnerable Protocols, and Loose Insecure Permissions Configurations
+4.1.6	Security Standardization Across Federal and Military Enterprises: Achieving Cryptographic and Access Predictability Across Global Defense Enclaves
+4.1.7	STIGs as Risk Reduction Mechanisms: Shrinking the Corporate Attack Surface to Neutralize Automated External Exploitation Scripts
+4.1.8	Why STIGs Matter to Active Directory Security Engineers and Enterprise Defenders: Grounding Abstract Strategic Policies Into Actionable and Meaningful Tier 0 Operating System Adjustments
+
+4.2	     STIG Governance and Oversight
+4.2.1	Defense Information Systems Agency (DISA): The Primary Author, Publisher, and Arbiter of Military Cyber Hardening Specifications
+4.2.2	Department of Defense Chief Information Officer (DoD CIO): Issuing Broad Mandates Forcing Defense Components to Adhere to Mandatory DISA Standards
+4.2.3	National Institute of Standards and Technology (NIST): Providing the Underlying Security Parameter Catalogs (SP 800-XX) and National Vulnerability Database (NVD) Engines
+4.2.4	Federal Information Security Modernization Act (FISMA): Statutory Requirements Mandating Standardized Configuration Management and Continuous Auditing Regimes
+4.2.5	Security Control Assessors (SCAs): Independent Technical Inspectors Utilizing STIG Check Procedures to Validate Network Defensive Readiness
+4.2.6	Authorizing Officials (AO): Reviewing STIG Compliance Discrepancies and Open Vulnerability Metrics to Award Systems an Operational ATO
+4.2.7	Information Systems Security Managers (ISSMs): Managing Component-Level Overviews of STIG Exceptions and Enterprise Risk Scorecards
+4.2.8	Information Systems Security Officers (ISSOs): Executing On-the-Ground Verification of Asset Configurations and Tracking Mitigation Milestones
+4.2.9	Active Directory Security Engineers and Administrators: Engineering and Deploying the Group Policies and Scripted Baselines Required to Enforce STIG Directives
+4.2.10	Common Control Providers: Hosting Core STIG-Compliant Infrastructure Roles That Downstream Enclaves Inherit Automatically
+
+4.3	     Security Requirements Guides (SRGs)
+4.3.1	Purpose of Security Requirements Guides: Establishing General Technical Rulesets Before Specific Product Hardening Guides are Published
+4.3.2	SRG Hierarchy and Structure: Navigating the Core Demarcations Between Application, Network, and Operating System Requirements Groups
+4.3.3	Mapping SRGs to NIST SP 800-53 Controls: Tracing Broad Architectural Statements Directly to Specific Identification and Authentication (IA) Objectives
+4.3.4	Control Inheritance Concepts: Understanding How Multi-Tenant Cloud and Hosting Facilities Pass Down Verified SRG Criteria to Tenant Applications
+4.3.5	SRGs Within RMF Authorized Environments: Utilizing General Guides to Formulate Compensating Controls When No Specific STIG Exists for a Product
+4.3.6	Identity-Related Security Requirements: Standardizing How Digital Personas are Managed and Traced Across Heterogeneous Enclaves
+4.3.7	Authentication Security Requirements: Establishing Rules for Enforcing Multi-Factor Hardware Validation and Rejecting Single-Factor Fallbacks
+4.3.8	Authorization Security Requirements: Defining System Group Containment Rules to Strictly Limit the Delegation of Privilege Escalation Paths
+4.3.9	Auditing and Accountability Requirements: Dictating What Identity Telemetry Must Be Tracked, Retained, and Forwarded to Central Defense Postures
+4.3.10	Configuration Management Requirements: Forcing Authorized, Documented Engineering Sign-Off Prior to System Baseline Alteration
+
+4.4	 Understanding STIG Architecture and Components
+4.4.1	STIG Rule Structure: Deconstructing the Specific Formatting of an Enforceable Technical Directive
+4.4.2	Vulnerability Identifiers (V-IDs): Tracking Core Configuration Defects Across System Updates and Product Generations
+4.4.3	Rule Identifiers (Rule IDs): The Discrete, Actionable Audit Unit Used by Engineers and Compliance Scanners
+4.4.4	Security Control Correlation Identifiers (CCIs): The Precise Technical Bridge Linking a Singular STIG Rule to an Overarching NIST Control Objective
+4.4.5	NIST SP 800-53 Control Mappings: Verifying Compliance Metrics by Matching Rule Execution Directly to Federal Management Frameworks
+4.4.6	Vulnerability Discussions: The Analytical Text Detailing Why a Setting is Weak and How an Adversary Exploits the Unhardened State
+4.4.7	Check Procedures: Step-by-Step Practical Testing Commands and Registry Queries to Expose an Existing Vulnerability Finding
+4.4.8	Fix Procedures: Clear, Remedial Technical Steps, Scripts, or Policy Entries Required to Neutralize the Discovered Vulnerability
+4.4.9	Mitigations and Risk Acceptances: Formulating Acceptable Technical Documentation of Accountability to Reduce Threat Vectors When a Direct Fix is Operationally Impossible
+4.4.10	Severity Categories and Risk Prioritization: Using Categorization Standards to Allocate Critical Engineering Response Capabilities Efficiently
+
+4.5	 CAT I, CAT II, and CAT III Findings
+4.5.1	Understanding Severity Classifications: Analyzing the Spectrum of Technical Vulnerabilities Based on Immediate Exploitation Viability
+4.5.2	CAT I Findings: Critical Flaws Allowing Immediate, Direct, Unauthenticated System Exploitation or Complete Root Identity Takeovers
+4.5.3	CAT II Findings: High-to-Medium Vulnerabilities That Degrade Information Assurances or Provide Intermediary Footholds for Adversary Pivoting
+4.5.4	CAT III Findings: Lower-Impact Degradations of Administrative Rigor That Weaken Auditing or Complicate Enterprise Change Tracking Over Time
+4.5.5	Mission Impact of STIG Findings: Mapping Active Unmitigated Discrepancies Directly to Increased Risk of Command-and-Control Denial of Service (DoS)
+4.5.6	Risk Acceptance Considerations: Evaluating the Operational Necessities of a Critical Application Against the Risk of Holding Open a Fatal CAT I Entry Point
+4.5.7	POA&M Development Requirements: Constructing Standardized Plans of Action and Milestones Documents to Legally Track Overdue Vulnerability Hardening and Accountability
+
+4.6	 Applying STIGs to Active Directory Environments
+4.6.1	Active Directory as a Security Control Provider: Forcing the Central Domain Infrastructure to Push Secure System Behaviors Globally
+4.6.2	Domain Controller Security Baselines: Applying Rigid OS and Service Configurations to Prevent Direct Memory Parsing and SAM/NTDS.dit Theft
+4.6.3	PAW and SAW Baselines: Implementing PAW and SAW STIGs to Block Tier 2 to Tier 0 Credential Contaminations
+4.6.4	Active Directory Organizational Unit (OU) Security: Securing Container Access and Disabling Insecure Inheritances to Block Adversary DACL Overtakes and Modifications
+4.6.5	Group Policy Security Configuration Requirements: Restricting GPO Modification Permissions to Block Malicious Group Policy Object Injection Attacks
+4.6.6	Active Directory Trust Security Requirements: Enforcing SID Filtering and Selective Authentication to Confine Cross-Boundary Identity Hops
+4.6.7	LDAP and LDAPS Security Requirements: Disabling Cleartext Simple Binds and Mandating Signed/Encrypted LDAP Channel Binding to Defeat Sniffing and Relay Vectors
+4.6.8	Kerberos Security Configuration Requirements: Hardening Ticket Lifetimes, Disabling Weak DES/RC4 Encryption, and Enforcing AES256-HMAC Standards
+4.6.9	NTLM Reduction and Elimination Strategies: Using Group Policies to Track NTLM Audits, Restrict Outbound Egress Network Traffic, and Prevent NTLM Relay Exploitation Attacks
+4.6.10	Active Directory Replication Security Requirements: Restricting Access Rights to Prevent Unauthorized DCSync Commands From Harvesting Domain Hashes
+
+4.7	 Implementing Identity-Centric Security Controls Through STIGs
+4.7.1	Authentication Controls: Hardening Domain Settings to Force Cryptographic Smartcard Enforcement (SMARTCARD_ENFORCEMENT) and Randomize Local Administrator Passwords Using LAPS
+4.7.2	Authorization Controls: Restricting Access Rights Like SeEnableDelegationPrivilege to Stop Arbitrary Resource-Based Constrained Delegation (RBCD) Manipulation
+4.7.3	Privileged Access Controls: Confining Administrative Accounts and Deploying Restrictive Group Policies via Windows Protected Users Security Grouping
+4.7.4	Account Management Controls: Hardening Parameters Governing Inactive Account Expiration, Password Complexity, and Disabling Legacy Guest Default
+4.7.5	Service Account Security Controls: Transitioning Monolithic Service Profiles Into Hardened Group Managed Service Accounts (gMSAs) to Neutralize Kerberoasting
+4.7.6	Audit Logging Controls: Configuring Advanced Security Audit Subcategories to Log Process Creation, Directory Service Changes, and Kerberos Ticket Events
+4.7.7	Configuration Management Controls: Deploying AppLocker, App Control, and Credential Guard via GPO to Shield System Memory from LSASS Harvesting (Mimikatz)
+4.7.8	Remote Administration Controls: Mandating Encrypted WinRM/PS-Remoting Pipelines while Disabling Vulnerable Legacy Protocols Like Telnet or RDP over NTLM
+4.7.9	Endpoint Security Controls: Restricting Local Administrators from Overriding Enterprise Group Policy Targets and Disabling LLMNR/NetBIOS Local Name Resolution
+4.7.10	Hybrid Identity Security Controls: Securing Synchronization Engines, Configuring Azure AD Tenant Restrictions, and Isolating Cloud Cloud-Native Identity Infrastructure Roles
+
+4.8	 STIGs for Public Key Infrastructure (PKI) and Active Directory Certificate Services (AD CS)
+4.8.1	PKI Security Foundations: Structuring Asymmetric Cryptographic Trust Frameworks Across Defense Enclaves
+4.8.2	Certificate Authority Security Requirements: Applying the DISA CA STIG to Secure Offline Root CAs and Subordinate Issuing Servers
+4.8.3	Certificate Lifecycle Management Requirements: Mandating Secure Cryptographic Generation and Archival Controls for Cryptographic Key Assemblies
+4.8.4	Certificate Template Security Controls: Hardening Templates to Block Malicious SAN Attributes (EDITF_ATTRIBUTESUBJECTALTNAME2) and Preventing Misconfigured Certificate Takeovers (ESC1–ESC8)
+4.8.5	Enrollment Security Controls: Restricting Certificate Enrollment and Auto-Enrollment Permissions Only to Authorized Device OUs and Vetted User Profiles
+4.8.6	Certificate Revocation Requirements: Enforcing Continuous Publication and Low-Latency Ingestion of Validated CRL and OCSP Responder Metrics
+4.8.7	Common AD CS Misconfigurations: Analyzing Flawed Template Security Settings That Allow Low-Privilege Accounts to Request Domain Admin Identity Tokens
+4.8.8	Mission Impact of Certificate Authority Compromise: How a Single Forged Certificate Can Compromise an Entire Cross-Forest Smartcard Boundary
+
+4.9	     STIGs for Federation and Active Directory Federation Services (AD FS)
+4.9.1	Federation Security Concepts: Managing Cross-Organization Trust Boundaries without Replicating Core Identity Directories
+4.9.2	Trust Relationships and Security Requirements: Applying the ADFS STIG to Harden Relying Party Agreements and Confine Cross-Tenant Ingress Paths
+4.9.3	Token Security Requirements: Securing and Rotating Private SAML Token-Signing Certificates Against Memory Harvest and Extraction Attempts
+4.9.4	Claims-Based Authentication Security: Writing Strict Identity Transformations Rules to Prevent Inbound Attacker Claims Forgery and Identity Spoofing
+4.9.5	AD FS Security Baselines: Deploying ADFS Web Application Proxies (WAP) in Extranet Demarcation Zones to Shield Inbound Internal Authentication Engines
+4.9.6	Federation Logging Requirements: Verbose Parsing of Federation Proxy Data Logs to Spot Anomalous Cross-Boundary Identity Behavior Patterns
+4.9.7	Common Federation Vulnerabilities: Analyzing how Compromised On-Premises Token Systems are Exploited to Bypass Cloud MFA in Golden SAML Scenarios
+4.9.8	Mission Impact of Federation Compromise: Total Cryptographic Subversion of Multi-Tenant Federations, Leading to Downstream Resource Access Failures
+
+4.10	Assessing STIG Compliance
+4.10.1	Security Compliance Validation Methodologies: Combining Automated Assessment Scans with Expert Manual Checklist Verification Procedures
+4.10.2	Security Content Automation Protocol (SCAP): Running Automated XML-Driven Configuration Scanning Software Engines to Uncover Local Registry Exceptions and Other Hidden Vulnerabilities
+4.10.3	STIG Viewer: Leveraging the DISA Checklist Management Tool to Build, Review, Close, and Export System Vulnerability Validation Checklists
+4.10.4	Automated Compliance Assessment Tool (ACAS): Utilizing PowerShell Desired State Configuration (DSC) and Native Security Scripts to Evaluate Domain and Asset Health
+4.10.5	Evidence and Artifact Collection Procedure: Generating Cryptographically Non-Repudiable Evidence Logs and Artifacts to Prove Secure System Behavior to External Auditing Panels
+4.10.6	Artifact Generation Requirements: Structuring System Configurations, Asset Reports, and Group Policy Layouts Into Verifiable Compliance Packages for eMASS
+4.10.7	Assessor Validation Activities: Independent Auditor Processes for Revalidating and Reverifying Controls, Reviewing Logging Chains, and Spotting Forged Evidence Submissions
+4.10.8	Remediation Verification Procedures: Validating That an Applied System Fix Completely Resolves a Discovered Exception Without Breaking Mission Functionality
+
+4.11	STIG Compliance Versus Operational Security (OPSEC)
+4.11.1	When Compliance Does Not Equal Security: The Compliance Trap – Why a 99.7% STIG-Compliant Active Directory Domain Can Still Be Breached by Living-Off-The-Land (LOTL Attacks
+4.11.2	When Security Does Not Equal Compliance: Managing Situations Where Advanced Offensive Mitigations Intentionally Diverge from Standard DISA Rule Definitions
+4.11.3	Common Assessment Blind Spots: Understanding Why Standard STIG Scanners Fail to Detect Latent Attack Chains and Logical Permission Relationships
+4.11.4	Identity and Attack Paths Beyond Compliance: Using Graph-Theory Exploitation Maps (BloodHound/SharpHound) to Reveal Multi-Hop Domain Admin Escalation Vectors Hidden Within Fully Compliant Groups
+4.11.5	Risk-Based Security Decision Making: Transitioning Engineering Focus from Surface Checklist Elimination to Proactive Attack Path Destruction
+4.11.6	Balancing Mission Requirements and Security Requirements: Formulating Valid Compensating Security Controls to Preserve Vital Warfighter System Operations
+
+4.12	The STIG Process Through the Eyes of an Active Directory Security Engineer
+4.12.1	Daily STIG Compliance Checks and Operations: Ongoing Configuration Engineering Steps with Strict Change Authorization and Maintenance Routines
+4.12.2	Translating STIG Findings Into Technical Remediation Activities: Breaking Down Cryptic DISA XML Rules Into Test Group Policy Object Actions and Script Deployments
+4.12.3	Managing Security Exceptions: Formulating and Submitting Formally Documented Technical Mitigations When Standard STIG Enforcements Crash System Operations
+4.12.4	Supporting Security Assessments: Defending the Active Directory Configuration Partition Against Aggressive Inspector Interrogations and Vulnerability Discrepancies
+4.12.5	Generating Compliance Artifacts: Automating the Assembly of Group Policy Configurations, Schema Queries, and Audit Metrics Packages
+4.12.6	Supporting Authorization Activities: Providing Clear Technical Explanations to Help Authorizing Officials (AOs) Accurately Appraise Identity and Information System Vulnerabilities
+4.12.7	Continuous Monitoring and Compliance Maintenance: Preventing Configuration Drift by Establishing Automated Alerts to Spot Local System Deviations Instantly
+
+4.13	Case Study: Applying STIGs Within a Federal and Military Active Directory Enterprise
+4.13.1	Initial Compliance Assessment: Executing Baseline SCAP and Manual Checklist Sweeps Across a Massive Multi-Forest Defense Infrastructure Network
+4.13.2	Discovery of Security Findings: Locating Latent CAT I Flaws, Insecure Certificate Templates, and Cleartext Protocols Left Active From Legacy Systems 
+4.13.3	Identity Infrastructure Risk Analysis: Modeling How Discovered Exceptions Interlock with Graph-Theory Attack Paths to Enable Domain Admin Takeovers
+4.13.4	Remediation Planning: Architecting a Segmented, Tiered Rollout Sequence to Deploy Hardened GPOs and Script Adjustments Without Halting Operations
+4.13.5	STIG Implementation Activities: Executing the Transition to Signed LDAP, Disabled NTLM, Kerberos Armoring, and Hardened AD CS Policies Across Active Production Environments
+4.13.6	Assessment Validation: Re-scanning Hard-Hit System Assets to Confirm the Successful Remediation of Discovered Security Vulnerabilities
+4.13.7	POA&M Development: Structuring Technical Mitigations and Concrete Remediation Schedules for Outdated Legacy Subsystems That Cannot Support Modern Encrypted Protocols
+4.13.8	Authorization Impact Analysis: Presenting the Final Hardened Certification and Accreditation / Assessment & Authorization (C&A/A&A) Package to the AO to Move the Infrastructure From an IATO to an ATO
+4.13.9	Lessons Learned: Why Cross-Functional Technical Simulation, Continuous Change Tracking, and Prioritizing Defenses Over Simple Checklists Dictate Mission Survival

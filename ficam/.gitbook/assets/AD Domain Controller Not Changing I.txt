@@ -1,0 +1,49 @@
+AD Domain Controller Not Changing Its Password
+
+Risk Summary
+A domain controller that has not updated its computer account password in over 45 days may have outdated security credentials, increasing the risk of compromise. Domain controllers are expected to change their passwords every 30 days by default. Failure to do so could indicate misconfiguration or tampering. 
+
+Severity: Critical
+
+Platform: Active Directory
+
+Category: Infrastructure
+
+MITRE ATT&CK Tactics: Credential Access
+
+MITRE D3FEND: Reissue Credential
+Description
+
+Some domain controllers have not updated their passwords in over 45 days, suggesting that their security credentials may be outdated. Domain controllers are typically configured to change their passwords automatically every 30 days; therefore, it is crucial to ensure that domain controller passwords are updated regularly to maintain security. Investigating why the automatic password change is not occurring is important, as it could indicate a potential security issue. Regular password updates help protect against breaches and ensure the ongoing security of your network. 
+
+
+Real-World Scenario
+An attacker gains a foothold in an environment and compromises a domain controller’s cached credentials. Because the DC has not updated its computer account password for several months, the attacker can continue to authenticate and maintain persistence without detection. This stale credential allows them to extract Kerberos tickets, create golden tickets, and access sensitive data without triggering password change policies. Defensive monitoring policies and procedures must be implemented to detect stale DC passwords early, allowing you to reset it before the attacker leveraged it for long-term domain compromise. 
+
+Follow these steps to remove the vulnerability:
+
+To reset the computer account password of the domain controller:
+
+) At a command prompt, type the netdom help resetpwd command, and then press Enter.
+) After you press Enter, you will be prompted to enter the password associated with the domain user. Even though you may not see any typed characters, you need to type the password and press Enter.
+) Use the syntax that this command provides for using the Netdom command-line tool to reset the computer account password, for example: netdom resetpwd /server:<domain controller name> /userD:administrator /passwordd:*, where the domain controller name is the local DC that you’re recovering.
+
+Note: You should run this command twice.
+
+How to Prevent It
+Defensive teams can proactively detect and alert on AD domain controllers that are not changing their passwords as expected. It continuously monitors Active Directory, Entra ID, Microsoft 365, and Intune for over 200 misconfigurations, providing early warning before attackers can exploit them. 
+
+FAQ
+Why is a domain controller not changing its password considered a serious risk?
+
+How often should a domain controller change its computer account password?
+
+What could cause a domain controller to stop updating its password automatically?
+
+How does Cayosoft Guardian identify a domain controller not changing its password?
+
+How does Cayosoft Guardian help reduce the risk from stale domain controller passwords?
+
+Final Thought
+Proactive monitoring and timely remediation of configuration risks is essential to maintaining a secure Active Directory environment. By addressing issues like a domain controller not changing its password, you reduce attack surfaces and strengthen your organization’s overall security posture. 
+

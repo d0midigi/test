@@ -1,0 +1,17 @@
+Device Identities as Non-Person Entities (NPE) in Conditional Access and Trust Decisions
+
+Ownership, Transparency, and Accountability for NPE Lifecycle Management
+
+Non-Person Entity Attribute Drift and Unreviewed Privilege Accumulation
+
+Why Non-Person Entity Governance Is a Federal Identity, Credential, and Access Management (FICAM) Problem
+
+6.12
+How Federal and Mission Enterprise Identity Services Become Connected Attack Surfaces
+
+Why This Section Introduces Attack Surface Without First Teaching Exploitation
+
+The Active Directory Certificate Services Attack Surface
+
+The main rule i applied here is: no heading should name only the technology unless the section immediately underneath explains the function. So, instead of "Web Application Proxy," the heading becomes "Web Application Proxy as the Perimeter-Facing Gateway to Active Directory Federation Services." That right there tells the reader in advance what it is, where it sits, and why it matters most of all.
+

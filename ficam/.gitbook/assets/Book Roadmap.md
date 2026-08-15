@@ -1,0 +1,3 @@
+My book about offensive and defensive Active Directory covers topics ranging from fundamental AD structures to advanced persistent threats and modern hybrid cloud environments. Chapter topics are organized logically, moving from an introduction to the core concepts, through offensive techniques, and culminating in defensive strategies and future trends.
+
+Further, this book covers the foundational knowledge for beginners while progressing to advanced up-to-date techniques. The chapter topics are structured around the attack lifecycle and corresponding defense in depth strategies.

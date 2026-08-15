@@ -1,0 +1,513 @@
+MASTER EVERYTHING Table of Contents
+
+FRONT MATTER
+
+Foreword
+Preface
+Acknowledgments
+About the Author
+Technical Reviewers
+How to Use This Handbook
+Federal Disclaimer and Ethical Use Statement
+Abbreviations and Acronyms
+Glossary of Federal, DoD, ICAM, and Active Directory Terms
+
+===
+
+PART I - WHY FEDERAL ACTIVE DIRECTORY IS DIFFERENT
+
+Chapter 1
+The Case for a Federal Active Directory FICAM Handbook
+
+1.1 Why Commercial Active Directory (AD) Is Not Enough
+1.2 Federal Enterprise Identity as Mission-Critical Infrastructure
+1.3 Traditional Identity Access Management (IAM) vs. Federal ICAM vs. FICAM
+1.4 Active Directory as the Operational Core of Federal Identity
+1.5 Mission Risk, Authorization, and Adversary Risk
+1.6 How Attackers Exploit Identity-Centric Federal Environments
+1.7 How Enterprise Defenders Translate Active Directory Infrastructure Risk Into RMF, POA&M, and Mission Language
+1.8 Intended Audience: Newcomers, Operators, Ethical Hackers, Engineers, Assessors, and Red Teams
+1.9 Book Methodology: Offensive Tradecraft, Defensive Security Engineering, and Federal Compliance
+1.10 Case Study: When a Domain Compromise Becomes a Mission Assurance Problem
+
+Chapter 2
+Federal Cybersecurity Governance and Authority
+2.1 FISMA and Federal Information System Security Requirements
+2.2 DoD Cybersecurity Policy and Mission Assurance
+2.3 NISP SP 800-53: Security and Privacy Controls
+2.4 NIST SP 800-37 and the Risk Management Framework (RMF)
+2.5 NIST SP 800-63: Digital Identity Guidance
+2.6 Office of Management and Budget (OMB) Identity and Zero Trust Directives
+2.7 CNSSI and National Security Systems (NSS)
+2.8 FedRAMP and Cloud Authorization Boundaries
+2.9 Cybersecurity Mature Modernization Certification (CMMC) and Defense Industrial Base (DIB)Requirements
+2.10 DoD CIO, DISA, JFHQ-DODIN, USCYBERCOM, and Command Component Roles
+2.11 Case Study: Translating an Active Directory Weakness Into Federal Control Impact
+
+Chapter 3
+Risk Management Framework (RMF) for Department of Defense (DoD) Active Directory and FICAM Systems
+3.1 RMF Step 1: Categorize the AD-Integrated Information System
+3.2 RMF Step 2: Select Controls for Identity and Directory Services
+3.3 RMF Step 3: Implement Active Directory (AD) Security Controls
+3.4 RMF Step 4: Assess Active Directory Control Effectiveness
+3.5 RMF Step 5: System Authorization Process
+3.6 RMF Step 6: Continuous Monitoring (ConMon)
+3.7 Control Inheritance in Federal Enterprise Active Directory
+3.8 Common Control Criteria (CCC), Hybrid Controls, and System-Specific Controls
+3.9 Security Control Assessor Expectations
+3.10 Authorization Boundary Challenges with Shared Active Directory Forests
+3.11 Plan of Action and Milestone (POA&M) Creation for Active Directory Vulnerability and Risk Tracking and Accountability
+3.12 Risk Acceptance, Risk Transference, and Mission-Owner Decisions
+3.13 Case Study: Kerberos Misconfiguration as an RMF Category I Finding
+
+Chapter 4
+STIGs, SRGs, CAT Vulnerability Findings, and Federal Secure Configuration Enforcement
+4.1 DISA Security Technical Implementation Guide (STIG) and Security Requirements Guides (SRGs)
+4.2 Windows Server Operating System STIGs for Active Directory Domain Controllers
+4.3 Active Directory Domain STIG Concepts and Hardening Procedures
+4.4 Microsoft Defender, Windows Host Firewall, and Endpoint STIG Alignment
+4.5 CAT I, CAT II, and CAT III Findings
+4.6 Open Findings, Not Reviewed Findings, Not Applicable Findings Defined
+4.7 Vulnerability Discussion, Check Text, Fix Text, Evidence, and Artifacts
+4.8 STIG Viewer, XCCDF, CKL Files and Security Vulnerability Scanning Automation
+4.9 Gold Disk, SCC, ACAS, SCAP, and Automated Compliance Validation
+4.10 Assured Compliance Assessment Solution (ACAS), Nessus, and Vulnerability Evidence Correlation
+4.11 STIG Findings vs. Operational Risk
+4.12 Case Study: CAT I Domain Controller Finding and Mission Impact
+
+Chapter 5
+CCRI, CORA, CSSP, and Operational Readiness Assessments
+5.1 From Compliance Inspection to Operational Readiness
+5.2 Command Cyber Readiness Inspection Concepts
+5.3 Cyber Operational Readiness Inspection Concepts
+5.4 CSSP Visibility into Active Directory Security Events
+5.5 Department of Defense Information Network (DoDIN) Operations and Defensive Enterprise Cyber Operations
+5.6 Boundary and Perimeter Defense, Endpoint Defense, and Identity Defense
+5.7 Active Directory Evidence Packages for Readiness Reviews
+5.8 Vulnerability Aging, Service Level Agreement (SLA) Tracking, and Remediation Timelines
+5.9 Chain of Command Enterprise Reporting to Leadership
+5.10 Common Active Directory Findings in Federal Security Assessments
+5.11 Case Study: Preparing an Active Directory Forest for CORA Security Inspection and Command Readiness Engagements
+
+Chapter 6
+eMASS, Certification & Accreditation Packages (CAPs), and Active Directory Vulnerability Evidence Management
+6.1 Enterprise Mission Assurance Security System (eMASS) System Records and Authorization Boundaries
+6.2 System Security Plan (SSP) for Federal Active Directory-Integrated Information Systems
+6.3 Control Implementation Statements for Identity Security Controls
+6.4 Artifacts, Evidence, and Assessment Procedures
+6.5 POA&M Management for Active Directory Remediation Compliance
+6.6 Continuous Monitoring Submissions
+6.7 Inherited Controls from Enterprise Active Directory
+6.8 Documenting Trust Relationships and Privileged Access
+6.9 Mapping STIG, ACAS, Audit, and Manual Findings
+6.10 Case Study: Writing eMASS Evidence for Kerberos Authentication Protocol Hardening
+
+===
+
+PART II - NETWORK, WINDOWS, AND IDENTITY FOUNDATIONS
+Chapter 7
+TCP/IP and Enterprise Network Fundamentals for Active Directory Security
+7.1 OSI and TCP/IP Security Models for Security Engineers
+7.2 IPv4, IPv6, Subnetting, and Domain Network Routing
+7.3 TCP, UDP, ICMP, and Common Active Directory Ports, Protocols, and Services (PPS)
+7.4 DNS, DHCP, NTP, SMB, RPC, LDAP, NTP, and Kerberos Network Traffic
+7.5 Virtual Local Area Networks (VLANs), Network Segmentation, Enclaves, and Security Zones
+7.6 Firewalls, ACLs, and East-West Traffic Control
+7.7 VPN, Remote Access, and Privileged Access Paths
+7.8 Packet Capture Basics for Active Directory Authentication Troubleshooting
+7.9 Case Study: Firewall Rules Breaking Kerberos and Domain Replication
+
+
+
+===
+
+FILLER
+PART I - FOUNDATIONS OF FEDERAL CYBERSECURITY, IDENTITY, AND ACTIVE DIRECTORY (AD)
+
+FILLER CHAPTER
+The Evolution of Enterprise Identity and Access Management (IAM)
+* History of Directory Services
+* Novell eDirectory
+* LDAP Directories
+* Microsoft Active Directory
+* Cloud Identity Platforms
+* Hybrid Identity Architecture
+* Zero Trust Evolution
+* Why Identity Became the New Security Perimeter
+
+CHAPTER 2
+Federal Cybersecurity Governance and Regulatory Frameworks
+* FISMA
+* NIST Cybersecurity Framework (NIST CSF)
+* NIST SP 800-53
+* NIST SP 800-63
+* NIST SP800-171
+* NISTSP800-37, Revision 2: Risk Management Framework (RMF)
+* FedRAMP
+* DoD CMMC
+* CNSSI Guidance
+* Executive Orders (EOs) Affecting Federal Cybersecurity
+* Continuous Logging and Monitoring Requirements and What This Means for Enterprise Defenders
+
+CHAPTER 3
+Federal Identity, Credential, and Access Management (FICAM)
+* ICAM vs. IAM
+* Federal ICAM Architecture
+* Identity Governance
+* Active Directory Federation Services (AD FS)
+* PIV, PKI, and CACs
+* CAC Authentication
+* Derived Credentials
+* Identity Assurance Levels
+* Authentication Assurance Levels
+* Federation Assurance Levels
+* Trust Frameworks
+* Shared Services
+
+CHAPTER 4
+Networking Fundamentals for Active Directory Security Professionals
+* TCP/IP Architecture
+* IPv4 and IPv6
+* Routing Fundamentals
+* Switching Fundamentals
+* VLANs - Virtual Local Area Networks
+* DHCP - Dynamic Host Configuration Protocol
+* DNS - Domain Name Service
+* NAT - Network Address Translation
+* VPN (Virtual Private Network) and Remote Access Technologies
+* Firewalls and IDS/IPS
+* Network Isolation and Segmentation
+* Enterprise Active Directory Network Architecture
+* Active Directory (AD) Supporting Network Protocols
+	* Server Message Block (SMB)
+	* Remote Procedure Call (RPC)
+	* Lightweight Directory Access Protocol (LDAP)
+	* New Technology LAN Manager (NTLM)
+	* Kerberos Version 5
+	* MS-ESRS
+	* LLMNR / NBT-NS
+
+CHAPTER 5
+Windows Security Fundamentals
+* Windows Architecture
+* Security Principals
+* Access Tokens
+* Security Identifiers (SIDs)
+* Access Control Entries (ACEs) / Access Control Lists (ACLs)
+* New Technology (NTFS) Permissions
+* User Rights Assignment
+* Authentication Mechanisms
+* Event Logging
+* Credential Storage
+
+===
+
+PART II - ACTIVE DIRECTORY (AD) ARCHITECTURE AND ENTERPRISE DESIGN
+
+Chapter 6
+Active Directory (AD) Domain and Network Deep Dive
+* Active Directory Domain Services (AD DS) Overview
+* Active Directory Certificate Services (AD CS) Overview
+* Active Directory Federation Services (AD FS) Overview
+* Lightweight Directory Access Protocol (LDAP) Architecture
+* Directory Partitions
+* Naming Contexts
+* Replication Model
+* Domain Controllers (DCs)
+* Global Catalog Servers (GCSs)
+* Flexible Single Master Operations (FSMO) Roles and Responsibilities
+
+Chapter 7
+Active Directory: Objects and Components
+* Users
+* Groups
+* Computers
+* Service Accounts
+* Organizational Units (OUs)
+* Group Policy Object (GPO) and Security Enforcement
+* Service Tickets (TGT / TGS)
+* Private Attribute Certificate (PAC) Validation
+* Domain and Forest Trust Relationships
+* Authentication Flows
+* Hybrid Authentication
+
+Chapter 9
+Active Directory Federation Services (AD FS) and Enterprise Federation
+* Active Directory Federation Services (AD FS) Architecture
+* Claims-Based Authentication
+* SAML 2.0
+* OAuth
+* OpenID Connect
+* WS-Federation
+* Enterprise Federation Models
+* Federal Federation Requirements
+
+Chapter 10
+Active Directory Certificate Services (AD CS)
+* Public Key Infrastructure (PKI) Fundamentals
+* Certificate Authorities (CAs)
+* Enterprise PKI
+* Smart Card Authentication
+* Certificate Templates
+* Web Auto Enrollment
+* Cross-Forest PKI
+
+===
+
+PART III - ETHICAL HACKING METHODOLOGY FOR ENTERPRISE ASSESSMENTS
+
+Chapter 11
+Enterprise Penetration Testing Methodology
+* Rules of Engagement (ROE)
+* Scoping
+* Threat Hunting and Threat Modeling
+* Attack Surface Analysis
+* Documentation, Note-Taking, and Reporting Requirements
+* Remediation Validation
+
+Chapter 12
+Red Team Operations in Federal Environments
+* Red Team Objectives
+* Purple Team Objectives
+* Adversary Emulation
+* Threat Intelligence Integration
+* MITRE ATT&CK Framework Mappings
+* Operational Security (OPSEC)
+
+Chapter 13
+Active Directory (AD) Security Assessment (ADSA) Methodology
+
+===
+
+PART IV - ACTIVE DIRECTORY RECONNAISSANCE AND ENUMERATION
+
+Chapter 14
+Active Directory Host and Asset Discovery
+* LDAP Enumeration
+* DNS Enumeration
+* Domain and Subdomain Enumeration
+* Trust Enumeration
+* User Enumeration
+* Group Enumeration
+
+Chapter 15
+Attack Path Discovery
+* BloodHound
+* Attack Graph Analysis
+* Privilege Relationships
+* Delegation Mapping
+* Administrative Tier Mapping
+
+Chapter 16
+PowerShell for Active Directory (AD) Enumeration
+* PowerView
+* Native AD Modules
+* LDAP Queries
+* ADSI
+* Windows Management Instrumentation (WMI)
+* Automation Techniques
+
+Chapter 17
+Credential Exposure and Discovery
+* Password Policies
+* Service Accounts
+* Local Administrator Password Solution (LAPS)
+* Cached Credentials
+* Sensitive Attributes
+* Credential Hygiene
+
+
+missing stig, ccri/cora, gold disk, poa&m, cap
+
+Chapter 18
+Credential Access Techniques
+* Password Spraying
+* Kerberoasting
+* AS-REP Roasting
+* Credential Harvesting
+* Token Theft
+* Authentication Abuse
+
+Chapter 19
+Privilege Escalation in Active Directory
+* Delegation Abuse
+* ACE / ACL Abuse
+* Group Membership Abuse
+* Group Policy Object (GPO) Manipulation and Abuse
+* Service Misconfigurations
+
+Chapter 20
+Active Directory Certificate Services (AD CS) Abuse
+* Certificate Template Abuse (ESC1-ESC15)
+	* ESC Attack Paths
+* PKI Trust Abuse
+* Certificate-Based Persistence
+* Detection Strategies
+
+Chapter 21
+Active Directory Federation Service (AD FS) Attacks
+* Golden SAML
+* Token Forgery Concepts
+* Federation Trust Abuse
+* Cloud Pivoting
+* Defensive Considerations
+
+Chapter 22
+Replication Abuse and Directory Services Attacks
+* DCSync
+* DCShadow
+* Replication Rights Abuse
+* Metadata Manipulation
+* Detection Considerations
+
+Chapter 23
+Persistence Mechanisms in Active Directory
+* AdminSDHolder
+* sIDHistory Abuse
+* Skeleton Keys
+* Malicious GPOs
+* Rogue Certificates and CAs
+* Trust Manipulation
+
+Chapter 24
+Lateral Movement Across Federal Enterprise Domains
+* Administrative Shares
+* Remote Management
+* Delegated Administration
+* Trust Traversal
+* Multi-Forest Operations
+
+===
+
+PART VI - DEFENSIVE ACTIVE DIRECTORY SECURITY OPERATIONS
+
+Chapter 25
+Active Directory Hardening
+* Secure Forest Design
+* Tiered Administration
+* Protected Users Group
+* Authentication Policies
+* PAWs & SAWs
+* Security Baselines
+
+Chapter 26
+Securing Active Directory Certificate Services (AD CS)
+* Template Governance
+* PKI Monitoring
+* Certificate Lifecycle Management
+* Trust Protection
+
+Chapter 27
+Securing Active Directory Federation Services (AD FS) Identity Systems
+* Federation Hardening
+* Certificate Protection
+* Monitoring Trust Relationships
+* Hybrid Identity Defense
+
+Chapter 28
+Group Policy Security Engineering
+* Secure GPO Design
+* Administrative Controls
+* Change Management
+* GPO Monitoring
+
+Chapter 29
+Administrative Tiering and Privileged Access Security
+* ESAE Concepts
+* PAWs
+* JIT Administration
+* Just-Enough-Administration (JEA)
+* Privileged Identity Management
+
+===
+
+PART VII - DETECTION ENGINEERING, THREAT HUNTING, AND INCIDENT RESPONSE (IR)
+
+Chapter 30
+Active Directory Logging and Auditing
+* Windows Event Logging
+* Advanced Auditing
+* LDAP Logging
+* Kerberos Logging
+* Replication Logging
+
+Chapter 31
+SIEM Integration and Security Monitoring
+* Microsoft Sentinel
+* Splunk
+* Elastic
+* QRadar
+* Log Aggregation and Correlation
+
+Chapter 32
+Threat Hunting in Active Directory
+* Hunting Methodologies
+* Kerberos Abuse Detection
+* Replication Abuse Detection
+* Certificate Abuse Detection
+* Trust Abuse Detection
+
+Chapter 33
+Incident Response (IR) for Active Directory Compromise
+* Domain Controller (DC) Compromise
+* Credential Theft Response
+* Forest Recovery Planning
+* Containment Strategies
+
+Chapter 34
+Active Directory Forensics
+* Memory Analysis
+* Authentication Artifacts
+* NTDS Analysis
+* Event Reconstruction
+
+===
+
+PART VIII - Resilience, Recovery, and Future Architectures
+
+Chapter 35
+Active Directory Domain Backup and Recovery
+* System State Backups
+* Authoritative Restores
+* Non-Authoritative Restores
+* Forest Recovery
+
+Chapter 36
+Active Directory Disaster Recovery (AD DR)
+* Recovery Planning
+* Continuity of Operations (COOP)
+* Multi-Site Recovery
+* Replication Recovery
+* Ransomware Recovery
+
+Chapter 37
+Hybrid Identity and Cloud Integration
+* Microsoft Entra ID
+* Entra Connect
+* Cloud Kerberos Trust
+* Hybrid Federation
+
+Chapter 38
+Zero Trust for Active Directory Environments
+* Identity-Centric Security
+* Continuous Verification
+* Conditional Access
+* Adaptive Authentication
+
+Chapter 39
+Future of Federal Identity, Credential, and Access Management (FICAM) Active Directory Domains and Networks
+
+
+26.1 Building a Federal-Style Active Directory Lab
+26.2 Creating Multiple Domains and Forests
+26.3 Simulating CAC/PIV and PKI
+26.4 Adding Active Directory Federation Services (AD FS) and Hybrid Identity Components
+26.5 Creating Secure Technical Implementation Guides (STIGs) and Non-STIG'd Baselines
+26.6 Building Attack Pathways Safely
+26.7 Adding Security Information and Event Management (SIEM) and Endpoint Detection and Response (EDR) Telemetry
+26.8 Case study: Lab Validation Before Production Assessment
+
+25.10
+Case Study: Building an Active Directory Assessment Package for Leadership Review
+25.9 Remediation Roadmap
+25.8 Executive and Technical Reporting

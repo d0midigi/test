@@ -1,0 +1,65 @@
+AD CS Certificate Template Key Length Less Than 2048 Bits
+
+Risk Summary
+A threat actor can exploit weak or vulnerable certificates by abusing inherent weaknesses such as poor random number generation, small key size, and susceptibility to side-channel attacks. Certificates issued from a template with a key length of less than 2048 bits are significantly easier to break or forge, enabling impersonation and unauthorized access. Replacing vulnerable keys with stronger algorithms and key sizes reduces this risk and aligns with modern cryptographic standards. 
+
+Severity: High 
+
+Platform: Active Directory
+
+Category: Certificate Services (ADCS), Infrastructure 
+
+MITRE ATT&CK Tactics: Privilege Escalation
+
+MITRE D3FEND Tactics: Credential Hardening 
+
+Description
+A threat actor can exploit weak or vulnerable certificates by abusing several inherent weaknesses, particularly random number generation, key size, and susceptibility to side-channel attacks. Replacing vulnerable keys with more modern and secure cryptographic algorithms mitigates these risks. To secure the environment, it is essential to phase out weak certificates, revoke any currently issued weak certificates, and replace them with certificates using stronger algorithms and key sizes. 
+
+Real-World Scenario
+An attacker gains a low-privileged account in the domain and discovers an ADCS certificate template that issues certificates with a 1024-bit RSA key. The attacker enrolls a certificate from this template for a service or user that has elevated access and captures the issued certificate for offline analysis. Using cloud resources or specialized hardware, the attacker focuses on the weaker 1024-bit key to derive or otherwise compromise the private key, then uses the resulting certificate to impersonate the privileged user or system. Because the attacker uses standard certificate enrollment flows and valid ADCS infrastructure, the activity appears similar to normal PKI operations and avoids obvious detection. SIEMs must be configured with threat definitions that detect certificate templates with key lengths below 2048 bits so administrators can remediate the weakness before an attacker can exploit it. 
+
+Remediation Steps
+Follow these steps to remove the vulnerability:
+
+) To open the Certificate Templetes console:
+) Press Win + R.
+) Type certtmpl.msc.
+) Press Enter.
+) Right-click the existing template.
+) Select Duplicate Template.
+) Choose Windows Server 2008 or later.
+) Click OK.
+) In the Properties of the new template, navigate to the Cryptography tab.
+) Set Minimum Key Size to 2048 or higher.
+) Update other settings as needed.
+) Click OK.
+) To publish the templeate, open the Certification Authority Console (certsrv.msc).
+) Right-click Certificate Templates.
+) Select New > Certificate Template to Issue.
+) Choose the new template.
+) Retire the old template if no longer needed.
+
+How to Prevent It
+Standardize on 2048-bit or higher key lengths for all ADCS certificate templates, or stronger according to current cryptographic guidance. 
+
+Periodically review ADCS templates to ensure no new templates are created with key sizes below the approved baseline.
+ 
+Use detection and monitoring tools to continuously monitor ADCS templates and trigger alerts whenever a certificate template has a key length of less than 2048 bits. 
+
+Implement a formal PKI governance process so new templates and changes to existing templates are reviewed and approved by security and PKI owners. 
+
+Revoke or phase out certificates that were issued using weak templates and reissue them using hardened templates. 
+
+FAQ
+Why is a certificate template with a key length of less than 2048 bits considered high risk?
+
+How could an attacker abuse a certificate template with less then 2048 bit encryption?
+
+How does Cayosoft Guardian identify certificate templates with weak key lengths?
+
+How does Cayosoft Guardian help prevent certificate-based privilege escalation?
+
+Final Thought
+Proactive monitoring and timely remediation of configuration risks is essential to maintaining a secure Active Directory and Microsoft 365 environment. By addressing issues like The certificate template has a key length of less than 2048 bits, you reduce attack surfaces and strengthen your organization’s overall security posture. 
+

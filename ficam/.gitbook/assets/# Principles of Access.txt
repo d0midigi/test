@@ -1,0 +1,59 @@
+# Principles of Access
+
+There is always someone with legitimate access and a means to use it.
+
+The first principle of access is the attacker's comfort level. As Duggan and Parks wrote almost 15 years ago, the virtual world is "built and controlled by humans and their tools." No matter the security in place, some person has access to whatever the attacker is after. The attacker's goal is to find a method to subvert and assume the identity of a legitimate user or software agent with such access.
+
+This may be difficult, though not impossible.
+
+If this were a movie, then gaining access to a high-value computer network would require an elaborate disguise, retina-altering contact lenses, and a set of cable to suspend the intruder about the pressure-sensitive floor (Okay, did anyone else think about how the CIA could have saved millions of dollars on biometric locks and pressure-sensitive flooring by hooking up a $100 motion detector to a $5 air horn? I digress). Outside of Hollywood theatrics, impersonating a legitimate user is much less elaborate.
+
+The approach the attacker takes to gain initial access depends on the type of connectivity the target network offers. there are four basic types of connectivity: inbound access, outbound access, both, and neither. Each type presents a different et of challenge to overcome.
+
+# Inbound Access
+
+A network that enables inbound access means that someone from outside the network can initiate a connection into the network as shown below in Figure X.
+
+Inbound access can be open to everyone, technically, like a public website, or restricted. When restricted, access is controlled by one or more of the following: something one knows, something one has, or the virtual location.
+
+The "know" part is typically a password; though it may also be a VPN key, a picture selection or a specific mouse movement among other things. The user connects, is prompted to enter a domain password or perform some kind of authentication challenge, and access is either granted, or it is not.
+
+The "have" part is a physical item, such as  secure key fob or a cell phone. The user confirms possession of the item by sending information that only the item's possessor could have, such as a random confirmation code sent via  text message to the phone.
+
+The "virtual location" of access control limits connections to those originating from specifically allowed network ranges or addresses. Unless the user initiates the connection from a specific point, the connection will be denied. This method of access control is meant to limit the avenues of attack.
+
+Each of these forms of access control is subject to attack. Passwords, over any form of knowledge, can be brute0forced, guessed, and stolen. Hardware tokens can be stolen or reverse engineered. The latter was done in March 2011, when someone hacked RSA, the provider of SecureID tokens for two-factor authentication (2FA), and then used this information to break into several U.S. defense contractors.
+
+Cell phones can be stolen or infected with malware. A malicious program for smart phones dubbed Zeus-in-the-Middle, or ZitMo, intercepts banking codes known as mobile Transaction Authentication Numbers (mTANs) and forwards them to the attacker. This allows the attacker to gain the access necessary to initiate banking transactions without physical access to the victim's phone.
+
+Finally, controlling by virtual location just moves the line of defense one hop out. Defense becomes as effective as that next network. When attackers learn the allowed points of origin, they will gain access by compromising those networks first.
+
+The previous attack methods work by impersonating legitimate access. There are also methods of gaining illegitimate access. the attacker may circumvent all access control by exploiting an exposed software service. This is done by taking advantage of a logic or programming flaw in a software program that is accessible to outsiders. The famed Morris Worm, which allegedly took down some 10 percent of the Internet in 1988, spread by this very method.
+
+Illegitimate access can also be gained by escalating privileges. This means the attacker leverages regular user-level access, such as that provided by Facebook, Netflix, or thousands of other companies, to gain more access or gather more information than the company intended to disclose. The social media texting and photo-sharing application Snapchat fell victim to this kind of attack when someone managed to leverage a regular user account to gather the account information of millions of other platform users.
+
+In short, allowing any kind of inbound access completely increases the target' susceptibility. In addition, attackers can be waged on the attacker's exact timeframe. Most inbound access is open 24 hours per day, 7 days a week, 365 days out of a year. Th attacker can hammer away at finding inbound flaws around the clock.
+
+Yet there are no easy answers. Denying all access may deny a legitimate company's employees the flexibility from working from home. It may stop a headquarters IT person from fixing issues in a satellite office. It may prevent communication with vendors or external customers. In some cases, like the aforementioned Snapchat, having users that can access all inbound services what makes the business a business.
+
+Denying all inbound access is simply not realistic. The attacker also knows this and will look for ways to impersonate legitimate access or grant themselves illegitimate access. Either way, if they're driven and motivated enough, they'll find a way in, and you must prevent that from becoming a reality.
+
+# Outbound Access
+
+A network that allows outbound access means that someone from inside the network ca initiate a connection to some destination outside of the network as shown in Figure X below. If someone can browse the web, then the network allow outbound access; however, with constraints applied.
+
+IMAGE
+
+So how does the attacker go after a network when there is nothing accessible from the outside to attack? Simple. They get the user to do something that  connects out to them. This often beings with an enticing email, or luring advertisement.
+
+## Phishing Attacks
+
+Email is a common approach to attacking a network with outbound connectivity. There are three basic approaches to an email phishing attack: attachments, attacking the email client, and malicious links embedded in the email itself.
+
+The first generation of malicious email attachments was to attach an executable program to an email and ask the user to execute - simple, direct, and for a long time, effective. That attached program might pretend to do something useful such as play a video or extract compressed files or it may appear to do nothing at all, but in he background, it would silently install an agent to grant outbound access to the attacker's rig. This blatant approach still works now and again, but automatic filtering ad more user awareness has cut down i=on its effectiveness.
+
+The second generation of email attachments were not programs, but documents that contained the ability to run code. Most notably, the Microsoft Office product line offered a "macro" feature by which people could script certain behaviors within a document, such as inserting the current date or restricting a field to numbers only. The macros has few restrictions. They could, for example, access Microsoft Outlook and send a copy of the document to the first 50 email addresses in the address book. This is what the Melissa virus did in 1999 to infect hundreds of thousands of computers. Microsoft has since instituted macro security to prevent this kind of malicious blatant behavior from reoccurring.
+
+The third generation of email attachments were programs again, but they didn't seem to be programs. Files with esoteric extensions such as `.chm,` or `.hta` would slip through the email filters to be run by users. The so-called iLOVEYOU virus spread as `LOVE-LETTER-FOR-YOU.txt.vbs,` and Microsoft Windows by default would helpfully hide (or strip the extension from view) the `.vbs` part of the file and make it look like a harmless text file. Email filters have since been updated to catch most of these though occasionally something slips through the cracks.
+
+The final and current generation of email attachments takes advantage of the programs that open them. These attachments are Microsoft Word documents (`.doc`), Excel spreadsheets (`.xls`), Adobe PDFs (`.pdf`), compressed files (`.zip`)

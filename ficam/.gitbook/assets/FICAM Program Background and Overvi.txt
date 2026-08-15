@@ -1,0 +1,27 @@
+FICAM Program Background and Overview
+
+Background
+
+1) The FICAM application, established in 2023, is the replacement for the previously utilized Trusted Associate Sponsorship System, or TASS.
+
+2) The FICAM application is a DoD initiative developed to implement Homeland Security Presidential Directive-12 (HSPD-12) requirement to create a standard form of identification for eliginble federal personnel, federal contractors, military members (both active and retired). Under this program, personnel requiring physical access to DoD installations or facilities or logical access to DoD computer networks to perform their assigned duties may be issued a CAC. The CAC serves as both a 'standard form of identification' for personnel and provides a means of accessing a secure network.
+
+3) To be issued a CAC, DoD policy requires that an appropriate authorizing official within the DoD sponsor each individual and approve issuance of the CAC to him/her following a routine federal background investigation.
+
+FICAM: Behind the Scenes
+
+FICAM is a secure, web-based application hosted on a Defense Manpower Data Center (DMDC) server that allows for updating the Defense Enrollment Eligibility Reporting System (DEERS) with DoD or other supporting agency personal data.
+
+FICAM updates the DEERS Person Data Repository (PDR) with personnel data and uses the DEERS Enterprise Monitoring and Management of Accounts (EMMA) website to authenticate the validity of designated and certified program managers within the FICAM system.
+
+It is necessary for an organization to obtain a Site ID and identify a Service or Agency Point of Contact to participate. For the purposes of FICAM program implementation and operation within the WMD, a single Site ID (175173) exists for the entire organization, and it applies to any eligible personnel supporting WMD activities, statewide.
+
+Roles and Responsibilities
+
+This section lists each of the roles within FICAM. To manage the phases of the FICAM process within the organization, three FICAM user roles exist:
+
+1) Service or Agency Point of Contact
+2) Mission Partner Affiliation Sponsor Manager (MPASM)
+3) Mission Partner Affiliation Sponsor (MPAS)
+
+The FICAM SPOC, MPASM, or MPAS must fulfill the responsibilities and comply with the position requirements listed for their role or the FICAM role may be revoked. 

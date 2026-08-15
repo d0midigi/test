@@ -1,0 +1,172 @@
+border: 1px solid #32a;
+  background: rgba(from var(--clr-secondary) r g b / .1);
+  border-radius: 5px;
+  height: 50vh;
+  display: grid;
+  place-content: center;
+  font-size: 16px;
+  font-weight: 200; 
+
+
+
+<nav>
+  <ul>
+    <li>
+      <a href="#section-1">A Attacks</a>
+
+      <ul class="sub-menu">
+        <li><a href="#section-1-1">section 1.1</a></li>
+        <li><a href="#section-1-2">section 1.2</a></li>
+        <li><a href="#section-1-3">section 1.3</a></li>
+        <li><a href="#section-1-4">section 1.4</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#section-2">section 2</a></li>
+    <li><a href="#section-3">section 3</a></li>
+    <li><a href="#section-4">section 4</a></li>
+    <li><a href="#section-5">section 5</a></li>
+    <li><a href="#section-6">section 6</a></li>
+    <li><a href="#section-30">Frequently Asked Questions (FAQs)</a></li>
+  </ul>
+</nav>
+<div class="wrapper">
+  <main>
+    <center><h1>Active Directory <code>A-Z Attack & Defense</code> Digital Notebook</h1></center>
+    <div class="intro-box">
+    <h1>Introduction</h1>
+    <p>
+      Mastering Active Directory (AD) security is critical for defending your enterprise not only against identity-based attacks, but also against the other many various forms of attack that plague Active Directory infrastructure on the daily. To protect your infrastructure, this means that security teams and defenders must fully understand and grasp the concepts of continuous logging and monitoring of common threat vectors and exploit pathways that are, oftentimes, hidden and uncovered in over 90% of domain infrastructure worldwide.</p>
+      <p>Select a section to view specific Active Directory vulnerabilities; each section details vulnerability definition, conceptual risks, attacker and defender perspectives, attack (offensive) and defense (defensive) code demonstrations, and remediation steps to aid in preparing the modern-day defender to better thwart and combat against such attacks.</p><ul><li><strong>[A-D] - </strong> Account enumeration, AD CS (Active Directory Certificate Services) abuse, credential dumping, and Domain Controller compromises.</li>
+      <li><strong>[E-H] - </strong> Exploitation of Group Policy Objects (GPOs), Kerberos vulnerabilities, and heuristics misconfigurations.</li>
+      <li><strong>[I-L] - </strong> LDAP injection, Local Administrator Password Solution (LAPS) bypasses, and <code>lsass.exe</code> memory manipulation.</li>
+      <li><strong>[M-P] - </strong> Malicious trusts, <code>NTDS.dit</code> extraction, Pass-the-Hash (PtH), and Privileged Access Management (PAM) failures.</li>
+      <li><strong>[Q-T] - </strong> Kerberoasting, SPN (Service Principal Name) targeting, and Ticket Granting Ticket (TGT) manipulation.</li>
+      <li><strong>[U-Z] - </strong> Unconstrained delegation risks, skeleton keys, and zero-day vulnerabilities targeting identity stores.</li></ul>
+      <p>For in-depth remediation strategies and comprehensive Active Directory (AD) hardening frameworks, consult the <a href="https://www.microsoft.com/security">Microsoft Security Guidance Center</a>.</p>
+    </div>
+ <section id="section-1">section 1</section>
+<section id="section-1-1">section 1.1</section>
+<section id="section-1-2">section 1.2</section>
+<section id="section-1-3">section 1.3</section>
+<section id="section-1-4">section 1.4</section>
+<section id="section-2">section 2</section>
+  <section id="section-3">section 3</section>
+  <section id="section-4">section 4</section>
+  <section id="section-5">section 5</section>
+  <section id="section-6">section 6</section>
+ <section id="section-30">Frequently Asked Questions (FAQs)
+    <!-- Accordion Container -->
+<div class="accordion-container">
+  
+  <!-- Section 1 -->
+  <details>
+    <summary><strong>Q:</strong> What is the goal when a defender puts security controls in place to stop threats before any damage occurs?</summary>
+    <p><strong>A:</strong> The primary goal of putting security controls in place to stop threats before any damage occurs is <strong>prevention</strong>. This proactive approach aims to block, restrict, and eliminate opportunities for a successful attack before an information-system can be compromised.</p><p> This objective is achieved through several core concepts, such as:</p><ul><li><strong>Preventative Controls:</strong> The direct application of technical and physical safeguards (such as firewalls, antivirus software, or encryption) to block malicious network traffic and stop attacks before they happen.</li><li><strong>Defense in Depth:</strong> A strategic security approach that: (1) is designed to prevent a single point of failure; and (2) layers multiple preventative security measures so that if one is bypassed, or fails, others remain in place to stop or slow the threat down.</li>
+    <li>The more overlapping barriers and redundancies you implement, the more roadblocks an attacker faces, severely impeding their progress - forcing them to breach multiple obstacles to succeed, making it much harder for them to penetrate your systems, and reducing their chances of a successful breach.</li><li><strong>Attack Surface Reduction:</strong> Minimizing the vulnerabilities and access points available to an attacker, directly lowering the likelihood of a security breach.</li></ul>
+    <p>To explore how these preventative strategies are practically applied, you can read more about foundational security methods on <a href="https://www.ibm.com/think/topics/security-controls">IBM's Security Controls Overview</a> or have a look into <a href="https://www.fortinet.com/resources/cyberglossary/defense-in-depth">Fortinet's Defense in Depth Guide</a> to better understand multi-layered protection.</p>
+  </details>
+
+  <!-- Section 2 -->
+  <details>
+    <summary><strong>Q:</strong> What are the three types of security policies?</summary>
+    <p><strong>A:</strong> In cybersecurity, information security policies are categorized into three main types based on their scope and focus: <strong>Organizational (Program), Issue-Specific</strong>, and <strong>System-Specific</strong> policies.</p><ul><li><strong> Organizational Policies:</strong> The master blueprint. Created by senior management, this defines the overall goals, risk management strategy, and security framework for the entire company. It sets roles and responsibilities and dictates broad compliance measures.</li><li><strong> Issue-Specific Policies:</strong> Targeted rules for individual topics or specific workplace concerns. Common examples include <a href="https://www.varonis.com/blog/what-is-a-security-policy">Acceptable Use Policies (AUP)</a>, remote access rules, password complexity requirements, and email usage.</li>
+    <li><strong>System-Specific Policies:</strong> The most granular and technical of the three. These detail the exact configurations, access controls, and security procedures for individual IT assets, networks, or servers (such as firewall rules or web server settings).</li></ul>
+  </details>
+
+  <!-- Section 3 -->
+  <details>
+    <summary><strong>Q:</strong> Which standardized framework was developed by NIST to be used as a guidance document designed to help organizations assess and manage risks to their infrastructure?
+</summary>
+    <p><strong>A:</strong> The standardized framework you are looking for is the NIST Cybersecurity Framework (CSF). Originally created in 2014, it is a highly flexible set of guidelines and best practices designed to help organizations of all sizes and industries assess, understand, and manage cybersecurity risks.</p>
+    <p>Depending on the specific type of risk management you are referencing, NIST offers two primary standardized frameworks:</p><p><strong>1. The NIST Cybersecurity Framework (CSF)</strong></p>
+    <p>The CSF provides a high-level taxonomy of cybersecurity outcomes. It is highly regarded as a comprehensive roadmap that organizations use to integrate and improve their cybersecurity posture. It is organized around core functions:</p><ul><li><strong>Govern (New in CSF 2.0)</strong></li>
+<li><strong>Identify</strong></li>
+<li><strong>Protect</strong></li>
+<li><strong>Detect</strong></li>
+<li><strong>Respond</strong></li>
+<li><strong>Recover</strong></li>
+    </ul>
+    <p>You can explore the full guidelines and resources on the <a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework</a> portal.</p>
+    <p><strong>2. The Risk Management Framework (RMF)</strong></p><p>If your focus is heavily on federal guidelines or a deeper, step-by-step process for integrating security controls into information systems, NIST developed the <strong>Risk Management Framework (RMF)</strong> (outlined in NIST SP 800-37).</p><ul><li><strong>Focus:</strong> Categorizing systems, selecting security controls (like those found in NIST SP 800-53), implementing them, and authorizing the system.</li><li><strong>Resource:</strong> You can read more about it via the <a href="https://www.nist.gov/risk-management">NIST Risk Management</a> overview.</li></ul>
+  </details>
+  
+  <!-- Section 4 -->
+  <details>
+    <summary><strong>Q:</strong> What are four examples of security control types?
+</summary>
+    <p><strong>A:</strong> Security controls are safeguards implemented to protect assets, systems, and data from threats and vulnerabilities. When discussing them based on their function or objective, the four primary types are:</p>
+    <ul><li><strong>Preventive:</strong>Proactive measures designed to stop an incident or breach before it happens (e.g., Firewalls, Multi-Factor Authentication, security guards).</li>
+      <li><strong>Detective:</strong> Systems and processes used to identify and alert you to ongoing or unauthorized activities. (e.g., Intrusion Detection Systems (IDS), security cameras, log monitoring).</li>
+      <li><strong>Corrective:</strong> Actions taken to repair damage, restore systems to normal, and mitigate the impact after a security incident occurs. (e.g., Data backups, incident response plans).</li>
+      <li><strong>Deterrent:</strong> Measures deployed to discourage potential attackers from attempting a breach by making the target appear too difficult or risky. (e.g., Warning signs, fences, visible alarm systems).</li></ul>
+    <p>You can explore the full guidelines and resources on the <a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework</a> portal.</p>
+    <p><strong>Implementation Categories</strong></p><p>These four functional types are typically achieved through three primary categories of implementation:
+    </p><ul><li><strong>Physical Controls:</strong> Tangible barriers and mechanisms (e.g., locks, biometric scanners, facility gates).</li>
+    <li><strong>Technical Controls:</strong> Hardware and software-based solutions (e.g., encryption, antivirus software, access control lists).</li>
+    <li><strong>Administrative Controls:</strong> Policies, procedures, and guidelines dictated by management (e.g., security awareness training, hiring policies).</li></ul>
+    <p>For a deeper look into how these fit into broader frameworks, you can explore the <a href="https://drata.com/learn/risk/security-controls">Drata Security Controls Breakdown</a> or the <a href="https://www.scrut.io/post/security-controls-types-functions-and-best-practices">Scrut Security Controls Guide.</a></p>
+  </details>
+
+</div>
+
+    
+    </section>
+  </main>
+</div>
+
+<section id="section-30"><h2>Frequently Asked Questions (FAQs)</h2>
+    <!-- Accordion Container -->
+<div class="accordion-container">
+  
+  <!-- Section 1 -->
+  <details>
+    <summary><strong>Q:</strong> What is the goal when a defender puts security controls in place to stop threats before any damage occurs?</summary>
+    <p><strong>A:</strong> The primary goal of putting security controls in place to stop threats before any damage occurs is <strong>prevention</strong>. This proactive approach aims to block, restrict, and eliminate opportunities for a successful attack before an information-system can be compromised.</p><p> This objective is achieved through several core concepts, such as:</p><ul><li><strong>Preventative Controls:</strong> The direct application of technical and physical safeguards (such as firewalls, antivirus software, or encryption) to block malicious network traffic and stop attacks before they happen.</li><li><strong>Defense in Depth:</strong> A strategic security approach that: (1) is designed to prevent a single point of failure; and (2) layers multiple preventative security measures so that if one is bypassed, or fails, others remain in place to stop or slow the threat down.</li>
+    <li>The more overlapping barriers and redundancies you implement, the more roadblocks an attacker faces, severely impeding their progress - forcing them to breach multiple obstacles to succeed, making it much harder for them to penetrate your systems, and reducing their chances of a successful breach.</li><li><strong>Attack Surface Reduction:</strong> Minimizing the vulnerabilities and access points available to an attacker, directly lowering the likelihood of a security breach.</li></ul>
+    <p>To explore how these preventative strategies are practically applied, you can read more about foundational security methods on <a href="https://www.ibm.com/think/topics/security-controls">IBM's Security Controls Overview</a> or have a look into <a href="https://www.fortinet.com/resources/cyberglossary/defense-in-depth">Fortinet's Defense in Depth Guide</a> to better understand multi-layered protection.</p>
+  </details>
+
+  <!-- Section 2 -->
+  <details>
+    <summary><strong>Q:</strong> What are the three types of security policies?</summary>
+    <p><strong>A:</strong> In cybersecurity, information security policies are categorized into three main types based on their scope and focus: <strong>Organizational (Program), Issue-Specific</strong>, and <strong>System-Specific</strong> policies.</p><ul><li><strong> Organizational Policies:</strong> The master blueprint. Created by senior management, this defines the overall goals, risk management strategy, and security framework for the entire company. It sets roles and responsibilities and dictates broad compliance measures.</li><li><strong> Issue-Specific Policies:</strong> Targeted rules for individual topics or specific workplace concerns. Common examples include <a href="https://www.varonis.com/blog/what-is-a-security-policy">Acceptable Use Policies (AUP)</a>, remote access rules, password complexity requirements, and email usage.</li>
+    <li><strong>System-Specific Policies:</strong> The most granular and technical of the three. These detail the exact configurations, access controls, and security procedures for individual IT assets, networks, or servers (such as firewall rules or web server settings).</li></ul>
+  </details>
+
+  <!-- Section 3 -->
+  <details>
+    <summary><strong>Q:</strong> Which standardized framework was developed by NIST to be used as a guidance document designed to help organizations assess and manage risks to their infrastructure?
+</summary>
+    <p><strong>A:</strong> The standardized framework you are looking for is the NIST Cybersecurity Framework (CSF). Originally created in 2014, it is a highly flexible set of guidelines and best practices designed to help organizations of all sizes and industries assess, understand, and manage cybersecurity risks.</p>
+    <p>Depending on the specific type of risk management you are referencing, NIST offers two primary standardized frameworks:</p><p><strong>1. The NIST Cybersecurity Framework (CSF)</strong></p>
+    <p>The CSF provides a high-level taxonomy of cybersecurity outcomes. It is highly regarded as a comprehensive roadmap that organizations use to integrate and improve their cybersecurity posture. It is organized around core functions:</p><ul><li><strong>Govern (New in CSF 2.0)</strong></li>
+<li><strong>Identify</strong></li>
+<li><strong>Protect</strong></li>
+<li><strong>Detect</strong></li>
+<li><strong>Respond</strong></li>
+<li><strong>Recover</strong></li>
+    </ul>
+    <p>You can explore the full guidelines and resources on the <a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework</a> portal.</p>
+    <p><strong>2. The Risk Management Framework (RMF)</strong></p><p>If your focus is heavily on federal guidelines or a deeper, step-by-step process for integrating security controls into information systems, NIST developed the <strong>Risk Management Framework (RMF)</strong> (outlined in NIST SP 800-37).</p><ul><li><strong>Focus:</strong> Categorizing systems, selecting security controls (like those found in NIST SP 800-53), implementing them, and authorizing the system.</li><li><strong>Resource:</strong> You can read more about it via the <a href="https://www.nist.gov/risk-management">NIST Risk Management</a> overview.</li></ul>
+  </details>
+  
+  <!-- Section 4 -->
+  <details>
+    <summary><strong>Q:</strong> What are four examples of security control types?
+</summary>
+    <p><strong>A:</strong> Security controls are safeguards implemented to protect assets, systems, and data from threats and vulnerabilities. When discussing them based on their function or objective, the four primary types are:</p>
+    <ul><li><strong>Preventive:</strong>Proactive measures designed to stop an incident or breach before it happens (e.g., Firewalls, Multi-Factor Authentication, security guards).</li>
+      <li><strong>Detective:</strong> Systems and processes used to identify and alert you to ongoing or unauthorized activities. (e.g., Intrusion Detection Systems (IDS), security cameras, log monitoring).</li>
+      <li><strong>Corrective:</strong> Actions taken to repair damage, restore systems to normal, and mitigate the impact after a security incident occurs. (e.g., Data backups, incident response plans).</li>
+      <li><strong>Deterrent:</strong> Measures deployed to discourage potential attackers from attempting a breach by making the target appear too difficult or risky. (e.g., Warning signs, fences, visible alarm systems).</li></ul>
+    <p>You can explore the full guidelines and resources on the <a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework</a> portal.</p>
+    <p><strong>Implementation Categories</strong></p><p>These four functional types are typically achieved through three primary categories of implementation:
+    </p><ul><li><strong>Physical Controls:</strong> Tangible barriers and mechanisms (e.g., locks, biometric scanners, facility gates).</li>
+    <li><strong>Technical Controls:</strong> Hardware and software-based solutions (e.g., encryption, antivirus software, access control lists).</li>
+    <li><strong>Administrative Controls:</strong> Policies, procedures, and guidelines dictated by management (e.g., security awareness training, hiring policies).</li></ul>
+    <p>For a deeper look into how these fit into broader frameworks, you can explore the <a href="https://drata.com/learn/risk/security-controls">Drata Security Controls Breakdown</a> or the <a href="https://www.scrut.io/post/security-controls-types-functions-and-best-practices">Scrut Security Controls Guide.</a></p>
+  </details>
+
+</div>
+    </section>

@@ -1,0 +1,37 @@
+Active Directory (AD) serves as the backbone of identity management in federal environments, but its complex relationships and permissive default settings make it a primary target for attackers seeking to achieve a full domain compromise.
+
+.- Reconnaissance and Enumeration: Attackers prioritize understanding the unique structure of the target environment to identify misconfigurations.
+  .- Tools: Red teams use BloodHound to visualize relationship-based attack paths to privileged accounts. AdFind for querying domain objects, and SharpHound to collect data on users, groups, and sessions.
+Techniques: Network scanning and AD Enumeration are used to discover suspicious queries for domain trusts or shared resources.
+.- Credential Theft and Access: Gaining valid credentials is the most common entry point for moving laterally.
+  .- Kerberoasting: Attackers request a Kerberos service ticket (TGS) for a user account that is configured with a Service Principal Name (SPN), then cracks the ticket offline to reveal its cleartext password.
+.- AS-REP Roasting: This targets accounts that do not require "Kerberos pre-authentication," allowing an attacker to retrieve and crack the AS-REP ticket.
+.- Credential Dumping: Tools like Mimikatz or `secretsdump.py` are used to dump password hashes from memory (LSASS) or the `ntds.dit` database file once a foothold has been established.
+.- Password Spraying: Attackers attempt a single common password against a broad list of usernames to avoid account lockout triggers and thresholds.
+
+Privilege Escalation
+Attackers manipulate vulnerable and misconfigured rights and permissions of Active Directory objects to move from a standard user position to that of a Domain Administrator, or other high-privileged domain account. Ways this can be achieved include, but, are not limited to:
+  .- ACL Abuse: Exploiting improperly configured and permissive-broad Access Control List (ACL) rights that allows principals that are controlled by the attacker to takeover entire domain objects.
+.- AD Certificate Services (AD CS): Attackers target vulnerable and misconfigured certificate templates (ESC1), abuse web enrollment agents, and deploy rogue Certificate Authorities (CAs), thus allowing them to virtually impersonate any user, including administrators, without ever touching or having to manually crack offline any passwords.
+.- GPO Manipulation: If an attacker modification rights for a Group Policy Object (GPO), they can then deploy malicious login scripts or create new administrative accounts across the entire domain.
+
+.- Lateral Movement and Persistence
+These tactics ensure that an attacker can navigate the network and maintain presence and control even after reboots or password rotations.
+.- Lateral Movement: Techniques Pass-the-Hash (PtH), Pass-the-Ticket (PtT), and abusing remote services like RDP, WMI, and SMB admin shares ($admin).
+.- Gold and Silver Tickets: Attackers forge Kerberos Ticket Granting Tickets (Golden) or service-specific tickets (Silver) using the hash of the `krbtgt` account to grant themselves indefinite, undetectable access.
+.- DCShadow/DCSync: These variants of ACL abuse allow an attacker to simulate domain controller behavior to retrieve credentials or introduce rogue domain objects, such as rogue domain controllers, or rogue DNS servers.
+
+============================
+
+Defensive (Blue Team) Strategies Against FICAM AD Attacks
+
+Defensive strategies for FICAM AD focus on transitioning from traditional logging, monitoring, and detection, to Continuous Threat Exposure Management (CTEM) and Zero Trust Network Architecture (ZTNA).
+
+.- Technical Hardening and Access Controls
+  .- Tiered Administrative Model: Implementing a model that separates control Tiers, for example:
+- Tier 0 for domain controllers and other mission-critical servers/services such as AD CS servers that prevent privileged credentials from being exposed to lower-security workstations where they could be harvested.
+.- Strong Authentication: FICAM requires the use of phishing-resistant Multi-Factor Authentication, such as PIV or CACs for all users. Blue teams must also disable legacy protocols like NTLMv1 and SMBv1, which do not support MFA capabilities and are vulnerable to Relay attacks.
+
+.- Privileged Access Management (PAM): Using dedicated PAWs/SAWs (Privileged Access Workstations/Secured Administrative Workstations), and PAM tools like CyberArk, ensures that high-risk administrative tasks are conducted in a secure and audited environment.
+
+.- Detection and Monitoring Methods
