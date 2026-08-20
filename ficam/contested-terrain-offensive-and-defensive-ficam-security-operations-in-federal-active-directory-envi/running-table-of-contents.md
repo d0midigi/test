@@ -3001,82 +3001,65 @@ This chapter details the engineering methodology for constructing, enforcing, an
 
 ***
 
-#### Crucial Missing Concepts to Consider
-
-1. Operational Security (OPSEC) and Attribution Risk in Passive OSINT: Mitigating assessor footprint during passive queries (e.g., preventing third-party search engines, passive DNS aggregators, or breach database APIs from logging assessor IP addresses and queries, which could alert sophisticated adversaries or expose federal assessment scope).<br>
-2. Passive Cloud & Federation Tenant Discovery Mechanics: Leveraging unauthenticated, native cloud service endpoints (e.g., Microsoft Entra ID `GetUserRealm` / `GetCredentialType` APIs, O365 Autodiscover, and OpenID Configuration documents) to extract federated domain mappings, tenant IDs, and Identity Provider (IdP) signatures without triggering interactive login logs or SOC alerts.<br>
-3. Passive Certificate Transparency (CT) & Infrastructure Mapping: Utilizing public CT logs (e.g., `crt.sh`, Censys) and passive DNS databases to map internal domain naming conventions, staging SSO/MFA endpoints, VPN portals, and Active Directory Certificate Services (AD CS) Web Enrollment interfaces exposed to the internet.<br>
-4. Pre-Attack Hypothesis Formulation & MITRE ATT\&CK Mapping: Structuring raw passive intelligence into actionable, testable initial access hypotheses aligned with MITRE ATT\&CK (e.g., T1589 - Gather Victim Identity Information, T1590 - Gather Victim Network Information, T1586 - Compromise Accounts) before engaging in active probing.<br>
-
-## Chapter Abstract: Passive Identity Reconnaissance
-
-Book Context: Offensive and Defensive ICAM / FICAM Security with Active Directory\
-Chapter Title: Chapter 24 - Passive Identity Reconnaissance<br>
-
-#### Abstract
-
-Before an operational assessment team or an external adversary sends a single IP packet to an enterprise perimeter, critical details regarding its identity architecture, credential conventions, and cloud federation boundaries are already visible across the public internet. In federal and defense contexts, passive identity reconnaissance leverages open-source intelligence (OSINT), public cryptographic registries, and unauthenticated cloud service APIs to construct a comprehensive map of an organization's identity attack surface—all without triggering intrusion detection systems (IDS) or Security Operations Center (SOC) alerts.\
-This chapter details the covert methodologies used to audit and map an enterprise’s external identity footprint. It covers personnel and organizational OSINT, passive DNS and Certificate Transparency (CT) log analysis, exposure identification across public code repositories and breach datasets, and the extraction of Microsoft Entra ID / SAML federation metadata. Furthermore, it explores cloud tenant discovery, public identity portal fingerprinting, and external attack surface mapping. By establishing a rigorous reconnaissance hypothesis framework, this chapter equips identity security engineers, Red Teams, and ISSOs to evaluate public visibility, reduce external identity leakage, and harden public-facing identity infrastructure against passive reconnaissance techniques.<br>
-
-## Chapter 24: Detailed Section-by-Section Outline
+## Chapter 24: Passive Identity Reconnaissance
 
 #### 24.1 Reconnaissance Objectives
 
-* 24.1.1 Passive Reconnaissance Principles: Defining Non-Interference, Zero-Packet-Drop, and Zero-Footprint Guiding Rules<br>
-* 24.1.2 Assessor OPSEC & Attribution Management: Utilizing Clean Exit Nodes, Dedicated Research Enclaves, and Sanitized API Clients<br>
-* 24.1.3 Mapping the Target Identity Perimeter: Establishing Scope Boundaries across On-Premises AD, Federated IdPs, and Cloud Tenants<br>
+* 24.1.1 Passive Reconnaissance Principles: Defining Non-Interference, Zero-Packet-Drop, and Zero-Footprint Guiding Rules
+* 24.1.2 Assessor OPSEC & Attribution Management: Utilizing Clean Exit Nodes, Dedicated Research Enclaves, and Sanitized API Clients
+* 24.1.3 Mapping the Target Identity Perimeter: Establishing Scope Boundaries across On-Premises AD, Federated IdPs, and Cloud Tenants
 
 #### 24.2 Personnel and Organizational OSINT
 
-* 24.2.1 Executive and Privileged Staff Profiling: Identifying System Administrators, ISSOs, and Tier 0 Operators via Professional Networks<br>
-* 24.2.2 Social Media & SOCMINT Analytics: Extracting Technology Stack Nuances, Job Posting Requirements, and Organizational Chart Hierarchies<br>
-* 24.2.3 Email & User Identifiers Harvesting: Profiling Standard Corporate Email Formats and UPN Conventions<br>
+* 24.2.1 Executive and Privileged Staff Profiling: Identifying System Administrators, ISSOs, and Tier 0 Operators via Professional Networks
+* 24.2.2 Social Media & SOCMINT Analytics: Extracting Technology Stack Nuances, Job Posting Requirements, and Organizational Chart Hierarchies
+* 24.2.3 Email & User Identifiers Harvesting: Profiling Standard Corporate Email Formats and UPN Conventions
 
 #### 24.3 Domain and DNS Intelligence
 
-* 24.3.1 Passive DNS (pDNS) Aggregation: Querying Historic A, AAAA, CNAME, and MX Records to Discover Forgotten Identity Nodes<br>
-* 24.3.2 TXT & SPF Record Analysis: Extracting Authorized Third-Party Identity Providers, Mail Relays, and Validation Tokens<br>
-* 24.3.3 Subdomain Enumeration via Passive Data: Identifying Legacy ADFS, Webmail, and Identity Gateway Endpoints<br>
+* 24.3.1 Passive DNS (pDNS) Aggregation: Querying Historic A, AAAA, CNAME, and MX Records to Discover Forgotten Identity Nodes
+* 24.3.2 TXT & SPF Record Analysis: Extracting Authorized Third-Party Identity Providers, Mail Relays, and Validation Tokens
+* 24.3.3 Subdomain Enumeration via Passive Data: Identifying Legacy ADFS, Webmail, and Identity Gateway Endpoints
 
 #### 24.4 Certificate Transparency
 
-* 24.4.1 CT Log Parsing: Utilizing Public Certificate Registries (`crt.sh`, Censys) to Discover Staging Identity Portals<br>
-* 24.4.2 Internal Naming Exposure in SANs: Extracting Internal Domain Names (e.g., `.local`, `.corp`, internal FQDNs) from SSL/TLS Subject Alternative Names<br>
-* 24.4.3 AD CS Web Enrollment Exposure: Fingerprinting Public-Facing PKI Interfaces and Client Certificate Auth Portals<br>
+* 24.4.1 CT Log Parsing: Utilizing Public Certificate Registries (`crt.sh`, Censys) to Discover Staging Identity Portals
+* 24.4.2 Internal Naming Exposure in SANs: Extracting Internal Domain Names (e.g., `.local`, `.corp`, internal FQDNs) from SSL/TLS Subject Alternative Names
+* 24.4.3 AD CS Web Enrollment Exposure: Fingerprinting Public-Facing PKI Interfaces and Client Certificate Auth Portals
 
 #### 24.5 Public Repositories
 
-* 24.5.1 Code Repository Mining: Searching GitHub, GitLab, and Bitbucket for Leaked Hardcoded Credentials, API Keys, and Service Principal Secrets<br>
-* 24.5.2 Configuration File Intelligence: Extracting `.env`, `web.config`, and PowerShell Scripts Containing AD Connection Strings<br>
-* 24.5.3 Metadata Extraction: Analyzing PDF/Office Documents for Author Metadata, Internal File Paths, and Software Versions<br>
+* 24.5.1 Code Repository Mining: Searching GitHub, GitLab, and Bitbucket for Leaked Hardcoded Credentials, API Keys, and Service Principal Secrets
+* 24.5.2 Configuration File Intelligence: Extracting `.env`, `web.config`, and PowerShell Scripts Containing AD Connection Strings
+* 24.5.3 Metadata Extraction: Analyzing PDF/Office Documents for Author Metadata, Internal File Paths, and Software Versions
 
 #### 24.6 Breach Exposure
 
-* 24.6.1 Darknet & Breach Dataset Analysis: Aggregating Compromised Credentials from Historical Breaches<br>
-* 24.6.2 Password Reuse & Pattern Profiling: Analyzing Password Complexity Habits and Enterprise Baseline Patterns<br>
-* 24.6.3 Credential Exposure Risk Scoring: Mapping Compromised Accounts to Active Personnel and Administrative Roles<br>
+* 24.6.1 Darknet & Breach Dataset Analysis: Aggregating Compromised Credentials from Historical Breaches
+* 24.6.2 Password Reuse & Pattern Profiling: Analyzing Password Complexity Habits and Enterprise Baseline Patterns
+* 24.6.3 Credential Exposure Risk Scoring: Mapping Compromised Accounts to Active Personnel and Administrative Roles
 
 #### 24.7 Naming Conventions
 
-* 24.7.1 User Principal Name (UPN) Construction: Deriving Standardized Rules for Account Generation (`first.last`, `flast`, `empID`)<br>
-* 24.7.2 Admin & Service Account Nomenclature: Spotting Service Account Patterns (`svc_`, `adm_`, `sql_`) to Target High-Privilege Objects<br>
-* 24.7.3 Computer & Asset Naming Schemas: Deciphering Hostname Conventions to Locate Domain Controllers and High-Value Workstations<br>
+* 24.7.1 User Principal Name (UPN) Construction: Deriving Standardized Rules for Account Generation (`first.last`, `flast`, `empID`)
+* 24.7.2 Admin & Service Account Nomenclature: Spotting Service Account Patterns (`svc_`, `adm_`, `sql_`) to Target High-Privilege Objects
+* 24.7.3 Computer & Asset Naming Schemas: Deciphering Hostname Conventions to Locate Domain Controllers and High-Value Workstations
 
 #### 24.8 Federation Metadata
 
-* 24.8.1 Federation Endpoint Fingerprinting: Querying Public SAML 2.0 / WS-Federation XML Metadata (`/FederationMetadata/2007-06/FederationMetadata.xml`)<br>
-* 24.8.2 Identity Provider (IdP) Signature Analysis: Identifying Underlying Technology Stacks (AD FS, Okta, PingFederate, Shibboleth)<br>
-* 24.8.3 Token Signing & Encryption Certificate Extraction: Auditing Expiration Dates and Key Strengths in Public Federation Metadata<br>
+* 24.8.1 Federation Endpoint Fingerprinting: Querying Public SAML 2.0 / WS-Federation XML Metadata (`/FederationMetadata/2007-06/FederationMetadata.xml`)
+* 24.8.2 Identity Provider (IdP) Signature Analysis: Identifying Underlying Technology Stacks (AD FS, Okta, PingFederate, Shibboleth)
+* 24.8.3 Token Signing & Encryption Certificate Extraction: Auditing Expiration Dates and Key Strengths in Public Federation Metadata
 
 #### 24.9 Cloud Tenant Discovery
 
-* 24.9.1 Microsoft Entra ID / O365 Realm Enumeration: Leveraging `GetUserRealm.srf` and `GetCredentialType` Endpoints for Passive Domain Mapping<br>
-* 24.9.2 Tenant ID & Associated Domains Extraction: Identifying Primary `.onmicrosoft.com` Domains and Multi-Tenant Relationships<br>
-* 24.9.3 Multi-Cloud Identity Discovery: Mapping AWS IAM Identity Center, Google Workspace, and Azure AD Inter-Tenant Trusts<br>
+* 24.9.1 Microsoft Entra ID / O365 Realm Enumeration: Leveraging `GetUserRealm.srf` and `GetCredentialType` Endpoints for Passive Domain Mapping
+* 24.9.2 Tenant ID & Associated Domains Extraction: Identifying Primary `.onmicrosoft.com` Domains and Multi-Tenant Relationships
+* 24.9.3 Multi-Cloud Identity Discovery: Mapping AWS IAM Identity Center, Google Workspace, and Azure AD Inter-Tenant Trusts
 
 #### 24.10 Public Identity Infrastructure
 
-* 24.10.1 Web Application & SSO Fingerprinting: Passive Profiling of Keycloak, Ping Access, and F5 BIG-IP APM Login Interfaces<br>
+* 24.10.1 Web Application & SSO Fingerprinting: Passive Profiling of Keycloak, Ping Access, and F5 BIG-IP APM Login Interface
 * 24.10.2 Multi-Factor Authentication (MFA) Portal Reconnaissance: Identifying Supported MFA Modalities (FIDO2 / PIV / Push / SMS) from Public Login Prompts<br>
 * 24.10.3 Extranet Identity Boundaries: Locating Partner Portals, Contractor Access Points, and B2B Guest Authentication Flow Infrastructure<br>
 
@@ -3409,7 +3392,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 29
+### Chapter 29 - Authentication Coercion and Relay
 
 #### 29.1 Fundamental Mechanics of Authentication Coercion
 
@@ -3423,7 +3406,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 * 29.2.2 MS-EFSR (PetitPotam): Exploiting Encrypting File System RPC Calls (`EfsRpcOpenFileRaw`) to Force Unauthenticated Authentication
 * 29.2.3 Advanced Coercion Triggers: Executing ShadowCoerce (MS-FSRVP), DFSCoerce (MS-DFSNM), and WebCoerce Protocols
 
-#### 29.3 WebDAV and UNC Path Manipulation
+#### 29.3 WebDAV and Universal Naming Convention (UNC) Path Manipulation
 
 * 29.3.1 WebDAV Mini-Redirector Mechanics: Forcing Workstations/DCs to Connect via HTTP/WebDAV (`\\attacker@80\share`)
 * 29.3.2 Bypassing SMB Relaying Restrictions: Converting SMB-Based Coercion into HTTP NetNTLM Auth to Bypass Same-Protocol SMB Signing
@@ -3474,7 +3457,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 30
+### Chapter 30 - Smart Card and PKINIT Abuse
 
 #### 30.1 PKINIT Protocol Architecture and Federal Mandates
 
@@ -3520,7 +3503,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 31
+### Chapter 31 - Kerberoasting and AS-REP Roasting
 
 #### 31.1 Protocol Mechanics of Kerberoasting and AS-REP Roasting
 
@@ -3560,7 +3543,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 32
+### Chapter 32 - Credential Extraction
 
 #### 32.1 LSASS Memory Extraction and Process Protection
 
@@ -3606,7 +3589,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 33
+### Chapter 33 - Credential Replay and Token Theft
 
 #### 33.1 Fundamentals of Token-Based Identity Execution
 
@@ -3646,7 +3629,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-#### Chapter 34
+### Chapter 34 - Authorization and Entitlement Abuse
 
 #### 34.1 Directory Access Control Architecture
 
@@ -3721,7 +3704,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-#### Chapter 36
+### Chapter 36 - Delegation and Key Trust Abuse
 
 #### 36.1 Kerberos Delegation Architecture
 
@@ -3771,7 +3754,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 37
+### Chapter 37 - Active Directory Certificate Services (AD CS) Escalation
 
 #### 37.1 Active Directory Certificate Services (AD CS) Architecture
 
@@ -3817,7 +3800,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 38
+### Chapter 38 - Machine and Hybrid Identity Escalation
 
 #### 38.1 Machine Account Architecture and Identity Security
 
@@ -3851,7 +3834,7 @@ This chapter provides a comprehensive, deep-dive methodology for executing and a
 
 ***
 
-### Chapter 39
+### Chapter 39 - Management Plane Abuse
 
 #### 39.1 Management Plane Architecture & Tiering Violations
 
