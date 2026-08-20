@@ -928,6 +928,311 @@
 
 ### <mark style="color:yellow;">**Chapter 10 - Domain Controllers, Replication, and Directory State**</mark>
 
+*
+
+    #### 10.1 Domain Controller Roles
+
+    * Core Identity Services: Active Directory Domain Services (AD DS), Key Distribution Center (KDC), and Local Security Authority (LSA) Interaction
+    * Identity Infrastructure Anchor: Authenticating Users, Computers, and Services Across Enterprise Boundaries
+
+    #### 10.2 Writable Domain Controllers
+
+    * Full Database Authority: Multi-Master Replication and Write-Capable Directory Operations
+    * High-Value Target Profile: Tier 0 Security Boundary Requirements and Administrative Isolation Models
+
+    #### 10.3 Read-Only Domain Controllers
+
+    * Edge & Branch Deployment: Unidirectional Replication Architecture and Read-Only Database Isolation
+    * Password Replication Policy (PRP): Deny/Allow Lists for Credential Caching
+    * Offensive Vector: RODC Credential Cache Dumping and Abusing Weak PRP Rules (`Impacket`)
+    * Defensive Hardening: Restricting Administrative Account Caching and Enforcing Strict PRP Auditing
+
+    #### 10.4 Global Catalogs
+
+    * Forest-Wide Directory Indexing: Universal Group Membership Resolution and Partial Attribute Set (PAS)
+    * Authentication Dependencies: Inter-Domain User Principal Name (UPN) Resolution and Global Directory Searches
+
+    #### 10.5 FSMO Roles
+
+    * Single-Master Operations: Flexible Single Master Operation Role Distributing (Schema Master, Domain Naming Master, RID Master, PDC Emulator, Infrastructure Master)
+    * System Criticality: Impact of FSMO Role Availability on Domain Stability and Authentication Mechanics
+    * Offensive Vector: FSMO Role Hijacking and PDC Emulator Exploitation
+
+    #### 10.6 Knowledge Consistency Checker (KCC)
+
+    * Automated Topology Generation: Dynamic Intra-Site and Inter-Site Replication Link Calculation
+    * Spanning Tree Architecture: Dual-Ring Topology and Route Optimization for Directory Updates
+
+    #### 10.7 Replication Topology
+
+    * Directory Synchronization Routes: Intersite Topology Generator (ISTG), Site Links, and Bridgehead Server Design
+    * Transport Protocols: RPC over IP (`TCP 135/49152+`) vs. Asynchronous SMTP Transport
+    * Offensive Vector: DCSync Operations via Directory Replication Service (DRS) RPC Protocol (`DSGetNCChanges`) (`Mimikatz`)
+    * Defensive Hardening: Auditing Directory Service Access Control Entries (ACEs) for Replication Rights (`DS-Replication-Get-Changes-All`)
+
+    #### 10.8 Update Sequence Numbers
+
+    * Monotonic Counter Mechanics: Attribute-Level Tracking of Database Modifications per DC
+    * State Synchronization: Local USN vs. High-Watermark Vectors Across Replication Partners
+    * Offensive & Defensive Vector: USN Rollback Detection and Virtualization Snapshot Recovery Hazards
+
+    #### 10.9 Invocation IDs
+
+    * Database Identity Tracking: Uniquely Identifying Database Instances Independent of Domain Controller GUIDs
+    * State Reset Mechanics: Invocation ID Reset Operations Following Authoritative Restores or Virtual Machine Rollbacks
+
+    #### 10.10 Replication Metadata
+
+    * Attribute-Level Vector Tracking: Originating Change Time, Version Counters, and Originating DC Invocation ID
+    * Conflict Resolution: Last-Writer-Wins Algorithms and Deterministic Attribute Value Conflict Handling
+
+    #### 10.11 Tombstones and Deleted Objects
+
+    * Deletion Lifecycle: Soft Deletes, Tombstone Lifetime (`tombstoneLifetime`), and Recycled Object States
+    * Deleted Objects Container: Object Stripping and Preservation of Core Identification Attributes
+
+    #### 10.12 Lingering Objects
+
+    * Replication Inconsistency: Obsolete Objects Retained on DCs Disconnected Beyond Tombstone Lifetimes
+    * Security Exposure: Re-animation Risks and Unauthorized Access via Out-of-Sync Objects
+    * Defensive Configuration: Enforcing Strict Replication Consistency Across All Domain Controllers
+
+    #### 10.13 Replication Consistency
+
+    * Directory State Uniformity: Monitoring Convergence and Attribute Synchronization Health
+    * Auditing Tools: Validating Replication Health (`repadmin`, `Get-ADReplicationPartnerMetadata`)
+
+    #### 10.14 NTDS.dit
+
+    * Database Anatomy: Structural Layout of the Active Directory JET Database Engine
+    * Core Database Tables: Data Table, Link Table, Security Descriptor Table, and SD Prop Table
+    * Offensive Vector: Offline Database Extraction via Volume Shadow Copy Service (VSS) or Disk Parsing (`ntdsutil`, `vssadmin`, `secretsdump`)
+    * Defensive Hardening: BitLocker Drive Encryption, VSS Access Restrictions, and Credential Guard Implementation
+
+    #### 10.15 Extensible Storage Engine
+
+    * JET Blue Engine Physics: Page Allocation, B-Trees, Record Layouts, and Indexing Algorithms
+    * Database Performance: Caching Mechanics in System RAM (LSASS Memory Pressure)
+
+    #### 10.16 Transaction Logs
+
+    * ACID Compliance: Write-Ahead Logging (`edb.log`), Checkpoint Files (`edb.chk`), and Reserve Logs
+    * Database Integrity: Crash Recovery Mechanics and Transaction Roll-Forward Operations
+
+    #### 10.17 Registry Hives
+
+    * System Secret Anchors: Role of the `SYSTEM`, `SECURITY`, and `SOFTWARE` Hives on DCs
+    * LSA Secrets Storage: Local Security Authority Storage of Service Credentials, DPAPI Master Keys, and Machine Account Secrets
+
+    #### 10.18 BootKey and Password Encryption Key (PEK)
+
+    * Cryptographic Architecture: SYSKEY/BootKey Extraction from the `SYSTEM` Registry Hive
+    * PEK Decryption Physics: Utilizing BootKey to Decrypt the PEK, Unlocking Encrypted NTLM Hashes and Kerberos Keys in `NTDS.dit`
+    * Offensive Vector: Offline PEK Decryption and Full-Forest Hash Extraction
+    * Defensive Hardening: Tier 0 Physical and Hypervisor-Level Access Protections
+
+    #### 10.19 Directory Backup and Recovery Metadata
+
+    * System State Backup Architecture: Cryptographic Binding of Database, Registry Hives, SYSVOL, and Certificate Data
+    * DSRM Security: Directory Services Restore Mode Account Hardening and Local Account Passwords (`NTDSettings`)
+    * Offensive Vector: Abusing DSRM Accounts for Persistent Administrative Access (`DSRMAdminLogonBehavior`)
+    * FICAM & NIST Control Mapping: `CP-9` (Information System Backup), `CP-10` (Information System Recovery), `IA-2` (Identification and Authentication), `SC-12` (Cryptographic Key Establishment and Management)
+    *   Telemetry & Event Auditing: Log Analysis for Event ID 4662 (Directory Service Access), Event ID 4932/4933 (Replication Synchronization Success/Failure), and Event ID 1658/1659 (DRS Replication Events)
+
+        #### <br>
+
+
+
+        ## Chapter 12 - Authorization, Groups, and Effective Access
+
+        #### 12.1 Authentication Versus Authorization
+
+        * Operational Boundary: Identity Verification (Authentication) vs. Permission & Privilege Evaluation (Authorization)
+        * Local Security Authority Subsystem (LSASS): Role of LSASS and Security Reference Monitor (SRM) in Enforcing Access Decisions
+        * FICAM Identity Lifecycle Alignment: Contextualizing Access Control Within High-Assurance Credential Frameworks
+
+        #### 12.2 Access Control Models
+
+        * Evolution of Access Enforcement: Comparing Structural Models Operating Within Active Directory and Windows Enterprise Systems
+
+        **12.2.1 DACL**
+
+        * Discretionary Access Control Lists: Object Owner-Controlled Permission Structures
+        * Evaluation Dynamics: Explicit Permission Evaluation Rules Governing Object Access
+
+        **12.2.2 MAC**
+
+        * Mandatory Access Control: System-Enforced Security Integrity Levels (Low, Medium, High, System)
+        * Windows Integrity Mechanism: Restricting Process Access Tokens and Object Interaction via Integrity Labels
+
+        **12.2.3 Role-Based Access Control (RBAC)**
+
+        * Role-Based Acces Control: Group-Centric Administrative Delegation Model
+        * AD Implementation: Mapping Administrative Roles to Security Groups and Organizational Units (OUs)
+
+        **12.2.4 Attribute-Based Access Control (ABAC)**
+
+        * Attribute-Based Access Control: Dynamic Access Control (DAC) Utilizing User Claims, Device Claims, and Resource Properties
+        * Policy Integration: Central Access Rules (CARs) and Central Access Policies (CAPs) Enforcing Fine-Grained Rules
+
+        **12.2.5 System Access Control List (SACL)**
+
+        * System Access Control Lists: Audit Policy Enforcement and Access Event Generation
+        * Logging Triggers: Configuring Success and Failure Auditing for Directory Object Access
+
+        **12.2.6 Conditional Access Control List (CACL)**
+
+        * Conditional Access Control Lists: Callback ACEs and Security Attribute Matching Requirements
+        * Kerberos Armoring Integration: Dynamic Access Checks Evaluated Against Armored Kerberos Tickets (FAST)
+
+        **12.2.7 DAC**
+
+        * Discretionary Access Control Framework: Underlying Windows Architecture Granting Object Owners Full Control over Permission Allocation
+
+        #### 12.3 Security Principals
+
+        * Identity Objects: Users, Computers, Groups, Service Accounts, and Managed Service Accounts (gMSA/iMSA)
+        * Attribute Indicators: Evaluating `sAMAccountType` Bitmasks to Determine Principal Capabilities and Directory Behaviors
+
+        #### 12.4 Security Identifiers
+
+        * SID Composition: Revision Level, Identifier Authority, Domain Sub-Authorities, and Relative Identifier (RID)
+        * Special & Well-Known SIDs: Universal SIDs (`S-1-1-0` Everyone, `S-1-5-11` Authenticated Users, `S-1-5-32-544` Administrators
+        * Identity Mapping: Binary `objectSid` Storage and Translation to Friendly Naming Formats
+
+        #### 12.5 Access Tokens
+
+        * Token Architecture: Primary vs. Impersonation Tokens Created During LSA Session Initializatio
+        * Token Contents: User SID, Group SIDs (Direct and Nested), Privileges List, Default DACL, and Restricted SIDs
+        * Offensive Vector: Access Token Theft, Impersonation, and Primary Token Swapping (`Incognito`, `Mimikatz`)
+        * Defensive Hardening: Restricting Token Impersonation Rights (`SeImpersonatePrivilege`, `SeAssignPrimaryTokenPrivilege`)
+
+        #### 12.6 Security Descriptors
+
+        * 12.6.1 Binary Structure: The `nTSecurityDescriptor` Attribute Layout on Directory Objects
+
+        **12.6.2 Owner**
+
+        * Object Ownership Physics: The Immutable Right of the Owner SID to Execute `WRITE_DACL` Over Their Object
+        * Offensive Vector: Ownership Hijacking via `SeTakeOwnershipPrivilege` or Explicit `WRITE_OWNER` Permissions
+        * Defensive Hardening: Monitoring Owner Changes on Tier 0 Assets and Restricting Owner Rights Override
+
+        **12.6.2 Discretionary Access Control LIst (DACL)**
+
+        * Canonical Ordering Rules: Explicit Deny > Explicit Allow > Inherited Deny > Inherited Allow
+        * Evaluation Flow: First-Match Logic and Security Reference Monitor Access Evaluation Traversal
+
+        **12.6.3 System Access Control List (SACL)**
+
+        * Object Auditing Rules: Audit ACE Mechanics and Selective Property-Level Read/Write Access Logging
+
+        #### 12.7 Access Control Entries (ACE)
+
+        * Individual Control Rules: ACE Header, Access Mask, Flags, and Principal SID Binding
+
+        **12.7.1 Allow and Deny ACEs**
+
+        * Precedence Physics: Deny ACE Overrides and Explicit Deny Masking
+        * Evaluation Conflicts: Resolving Conflicting Permission Structures Across Nested Group Memberships
+
+        **12.7.2 Explicit and Inherited ACEs**
+
+        * Inheritance Dynamics: Inheritance Flags (`CONTAINER_INHERIT_ACE`, `INHERIT_ONLY_ACE`, `NO_PROPAGATE_INHERIT_ACE`)<br>
+        * Inheritance Blocking: Protecting OUs and Objects via `SE_DACL_PROTECTED` (Disabling Permission Inheritance)
+
+        **12.7.3 Object-Specific ACEs**
+
+        * Fine-Grained Permission Targeting: `ACCESS_ALLOWED_OBJECT_ACE` and `ACCESS_DENIED_OBJECT_ACE` Flags
+        * Schema Bindings: Object Type GUIDs and Inherited Object Type GUIDs Restricting Permissions to Specific Child Classes or Attributes
+
+        **12.7.4 Extended Rights**
+
+        * ControlAccess Rights: Standardized Extended Rights (`User-Force-Change-Password`, `DS-Replication-Get-Changes-All`)
+        * Rights GUID Mapping: Resolving Extended Rights GUIDs to Extended-Right Schema Definitions
+
+        #### 12.8 User Rights and Privileges
+
+        * System Privilege Allocation: Operating System Privileges (`SeDebugPrivilege`, `SeBackupPrivilege`, `SeRestorePrivilege`, `SeEnableDelegationPrivilege`)
+        * User Rights Assignment: Defining Local and Network Logon Rights via Group Policy Objects (`SeNetworkLogonRight`, `SeInteractiveLogonRight`)
+        * Offensive Vector: Privilege Abuse for Arbitrary Memory Access, System File Overwrites, or Credential Extraction
+        * Defensive Hardening: Restricting System Privileges via Tiered Administration Models and GPO Enforcement
+
+        #### 12.9 Group Architecture
+
+        * Group Design Mechanics: Structuring Groups for Administrative Efficiency and Access Isolation
+
+        **12.9.1 Security Versus Distribution Groups**
+
+        * Functional Scope: Security Groups (`groupType` Bitmask `0x80000000`) Evaluated in Access Tokens vs. Distribution Lists (Email Routing)
+        * Conversion Vulnerabilities: Converting Group Types and Impact on Access Control Boundaries
+
+        **12.9.2 Domain Local Groups**
+
+        * Resource Assignment Scope: Containing Principals from Any Trusted Domain to Grant Local Domain Resource Permissions
+        * Token Inclusion: Resolution of Domain Local Group SIDs in Resource Domain Access Tokens
+
+        **12.9.3 Global Groups**
+
+        * Account Organization Scope: Containing Accounts from the Same Domain to Represent Enterprise Roles
+        * Cross-Domain Portability: Nesting Global Groups into Foreign Domain Local Groups
+
+        **12.9.4 Universal Groups**
+
+        * Forest-Wide Scope: Universal Membership Replicated Forest-Wide via the Global Catalog (`isMemberOfPartialAttributeSet`)
+        * Replication Impact: Global Catalog Replication Overhead on Frequent Universal Group Membership Changes
+
+        #### 12.10 Group Nesting
+
+        * Hierarchical Assignment Strategies: Managing Scalable Access Control Policies
+
+        **12.10.1 AGDLP**
+
+        * Design Framework: Accounts > Global Groups > Domain Local Groups > Permissions
+        * Domain-Bound Access Controls: Enforcing Clean Permission Boundaries Within Single-Domain Forests
+
+        **12.10.2 AGUDLP**
+
+        * Multi-Domain Framework: Accounts $$ $\rightarrow$ $$ Global Groups $$ $\rightarrow$ $$ Universal Groups $$ $\rightarrow$ $$ Domain Local Groups $$ $\rightarrow$ $$ Permissions
+        * Multi-Forest Access Controls: Aligning Trust Relationships Across FICAM Enterprise Architecture
+        * Offensive Vector: Hiding Malicious Principals Deep Within Complex Nested Group Architectures
+        * Defensive Overhead: Token Bloat Management, `MaxTokenSize` Adjustments, and Auditing Nested Group Structures
+
+        #### 12.11 Foreign Security Principals
+
+        * Cross-Trust Identity Mapping: The `CN=ForeignSecurityPrincipals` Container
+        * FSP SID Binding: Representing External Domain Users and Groups Within Local Group DACLs
+        * Offensive Vector: Exploiting Obscure FSP Group Memberships Across Domain Trusts for Hidden Lateral Movement
+
+        #### 12.12 SIDHistory
+
+        * Migration Identity Preservation: The `sIDHistory` Multi-Valued Attribute Architecture
+        * Cross-Domain Evaluation: Inclusion of Historical SIDs into LSASS Access Tokens
+        * Offensive Vector: SIDHistory Injection (`Mimikatz`) Adding High-Privilege SIDs (`S-1-5-21-...-512`) for Domain Dominance
+        * Defensive Hardening: Enabling SID Filtering Across Trust Boundaries (`netdom trust /quarantine`) and Auditing `sIDHistory` Populate Events
+
+        #### 12.13 Token Expansion
+
+        * Authorization Data Construction: Extracting PAC SIDs During Kerberos Authentication
+        * LSA Token Assembly: Recursive Group SID Expansion, Primary Group ID (`primaryGroupID`) Evaluation, and Local SID Lookup
+        * Offensive Vector: Primary Group ID Manipulation (`primaryGroupID = 514`) to Conceal Privileged Group Membership from Standard LDAP Queries
+
+        #### 12.14 Effective Access
+
+        * Contextual Access Calculation: Aggregating User SIDs, Nested Group SIDs, Claims, and Explicit/Inherited ACEs<br>
+        * Evaluation Nuances: Handling Implicit Denies, Explicit Denies, Extended Rights, and Property-Set Restrictions<br>
+        * Auditing Tools: Validating Access Rules via the System Effective Access Engine and Graph-Based Analysis Tools (`BloodHound`, `PowerView`)<br>
+
+        #### 12.15 Effective Control
+
+        * Graph-Based Attack Paths: Identifying Indirect Domain Dominance Vectors (`GenericAll`, `WriteDacl`, `WriteOwner`, `AllExtendedRights`, `AddMember`)<br>
+        * SDProp & AdminSDHolder Physics: Background Security Descriptor Enforcement (`AdminSDHolder`) Resetting DACLs on Protected Accounts<br>
+        * Offensive Vector: Persistence via AdminSDHolder DACL Modification or Stealthy ACE Injection on Unprotected Container Objects<br>
+        * Defensive Hardening: Enforcing Least Privilege, Hardening AdminSDHolder DACLs, Restricting Delegation Permissions, and Continuously Auditing Active Directory ACL Topology<br>
+        * FICAM & NIST Control Mapping: `AC-2` (Account Management), `AC-3` (Access Enforcement), `AC-6` (Least Privilege), `IA-4` (Identifier Management)<br>
+        * Telemetry & Event Auditing: Audit Log Analysis for Event ID 4670 (Permissions Changed), Event ID 4728/4729 (Member Added/Removed from Security Group), Event ID 4738 (User Account Modified), Event ID 4672 (Special Privileges Assigned), and Event ID 5136 (Directory Service Object Modified)
+
+
+
 #### 10.1 Domain Controller Roles
 
 * 10.1.1 Core Identity Services: Active Directory Domain Services (AD DS), Key Distribution Center (KDC), and Local Security Authority (LSA) Interaction
@@ -1048,7 +1353,7 @@
 
 ***
 
-### <mark style="color:yellow;">**Chapter 11 - Lightweight Directory Access Protocol (LDAP) and Windows Directory Protocols**</mark>
+### Chapter 11 - Lightweight Directory Access Protocol (LDAP) and Windows Directory Protocols
 
 #### 11.1 LDAP Architecture
 
@@ -1175,8 +1480,6 @@
 
 #### ols), Event ID 4742 (Computer Account Modification - Netlogon), and Event ID 5136 (Directory Service Object Modification)
 
-#### 26.1 Identity Identity Graph Theory
-
 *   26.1.1 Applied Graph Theory in Identity Security: Nodes (Principals), Edges&#x20;
 
     * 11.8.2 Certificate Validation: PKI Trust Anchor Requirements, Subject Alternative Names (SAN), and Certificate Revocation Checking
@@ -1247,6 +1550,182 @@
     * 11.18.2 Staging & Conflict Resolution: Staging Directory Mechanics, RDC (Remote Differential Compression), and Conflict Resolution Folders
     * 11.18.3 FICAM & NIST Control Mapping: AC-4 (Information Flow Enforcement), SC-8 (Transmission Confidentiality and Integrity), SC-13 (Cryptographic Protection), AU-12 (Audit Generation)
     * 11.18.4 Telemetry & Event Auditing: Log Analysis for Event ID 2887/2889 (Unsigned LDAP Binds), Event ID 3039/3074 (LDAP Channel Binding Failures), Event ID 4624/4625 (Logon Events over Protocols), Event ID 4742 (Computer Account Modification - Netlogon), and Event ID 5136 (Directory Service Object Modification)
+
+#### Crucial Missing Concepts to Consider
+
+1. AS-REP Roasting (`DONT_REQ_PREAUTH`): Accounts configured without Kerberos pre-authentication allow unauthenticated callers to request AS-REP responses containing encrypted ticket data and crack passwords offline.
+2. Golden & Silver Ticket Crafting: Forging Ticket Granting Tickets (TGTs) using the domain `krbtgt` hash (Golden) or forging Service Tickets using service account hashes (Silver) to bypass authentication and inject arbitrary PAC claims.
+3. Kerberos Armoring (FAST): Flexible Authentication Secure Tunneling (`FAST`) protects pre-authentication exchanges against offline password cracking and AS-REP roasting vectors using an armored TLS-like channel.
+4. Pass-the-Hash (PtH) & Pass-the-Ticket (PtT): Reusing NTLM hashes or Kerberos tickets extracted from LSASS memory to authenticate without knowing cleartext credentials.
+
+## Chapter 13 - Windows Authentication and Kerberostive Directory
+
+Chapter Title: Chapter 13 - Windows Authentication and Kerberos
+
+#### Abstract
+
+Authentication is the foundational gatekeeper of Active Directory, validating identity claims before granting access to network resources. In Federal Identity, Credential, and Access Management (FICAM) architectures, identity assurance demands strong, cryptographically backed authentication mechanisms compliant with NIST SP 800-63 guidelines. Active Directory relies on two primary protocols: legacy NTLM challenge-response and enterprise Kerberos v5, coordinated locally by the Local Security Authority Subsystem Service (LSASS).
+
+This chapter provides a comprehensive technical teardown of Windows authentication mechanisms, ticket-granting physics, and identity delegation models. It covers NTLM mechanics, Kerberos ticket exchanges (AS/TGS), Privilege Attribute Certificates (PAC), PKINIT smart card authentication, and Kerberos delegation extensions (S4U2Self/S4U2Proxy). By examining threat tradecraft—including Kerberoasting, AS-REP Roasting, Golden/Silver Tickets, Pass-the-Hash/Ticket, and RBCD abuse—alongside defensive configurations (Protected Users, Kerberos FAST, NTLM deprecation, and Authentication Policies/Silos), this chapter enables security engineers to design and defend resilient enterprise authentication boundaries.
+
+## Detailed Section-by-Section Technical Outline
+
+#### 13.1 Windows Logon Architecture
+
+* Interactive vs. Network Logons: Winlogon, Credential Providers, and Network Authentication
+* LSA Initialization: Handing Off Credentials from UI to LSA for Validation
+* Session Types: Interactive, Network, Batch, Service, and RemoteInteractive Sessions
+
+#### 13.2 Local Security Authority
+
+* LSA Core Function: Managing Local Security Policy, Auditing, and Token Creation
+* LSA Database: Storing System Security Policies, Account Rights, and Trusted Domain Info
+* Policy Engine: Evaluating User Rights Assignments during Session Logon
+
+#### 13.3 LSASS
+
+* Process Physics: `lsass.exe` Process Architecture and In-Memory Credential Caching
+* Security Subsystem: Hosting Security Support Providers (SSPs) in Memory
+* Offensive Vector: Memory Scraping and Credential Dumping (`Mimikatz`, `lsassy`)
+* Defensive Hardening: LSA Protection (`RunAsPPL`), Credential Guard, and Restricting SeDebugPrivilege
+
+#### 13.4 Security Support Provider Interface
+
+* SSPI Architecture: Windows Abstraction Layer for Network Authentication Protocols
+* SSP Modules: Negotiate, NTLM, Kerberos, Digest, and Schannel Architecture
+* Negotiate SSP: Protocol Selection Logic Favoring Kerberos over NTLM
+
+#### 13.5 Secure Channel
+
+* Domain Trust Transport: Enencrypted RPC Link Between Workstations and Domain Controllers
+* Session Keys: Workstation Password Secrets Securing Machine Channel Communication
+* Vulnerability Vectors: Abusing Secure Channel Relays and ZeroLogon Flaws
+
+#### 13.6 LM and NTLM
+
+* Legacy Protocols: Evolution from LAN Manager (LM) to NTLM Suite
+
+**13.6.1 NTLMv1**
+
+* Flawed Security: DES Encryption, 56-bit Key Lengths, and Predictable Challenges
+* Offensive Vector: Rainbow Table Lookup and Rapid Offline Cracking (`Hashcat`)
+
+**13.6.2 NTLMv2**
+
+* Improved Design: HMAC-MD5 Hashing, Variable-Length Responses, and Client Nonces
+* Persistence Risk: Vulnerability to Offline Dictionary Attacks on Captured Hashes
+
+**13.6.3 NetNTLM**
+
+* Wire Formats: NetNTLMv1 and NetNTLMv2 Challenge-Response Hashes Across Network Traffic
+* Offensive Vector: Authentication Coercion and Relay Attacks (`Responder`, `ntlmrelayx`)
+* Defensive Hardening: SMB Signing, Extended Protection for Authentication (EPA), and NTLM Auditing
+
+**13.6.4 NTLM Challenge-Response**
+
+* Handshake Mechanics: Type 1 (Negotiate) $$→$$ Type 2 (Challenge) $$→$$ Type 3 (Authenticate)
+* Pass-the-Hash: Authenticating Directly Using Stored NTLM Hashes Without Cleartext Passwords
+
+#### 13.7 Kerberos Architecture
+
+* Enterprise Protocol: Ticket-Based Cryptographic Authentication Engine
+
+**13.7.1 Key Distribution Center**
+
+* KDC Components: Authentication Service (AS) and Ticket Granting Service (TGS) Running on DCs
+* Cryptographic Anchor: Centralized Secrets Management via Master Key (`krbtgt`)
+
+**13.7.2 Authentication Service Exchange**
+
+* AS Request & Response: Initiating Logon with `AS-REQ` and Receiving `AS-REP`
+* Pre-Authentication: Encrypting Timestamps with User Password Hash to Prevent Replay Attacks
+* Offensive Vector: AS-REP Roasting Accounts with Disabled Pre-Authentication (`DONT_REQ_PREAUTH`)
+
+**13.7.3 Ticket Granting Service Exchange**
+
+* TGS Request & Response: Presenting TGT via `TGS-REQ` to Obtain Service Ticket (`TGS-REP`)
+* Service Binding: Requesting Access for Specific Service Principal Names (SPNs)
+
+**13.7.4 Ticket Granting Tickets**
+
+* TGT Architecture: Master Auth Ticket Encrypted with `krbtgt` Password Hash
+* Ticket Lifetime: Renewability Limits, Expiration Timestamps, and Flags
+* Offensive Vector: Golden Ticket Attacks via Compromised `krbtgt` Hashes
+
+**13.7.5 Service Tickets**
+
+* Resource Tickets: Service Tickets Encrypted with Target Service Account Password Hash
+* Offensive Vector: Silver Ticket Attacks and Kerberoasting Target Acquisition
+
+**13.7.6 Session Keys**
+
+* Shared Cryptography: Ephemeral Session Keys Facilitating Client-Server Communication
+* Key Distribution: Distributing Encrypted Session Keys via AS and TGS Responses
+
+**13.7.7 Privilege Attribute Certificate**
+
+* PAC Physics: Authorization Data Structure Embedded inside Kerberos Tickets
+* PAC Contents: User SID, Group SIDs, Claims, and Cryptographic Signatures (KDC/Server)
+* Offensive Vector: PAC Validation Bypass and Forgery (`CVE-2021-42287`, `CVE-2021-42278`)
+
+**13.7.8 Encryption Types**
+
+* Cipher Suites: RC4-HMAC (Legacy) vs. AES128-CTS-HMAC-SHA1-96 and AES256-CTS-HMAC-SHA1-96
+* Defensive Hardening: Disabling Weak RC4 Cryptography Across Enterprise Group Policies
+
+#### 13.8 Service Principal Names
+
+* Service Mapping: Mapping Unique Service Instances to Specific Security Accounts
+* SPN Syntax: Class/Host:Port Formatting Requirements
+* Kerberoasting Vector: Requesting Service Tickets for Accounts with SPNs to Crack Hashes Offline
+
+#### 13.9 PKINIT
+
+* Smart Card Authentication: Public Key Cryptography for Initial Authentication (RFC 4556)
+* Certificate Validation: KDC Validation of X.509 Certificates and Trust Chains
+* FICAM Alignment: Meeting NIST SP 800-63 AAL3 Multi-Factor Authentication Standards
+
+#### 13.10 Kerberos Delegation
+
+* Impersonation Framework: Allowing Services to Act on Behalf of Authenticated Users
+
+**13.10.1 Unconstrained Delegation**
+
+* Legacy Delegation: Target Server Caches Client TGT in Memory for Unrestricted Use
+* Offensive Vector: Coercing Admin Authentication to Steal TGTs from Unconstrained Servers
+
+**13.10.2 Constrained Delegation**
+
+* Restricted Target Scope: Restricting Impersonation to Whitelisted SPNs (`msDS-AllowedToDelegateTo`)
+* Protocol Transition: Enabling Non-Kerberos Inbound Auth to Convert into Kerberos Tickets
+
+**13.10.3 Resource-Based Constrained Delegation**
+
+* Resource-Controlled Delegation: Target Server Controls Who Delegates to It (`msDS-AllowedToActOnBehalfOfOtherIdentity`)
+* Offensive Vector: RBCD Exploitation via Machine Account Creation and DACL Misconfigurations
+
+**13.10.4 Protocol Transition**
+
+* Service Transition Mechanics: Converting NTLM/Cert Auth to Kerberos via S4U Extensions
+
+**13.10.5 S4U2Self**
+
+* Service-For-User Extension: Service Requests Ticket to Itself on Behalf of Any User Without Password
+
+**13.10.6 S4U2Proxy**
+
+* Proxy Extension: Service Uses S4U2Self Ticket to Request Service Ticket to Target Server
+
+#### 13.11 Authentication Policies and Silos
+
+* Administrative Boundaries: Restricting Credential Exposure and Kerberos Ticket Lifetimes
+* Authentication Policies: Custom TGT Lifetimes, NTLM Restrictions, and Device Claim Requirements
+* Authentication Silos: Enforcing Containment Zones Binding Users, Computers, and Service Accounts
+* Protected Users Group: Non-Configurable Hardening (Disables NTLM, Digest, Credential Caching, RC4)
+* FICAM & NIST Control Mapping: `IA-2` (Identification and Authentication), `IA-5` (Authenticator Management), `AC-2` (Account Management), `SC-8` (Transmission Confidentiality/Integrity)
+* Telemetry & Event Auditing: Event ID 4624 (Successful Logon), Event ID 4625 (Failed Logon), Event ID 4768 (Kerberos TGT Requested), Event ID 4769 (Kerberos Service Ticket Requested), Event ID 4771 (Kerberos Pre-Auth Failed), Event ID 4776 (NTLM Auth Validation)
+
+Ready to provide the next chapter title or outline?Yes
 
 #### Crucial Missing Concepts to Consider
 
