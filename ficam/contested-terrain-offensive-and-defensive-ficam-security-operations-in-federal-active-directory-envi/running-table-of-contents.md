@@ -4,77 +4,101 @@
 
 ### <mark style="color:pink;">**Chapter 1 - The Reader's Guide to the Identity Battlefield**</mark>
 
-* **1.1 Why This Book Exists**
-  * 1.1.1 One Environment, Several Professional Views
-  * 1.1.2 Why Offensive and Defensive Security Belong Together
-  * 1.1.3 Why the Federal Context Changes the Problem
-* **1.2 Who This Book Is For**
-  * 1.2.1 New Federal and DoD Cybersecurity Practitioners
-  * 1.2.2 Systems and Active Directory Administrators
-  * 1.2.3 Identity and ICAM Engineers
-  * 1.2.4 ISSOs, ISSMs, ISSEs, and Assessors
-  * 1.2.5 SOC/NOC Analysts, and Threat Hunters
-  * 1.2.6 Ethical Hackers, Penetration Testers, Red, and Purple Teams
-  * 1.2.7 Incident Responders and Recovery + Triage Engineers
-* **1.3 What the Reader Is Expected to Know**
-  * 1.3.1 General Information and Technology Foundations
-  * 1.3.2 Basic Windows and Linux OS Familiarity
-  * 1.3.3 Basic Active Directory Infrastructure Familiarity
-  * 1.3.4 Basic Cybersecurity Concepts
-  * 1.3.5 Command-Line Interface (CLI) and Scripting Familiarity
-  * 1.3.6 Basic Security Assessment Concepts
-* **1.4 What The Reader Does Not Need to Know Yet**
-  * 1.4.1 You Do Not Need to Know Kerberos Internals
-  * 1.4.2 You Do Not Need to Know LDAP Internals
-  * 1.4.3 You Do Not Need to Understand Windows Authorization Internals
-  * 1.4.4 You Do Not Need to Know Active Directory Certificate Services (AD CS)
-  * 1.4.5 You Do Not Need to Know FICAM or DoD ICAM
-  * 1.4.6 You Do Not Need Prior Offensive or Defensive Active Directory Experience
-  * 1.4.7 You Do Not Need Prior Federal or Military Experience
-* **1.5 How This Book Teaches Identity Security**
-  * 1.5.1 Architecture Before Exploitation
-  * 1.5.2 Protocol Mechanics Before Protocol Abuse
-  * 1.5.3 Assessment Before Offensive Validation
-  * 1.5.4 Offensive Tradecraft Paired with Defensive Engineering
-  * 1.5.5 Detection Before Response
-  * 1.5.6 Recovery Before Trust Restoration
-  * 1.5.7 Technical Findings Must Be Translated Into Mission Meaning
-* **1.6 How to Use This Book**
-  * 1.6.1 Figures and Architecture Diagrams
-  * 1.6.2 Tables and Technical Reference Material
-  * 1.6.3 Labs and Exercises
-  * 1.6.4 Case Studies
-  * 1.6.5 Attacker and Defender Journal Entries
-  * 1.6.6 Field Notes and Operational Lessons
-  * 1.6.7 MITRE ATT\&CK Framework Mappings
-  * 1.6.8 Offensive and Defensive Tooling
-* **1.7 The Reader Contract**
-  * 1.7.1 What This Book Is
-  * 1.7.2 What This Book Is Not
-  * 1.7.3 Ethical Use and Authorization
-  * 1.7.4 Authorization and Rules of Engagement
-  * 1.7.5 Production-System Safety
-* **1.8 The Book's Progression**
-* **1.9 Preparing for Chapter 2**
+### **1.1 Why This Book Exists**
+
+* 1.1.1 One Environment, Several Professional Views
+* 1.1.2 Why Offensive and Defensive Security Belong Together
+* 1.1.3 Why the Federal Context Changes the Problem
+
+### **1.2 Who This Book Is For**
+
+* 1.2.1 New Federal and DoD Cybersecurity Practitioners
+* 1.2.2 Systems and Active Directory Administrators
+* 1.2.3 Identity and ICAM Engineers
+* 1.2.4 ISSOs, ISSMs, ISSEs, and Assessors
+* 1.2.5 SOC/NOC Analysts, and Threat Hunters
+* 1.2.6 Ethical Hackers, Penetration Testers, Red, and Purple Teams
+* 1.2.7 Incident Responders and Recovery + Triage Engineers
+
+### **1.3 What the Reader Is Expected to Know**
+
+* 1.3.1 General Information and Technology Foundations
+* 1.3.2 Basic Windows and Linux OS Familiarity
+* 1.3.3 Basic Active Directory Infrastructure Familiarity
+* 1.3.4 Basic Cybersecurity Concepts
+* 1.3.5 Command-Line Interface (CLI) and Scripting Familiarity
+* 1.3.6 Basic Security Assessment Concepts
+
+### **1.4 What The Reader Does Not Need to Know Yet**
+
+* 1.4.1 You Do Not Need to Know Kerberos Internals
+* 1.4.2 You Do Not Need to Know LDAP Internals
+* 1.4.3 You Do Not Need to Understand Windows Authorization Internals
+* 1.4.4 You Do Not Need to Know Active Directory Certificate Services (AD CS)
+* 1.4.5 You Do Not Need to Know FICAM or DoD ICAM
+* 1.4.6 You Do Not Need Prior Offensive or Defensive Active Directory Experience
+* 1.4.7 You Do Not Need Prior Federal or Military Experience
+
+### **1.5 How This Book Teaches Identity Security**
+
+* 1.5.1 Architecture Before Exploitation
+* 1.5.2 Protocol Mechanics Before Protocol Abuse
+* 1.5.3 Assessment Before Offensive Validation
+* 1.5.4 Offensive Tradecraft Paired with Defensive Engineering
+* 1.5.5 Detection Before Response
+* 1.5.6 Recovery Before Trust Restoration
+* 1.5.7 Technical Findings Must Be Translated Into Mission Meaning
+
+### **1.6 How to Use This Book**
+
+* 1.6.1 Figures and Architecture Diagrams
+* 1.6.2 Tables and Technical Reference Material
+* 1.6.3 Labs and Exercises
+* 1.6.4 Case Studies
+* 1.6.5 Attacker and Defender Journal Entries
+* 1.6.6 Field Notes and Operational Lessons
+* 1.6.7 MITRE ATT\&CK Framework Mappings
+* 1.6.8 Offensive and Defensive Tooling
+
+### **1.7 The Reader Contract**
+
+* 1.7.1 What This Book Is
+* 1.7.2 What This Book Is Not
+* 1.7.3 Ethical Use and Authorization
+* 1.7.4 Authorization and Rules of Engagement
+* 1.7.5 Production-System Safety
+
+#### **1.8 The Book's Progression**
+
+#### **1.9 Preparing for Chapter 2**
+
+***
 
 ### <mark style="color:pink;">**Chapter 2 - Identity Infrastructure Networking**</mark>
 
-* **2.1 Why Identity Depends on the Network**
-  * 2.1.1 Network Transport Dynamics: Kerberos, NTLM, RADIUS, and LDAP/S as Network Payloads
-  * 2.1.2 Threat Model: On-Path and Man-in-the-Middle (MitM) Adversary Capabilities
-  * 2.1.3 FICAM Alignment: Impact of Transport Interception on Credential Assurance Levels (CAL)
-* **2.2 TCP/IP Foundations for Identity Services**
-  * 2.2.1 Transport Dynamics: TCP Versus UDP Behavior for Kerberos, DNS, and LDAP
-  * 2.2.2 Kerberos MTU and Packet Fragmentation: Handling `KRB_ERR_RESPONSE_TOO_BIG`
-  * 2.2.3 Defensive Configuration: Enforcing Kerberos Over TCP via Registry (`MaxPacketSize`)
-* **2.3 Routing and Segmentation**
-  * 2.3.1 Directory Routing Topologies: Traffic Shaping Between Domain Controllers, NPS, and Clients
-  * 2.3.2 Zero Trust Microsegmentation: Tier 0, Tier 1, and Tier 2 Network Isolation (NIST SP 800-207)
-  * 2.3.3 Host-Based Access Control: Restricting Lateral Movement with Windows Defender Firewall Rules
-* **2.4 Ports and Transport Dependencies**
-  * 2.4.1 Core Port Matrix: Kerberos (88), RPC (135), LDAP/S (389/636), SMB (445), GC (3268/3269), NTP (123), RADIUS (1812/1813)
-  * 2.4.2 Traffic Reconnaissance: Passive Sniffing and Active Service Scanning
-  * 2.4.3 Defensive RPC Hardening: Restricting Dynamic RPC High-Port Ranges via Registry
+#### **2.1 Why Identity Depends on the Network**
+
+* 2.1.1 Network Transport Dynamics: Kerberos, NTLM, RADIUS, and LDAP/S as Network Payloads
+* 2.1.2 Threat Model: On-Path and Man-in-the-Middle (MitM) Adversary Capabilities
+* 2.1.3 FICAM Alignment: Impact of Transport Interception on Credential Assurance Levels (CAL)
+
+#### **2.2 TCP/IP Foundations for Identity Services**
+
+* 2.2.1 Transport Dynamics: TCP Versus UDP Behavior for Kerberos, DNS, and LDAP
+* 2.2.2 Kerberos MTU and Packet Fragmentation: Handling `KRB_ERR_RESPONSE_TOO_BIG`
+* 2.2.3 Defensive Configuration: Enforcing Kerberos Over TCP via Registry (`MaxPacketSize`)
+
+#### **2.3 Routing and Segmentation**
+
+* 2.3.1 Directory Routing Topologies: Traffic Shaping Between Domain Controllers, NPS, and Clients
+* 2.3.2 Zero Trust Microsegmentation: Tier 0, Tier 1, and Tier 2 Network Isolation (NIST SP 800-207)
+* 2.3.3 Host-Based Access Control: Restricting Lateral Movement with Windows Defender Firewall Rules
+
+#### **2.4 Ports and Transport Dependencies**
+
+* 2.4.1 Core Port Matrix: Kerberos (88), RPC (135), LDAP/S (389/636), SMB (445), GC (3268/3269), NTP (123), RADIUS (1812/1813)
+* 2.4.2 Traffic Reconnaissance: Passive Sniffing and Active Service Scanning
+* 2.4.3 Defensive RPC Hardening: Restricting Dynamic RPC High-Port Ranges via Registry
 * **2.5 Domain Name System (DNS)**
   * **2.5.1 AD-Integrated DNS**
     * 2.5.1.1 Multi-Master Replication, Partition Architecture (`DomainDnsZones`, `ForestDnsZones`), and ACL Delegation
@@ -83,74 +107,92 @@
   * **2.5.3 Dynamic Updates**
     * 2.5.3.1 Offensive Vector: Non-Secure DNS Record Overwriting (`adidnsdump`, `dnstool`)
     * 2.5.3.2 Defensive Configuration: Enforcing Secure Dynamic Updates Exclusively
-* **2.6 Domain Name Resolution**
-  * 2.6.1 Multicast/Broadcast Protocol Mechanics: LLMNR (5355), NBT-NS (137), mDNS (5353), and Dynamic Host Configuration Protocol Version 6 (DHCPv6)
-  * 2.6.2 Offensive Vector: Broadcast Poisoning and Rogue IPv6 Delegation (`Responder`, `mitm6`, `Inveigh`)
-  * 2.6.3 Defensive Hardening: Disabling Multicast Name Resolution and NetBIOS via GPO and Registry
-* **2.7 Time Synchronization and the Network Time Protocol (NTP)**
-  * 2.7.1 Kerberos Clock Skew Constraints: ± 5-Minute Tolerance windows (`MaxToleranceInMinutes`)
-  * 2.7.2 Offensive Vector: Time Skew Injection, Replay Attacks, and Protocol Downgrades
-  * 2.7.3  Defensive Configuration: Authoritative PDC Hierarchy NTP Sync Configuration
-* **2.8 SMB and RPC**
-  * 2.8.1 Transport Protocols: SMB v1/v2/v3 Security States and Dynamic RPC Interfaces
-  * 2.8.2 Offensive Vector: Coerced Authentication and Authentication Relaying (`PetitPotam`, `ntlmrelayx`)
-  * 2.8.3 Defensive Hardening: Mandatory SMB/LDAP Signing, SMB Encryption, and Channel Binding Tokens (CBT)
-* **2.9 Network Access Authentication**
-  * **2.9.1 RADIUS**
-    * 2.9.1.1 Protocol Architecture (UDP 1812/1813), Shared Secrets, and Packet Header Structures
-  * **2.9.2 Microsoft Network Policy Server (NPS)**
-    * 2.9.2.1 RADIUS Policy Engine, Active Directory User Mapping, and Audit Logging
-  * **2.9.3 TACACS+**
-    * 2.9.3.1 Protocol Mechanics (TCP 49), Full-Payload Encryption, and Command Authorization
-  * **2.9.4 IEEE 802.1X**
-    * 2.9.4.1 Port-Based Network Access Control: Supplicant, Authenticator, and Authentication Server Interaction
-* **2.10 Legacy Authentication Protocols**
-  * **2.10.1 PAP**
-    * 2.10.1.1 Plaintext Credentials and Packet Sniffing Risks
-  * **2.10.2 CHAP**
-    * 2.10.2.1 MD5 Challenge-Response Weaknesses and Offline Cracking
-  * **2.10.3 MS-CHAP and MS-CHAPv2**
-    * 2.10.3.1 Single DES Key Derivation Weaknesses (56-Bit Cipher Strength) and Challenge Cracking (`asleap`)
-* **2.11 Extensible Authentication Protocols**
-  * **2.11.1 EAP-MD5**
-    * 2.11.1.1 Cleartext Hash Transport and Lack of Mutual Authentication
-  * **2.11.2 LEAP**
-    * 2.11.2.1 MS-CHAP Challenge Interception and Dictionary Attacks (`asleap`)
-  * **2.11.3 EAP-TLS**
-    * 2.11.3.1 High-Assurance Mutual Certificate Authentication (FICAM CAL-3 / FIPS 201 / PIV Integration)
-    * 2.11.3.2 Certificate Validation: SAN, Client Auth EKU, and CRL/OCSP Checking
-  * **2.11.4 PEAP**
-    * 2.11.4.1 Protected EAP Outer TLS Tunneling
-    * 2.11.4.2 Offensive Vector: Rogue Access Point / Evil Twin Deployment (`eaphammer`)
-  * **2.11.5 EAP-TTLS**
-    * 2.11.5.1 Outer TLS Tunnel with Legacy Inner Authentication (PAP, CHAP, MS-CHAPv2)
-  * **2.11.6 EAP-FAST**
-    * 2.11.6.1 Protected Access Credentials (PAC) Provisioning and Secure Tunneling
-  * **2.11.7 EAP-GTC**
-    * 2.11.7.1 Hardware/Software Token and One-Time Password (OTP) Integration
-  * **2.11.8 EAP-SIM and EAP-AKA**
-    * 2.11.8.1 Cellular-Based Identity Authentication in Hybrid Networks
-  * **2.11.9 TEAP**
-    * 2.11.9.1 Dual-Credential Tunnel Chaining (RFC 7170): Machine Certificate and User Credential Validation
-* **2.12 User Versus Machine Authentication**
-  * 2.12.1 Boot-Time Identity: Domain Computer Account Mechanics (`COMPUTER$`)
-  * 2.12.2 Interactive Handoff: Single Sign-On (SSO) Transition to User Context
-  * 2.12.3 Network Enforcement: Pre-Logon Access Control (PLAP) and Dynamic VLAN Assignment
-* **2.13 Network Identity Trust Boundaries**
-  * 2.13.1 Architecture: Tiered Subnet Enforcement (Tier 0 / Tier 1 / Tier 2 Isolation)
-  * 2.13.2 FICAM and NIST Control Mapping: `IA-2`, `IA-5`, `SC-8`, `SC-13`
-  * 2.13.3 Telemetry and Event Auditing: Log Analysis for Event ID 4624 (Logon Type 8), Event IDs 6272/6278 (NPS), and Event IDs 4768/4769 (Kerberos)
-* **2.14 Preparing for Chapter 3**
+
+#### **2.6 Domain Name Resolution**
+
+* 2.6.1 Multicast/Broadcast Protocol Mechanics: LLMNR (5355), NBT-NS (137), mDNS (5353), and Dynamic Host Configuration Protocol Version 6 (DHCPv6)
+* 2.6.2 Offensive Vector: Broadcast Poisoning and Rogue IPv6 Delegation (`Responder`, `mitm6`, `Inveigh`)
+* 2.6.3 Defensive Hardening: Disabling Multicast Name Resolution and NetBIOS via GPO and Registry
+
+#### **2.7 Time Synchronization and the Network Time Protocol (NTP)**
+
+* 2.7.1 Kerberos Clock Skew Constraints: ± 5-Minute Tolerance windows (`MaxToleranceInMinutes`)
+* 2.7.2 Offensive Vector: Time Skew Injection, Replay Attacks, and Protocol Downgrades
+* 2.7.3  Defensive Configuration: Authoritative PDC Hierarchy NTP Sync Configuration
+
+#### **2.8 Server Message Block (SMB) and Remote Procedure Call (RPC)**
+
+* 2.8.1 Transport Protocols: SMB v1/v2/v3 Security States and Dynamic RPC Interfaces
+* 2.8.2 Offensive Vector: Coerced Authentication and Authentication Relaying (`PetitPotam`, `ntlmrelayx`)
+* 2.8.3 Defensive Hardening: Mandatory SMB/LDAP Signing, SMB Encryption, and Channel Binding Tokens (CBT)
+
+#### **2.9 Network Access Authentication**
+
+* **2.9.1 RADIUS**
+  * 2.9.1.1 Protocol Architecture (UDP 1812/1813), Shared Secrets, and Packet Header Structures
+* **2.9.2 Microsoft Network Policy Server (NPS)**
+  * 2.9.2.1 RADIUS Policy Engine, Active Directory User Mapping, and Audit Logging
+* **2.9.3 TACACS+**
+  * 2.9.3.1 Protocol Mechanics (TCP 49), Full-Payload Encryption, and Command Authorization
+* **2.9.4 IEEE 802.1X**
+  * 2.9.4.1 Port-Based Network Access Control: Supplicant, Authenticator, and Authentication Server Interaction
+
+#### **2.10 Legacy Authentication Protocols**
+
+* **2.10.1 PAP**
+  * 2.10.1.1 Plaintext Credentials and Packet Sniffing Risks
+* **2.10.2 CHAP**
+  * 2.10.2.1 MD5 Challenge-Response Weaknesses and Offline Cracking
+* **2.10.3 MS-CHAP and MS-CHAPv2**
+  * 2.10.3.1 Single DES Key Derivation Weaknesses (56-Bit Cipher Strength) and Challenge Cracking (`asleap`)
+
+#### **2.11 Extensible Authentication Protocols**
+
+* **2.11.1 EAP-MD5**
+  * 2.11.1.1 Cleartext Hash Transport and Lack of Mutual Authentication
+* **2.11.2 LEAP**
+  * 2.11.2.1 MS-CHAP Challenge Interception and Dictionary Attacks (`asleap`)
+* **2.11.3 EAP-TLS**
+  * 2.11.3.1 High-Assurance Mutual Certificate Authentication (FICAM CAL-3 / FIPS 201 / PIV Integration)
+  * 2.11.3.2 Certificate Validation: SAN, Client Auth EKU, and CRL/OCSP Checking
+* **2.11.4 PEAP**
+  * 2.11.4.1 Protected EAP Outer TLS Tunneling
+  * 2.11.4.2 Offensive Vector: Rogue Access Point / Evil Twin Deployment (`eaphammer`)
+* **2.11.5 EAP-TTLS**
+  * 2.11.5.1 Outer TLS Tunnel with Legacy Inner Authentication (PAP, CHAP, MS-CHAPv2)
+* **2.11.6 EAP-FAST**
+  * 2.11.6.1 Protected Access Credentials (PAC) Provisioning and Secure Tunneling
+* **2.11.7 EAP-GTC**
+  * 2.11.7.1 Hardware/Software Token and One-Time Password (OTP) Integration
+* **2.11.8 EAP-SIM and EAP-AKA**
+  * 2.11.8.1 Cellular-Based Identity Authentication in Hybrid Networks
+* **2.11.9 TEAP**
+  * 2.11.9.1 Dual-Credential Tunnel Chaining (RFC 7170): Machine Certificate and User Credential Validation
+
+#### **2.12 User Versus Machine Authentication**
+
+* 2.12.1 Boot-Time Identity: Domain Computer Account Mechanics (`COMPUTER$`)
+* 2.12.2 Interactive Handoff: Single Sign-On (SSO) Transition to User Context
+* 2.12.3 Network Enforcement: Pre-Logon Access Control (PLAP) and Dynamic VLAN Assignment
+
+#### **2.13 Network Identity Trust Boundaries**
+
+* 2.13.1 Architecture: Tiered Subnet Enforcement (Tier 0 / Tier 1 / Tier 2 Isolation)
+* 2.13.2 FICAM and NIST Control Mapping: `IA-2`, `IA-5`, `SC-8`, `SC-13`
+* 2.13.3 Telemetry and Event Auditing: Log Analysis for Event ID 4624 (Logon Type 8), Event IDs 6272/6278 (NPS), and Event IDs 4768/4769 (Kerberos)
+
+#### **2.14 Preparing for Chapter 3**
 
 \=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=
 
 ### <mark style="color:pink;">**Chapter 2 - Identity as the Battlefield**</mark>
 
-* **2.1 From the Network Perimeter to the Identity Perimeter**
-  * 2.1.1 Why the Internal Network Was Never a Complete Trust Boundary
-  * 2.1.2 Authentication Became Portable
-  * 2.1.3 Authorization Became More Important Than Simple Entry
-  * 2.1.4 Identity Expanded Beyond the Human User
+#### **2.1 From the Network Perimeter to the Identity Perimeter**
+
+* 2.1.1 Why the Internal Network Was Never a Complete Trust Boundary
+* 2.1.2 Authentication Became Portable
+* 2.1.3 Authorization Became More Important Than Simple Entry
+* 2.1.4 Identity Expanded Beyond the Human User
 * **2.2 How Enterprise Identity Reached This Current Point**
   * 2.2.1 The Early Days of Windows NT Domains
   * 2.2.2 Novell NetWare and NDS/eDirectory
@@ -201,326 +243,442 @@
   * 2.9.8 Persistence and Domain Dominance
 * **2.10 Why Real Intrusions Are Nonlinear**
 
+***
+
 ### <mark style="color:pink;">**Chapter 3 - The Federal Identity Trust System**</mark>
 
-* **3.1 Active Directory as Mission Infrastructure**
-  * 3.1.1 Authentication Availability Becomes Service Availability
-  * 3.1.2 Directory Integrity Is Mission-Relevant Integrity
-  * 3.1.3 Active Directory Supports Both Mission Users and Mission Administrators
-  * 3.1.4 Identity Infrastructure Is Part of the Mission Dependency Map
-* **3.2 The Domain Versus the Identity Trust System**
-  * 3.2.1 Product Boundaries Are Not Security Boundaries
-  * 3.2.2 Administrative Boundaries Can Differ From Trust Boundaries
-  * 3.2.3 Authentication Boundaries Can Be Broader Than Directory Boundaries
-  * 3.2.4 The Trusted Core Extends Beyond Domain Controllers
-* **3.3 Components of the Federal Identity Trust System**
-  * 3.3.1 Active Directory Domain Services (AD DS)
-  * 3.3.2 Certificate and Public Key Infrastructure (PKI)
-  * 3.3.3 Active Directory Federation Services (AD FS)
-  * 3.3.4 Cloud Identity
-  * 3.3.5 Identity Synchronization
-  * 3.3.6 Privileged Identity Systems
-  * 3.3.7 Authoritative Attribute Sources
-* **3.4 Commercial Versus Federal Identity Active Directory Environments**
-  * 3.4.1 Identity Is Often Governed Outside the Local System
-  * 3.4.2 Formal Authorization Changes the Meaning of Evidence
-  * 3.4.3 Mission Requirements Can Constrain Security Changes
-  * 3.4.4 Federal Identity Security Requires Traceability
-* **3.5 Federal and Military Enclaves**
-  * 3.5.1 NIPRNet
-  * 3.5.2 SIPRNet
-  * 3.5.3 JWICS and National Security Systems (NSS)
-  * 3.5.4 Tactical and Disconnected Environments
-* **3.6 Cross-Domain Solutions and Identity**
-  * 3.6.1 Cross-Domain Identity Is Not Considered Ordinary Domain Trust
-  * 3.6.2 Attribute Integrity Becomes a Critical Component of Active Directory Infrastructure
-  * 3.6.3 Identity Compromise Can Have Asymmetric Consequences
-* **3.7 Mission-Partner and Coalition Identity**
-  * 3.7.1 Federation Preserves Administrative Independence
-  * 3.7.2 Partner Access Must Have a Lifecycle
-  * 3.7.3 Mission-Partner Compromise Is a Shared Incident
-* **3.8 Contractor-Operated and Shared Infrastructure**
-  * 3.8.1 Administrative Authority Can Cross Contractual Boundaries
-  * 3.8.2 Shared Services Concentrate Both Value and Dependency
-* **3.9 Identity Dependencies and Mission Assurance**
-  * 3.9.1 Hidden Dependencies Complicate Hardening
-  * 3.9.2 Recovery Dependencies Must Be Identified Separately
-* **3.10 Translating Identity Failure Into Operational Consequence**
-  * 3.10.1 Technical Impact Is Not Yet Mission Impact
-  * 3.10.2 Loss of Trust Can Exceed Loss of Availability
-  * 3.10.3 Identity Security Is Mission Security When Mission Depends on Identity
-* **3.11 Preparing for Chapter 4**
+#### **3.1 Active Directory as Mission Infrastructure**
+
+* 3.1.1 Authentication Availability Becomes Service Availability
+* 3.1.2 Directory Integrity Is Mission-Relevant Integrity
+* 3.1.3 Active Directory Supports Both Mission Users and Mission Administrators
+* 3.1.4 Identity Infrastructure Is Part of the Mission Dependency Map
+
+#### **3.2 The Domain Versus the Identity Trust System**
+
+* 3.2.1 Product Boundaries Are Not Security Boundaries
+* 3.2.2 Administrative Boundaries Can Differ From Trust Boundaries
+* 3.2.3 Authentication Boundaries Can Be Broader Than Directory Boundaries
+* 3.2.4 The Trusted Core Extends Beyond Domain Controllers
+
+#### **3.3 Components of the Federal Identity Trust System**
+
+* 3.3.1 Active Directory Domain Services (AD DS)
+* 3.3.2 Certificate and Public Key Infrastructure (PKI)
+* 3.3.3 Active Directory Federation Services (AD FS)
+* 3.3.4 Cloud Identity
+* 3.3.5 Identity Synchronization
+* 3.3.6 Privileged Identity Systems
+* 3.3.7 Authoritative Attribute Sources
+
+#### **3.4 Commercial Versus Federal Identity Active Directory Environments**
+
+* 3.4.1 Identity Is Often Governed Outside the Local System
+* 3.4.2 Formal Authorization Changes the Meaning of Evidence
+* 3.4.3 Mission Requirements Can Constrain Security Changes
+* 3.4.4 Federal Identity Security Requires Traceability
+
+#### **3.5 Federal and Military Enclaves**
+
+* 3.5.1 NIPRNet
+* 3.5.2 SIPRNet
+* 3.5.3 JWICS and National Security Systems (NSS)
+* 3.5.4 Tactical and Disconnected Environments
+
+#### **3.6 Cross-Domain Solutions and Identity**
+
+* 3.6.1 Cross-Domain Identity Is Not Considered Ordinary Domain Trust
+* 3.6.2 Attribute Integrity Becomes a Critical Component of Active Directory Infrastructure
+* 3.6.3 Identity Compromise Can Have Asymmetric Consequences
+
+#### **3.7 Mission-Partner and Coalition Identity**
+
+* 3.7.1 Federation Preserves Administrative Independence
+* 3.7.2 Partner Access Must Have a Lifecycle
+* 3.7.3 Mission-Partner Compromise Is a Shared Incident
+
+#### **3.8 Contractor-Operated and Shared Infrastructure**
+
+* 3.8.1 Administrative Authority Can Cross Contractual Boundaries
+* 3.8.2 Shared Services Concentrate Both Value and Dependency
+
+#### **3.9 Identity Dependencies and Mission Assurance**
+
+* 3.9.1 Hidden Dependencies Complicate Hardening
+* 3.9.2 Recovery Dependencies Must Be Identified Separately
+
+#### **3.10 Translating Identity Failure Into Operational Consequence**
+
+* 3.10.1 Technical Impact Is Not Yet Mission Impact
+* 3.10.2 Loss of Trust Can Exceed Loss of Availability
+* 3.10.3 Identity Security Is Mission Security When Mission Depends on Identity
+
+#### **3.11 Preparing for Chapter 4**
+
+***
 
 ### <mark style="color:pink;">**Chapter 4 - Federal Cybersecurity Governance**</mark>
 
-* **4.1 How Federal Cybersecurity Authority Flows**
-  * 4.1.1 Authority Becomes More Specific as It Approaches the Technology
-  * 4.1.2 The Same Technical Control May Serve Multiple Governance Purposes
-  * 4.1.3 Governance Should Remain Traceable to Real Configuration
-* **4.2 Legislative Authorities**
-  * 4.2.1 FISMA
-  * 4.2.2 National Security System Authorities
-  * 4.2.3 Privacy and Information Protection Requirements
-* **4.3 Executive Authorities**
-  * 4.3.1 The White House and Executive Cybersecurity Direction
-  * 4.3.2 Executive Orders as Leading Cybersecurity Catalysts
-  * 4.3.3 Office of Management and Budget (OMB)
-  * 4.3.4 Federal Zero Trust Direction
-* **4.4 National Institute of Standards and Technology (NIST)**
-  * 4.4.1 FIPS - Federal Information Processing Standard
-  * 4.4.2 NIST Special Publications (SP)
-  * 4.4.3 NIST Cybersecurity Framework (CSF)
-  * 4.4.4 NIST SP 800-63: Digital Identity Guidance
-* **4.5 Cybersecurity and Infrastructure Security Agency (CISA)**
-  * 4.5.1 Binding Operational Directives
-  * 4.5.2 Known Exploited Vulnerabilities
-  * 4.5.3 Federal Civilian Identity Security
-* **4.6 Department of Defense Governance**
-  * 4.6.1 DoD Chief Information Officer
-  * 4.6.2 Defense Information Systems Agency
-  * 4.6.3 National Security Agency
-  * 4.6.4 United States Cyber Command
-  * 4.6.5 JFHQ-DoDIN
-  * 4.6.6 Military Departments and Service Components
-* **4.7 Federal Cloud and Contractor Governance**
-  * 4.7.1 FedRAMP
-  * 4.7.2 Defense Industrial Base
-  * 4.7.3 Controlled Unclassified Information
-  * 4.7.4 Contractor Identity Responsibilities
-* **4.8 From Law to Technical Configuration**
-  * 4.8.1 Law
-  * 4.8.2 Policy
-  * 4.8.3 Standards
-  * 4.8.4 Security Controls
-  * 4.8.5 Technical Security Baselines
-  * 4.8.6 Active Directory Implementation
-* **4.9 Preparing for Chapter 5**
+#### **4.1 How Federal Cybersecurity Authority Flows**
+
+* 4.1.1 Authority Becomes More Specific as It Approaches the Technology
+* 4.1.2 The Same Technical Control May Serve Multiple Governance Purposes
+* 4.1.3 Governance Should Remain Traceable to Real Configuration
+
+#### **4.2 Legislative Authorities**
+
+* 4.2.1 FISMA
+* 4.2.2 National Security System Authorities
+* 4.2.3 Privacy and Information Protection Requirements
+
+#### **4.3 Executive Authorities**
+
+* 4.3.1 The White House and Executive Cybersecurity Direction
+* 4.3.2 Executive Orders as Leading Cybersecurity Catalysts
+* 4.3.3 Office of Management and Budget (OMB)
+* 4.3.4 Federal Zero Trust Direction
+
+#### **4.4 National Institute of Standards and Technology (NIST)**
+
+* 4.4.1 FIPS - Federal Information Processing Standard
+* 4.4.2 NIST Special Publications (SP)
+* 4.4.3 NIST Cybersecurity Framework (CSF)
+* 4.4.4 NIST SP 800-63: Digital Identity Guidance
+
+#### **4.5 Cybersecurity and Infrastructure Security Agency (CISA)**
+
+* 4.5.1 Binding Operational Directives
+* 4.5.2 Known Exploited Vulnerabilities
+* 4.5.3 Federal Civilian Identity Security
+
+#### **4.6 Department of Defense Governance**
+
+* 4.6.1 DoD Chief Information Officer
+* 4.6.2 Defense Information Systems Agency
+* 4.6.3 National Security Agency
+* 4.6.4 United States Cyber Command
+* 4.6.5 JFHQ-DoDIN
+* 4.6.6 Military Departments and Service Components
+
+#### **4.7 Federal Cloud and Contractor Governance**
+
+* 4.7.1 FedRAMP
+* 4.7.2 Defense Industrial Base
+* 4.7.3 Controlled Unclassified Information
+* 4.7.4 Contractor Identity Responsibilities
+
+#### **4.8 From Law to Technical Configuration**
+
+* 4.8.1 Law
+* 4.8.2 Policy
+* 4.8.3 Standards
+* 4.8.4 Security Controls
+* 4.8.5 Technical Security Baselines
+* 4.8.6 Active Directory Implementation
+
+#### **4.9 Preparing for Chapter 5**
+
+***
 
 ### <mark style="color:pink;">**Chapter 5 - FICAM and DoD ICAM**</mark>
 
-* **5.1  Introduction to Federal Identity, Credential, and Access Management (FICAM)**
-  * 5.1.1 Identity Exists Before the Account
-  * 5.1.2 Credentialing Is Not Authentication
-  * 5.1.3 Access Management Begins After Authentication but Does Not Depend on Authentication Alone
-  * 5.1.4 Federation Extends Trust Without Transferring Ownership
-  * 5.1.5 Governance Determines Which Identity Facts Matter
-* **5.2 Department of Defense ICAM (DoD ICAM)**
-  * 5.2.1 Enterprise ICAM Does Not Eliminate Local Identity Engineering
-  * 5.2.2 DoD ICAM Must Support Mission Partners
-  * 5.2.3 Person Entities and Non-Person Entities (NPE)
-  * 5.2.4 Local and Disconnected ICAM Are Deliberate Architectural Cases
-* **5.3 The Identity Lifecycle**
-  * 5.3.1 Sponsorship
-  * 5.3.2 Identity Proofing
-  * 5.3.3 Enrollment
-  * 5.3.4 Credential Issuance
-  * 5.3.5 Credential Binding
-  * 5.3.6 Authentication
-  * 5.3.7 Authorization
-  * 5.3.8 Recertification
-  * 5.3.9 Revocation and Deprovisioning
-* **5.4 Digital Identity Assurance**
-  * **5.4.1 Identity Assurance Levels**
-    * 5.4.1.1 IAL1
-    * 5.4.1.2 IAL2
-    * 5.4.1.3 IAL3
-  * **5.4.2 Authenticator Assurance Levels (AAL)**
-    * 5.4.2.1 AAL1
-    * 5.4.2.2 AAL2
-    * 5.4.2.3 AAL3
-  * **5.4.3 Federation Assurance Levels (FAL)**
-    * 5.4.3.1 FAL1
-    * 5.4.3.2 FAL2
-    * 5.4.3.3 FAL3
-  * 5.4.4 Legacy Levels of Assurance
-* **5.5 Federal Credentials**
-  * 5.5.1 Personal Identity Verification (PIV)
-  * 5.5.2 Common Access Card (CAC)
-  * 5.5.3 EDIPI and the DoD Identification Number
-  * 5.5.4 Biometrics
-  * 5.5.5 Derived Credentials
-* **5.6 Identity Governance**
-  * 5.6.1 Identity Governance Is the Control Against Identity Debt
-  * 5.6.2 Identity State Must Follow the Authoritative Relationship
-  * 5.6.3 Privileged Identity Requires Stronger Governance
-* **5.7 Credential Governance**
-  * 5.7.1 Strong Credentials Require Strong Enrollment
-  * 5.7.2 Recovery Is Part of the Credential Security Model
-  * 5.7.3 Credential Revocation Must Match Credential Diversity
-* **5.8 Access Governance**
-  * 5.8.1 Entitlement Should Express a Defensible Relationship
-  * 5.8.2 Role-Based Access Is Useful but Not Automatically Least Privilege
-  * 5.8.3 Effective Access Must Be Governed, Not Governed By Direct Access
-  * 5.8.4 Separation of Duties Must Survive Indirect Control
-* **5.9 Federation Governance**
-  * 5.9.1 Federation Transfers an Identity Decision, Not Unlimited Authority
-  * 5.9.2 Trust Agreements = Security Architecture
-  * 5.9.3 Federation Expands the Consequence of Signing-Key Compromise
-  * 5.9.4 Federation Governance Must Include Failure
-* **5.10 Authoritative Attributes**
-  * 5.10.1 Authoritative Does Not Mean Universally Authoritative
-  * 5.10.2 Attribute Provenance Is a Security Property
-  * 5.10.3 Synchronization Creates Copies but Should Not Create Ambiguity
-  * 5.10.4 Attribute Manipulation Can Become Privilege Escalation
-* **5.11 Person Entities and Non-Person Entities (NPE)**
-  * 5.11.1 Person Identity Has a Natural Authoritative Relationship
-  * 5.11.2 Every NPE Needs an Accountable Human or Mission Owner
-  * 5.11.3 NPE Credentials Behave Differently From Human Credentials
-  * 5.11.4 NPE Privilege Can Be Difficult to See
-  * 5.11.5 Machine Identity Is More Than a Computer Object
-  * 5.11.6 Workload Identity Changes the Scale of Identity Governance
-* **5.12 Mission-Partner Identity Governance**
-  * 5.12.1 Mission Trust Should Be Narrower Than Identity Trust
-  * 5.12.2 Identity Translation Can Become a Security Boundary
-  * 5.12.3 Sponsorship Provides Local Accountability for External Identity
-  * 5.12.4 Partner Trust Requires an Incident Path
-  * 5.12.5 Federation Failure Must Not Become Mission Paralysis
-* **5.13 FICAM, DoD ICAM, and Zero Trust**
-  * 5.13.1 Zero Trust Depends on Authoritative Identity
-  * 5.13.2 Strong Authentication Is Necessary but Not Sufficient
-  * 5.13.3 Device Identity Becomes Part of Access Trust
-  * 5.13.4 Continuous Evaluation Changes the Meaning of a Session
-  * 5.13.5 Zero Trust Does Not Eliminate the Trusted Core
-  * 5.13.6 FICAM Provides the Identity Discipline Zero Trust Requires
-* **5.14 Prepar-ing for Chapter 6**
+#### **5.1  Introduction to Federal Identity, Credential, and Access Management (FICAM)**
+
+* 5.1.1 Identity Exists Before the Account
+* 5.1.2 Credentialing Is Not Authentication
+* 5.1.3 Access Management Begins After Authentication but Does Not Depend on Authentication Alone
+* 5.1.4 Federation Extends Trust Without Transferring Ownership
+* 5.1.5 Governance Determines Which Identity Facts Matter
+
+#### **5.2 Introduction to Department of Defense ICAM (DoD ICAM)**
+
+* 5.2.1 Enterprise ICAM Does Not Eliminate Local Identity Engineering
+* 5.2.2 DoD ICAM Must Support Mission Partners
+* 5.2.3 Person Entities and Non-Person Entities (NPE)
+* 5.2.4 Local and Disconnected ICAM Are Deliberate Architectural Cases
+
+#### **5.3 The Identity Lifecycle**
+
+* 5.3.1 Sponsorship
+* 5.3.2 Identity Proofing
+* 5.3.3 Enrollment
+* 5.3.4 Credential Issuance
+* 5.3.5 Credential Binding
+* 5.3.6 Authentication
+* 5.3.7 Authorization
+* 5.3.8 Recertification
+* 5.3.9 Revocation and Deprovisioning
+
+#### **5.4 Digital Identity Assurance**
+
+* **5.4.1 Identity Assurance Levels**
+  * 5.4.1.1 IAL1
+  * 5.4.1.2 IAL2
+  * 5.4.1.3 IAL3
+* **5.4.2 Authenticator Assurance Levels (AAL)**
+  * 5.4.2.1 AAL1
+  * 5.4.2.2 AAL2
+  * 5.4.2.3 AAL3
+* **5.4.3 Federation Assurance Levels (FAL)**
+  * 5.4.3.1 FAL1
+  * 5.4.3.2 FAL2
+  * 5.4.3.3 FAL3
+* 5.4.4 Legacy Levels of Assurance
+
+#### **5.5 Federal Credentials**
+
+* 5.5.1 Personal Identity Verification (PIV)
+* 5.5.2 Common Access Card (CAC)
+* 5.5.3 EDIPI and the DoD Identification Number
+* 5.5.4 Biometrics
+* 5.5.5 Derived Credentials
+
+#### **5.6 Identity Governance**
+
+* 5.6.1 Identity Governance Is the Control Against Identity Debt
+* 5.6.2 Identity State Must Follow the Authoritative Relationship
+* 5.6.3 Privileged Identity Requires Stronger Governance
+
+#### **5.7 Credential Governance**
+
+* 5.7.1 Strong Credentials Require Strong Enrollment
+* 5.7.2 Recovery Is Part of the Credential Security Model
+* 5.7.3 Credential Revocation Must Match Credential Diversity
+
+#### **5.8 Access Governance**
+
+* 5.8.1 Entitlement Should Express a Defensible Relationship
+* 5.8.2 Role-Based Access Is Useful but Not Automatically Least Privilege
+* 5.8.3 Effective Access Must Be Governed, Not Governed By Direct Access
+* 5.8.4 Separation of Duties Must Survive Indirect Control
+
+#### **5.9 Federation Governance**
+
+* 5.9.1 Federation Transfers an Identity Decision, Not Unlimited Authority
+* 5.9.2 Trust Agreements = Security Architecture
+* 5.9.3 Federation Expands the Consequence of Signing-Key Compromise
+* 5.9.4 Federation Governance Must Include Failure
+
+#### **5.10 Authoritative Attributes**
+
+* 5.10.1 Authoritative Does Not Mean Universally Authoritative
+* 5.10.2 Attribute Provenance Is a Security Property
+* 5.10.3 Synchronization Creates Copies but Should Not Create Ambiguity
+* 5.10.4 Attribute Manipulation Can Become Privilege Escalation
+
+#### **5.11 Person Entities and Non-Person Entities (NPE)**
+
+* 5.11.1 Person Identity Has a Natural Authoritative Relationship
+* 5.11.2 Every NPE Needs an Accountable Human or Mission Owner
+* 5.11.3 NPE Credentials Behave Differently From Human Credentials
+* 5.11.4 NPE Privilege Can Be Difficult to See
+* 5.11.5 Machine Identity Is More Than a Computer Object
+* 5.11.6 Workload Identity Changes the Scale of Identity Governance
+
+#### **5.12 Mission-Partner Identity Governance**
+
+* 5.12.1 Mission Trust Should Be Narrower Than Identity Trust
+* 5.12.2 Identity Translation Can Become a Security Boundary
+* 5.12.3 Sponsorship Provides Local Accountability for External Identity
+* 5.12.4 Partner Trust Requires an Incident Path
+* 5.12.5 Federation Failure Must Not Become Mission Paralysis
+
+#### **5.13 FICAM, DoD ICAM, and Zero Trust**
+
+* 5.13.1 Zero Trust Depends on Authoritative Identity
+* 5.13.2 Strong Authentication Is Necessary but Not Sufficient
+* 5.13.3 Device Identity Becomes Part of Access Trust
+* 5.13.4 Continuous Evaluation Changes the Meaning of a Session
+* 5.13.5 Zero Trust Does Not Eliminate the Trusted Core
+* 5.13.6 FICAM Provides the Identity Discipline Zero Trust Requires
+
+#### **5.14 Preparing for Chapter 6**
+
+***
 
 ### <mark style="color:pink;">**Chapter 6 - Risk Management Framework (RMF), Security Baselines, and Authorization Evidence**</mark>
 
-* **6.1 Risk Management Framework**
-  * 6.1.1 Step 1 - Prepare
-  * 6.1.2 Step 2 - Categorize
-  * 6.1.3 Step 3 - Select
-  * 6.1.4 Step 4 - Implement
-  * 6.1.5 Step 5 - Assess
-  * 6.1.6 Step 6 - Authorize
-  * 6.1.7 Step 7 - Monitor
-* **6.2 Identity as a Common Control Provider**
-  * 6.2.1 Common Identity Services Concentrate Assurance
-  * 6.2.2 Common Control Does Not Mean Complete Control
-  * 6.2.3 Common Control Failure Is a Shared-Risk Event
-* **6.3 Control Inheritance and Shared Services**
-  * 6.3.1 Inheritance Should Follow Technical Responsibility
-  * 6.3.2 Shared Services Create Boundary Interfaces
-  * 6.3.3 Inherited Risk Must Reach the Authorizing Official
-* **6.4 Identity Risk Within RMF**
-  * 6.4.1 Authentiation Risk
-  * 6.4.2 Authorization Risk
-  * 6.4.3 Credential Risk
-  * 6.4.4 Federation Risk
-  * 6.4.5 Privileged Access Risk
-* **6.5 DISA STIGs and SRGs**
-  * 6.5.1 Baselines Establish the Expected State
-  * 6.5.2 Baselines Must Distinguish Requirement From Implementation
-  * 6.5.3 Baseline Deviations Are Risk Decisions
-  * 6.5.4 Identity Baselines Must Include Relationships
-  * 6.5.5 STIG Findings Must Be Interpreted Through Identity Criticality
-  * 6.5.6 Applicability Must Be Defensible
-  * 6.5.7 Automation Does Not Eliminate Engineering Judgment
-  * 6.5.8 STIG Evidence Should Support RMF Rather Than Become a Separate Compliance Universe
-* **6.6 Microsoft Security Baselines**
-  * 6.6.1 Microsoft Baselines Represent Vendor-Recommended Secure Configuration
-  * 6.6.2 The Security Compliance Toolkit
-  * 6.6.3 Baseline Comparison Should Precede Deployment
-  * 6.6.4 Windows Server 2025 Introduces Role-Aware Baseline Management Through OSConfig
-  * 6.6.5 Microsoft Baselines and DISA STIGs Should Be Compared, Not Blended Blindly
-  * 6.6.6 Baseline Versioning Importance
-  * 6.6.7 Baseline Drift Is an Identity Security Problem
-  * 6.6.8 Domain Controller Baselines Protect the Platform, Not the Entire Domain
-  * 6.6.9 Baselines Should Become Layered Engineering Artifacts
-* **6.7 Vulnerability Management, IAVAs, and Identity Risk**
-  * **6.7.1 Information Assurance Vulnerability Alerts (IAVAs)**
-    * 6.7.1.1 Identity-Centric IAVAs Can Affect More Than Domain Controllers
-    * 6.7.1.2 IAVA Prioritization Must Follow the Control Plane
-    * 6.7.1.3 Patching Does Not Automatically Close the Identity Exposure
-    * 6.7.1.4 Verification Must Include Service Health and Security State
-  * **6.7.2 Operational Vulnerability Response**
-    * 6.7.2.1 Triage Begins With Exploitability and Reach
-    * 6.7.2.2 Identity Systems Require Dependency-Aware Remediation
-    * 6.7.2.3 Emergency Change Control Must Move Faster Without Becoming Sloppy
-    * 6.7.2.4 Compensating Controls Need to Reduce a Real Attack Opportunity
-    * 6.7.2.5 SOC and Engineering Operations Need a Shared Picture
-    * 6.7.2.6 Suspected Exploitation Changes the Mission
-    * 6.7.2.7 Containment Must Preserve Evidence and Mission Capability
-    * 6.7.2.8 Recovery Means More Than Returning the Server to Service
-    * 6.7.2.9 Post-Remediation Validation Must Test the Mission Path
-    * 6.7.2.10 Vulnerability Closure Should Leave an Evidence Trail
-    * 6.7.2.11 Lessons Learned Should Modify the Environment
-* **6.8 eMASS and Authorization Evidence**
-  * **6.8.1 Control Implementation Evidence**
-    * 6.8.1.1 Evidence Must Describe the Environment That Actually Exists
-  * **6.8.2 Assessment Evidence**
-    * 6.8.2.1 Control Implementation Statements Should Be Technically Testable
-  * **6.8.3 Authorization Artifacts**
-* 6.9 Plans of Action and Milestones (POA\&Ms)
-* 6.10 Continuous Monitoring
-* 6.11 Continuous Diagnostics and Mitigation
-* 6.12 Vulnerability and Patch Management
-* 6.13 CCRI and CORA Readiness
-* 6.14 Inspector General (IG) and Assessment Findings
-* 6.15 Configuration Drift
-* 6.16 Strategic Security Testing and Evaluation (ST\&E)
-* 6.17 Mission-Aware Change Control (MACC)
-* **6.18 Preparing for Chapter 7**
+#### **6.1 Risk Management Framework**
 
-## PART II - Identity Infrastructure and Active Directory Architecture
+* 6.1.1 Step 1 - Prepare
+* 6.1.2 Step 2 - Categorize
+* 6.1.3 Step 3 - Select
+* 6.1.4 Step 4 - Implement
+* 6.1.5 Step 5 - Assess
+* 6.1.6 Step 6 - Authorize
+* 6.1.7 Step 7 - Monitor
 
-### Chapter 7 - Identity Infrastructure Networking
+#### **6.2 Identity as a Common Control Provider**
 
-* **7.1 Why Identity Depends on the Network**
-  * 7.1.1 Network Transport Dynamics: Kerberos, NTLM, RADIUS, and LDAP/S as Network Payloads
-  * 7.1.2 Threat Modeling: On-Path and Man-in-the-Middle (MitM) Adversary Capabilities
-  * 7.1.3 FICAM Alignment: Impact of Transport Interception on Credential Assurance Levels (CAL)
-* **7.2 TCP/IP Foundations for Identity Services**
-  * 7.2.1 Transport Dynamics: TCP Versus UDP Behaviors for Kerberos, DNS, and LDAP
-  * 7.2.2 Kerberos MTU and Packet Fragmentation: Handling `KRB_ERR_RESPONSE_TOO_BIG`
-  * 7.2.3 **Defensive Configuration**: Enforcing Kerberos Over TCP via Registry (`MaxPacketSize`)
-* **7.3 Routing and Segmentation**
-  * 7.3.1 **Directory Routing Topologies**: Traffic Shaping Between Domain Controllers, NPS, and Clients
-  * 7.3.2 **Zero Trust Microsegmentation**: Tier 0, Tier1, and Tier 2 Network Isolation (NIST SP 800-207)
-  * 7.3.3 **Host-Based Access Control**: Restricting Lateral Movement with Windows Defender Firewall Rules
-* **7.4 Network Ports and Transport Dependencies**
-  * 7.4.1 **Core Port Matrix**: Kerberos (88), RPC (135), LDAP/S (389/636), SMB (445), GC (3268/3269), NTP (123), RADIUS (1812/1813)
-  * 7.4.2 **Network Traffic Reconnaissance**: Passive Sniffing and Active Service Scanning
-  * 7.4.3 **Defensive RPC Hardening**: Restricting Dynamic RPC High-Port Ranges via Registry
-* **7.5 Domain Name System**
-  * **7.5.1 AD-Integrated DNS**
-    * 7.5.1.1 Multi-Master Replication, Partition Architecture (`DomainDnsZones`, `ForestDnsZones`), and ACL Delegation
-  * **7.5.2 DNS Service Locator (SRV) Records**
-    * 7.5.2.1 Active Directory Resource Locator Mechanics and Query Paths
-  * **7.5.3 Dynamic Updates**
-    * 7.5.3.1 Offensive Vector: Non-Secure DNS Record Overwriting (`adidnsdump`, `dnstool`)
-    * 7.5.3.2 Defensive Configuration: Enforcing Secure Dynamic Updates Exclusively
-  * **7.5.4 Name Resolution**
-    * 7.5.4.1 Multicast/Broadcast Protocol Mechanics: LLMNR (5355), NBT-NS (127), mDNS (5353), and DHCPv6
-    * 7.5.4.2 Offensive Vector: Broadcast Poisoning and Rogue IPv6 Delegation (`Responder`, `mitm6`, `Inveigh`)
-    * 7.5.4.3 Defensive Hardening: Disabling Multicast Resolution and NetBIOS via GPO and Registry
-* **7.6 Time Synchronization and the Network Time Protocol (NTP)**
-  * 7.6.1 Kerberos Clock Skew Constraints: ±5-Minute Tolerance Window (`MaxToleranceInMinutes`)
-  * 7.6.2 Offensive Vector: Time Skew Injection, Replay Attacks, and Protocol Downgrades
-  * 7.6.3 Defensive Configuration: Authoritative PDC Hierarchy NTP Sync Configuration
-* **7.7 SMB and RPC**
-  * 7.7.1 Network Transport Protocols: SMB v1/v2/v3 Security States and Dynamic RPC Interfaces
-  * 7.7.2 Offensive Vector: Coerced Authentication and Authentication Relaying (PetitPotam, `ntlmrelayx`)
-  * 7.7.3 Defensive Hardening: Mandatory SMB/LDAP Signing, SMB Encryption, and Channel Binding Tokens (CBT)
-* **7.8 Network Access Authentication**
-  * **7.8.1 RADIUS**
-    * 7.8.1.1 Protocol Architecture (UDP 1812/1813), Shared Secrets, and Packet Header Structures
-  * **7.8.2 Microsoft Network Policy Server (NPS)**
-    * 7.8.2.1 RADIUS Policy Engine, Active Directory User Mapping, and Audit Logging
-  * **7.8.3 TACACS+**
-    * 7.8.3.1 Protocol Mechanics (TCP 49), Full-Payload Encryption, and Command Authorization
-  * **7.8.4 IEEE 802.1X**
-    * 7.8.4.1 Port-Based Network Access Control (NAC): Supplicant, Authenticator, and Authentication Server Interaction
-* **7.9 Legacy Authentication Protocols**
-  * **7.9.1 PAP**
-    * 7.9.1.1 Plaintext Credentials and Packet Sniffing Risks
+* 6.2.1 Common Identity Services Concentrate Assurance
+* 6.2.2 Common Control Does Not Mean Complete Control
+* 6.2.3 Common Control Failure Is a Shared-Risk Event
+
+#### **6.3 Control Inheritance and Shared Services**
+
+* 6.3.1 Inheritance Should Follow Technical Responsibility
+* 6.3.2 Shared Services Create Boundary Interfaces
+* 6.3.3 Inherited Risk Must Reach the Authorizing Official
+
+#### **6.4 Identity Risk Within RMF**
+
+* 6.4.1 Authentiation Risk
+* 6.4.2 Authorization Risk
+* 6.4.3 Credential Risk
+* 6.4.4 Federation Risk
+* 6.4.5 Privileged Access Risk
+
+#### **6.5 DISA STIGs and SRGs**
+
+* 6.5.1 Baselines Establish the Expected State
+* 6.5.2 Baselines Must Distinguish Requirement From Implementation
+* 6.5.3 Baseline Deviations Are Risk Decisions
+* 6.5.4 Identity Baselines Must Include Relationships
+* 6.5.5 STIG Findings Must Be Interpreted Through Identity Criticality
+* 6.5.6 Applicability Must Be Defensible
+* 6.5.7 Automation Does Not Eliminate Engineering Judgment
+* 6.5.8 STIG Evidence Should Support RMF Rather Than Become a Separate Compliance Universe
+
+#### **6.6 Microsoft Security Baselines**
+
+* 6.6.1 Microsoft Baselines Represent Vendor-Recommended Secure Configuration
+* 6.6.2 The Security Compliance Toolkit
+* 6.6.3 Baseline Comparison Should Precede Deployment
+* 6.6.4 Windows Server 2025 Introduces Role-Aware Baseline Management Through OSConfig
+* 6.6.5 Microsoft Baselines and DISA STIGs Should Be Compared, Not Blended Blindly
+* 6.6.6 Baseline Versioning Importance
+* 6.6.7 Baseline Drift Is an Identity Security Problem
+* 6.6.8 Domain Controller Baselines Protect the Platform, Not the Entire Domain
+* 6.6.9 Baselines Should Become Layered Engineering Artifacts
+
+#### **6.7 Vulnerability Management, IAVAs, and Identity Risk**
+
+* **6.7.1 Information Assurance Vulnerability Alerts (IAVAs)**
+  * 6.7.1.1 Identity-Centric IAVAs Can Affect More Than Domain Controllers
+  * 6.7.1.2 IAVA Prioritization Must Follow the Control Plane
+  * 6.7.1.3 Patching Does Not Automatically Close the Identity Exposure
+  * 6.7.1.4 Verification Must Include Service Health and Security State
+* **6.7.2 Operational Vulnerability Response**
+  * 6.7.2.1 Triage Begins With Exploitability and Reach
+  * 6.7.2.2 Identity Systems Require Dependency-Aware Remediation
+  * 6.7.2.3 Emergency Change Control Must Move Faster Without Becoming Sloppy
+  * 6.7.2.4 Compensating Controls Need to Reduce a Real Attack Opportunity
+  * 6.7.2.5 SOC and Engineering Operations Need a Shared Picture
+  * 6.7.2.6 Suspected Exploitation Changes the Mission
+  * 6.7.2.7 Containment Must Preserve Evidence and Mission Capability
+  * 6.7.2.8 Recovery Means More Than Returning the Server to Service
+  * 6.7.2.9 Post-Remediation Validation Must Test the Mission Path
+  * 6.7.2.10 Vulnerability Closure Should Leave an Evidence Trail
+  * 6.7.2.11 Lessons Learned Should Modify the Environment
+
+#### **6.8 eMASS and Authorization Evidence**
+
+* **6.8.1 Control Implementation Evidence**
+  * 6.8.1.1 Evidence Must Describe the Environment That Actually Exists
+* **6.8.2 Assessment Evidence**
+  * 6.8.2.1 Control Implementation Statements Should Be Technically Testable
+* **6.8.3 Authorization Artifacts**
+
+#### 6.9 Plans of Action and Milestones (POA\&Ms)
+
+#### 6.10 Continuous Monitoring
+
+#### 6.11 Continuous Diagnostics and Mitigation
+
+#### 6.12 Vulnerability and Patch Management
+
+#### 6.13 CCRI and CORA Readiness
+
+#### 6.14 Inspector General (IG) and Assessment Findings
+
+#### 6.15 Configuration Drift
+
+#### 6.16 Strategic Security Testing and Evaluation (ST\&E)
+
+#### 6.17 Mission-Aware Change Control (MACC)
+
+#### **6.18 Preparing for Chapter 7**
+
+***
+
+## <mark style="color:yellow;">**PART II - Identity Infrastructure and Active Directory Architecture**</mark>
+
+### <mark style="color:yellow;">**Chapter 7 - Identity Infrastructure Networking**</mark>
+
+#### **7.1 Why Identity Depends on the Network**
+
+* 7.1.1 Network Transport Dynamics: Kerberos, NTLM, RADIUS, and LDAP/S as Network Payloads
+* 7.1.2 Threat Modeling: On-Path and Man-in-the-Middle (MitM) Adversary Capabilities
+* 7.1.3 FICAM Alignment: Impact of Transport Interception on Credential Assurance Levels (CAL)
+
+#### **7.2 TCP/IP Foundations for Identity Services**
+
+* 7.2.1 Transport Dynamics: TCP Versus UDP Behaviors for Kerberos, DNS, and LDAP
+* 7.2.2 Kerberos MTU and Packet Fragmentation: Handling `KRB_ERR_RESPONSE_TOO_BIG`
+* 7.2.3 **Defensive Configuration**: Enforcing Kerberos Over TCP via Registry (`MaxPacketSize`)
+
+#### **7.3 Routing and Segmentation**
+
+* 7.3.1 **Directory Routing Topologies**: Traffic Shaping Between Domain Controllers, NPS, and Clients
+* 7.3.2 **Zero Trust Microsegmentation**: Tier 0, Tier1, and Tier 2 Network Isolation (NIST SP 800-207)
+* 7.3.3 **Host-Based Access Control**: Restricting Lateral Movement with Windows Defender Firewall Rules
+
+#### **7.4 Network Ports and Transport Dependencies**
+
+* 7.4.1 **Core Port Matrix**: Kerberos (88), RPC (135), LDAP/S (389/636), SMB (445), GC (3268/3269), NTP (123), RADIUS (1812/1813)
+* 7.4.2 **Network Traffic Reconnaissance**: Passive Sniffing and Active Service Scanning
+* 7.4.3 **Defensive RPC Hardening**: Restricting Dynamic RPC High-Port Ranges via Registry
+
+#### **7.5 Domain Name System**
+
+* **7.5.1 AD-Integrated DNS**
+  * 7.5.1.1 Multi-Master Replication, Partition Architecture (`DomainDnsZones`, `ForestDnsZones`), and ACL Delegation
+* **7.5.2 DNS Service Locator (SRV) Records**
+  * 7.5.2.1 Active Directory Resource Locator Mechanics and Query Paths
+* **7.5.3 Dynamic Updates**
+  * 7.5.3.1 Offensive Vector: Non-Secure DNS Record Overwriting (`adidnsdump`, `dnstool`)
+  * 7.5.3.2 Defensive Configuration: Enforcing Secure Dynamic Updates Exclusively
+* **7.5.4 Name Resolution**
+  * 7.5.4.1 Multicast/Broadcast Protocol Mechanics: LLMNR (5355), NBT-NS (127), mDNS (5353), and DHCPv6
+  * 7.5.4.2 Offensive Vector: Broadcast Poisoning and Rogue IPv6 Delegation (`Responder`, `mitm6`, `Inveigh`)
+  * 7.5.4.3 Defensive Hardening: Disabling Multicast Resolution and NetBIOS via GPO and Registry
+
+#### **7.6 Time Synchronization and the Network Time Protocol (NTP)**
+
+* 7.6.1 Kerberos Clock Skew Constraints: ±5-Minute Tolerance Window (`MaxToleranceInMinutes`)
+* 7.6.2 Offensive Vector: Time Skew Injection, Replay Attacks, and Protocol Downgrades
+* 7.6.3 Defensive Configuration: Authoritative PDC Hierarchy NTP Sync Configuration
+
+#### **7.7 Server Mesage Block (SMB) and Remote Procedure Call (RPC)**
+
+* 7.7.1 Network Transport Protocols: SMB v1/v2/v3 Security States and Dynamic RPC Interfaces
+* 7.7.2 Offensive Vector: Coerced Authentication and Authentication Relaying (PetitPotam, `ntlmrelayx`)
+* 7.7.3 Defensive Hardening: Mandatory SMB/LDAP Signing, SMB Encryption, and Channel Binding Tokens (CBT)
+
+#### **7.8 Network Access Authentication**
+
+* **7.8.1 RADIUS**
+  * 7.8.1.1 Protocol Architecture (UDP 1812/1813), Shared Secrets, and Packet Header Structures
+* **7.8.2 Microsoft Network Policy Server (NPS)**
+  * 7.8.2.1 RADIUS Policy Engine, Active Directory User Mapping, and Audit Logging
+* **7.8.3 TACACS+**
+  * 7.8.3.1 Protocol Mechanics (TCP 49), Full-Payload Encryption, and Command Authorization
+* **7.8.4 IEEE 802.1X**
+  * 7.8.4.1 Port-Based Network Access Control (NAC): Supplicant, Authenticator, and Authentication Server Interaction
+
+#### **7.9 Legacy Authentication Protocols**
+
+* **7.9.1 PAP**
+  * 7.9.1.1 Plaintext Credentials and Packet Sniffing Risks
 * **7.9.2 CHAP**
   * 7.9.2.1 MD5 Challenge-Response Weaknesses and Offline Cracking
 * **7.9.3 MS-CHAP and MS-CHAPv2**
   * 7.9.3.1 Single DES Key Derivation Weaknesses (56-Bit Cipher Strength) and Challenge Cracking (`asleap`)
-* **7.10 Extensible Authentication Protocols (EAP)**
-  * **7.10.1 EAP-MD5**
-    * 7.10.1.1 Cleartext Hash Transport and Lack of Mutual Authentication
+
+#### **7.10 Extensible Authentication Protocols (EAP)**
+
+* **7.10.1 EAP-MD5**
+  * 7.10.1.1 Cleartext Hash Transport and Lack of Mutual Authentication
 * **7.10.2 LEAP**
   * 7.10.2.1 MS-CHAP Challenge Inspection and Dictionary Attacks (`asleap`)
     * 7.10.2.1.1 `asleap -r leap_capture.pcap -f /usr/share/wordlists/rockyou.txt`
@@ -531,7 +689,10 @@
   * 7.10.4.1 Protected EAP Outer TLS Tunneling
   * 7.10.4.2 Offensive Vector: Rogue Access Point / Evil Twin Deployment via `eaphammer`
 * **7.10.5 EAP-TTLS**
-  * 7.10.5.1 Outer TLS Tunnel with Legacy Inner Authentication (PAP, CHAP, MS-CHAPv2)
+  * **7.10.5.1 Outer TLS Tunnel with Legacy Inner Authentication**
+    * 7.10.5.1.1 PAP
+    * 7.10.5.1.2 CHAP
+    * 7.10.5.1.3 MS-CHAPv2
 * **7.10.6 EAP-FAST**
   * 7.10.6.1 Protected Access Credentials (PAC) Provisioning and Secure Tunneling
 * **7.10.7 EAP-GTC**
@@ -544,380 +705,578 @@
   * 7.10.10.1 Boot-Time Identity: Domain Computer Account Mechanics (`COMPUTER$`)
   * 7.10.10.2 Interactive Handoff: Single Sign-On (SSO) Transition to User Context
   * 7.10.10.3 Network Enforcement: Pre-Logon Access Control (PLAP) and Dynamic VLAN Assignment
-* **7.11 Network Identity Trust Boundaries**
-  * 7.11.1 Architecture: Tiered Subnet Enforcement (Tier 0 / Tier 1 / Tier 2 Isolation)
-  * 7.11.2 FICAM and NIST Control Mapping: `IA-2`, `IA-5`, `SC-8`, `SC-13`
-* 7.11.3 Telemetry and Event Auditing: Log Analysis for Event ID 4624 (Logon Type 8), Event IDs 6272/6278 (NPS), and Event IDs 4768/4769 (Kerberos)
 
-### Chapter 8 - The Architecture of Authority
+#### **7.11 Network Identity Trust Boundaries**
 
-* **8.1 Active Directory Forests**
-  * 8.1.1 Root Authority and Schema Control: The Forest as the True Security and Cryptographic Boundary
-  * 8.1.2 Forest Root Domain: Criticality of the Primary Domain Controller Emulator (ePDC) and Schema Master
-  * 8.1.3 Forest-Wide Scope: Global Catalog (GC) Replication, Enterprise Admins (EA), and Schema Admins
-  * 8.1.4 Reconnaissance and Hardening: Mapping Forest Topologies (BloodHound) and Tier 0 Group Membership Restrictions
-  * 8.1.5 Defensive Configuration: Tier 0 Forest Hardening and Restricting EA Group Membership
-* **8.2 Active Directory Trees**
-  * 8.2.1 Disjoint and Contiguous Namespaces: Structural Tree Hierarchies Within a Single Forest
-  * 8.2.2 Kerberos Transit Paths: Automatic Two-Way Transitive Parent-Child Kerberos Trust Chains
-  * 8.2.3 Offensive Vector: Intra-Forest Child-to-Parent Escalation via SID History and Enterprise Key Extraction via `mimikatz`
-  * 8.2.4 Defensive Configuration: Enforcing SID Filtering and Selective Authentication on Internal Trust Paths
-* **8.3 Active Directory Domains**
-  * 8.3.1 Administrative Partitioning: Replication, Policy, and Database (`NTDS.dit`) Isolation Limits
-  * 8.3.2 Domain Controllers: FSMO Roles (RID Master, Infrastructure Master, PDC Emulator), and KDC Architecture
-  * 8.3.3 Offensive Vector: Domain Controller Takeover via Coerced Authentication and DCSync
-  * 8.3.4 Defensive Configuration: Domain Isolation Policy and Tier 0 Domain Controller Hardening
-* **8.4 Active Directory Organizational Units (OU)**
+* 7.11.1 Architecture: Tiered Subnet Enforcement (Tier 0 / Tier 1 / Tier 2 Isolation)
+* 7.11.2 FICAM and NIST Control Mappings
+* &#x20;`IA-2`
+* &#x20;`IA-5`
+* &#x20;`SC-8`
+* &#x20;`SC-13`
+
+#### 7.11.3 Telemetry, Windows Event ID Auditing, and Log Analysis
+
+* Event ID 4624: Logon Type 8
+* Event IDs 6272/6278: NPS
+* Event IDs 4768/4769: Kerberos
+
+***
+
+### <mark style="color:yellow;">**Chapter 8 - The Architecture of Authority**</mark>
+
+#### **8.1 Active Directory Forests**
+
+* 8.1.1 Root Authority and Schema Control: The Forest as the True Security and Cryptographic Boundary
+* 8.1.2 Forest Root Domain: Criticality of the Primary Domain Controller Emulator (ePDC) and Schema Master
+* 8.1.3 Forest-Wide Scope: Global Catalog (GC) Replication, Enterprise Admins (EA), and Schema Admins
+* 8.1.4 Reconnaissance and Hardening: Mapping Forest Topologies (BloodHound) and Tier 0 Group Membership Restrictions
+* 8.1.5 Defensive Configuration: Tier 0 Forest Hardening and Restricting EA Group Membership
+
+#### **8.2 Active Directory Trees**
+
+* 8.2.1 Disjoint and Contiguous Namespaces: Structural Tree Hierarchies Within a Single Forest
+* 8.2.2 Kerberos Transit Paths: Automatic Two-Way Transitive Parent-Child Kerberos Trust Chains
+* 8.2.3 Offensive Vector: Intra-Forest Child-to-Parent Escalation via SID History and Enterprise Key Extraction via `mimikatz`
+* 8.2.4 Defensive Configuration: Enforcing SID Filtering and Selective Authentication on Internal Trust Paths
+
+#### **8.3 Active Directory Domains**
+
+* 8.3.1 Administrative Partitioning: Replication, Policy, and Database (`NTDS.dit`) Isolation Limits
+* 8.3.2 Domain Controllers: FSMO Roles
+  * 8.3.2.1 RID Master
+  * 8.3.2.2 Infrastructure Master
+  * 8.3.2.3 PDC Emulator (PDCe)
+  * 8.3.2.4 KDC Architecture
+* 8.3.3 Offensive Vector: Domain Controller Takeover via Coerced Authentication and DCSync
+* 8.3.4 Defensive Configuration: Domain Isolation Policy and Tier 0 Domain Controller Hardening
+
+#### **8.4 Active Directory Organizational Units (OU)**
+
 * 8.4.1 Logical Structuring: Administrative Delegation, Group Policy Object (GPO) Application, and Asset Grouping
 * 8.4.2 ACL Delegation & Inheritance: Explicit vs. Inherited Access Control Entries (ACEs) on OU Containers
 * 8.4.3 Offensive Vector: Abusing Delegated OU Permissions (`GenericAll`, `WriteDACL`) Over User/Computer Objects
-* 8.4.3.1 `Get-DomainOU | Get-DomainAcl -ResolveGUIDs | ? {$_.IdentityReference - match "TargetUser"}`
-* 8.4.3.2 `bloodyAD --host dc01.domain.local -u user -p pass add genericAll --tar -get "OU=Workstations,DC=domain,DC=local"`
+  * 8.4.3.1 `Get-DomainOU | Get-DomainAcl -ResolveGUIDs | ? {$_.IdentityReference - match "TargetUser"}`
+  * 8.4.3.2 `bloodyAD --host dc01.domain.local -u user -p pass add genericAll --tar -get "OU=Workstations,DC=domain,DC=local"`
 * 8.4.4 Defensive Hardening: Auditing OU DACLs, Enforcing Block GPO Inheritance, and Applying Least Privilege Delegation
-* 8.5 Active Directory Sites and Administrative Topology
+
+#### 8.5 Active Directory Sites and Administrative Topology
+
 * 8.5.1 Physical Network Mapping: IP Subnet Associations, Site Objects, and Site Links
 * 8.5.2 Replication Topology: Knowledge Consistency Checker (KCC) and Inter-Site Topology Generator (ISTG)
 * 8.5.3 Offensive Vector: Rogue Site Association and Client Subnet Hijacking for Credential Interception
 * 8.5.4 Defensive Configuration: Audit and Clean Up Unassigned Subnets via Active Directory Sites and Services (`dssite.msc`)
-* 8.6 Active Directory Naming Boundaries
+
+#### 8.6 Active Directory Naming Boundaries
+
 * 8.6.1 Namespace Architecture: Fully Qualified Domain Name (FQDN), NetBIOS, and User Principal Names (UPNs)
 * 8.6.2 X.500 and LDAP Pathing: Distinguished Names (DN), Relative Distinguished Names (RDN), and Canonical Names (CN)
 * 8.6.3 Offensive Vector: UPN Spoofing and Kerberos Service Principal Names (SPN) Aliasing Attacks
 * 8.6.4 Defensive Configuration: Restricting UPN Suffix Routing and Enforcing Unique SPN Validation
-* 8.7 Active Directory Authentication Boundaries
+
+#### 8.7 Active Directory Authentication Boundaries
+
 * 8.7.1 Kerberos and NTLM Scope: Authentication Realm Issuance and Ticket Granting Ticket (TGT) Boundaries
 * 8.7.2 Cross-Boundary Authentication: Referral Tickets (`KRB_TGT_REP`) Across Domain Trees
 * 8.7.3 Offensive Vector: Cross-Domain Kerberoasting and AS-REP Roasting via Impacket
 * 8.7.4 Defensive Configuration: Disabling NTLM Across Domain Boundaries and Enforcing AES-256 Kerberos Encryption Only
-* **8.8 Active Directory Administrative Boundaries**
+
+#### **8.8 Active Directory Administrative Boundaries**
+
 * 8.8.1 **Delegation Models**: Task Delegation Wizard, Built-In Administrative Groups, and Custom Roles
 * 8.8.2 **AdminSDHolder and SDProp**: Protection Mechanics for High-Privilege Domain Accounts
 * 8.8.3 **Offensive Vector**: Abusing ACL Inheritance Flaws and Persistence via AdminSDHolder DACL Modification
 * 8.8.4 **Defensive Hardening**: Protecting AdminSDHolder, Clearing Unauthorized ACEs, and Monitoring SDProp Execution
-* **8.9 Active Directory Security Boundaries**
-  * 8.9.1 **The Forest Boundary Law**: Why the Forest is the Only True Security Boundary in Active Directory
-  * 8.9.2 **Domain Boundary Fallacy**: Mechanics of Transitive Trust Exploitation and Cross-Domain Admin Escalation
-  * 8.9.3 **FICAM Alignment**: Mapping Forest Security Boundaries to FICAM CAL-3 and FIPS 201 Control Standards
-  * 8.9.4 **Defensive Architecture**: Deploying Isolated Red Forests (ESAE / Privileged Access Forests) or Zero Trust Workload Enclaves
-* **8.10 Why Logical Structure Does Not Equal Effective Control**
-  * 8.10.1 **Structural Pitfalls**: Conflating OU Hierarchies with Security Isolation
-  * 8.10.2 **Implicit Trust Relationships**: GPO Link Overrides, Cross-OU Service Account Usage, and Shared Local Admin Credentials
-  * 8.10.3 **Offensive Vector**: Mapping Implicit Control Paths and Indirect Privilege Escalation with BloodHound Cypher Queries
-  * 8.10.4 **Defensive Blueprint**: Transitioning from Logical Hierarchies to Strict Administrative Tiering (Tier 0 / Tier 1 / Tier 2)
-  * 8.10.5 **FICAM and NIST Control Mapping**: `AC-2` (Account Management), `AC-3` (Access Enforcement), `AC-6` (Least Privilege), `SC-7` (Boundary Protection)
-  * 8.10.6 **Telemetry and Event Auditing**: Log Analysis for Event ID 4670 (Permissions Changed), Event ID 4738 (User Account Modified), and Event ID 5136 (Directory Object Modified)
-
-### Chapter 9 - The Active Directory Object Model and Schema
-
-* **9.1 Directory Objects**
-  * 9.1.1 **Object-Oriented Architecture**: Representation of Physical and Logical Entities in LDAP
-  * 9.1.2 **Directory Instances**: Object Instantiation from Schema Definitions Inside `NTDS.dit`
-  * 9.1.3 **Object Class Categorization**: Structural, Abstract, and Auxiliary Object Classes
-* **9.2 Object Classes**
-  * 9.2.1 **Class Hierarchy**: Inheritance Tree Rooted at Top
-  * 9.2.2 **Class Schemas**: `classSchema` Definition Objects and Structural Rules
-  * 9.2.3 **Class Types**: Structural Classes (Users, Computers), Auxiliary Classes (Security Enhancements), and Abstract Classes
-* **9.3 Attributes**
-  * 9.3.1 **Attribute Definitions**: `attributeSchema` Objects and Attribute Properties
-  * 9.3.2 **Data Syntaxes and Constraints**: Single-Valued Versus Multi-Valued Attributes, Unicode Strings, Octet Strings, and Integer Types
-  * 9.3.3 **Specialized Attribute Types**: Indexed Attributes, Confidential Attributes (`SEARCH_FLAGS = 128`), and RODC-Filtered Attribute Sets (FAS)
-  * 9.3.4 **Global Catalog Scope**: Partial Attribute Set (PAS) Marking (`IsMemberOfPartialAttributeSet`)
-* **9.4 Distinguished Names**
-  * 9.4.1 **X.500 LDAP Pathing**: Fully Qualified Directory Paths (`CN=User,OU=Execs,DC=domain,DC=local`)
-  * 9.4.2 **Object Binding**: Uniquely Identifying Objects Across Naming Contexts
-  * 9.4.3 **Directory Operations**: Relocation and Rename Impacts on Distinguished Name (DN) Paths
-* **9.5 Relative Distinguished Names (RDN)**
-  * 9.5.1 **Leaf Node Naming**: RDN Structure (`CN=JohnDoe`) Within Parent Containers
-  * 9.5.2 **Naming Constraints**: Character Escaping and Length Limits
-  * 9.5.3 **Collision Handling**: Disambiguation Mechanics During Directory Object Creation and Multi-Master Replication
-* **9.6 GUIDs and ObjectGUID**
-  * 9.6.1 **Immutable Identification**: 128-Bit Universally Unique Identifiers (`objectGUID`)
-  * 9.6.2 **Persistence Across Operations**: Tracking Objects Independent of Renames, Domain Moves, or Container Transfers
-  * 9.6.3 **Offensive and Defensive Utility**: Binding BloodHound Telemetry and Access Control Entries (ACEs) to `objectGUID` Identifiers
-* **9.7 Security Identifiers (SID)**
-  * 9.7.1 **SID Structure**: Revision Level, Identifier Authority, Sub-Authorities, and Relative Identifier (RID)
-  * 9.7.2 **Identity Mapping**: Resolving `sAMAccountName` to Security Identifiers for Access Control Checks
-  * 9.7.3 **Well-Known SIDs**: Universal SIDs (`S-1-5-32-544` - Administrators, `S-1-5-18` - Local System)
-  * 9.7.4 **Offensive Vector**: SID History (`sAMAccountType / sIDHistory`) Injection for Cross-Domain Privilege Escalation via `mimikatz`
-  * 9.7.5 **Defensive Hardening**: Auditing `sIDHistory` Attributes and Enforcing SID Filtering Across Trust Boundaries
-* **9.8 User Principal Names (UPN)**
-  * 9.8.1 **Identity Formatting**: Enterprise User Identity Naming (`user@domain.local`)
-  * 9.8.2 **UPN Types**: Implicit UPNs (Default `sAMAccountName@FQDN`)Versus Explicit UPNs
-  * 9.8.3 **Routing Boundaries**: Alternative UPN Suffixes for Federated Identity and Multi-Forest Alignment (FICAM CAL Alignment)
-* **9.9 Service Principal Names (SPN)**
-  * 9.9.1 **Kerberos Service Binding**: Associating Unique Services with Active Directory Accounts (`service/host:port`)
-  * 9.9.2 **SPN Syntax and Mechanics**: Host-Based SPNs, Service Accounts, and Unique SPN Enforcements
-  * 9.9.3 **Offensive Vector**: SPN Enumeration and Kerberoasting Target Acquisition (`Impacket`, `Rubeus`)
-  * 9.9.4 **Defensive Hardening**: Enforcing Group Managed Service Accounts (gMSA) and Long/Complex Passwords on SPN Accounts
-* **9.10 Naming Contexts**
-  * 9.10.1 **Directory Partitioning**: Logical Division of `NTDS.dit` for Targeted Replication
-  * 9.10.2 **Cross-Reference Objects**: Cross-Domain and Cross-Partition Routing (`crossRef` Objects)
-* **9.11 Domain Partition**
-  * 9.11.1 **Directory Contents**: Users, Computers, Groups, OUs, and Domain-Specific GPOs
-  * 9.11.2 **Replication Boundary**: Scope and Transport Dynamics Across Domain Controllers
-* **9.12 Schema Partition**
-  * 9.12.1 **Directory Contents**: Forest-Wide Object Class and Attribute Definitions
-  * 9.12.2 **Control Scope**: Schema Master FSMO Role Authorization and Single-Master Replication
-* **9.13 Application Partitions**
-  * 9.13.1 **Custom Storage**: Non-Domain Data Partitioning and Selective Replication Topologies
-  * 9.13.2 **DNS Partitions**: `DomainDnsZones` and `ForestDnsZones` Integration
-  * 9.13.3 **Offensive Vector**: Storage of Rogue Objects or Data Staging Inside Custom Application Partitions
-* **9.14 Schema Architecture**
-  * 9.14.1 **Structural Blueprint**: Rules Governing Database Record Creation and Validation
-  * 9.14.2 **Class Dependencies**: Mandatory Attributes (`mustContain`) and Optional Attributes (`mayContain`)
-  * 9.14.3 **Object Identifiers (OIDs)**: Standardized ISO/ITU Naming Structure for Custom Schema Elements
-* **9.15 Schema Extensions**
-  * 9.15.1 **Modifying Directory Physics**: Adding Custom Classes, Attributes, or Extending Existing Objects
-  * 9.15.2 **Enterprise Extensions**: Microsoft Exchange, LAPS (`ms-MCSF-SASUClearTextPassword`), and PKI Schema Modifications
-  * 9.15.3 **Offensive Vector**: Schema Poisoning, Backdoor Attribute Creation, and Covert Data Storage
-  * 9.15.4 **Defensive Hardening**: Restricting Schema Admins Group Membership, Enforcing Change Control, and Auditing Schema Modifications
-* **9.16 Directory Metadata**
-  * 9.16.1 **Attribute Tracking**: Attribute-Level Change Tracking via `msDS-ReplAttributeMetaData`
-  * 9.16.2 **Sequence Numbers**: Update Sequence Numbers (USN) and Vector State Tracking
-  * 9.16.3 **Originating Versus Replicated Updates**: Tracking Source Domain Controllers via `invocationDI` and Version Counters
-* **9.17 Authoritative Directory State**
-  * 9.17.1 Object Deletion Lifecycle: Active State, Tombstone State, and Recycled State (AD Recycle Bin)
-  * 9.17.2 Replication Synchronization: High-Water Marks and Up-To-Dateness Vector Tables
-  * 9.17.3 Restoration Mechanics: Authoritative Versus Non-Authoritative Restores
-  * 9.17.4 Threat Mitigation: Detecting USN Rollback, Database Corruption, and Covert Object Restoration
-  * 9.17.5 FICAM and NIST Control Mapping: `IA-2` (Identification), `AC-2` (Account Management), `SI-7` (Software, Firmware, and Information Integrity)
-  * 9.17.6 Telemetry and Event Auditing: Audit Logging for Event ID 5136 (Directory Service Object Modified), Event ID 5137 (Directory Object Created), and Event ID 5141 (Directory Object Deleted)
-
-### Chapter 10 - Domain Controllers, Replication, and Directory State
-
-*
-
-    #### 10.1 Domain Controller Roles
-
-    * Core Identity Services: Active Directory Domain Services (AD DS), Key Distribution Center (KDC), and Local Security Authority (LSA) Interaction
-    * Identity Infrastructure Anchor: Authenticating Users, Computers, and Services Across Enterprise Boundaries
-
-    #### 10.2 Writable Domain Controllers
-
-    * Full Database Authority: Multi-Master Replication and Write-Capable Directory Operations
-    * High-Value Target Profile: Tier 0 Security Boundary Requirements and Administrative Isolation Models
 
-    #### 10.3 Read-Only Domain Controllers
+#### **8.9 Active Directory Security Boundaries**
 
-    * Edge & Branch Deployment: Unidirectional Replication Architecture and Read-Only Database Isolation
-    * Password Replication Policy (PRP): Deny/Allow Lists for Credential Caching
-    * Offensive Vector: RODC Credential Cache Dumping and Abusing Weak PRP Rules (`Impacket`)
-    * Defensive Hardening: Restricting Administrative Account Caching and Enforcing Strict PRP Auditing
+* 8.9.1 **The Forest Boundary Law**: Why the Forest is the Only True Security Boundary in Active Directory
+* 8.9.2 **Domain Boundary Fallacy**: Mechanics of Transitive Trust Exploitation and Cross-Domain Admin Escalation
+* 8.9.3 **FICAM Alignment**: Mapping Forest Security Boundaries to FICAM CAL-3 and FIPS 201 Control Standards
+* 8.9.4 **Defensive Architecture**: Deploying Isolated Red Forests (ESAE / Privileged Access Forests) or Zero Trust Workload Enclaves
 
-    #### 10.4 Global Catalogs
+#### **8.10 Why Logical Structure Does Not Equal Effective Control**
 
-    * Forest-Wide Directory Indexing: Universal Group Membership Resolution and Partial Attribute Set (PAS)
-    * Authentication Dependencies: Inter-Domain User Principal Name (UPN) Resolution and Global Directory Searches
+* 8.10.1 **Structural Pitfalls**: Conflating OU Hierarchies with Security Isolation
+* 8.10.2 **Implicit Trust Relationships**: GPO Link Overrides, Cross-OU Service Account Usage, and Shared Local Admin Credentials
+* 8.10.3 **Offensive Vector**: Mapping Implicit Control Paths and Indirect Privilege Escalation with BloodHound Cypher Queries
+* 8.10.4 **Defensive Blueprint**: Transitioning from Logical Hierarchies to Strict Administrative Tiering (Tier 0 / Tier 1 / Tier 2)
+* 8.10.5 **FICAM and NIST Control Mappings**
+  * 8.10.5.1 `AC-2` (Account Management)
+  * 8.10.5.2 `AC-3` (Access Enforcement)
+  * 8.10.5.3 `AC-6` (Least Privilege)
+  * 8.10.5.4 `SC-7` (Boundary Protection)
+* 8.10.6 **Telemetry, Windows Event ID Auditing, and Log Analysis**
+  * 8.10.6.1 Event ID 4670: Permissions Changed
+  * 8.10.6.2 Event ID 4738: User Account Modified
+  * 8.10.6.3 Event ID 5136: Directory Object Modified
 
-    #### 10.5 FSMO Roles
+#### 8.11 Preparing for Chapter 9
 
-    * Single-Master Operations: Flexible Single Master Operation Role Distributing (Schema Master, Domain Naming Master, RID Master, PDC Emulator, Infrastructure Master)
-    * System Criticality: Impact of FSMO Role Availability on Domain Stability and Authentication Mechanics
-    * Offensive Vector: FSMO Role Hijacking and PDC Emulator Exploitation
+***
 
-    #### 10.6 Knowledge Consistency Checker (KCC)
+### <mark style="color:yellow;">**Chapter 9 - The Active Directory Object Model and Schema**</mark>
 
-    * Automated Topology Generation: Dynamic Intra-Site and Inter-Site Replication Link Calculation
-    * Spanning Tree Architecture: Dual-Ring Topology and Route Optimization for Directory Updates
+#### **9.1 AD Directory Objects**
 
-    #### 10.7 Replication Topology
+* 9.1.1 **Object-Oriented Architecture**: Representation of Physical and Logical Entities in LDAP
+* 9.1.2 **Directory Instances**: Object Instantiation from Schema Definitions Inside `NTDS.dit`
+* 9.1.3 **Object Class Categorization**: Structural, Abstract, and Auxiliary Object Classes
 
-    * Directory Synchronization Routes: Intersite Topology Generator (ISTG), Site Links, and Bridgehead Server Design
-    * Transport Protocols: RPC over IP (`TCP 135/49152+`) vs. Asynchronous SMTP Transport
-    * Offensive Vector: DCSync Operations via Directory Replication Service (DRS) RPC Protocol (`DSGetNCChanges`) (`Mimikatz`)
-    * Defensive Hardening: Auditing Directory Service Access Control Entries (ACEs) for Replication Rights (`DS-Replication-Get-Changes-All`)
+#### **9.2 AD Object Classes**
 
-    #### 10.8 Update Sequence Numbers
+* 9.2.1 **Class Hierarchy**: Inheritance Tree Rooted at Top
+* 9.2.2 **Class Schemas**: `classSchema` Definition Objects and Structural Rules
+* 9.2.3 **Class Types**: Structural Classes (Users, Computers), Auxiliary Classes (Security Enhancements), and Abstract Classes
 
-    * Monotonic Counter Mechanics: Attribute-Level Tracking of Database Modifications per DC
-    * State Synchronization: Local USN vs. High-Watermark Vectors Across Replication Partners
-    * Offensive & Defensive Vector: USN Rollback Detection and Virtualization Snapshot Recovery Hazards
+#### **9.3 AD Attributes**
 
-    #### 10.9 Invocation IDs
+* 9.3.1 **Attribute Definitions**: `attributeSchema` Objects and Attribute Properties
+* 9.3.2 **Data Syntaxes and Constraints**: Single-Valued Versus Multi-Valued Attributes, Unicode Strings, Octet Strings, and Integer Types
+* 9.3.3 **Specialized Attribute Types**: Indexed Attributes, Confidential Attributes (`SEARCH_FLAGS = 128`), and RODC-Filtered Attribute Sets (FAS)
+* 9.3.4 **Global Catalog Scope**: Partial Attribute Set (PAS) Marking (`IsMemberOfPartialAttributeSet`)
 
-    * Database Identity Tracking: Uniquely Identifying Database Instances Independent of Domain Controller GUIDs
-    * State Reset Mechanics: Invocation ID Reset Operations Following Authoritative Restores or Virtual Machine Rollbacks
+#### **9.4 AD Distinguished Names (DN)**
 
-    #### 10.10 Replication Metadata
+* 9.4.1 **X.500 LDAP Pathing**: Fully Qualified Directory Paths (`CN=User,OU=Execs,DC=domain,DC=local`)
+* 9.4.2 **Object Binding**: Uniquely Identifying Objects Across Naming Contexts
+* 9.4.3 **Directory Operations**: Relocation and Rename Impacts on Distinguished Name (DN) Paths
 
-    * Attribute-Level Vector Tracking: Originating Change Time, Version Counters, and Originating DC Invocation ID
-    * Conflict Resolution: Last-Writer-Wins Algorithms and Deterministic Attribute Value Conflict Handling
+#### **9.5 AD Relative Distinguished Names (RDN)**
 
-    #### 10.11 Tombstones and Deleted Objects
+* 9.5.1 **Leaf Node Naming**: RDN Structure (`CN=JohnDoe`) Within Parent Containers
+* 9.5.2 **Naming Constraints**: Character Escaping and Length Limits
+* 9.5.3 **Collision Handling**: Disambiguation Mechanics During Directory Object Creation and Multi-Master Replication
 
-    * Deletion Lifecycle: Soft Deletes, Tombstone Lifetime (`tombstoneLifetime`), and Recycled Object States
-    * Deleted Objects Container: Object Stripping and Preservation of Core Identification Attributes
+#### **9.6 AD GUIDs and ObjectGUIDs**
 
-    #### 10.12 Lingering Objects
+* 9.6.1 **Immutable Identification**: 128-Bit Universally Unique Identifiers (`objectGUID`)
+* 9.6.2 **Persistence Across Operations**: Tracking Objects Independent of Renames, Domain Moves, or Container Transfers
+* 9.6.3 **Offensive and Defensive Utility**: Binding BloodHound Telemetry and Access Control Entries (ACEs) to `objectGUID` Identifiers
 
-    * Replication Inconsistency: Obsolete Objects Retained on DCs Disconnected Beyond Tombstone Lifetimes
-    * Security Exposure: Re-animation Risks and Unauthorized Access via Out-of-Sync Objects
-    * Defensive Configuration: Enforcing Strict Replication Consistency Across All Domain Controllers
+#### **9.7 AD Security Identifiers (SID)**
 
-    #### 10.13 Replication Consistency
+* 9.7.1 **SID Structure**: Revision Level, Identifier Authority, Sub-Authorities, and Relative Identifier (RID)
+* 9.7.2 **Identity Mapping**: Resolving `sAMAccountName` to Security Identifiers for Access Control Checks
+* 9.7.3 **Well-Known SIDs**: Universal SIDs (`S-1-5-32-544` - Administrators, `S-1-5-18` - Local System)
+* 9.7.4 **Offensive Vector**: SID History (`sAMAccountType / sIDHistory`) Injection for Cross-Domain Privilege Escalation via `mimikatz`
+* 9.7.5 **Defensive Hardening**: Auditing `sIDHistory` Attributes and Enforcing SID Filtering Across Trust Boundaries
 
-    * Directory State Uniformity: Monitoring Convergence and Attribute Synchronization Health
-    * Auditing Tools: Validating Replication Health (`repadmin`, `Get-ADReplicationPartnerMetadata`)
+#### **9.8 AD User Principal Names (UPN)**
 
-    #### 10.14 NTDS.dit
+* 9.8.1 **Identity Formatting**: Enterprise User Identity Naming (`user@domain.local`)
+* 9.8.2 **UPN Types**: Implicit UPNs (Default `sAMAccountName@FQDN`)Versus Explicit UPNs
+* 9.8.3 **Routing Boundaries**: Alternative UPN Suffixes for Federated Identity and Multi-Forest Alignment (FICAM CAL Alignment)
 
-    * Database Anatomy: Structural Layout of the Active Directory JET Database Engine
-    * Core Database Tables: Data Table, Link Table, Security Descriptor Table, and SD Prop Table
-    * Offensive Vector: Offline Database Extraction via Volume Shadow Copy Service (VSS) or Disk Parsing (`ntdsutil`, `vssadmin`, `secretsdump`)
-    * Defensive Hardening: BitLocker Drive Encryption, VSS Access Restrictions, and Credential Guard Implementation
+#### **9.9 AD Service Principal Names (SPN)**
 
-    #### 10.15 Extensible Storage Engine
+* 9.9.1 **Kerberos Service Binding**: Associating Unique Services with Active Directory Accounts (`service/host:port`)
+* 9.9.2 **SPN Syntax and Mechanics**: Host-Based SPNs, Service Accounts, and Unique SPN Enforcements
+* 9.9.3 **Offensive Vector**: SPN Enumeration and Kerberoasting Target Acquisition (`Impacket`, `Rubeus`)
+* 9.9.4 **Defensive Hardening**: Enforcing Group Managed Service Accounts (gMSA) and Long/Complex Passwords on SPN Accounts
 
-    * JET Blue Engine Physics: Page Allocation, B-Trees, Record Layouts, and Indexing Algorithms
-    * Database Performance: Caching Mechanics in System RAM (LSASS Memory Pressure)
+#### **9.10 AD Naming Contexts**
 
-    #### 10.16 Transaction Logs
+* 9.10.1 **Directory Partitioning**: Logical Division of `NTDS.dit` for Targeted Replication
+* 9.10.2 **Cross-Reference Objects**: Cross-Domain and Cross-Partition Routing (`crossRef` Objects)
 
-    * ACID Compliance: Write-Ahead Logging (`edb.log`), Checkpoint Files (`edb.chk`), and Reserve Logs
-    * Database Integrity: Crash Recovery Mechanics and Transaction Roll-Forward Operations
+#### **9.11 AD Domain Partition**
 
-    #### 10.17 Registry Hives
+* 9.11.1 **Directory Contents**: Users, Computers, Groups, OUs, and Domain-Specific GPOs
+* 9.11.2 **Replication Boundary**: Scope and Transport Dynamics Across Domain Controllers
 
-    * System Secret Anchors: Role of the `SYSTEM`, `SECURITY`, and `SOFTWARE` Hives on DCs
-    * LSA Secrets Storage: Local Security Authority Storage of Service Credentials, DPAPI Master Keys, and Machine Account Secrets
+#### **9.12 AD Schema Partition**
 
-    #### 10.18 BootKey and Password Encryption Key (PEK)
+* 9.12.1 **Directory Contents**: Forest-Wide Object Class and Attribute Definitions
+* 9.12.2 **Control Scope**: Schema Master FSMO Role Authorization and Single-Master Replication
 
-    * Cryptographic Architecture: SYSKEY/BootKey Extraction from the `SYSTEM` Registry Hive
-    * PEK Decryption Physics: Utilizing BootKey to Decrypt the PEK, Unlocking Encrypted NTLM Hashes and Kerberos Keys in `NTDS.dit`
-    * Offensive Vector: Offline PEK Decryption and Full-Forest Hash Extraction
-    * Defensive Hardening: Tier 0 Physical and Hypervisor-Level Access Protections
+#### **9.13 AD Application Partitions**
 
-    #### 10.19 Directory Backup and Recovery Metadata
+* 9.13.1 **Custom Storage**: Non-Domain Data Partitioning and Selective Replication Topologies
+* 9.13.2 **DNS Partitions**: `DomainDnsZones` and `ForestDnsZones` Integration
+* 9.13.3 **Offensive Vector**: Storage of Rogue Objects or Data Staging Inside Custom Application Partitions
 
-    * System State Backup Architecture: Cryptographic Binding of Database, Registry Hives, SYSVOL, and Certificate Data
-    * DSRM Security: Directory Services Restore Mode Account Hardening and Local Account Passwords (`NTDSettings`)
-    * Offensive Vector: Abusing DSRM Accounts for Persistent Administrative Access (`DSRMAdminLogonBehavior`)
-    * FICAM & NIST Control Mapping: `CP-9` (Information System Backup), `CP-10` (Information System Recovery), `IA-2` (Identification and Authentication), `SC-12` (Cryptographic Key Establishment and Management)
-    * Telemetry & Event Auditing: Log Analysis for Event ID 4662 (Directory Service Access), Event ID 4932/4933 (Replication Synchronization Success/Failure), and Event ID 1658/1659 (DRS Replication Events)
+#### **9.14 AD Schema Architecture**
 
-### Chapter 11 - Lightweight Directory Access Protocol (LDAP) and Windows Directory Protocols
+* 9.14.1 **Structural Blueprint**: Rules Governing Database Record Creation and Validation
+* 9.14.2 **Class Dependencies**: Mandatory Attributes (`mustContain`) and Optional Attributes (`mayContain`)
+* 9.14.3 **Object Identifiers (OIDs)**: Standardized ISO/ITU Naming Structure for Custom Schema Elements
 
-*
+#### **9.15 AD Schema Extensions**
 
-    #### 11.1 LDAP Architecture
+* 9.15.1 **Modifying Directory Physics**: Adding Custom Classes, Attributes, or Extending Existing Objects
+* 9.15.2 **Enterprise Extensions**: Microsoft Exchange, LAPS (`ms-MCSF-SASUClearTextPassword`), and PKI Schema Modifications
+* 9.15.3 **Offensive Vector**: Schema Poisoning, Backdoor Attribute Creation, and Covert Data Storage
+* 9.15.4 **Defensive Hardening**: Restricting Schema Admins Group Membership, Enforcing Change Control, and Auditing Schema Modifications
 
-    * Core Protocol Specification: RFC 4511 Standards and the Active Directory LDAP Implementation
-    * Directory Server Listeners: Port Bindings for Standard LDAP (`TCP 389`), Secure LDAP (`TCP 636`), Global Catalog (`TCP 3268`), and Global Catalog SSL (`TCP 3269`)
-    * Message Structure & BER Encoding: Basic Encoding Rules (BER) Binary Data Marshaling for Requests and Responses
+#### **9.16 AD Directory Metadata**
 
-    #### 11.2 RootDSE
+* 9.16.1 **Attribute Tracking**: Attribute-Level Change Tracking via `msDS-ReplAttributeMetaData`
+* 9.16.2 **Sequence Numbers**: Update Sequence Numbers (USN) and Vector State Tracking
+* 9.16.3 **Originating Versus Replicated Updates**: Tracking Source Domain Controllers via `invocationDI` and Version Counters
 
-    * Directory Entry Zero: Querying the Operational Attribute Container (`RootDSE`)
-    * Discovery Mechanics: Enumerating Supported SASL Mechanisms, Naming Contexts, Server Functionality Levels, and Capabilities
-    * Offensive Vector: Anonymous and Authenticated Pre-Domain Reconnaissance for Forest Topography and Policy State
+#### **9.17 Authoritative Directory State**
 
-    #### 11.3 LDAP Searches
+* 9.17.1 Object Deletion Lifecycle: Active State, Tombstone State, and Recycled State (AD Recycle Bin)
+* 9.17.2 Replication Synchronization: High-Water Marks and Up-To-Dateness Vector Tables
+* 9.17.3 Restoration Mechanics: Authoritative Versus Non-Authoritative Restores
+* 9.17.4 Threat Mitigation: Detecting USN Rollback, Database Corruption, and Covert Object Restoration
+* 9.17.5 FICAM and NIST Control Mapping: `IA-2` (Identification), `AC-2` (Account Management), `SI-7` (Software, Firmware, and Information Integrity)
+* 9.17.6 Telemetry and Event Auditing: Audit Logging for Event ID 5136 (Directory Service Object Modified), Event ID 5137 (Directory Object Created), and Event ID 5141 (Directory Object Deleted)
 
-    * Search Execution Parameters: Base DN, Search Scope (`Base`, `OneLevel`, `Subtree`), and Attribute Selection
-    * Result Paging Controls: Simple Paged Results Control (`1.2.840.113556.14.319`) and Virtual List View (VLV) for Bypassing `MaxPageSize` Server Limits
-    * Offensive Vector: Automated Directory Harvesting and Enumeration Tools (`BloodHound`, `ldapsearch`)
+***
 
-    #### 11.4 Search Filters
+### <mark style="color:yellow;">**Chapter 10 - Domain Controllers, Replication, and Directory State**</mark>
 
-    * Filter Construction: Boolean Operators (`&`, `|`, `!`) and Attribute-Value Match Assertions
-    * Bitwise Match Rules: Matching Bitmasks via `LDAP_MATCHING_RULE_BIT_AND` (`1.2.840.113556.14.803`)
-    * Extensible Match Rules: Transitive Group Membership Expansion via `LDAP_MATCHING_RULE_IN_CHAIN` (`1.2.840.113556.14.1841`)
-    * Offensive Vector: Querying Sensitive Accounts, Unconstrained Delegation Targets, and Privileged Group Memberships
+#### 10.1 Domain Controller Roles
 
-    #### 11.5 LDAP Binding
+* 10.1.1 Core Identity Services: Active Directory Domain Services (AD DS), Key Distribution Center (KDC), and Local Security Authority (LSA) Interaction
+* 10.1.2 Identity Infrastructure Anchor: Authenticating Users, Computers, and Services Across Enterprise Boundaries
 
-    * Authentication States: Anonymous Bind, Simple Bind (Cleartext Credentials), and SASL Bind
-    * Security Exposure: Cleartext Credential Interception on Unencrypted Simple Binds over Port 389
-    * Defensive Hardening: Disabling Anonymous Binds and Enforcing Strong Authentication Protocols
+#### 10.2 Writable Domain Controllers
 
-    #### 11.6 SASL and SPNEGO
+* 10.2.1 Full Database Authority: Multi-Master Replication and Write-Capable Directory Operations
+* 10.2.2 High-Value Target Profile: Tier 0 Security Boundary Requirements and Administrative Isolation Models
 
-    * Simple Authentication and Security Layer: RFC 4422 Abstraction Layer for Delegated Authentication
-    * SPNEGO Negotiation: Simple and Protected GSSAPI Negotiation Mechanism for Kerberos and NTLM Negotiation Over LDAP
-    * Session Cryptography: Establishing Integrity and Confidentiality Contexts Post-Authentication
+#### 10.3 Read-Only Domain Controllers (RODC)
 
-    #### 11.7 LDAP Signing and Sealing
+* 10.3.1 Edge & Branch Deployment: Unidirectional Replication Architecture and Read-Only Database Isolation
+* 10.3.2 Password Replication Policy (PRP): Deny/Allow Lists for Credential Caching
+* 10.3.3 Offensive Vector: RODC Credential Cache Dumping and Abusing Weak PRP Rules (`Impacket`)
+* 10.3.4 Defensive Hardening: Restricting Administrative Account Caching and Enforcing Strict PRP Auditing
 
-    * Data Integrity vs. Privacy: Digital Signatures (Signing) vs. Payload Encryption (Sealing/GSS-API)
-    * Offensive Vector: LDAP Relay Attacks via Unsigned Binds to Elevate Privileges or Modify Directory Objects
-    * Defensive Hardening: Enforcing LDAP Server Signing Requirements (`LdapServerIntegrity = 2`) via Group Policy
+#### 10.4 Global Catalogs
 
-    #### 11.8 LDAPS and StartTLS
+* 10.4.1 Forest-Wide Directory Indexing: Universal Group Membership Resolution and Partial Attribute Set (PAS)
+* 10.4.2 Authentication Dependencies: Inter-Domain User Principal Name (UPN) Resolution and Global Directory Searches
 
-    * Transport Layer Encryption: SSL/TLS Tunneling (`TCP 636`) vs. In-Band TLS Upgrade via StartTLS Extension (`TCP 389`)
-    * Certificate Validation: PKI Trust Anchor Requirements, Subject Alternative Names (SAN), and Certificate Revocation Checking
-    * Channel Binding Tokens: Mitigating NTLM Relay with Extended Protection for Authentication (EPA / CBT) (`LdapEnforceChannelBinding`)
+#### 10.5 FSMO Roles
 
-    #### 11.9 Global Catalog Queries
+* 10.5.1 Single-Master Operations: Flexible Single Master Operation Role Distributing (Schema Master, Domain Naming Master, RID Master, PDC Emulator, Infrastructure Master)
+* 10.5.2 System Criticality: Impact of FSMO Role Availability on Domain Stability and Authentication Mechanics
+* 10.5.3 Offensive Vector: FSMO Role Hijacking and PDC Emulator Exploitation
 
-    * Forest-Wide Lookups: Querying the Partial Attribute Set (PAS) Across All Forest Domains via Ports 3268/3269
-    * Cross-Domain Referrals: Handling Referral Responses (`LDAP_REFERRAL`) for Out-of-Partition Objects
-    * Performance & Security: Balancing Global Catalog Replication Traffic Against Cross-Domain Query Scope
+#### 10.6 Knowledge Consistency Checker (KCC)
 
-    #### 11.10 Netlogon
+* 10.6.1 Automated Topology Generation: Dynamic Intra-Site and Inter-Site Replication Link Calculation
+* 10.6.2 Spanning Tree Architecture: Dual-Ring Topology and Route Optimization for Directory Updates
 
-    * MS-NRPC Architecture: Netlogon Remote Protocol for Member Workstation and Domain Controller Secure Channels
-    * Credential Validation: Pass-Through Authentication and Domain Trust Maintenance
-    * Offensive Vector: ZeroLogon (`CVE-2020-1472`) Exploitation of Weak Cryptographic Initialization Vectors (AES-CFB8)
-    * Defensive Hardening: Enforcing Secure Channel Encryption and Applying Netlogon Vulnerability Patches
+#### 10.7 Replication Topology
 
-    #### 11.11 MS-RPC
+* 10.7.1 Directory Synchronization Routes: Intersite Topology Generator (ISTG), Site Links, and Bridgehead Server Design
+* 10.7.2 Transport Protocols: RPC over IP (`TCP 135/49152+`) vs. Asynchronous SMTP Transport
+* 10.7.3 Offensive Vector: DCSync Operations via Directory Replication Service (DRS) RPC Protocol (`DSGetNCChanges`) (`Mimikatz`)
+* 10.7.4 Defensive Hardening: Auditing Directory Service Access Control Entries (ACEs) for Replication Rights (`DS-Replication-Get-Changes-All`)
 
-    * Remote Procedure Call Framework: Client-Server Abstraction for Distributed Windows Services
-    * Data Marshaling: Network Data Representation (NDR) Serialization and Transfer Syntax
-    * RPC Transport Bindings: RPC over Connection-Oriented TCP/IP, Named Pipes (`ncacn_np` over SMB), and RPC over HTTP
+#### 10.8 Update Sequence Numbers (USN)
 
-    #### 11.12 RPC Endpoint Mapper
+* 10.8.1 Monotonic Counter Mechanics: Attribute-Level Tracking of Database Modifications per DC
+* 10.8.2 State Synchronization: Local USN vs. High-Watermark Vectors Across Replication Partners
+* 10.8.3 Offensive & Defensive Vector: USN Rollback Detection and Virtualization Snapshot Recovery Hazards
 
-    * Service Resolution: RPC Endpoint Mapper (EPMAP) Listener on `TCP 135`
-    * Dynamic Port Assignment: Mapping Interface UUIDs to Dynamic Server High-Port Ranges (`TCP 49152-65535`)
-    * Offensive Vector: RPC Interface Enumeration to Map Active Services and Unpatched Interfaces (`rpcdump`)
-    * Defensive Hardening: Restricting Dynamic RPC Port Ranges and Enforcing Network Segmentation Rules
+#### 10.9 Invocation IDs
 
-    #### 11.13 SAMR
+* 10.9.1 Database Identity Tracking: Uniquely Identifying Database Instances Independent of Domain Controller GUIDs
+* 10.9.2 State Reset Mechanics: Invocation ID Reset Operations Following Authoritative Restores or Virtual Machine Rollbacks
 
-    * Security Account Manager Remote Protocol: `[MS-SAMR]` Interface for Managing Accounts, Groups, and Passwords
-    * Domain & Local Reconnaissance: Querying User Lists, Group Memberships, and Password Policies
-    * Offensive Vector: Anonymous and Low-Privilege User/Group Enumeration over SAMR
-    * Defensive Hardening: Configuring `RestrictRemoteSAM` Registry Policies to Limit Remote SAMR Access
+#### 10.10 Replication Metadata
 
-    #### 11.14 LSARPC
+* 10.10.1 Attribute-Level Vector Tracking: Originating Change Time, Version Counters, and Originating DC Invocation ID
+* 10.10.2 Conflict Resolution: Last-Writer-Wins Algorithms and Deterministic Attribute Value Conflict Handling
 
-    * Local Security Authority Remote Protocol: `[MS-LSAD]` Interface for Local Security Policy Management
-    * Privilege & Identity Resolution: SID-to-Name Mapping, LSA Secrets Querying, and Privilege Right Assignments
-    * Offensive Vector: SID Lookup Reconnaissance and LSA Policy Enumeration
-    * Defensive Hardening: Restricting Anonymous LSA Access (`NullSessionPipes` and `RestrictNullSessAccess`)
+#### 10.11 Tombstones and Deleted Objects
 
-    #### 11.15 DRSR and DRSUAPI
+* 10.11.1 Deletion Lifecycle: Soft Deletes, Tombstone Lifetime (`tombstoneLifetime`), and Recycled Object States
+* 10.11.2 Deleted Objects Container: Object Stripping and Preservation of Core Identification Attributes
 
-    * Directory Replication Service Remote Protocol: `[MS-DRSR]` Interface for Active Directory Multi-Master Replication
-    * DRSUAPI RPC Interface: Core Replication Binding for Schema, Topology, and Object Updates
-    * Offensive Vector: DCSync Attack Vector via RPC Interface (`DSGetNCChanges`) to Extract Domain Hashes
-    * Defensive Hardening: Auditing Extended Directory Rights (`DS-Replication-Get-Changes-All`) and Restricting Replication Privileges
+#### 10.12 Lingering Objects
 
-    #### 11.16 EFSRPC
+* 10.12.1 Replication Inconsistency: Obsolete Objects Retained on DCs Disconnected Beyond Tombstone Lifetimes
+* 10.12.2 Security Exposure: Re-animation Risks and Unauthorized Access via Out-of-Sync Objects
+* 10.12.3 Defensive Configuration: Enforcing Strict Replication Consistency Across All Domain Controllers
 
-    * Encrypting File System Remote Protocol: `[MS-EFSR]` Interface for Remote EFS Maintenance Operations
-    * Offensive Vector: Authentication Coercion via PetitPotam (`EfsRpcOpenFileRaw`) Forcing Unauthenticated DC NTLM Authentication
-    * Defensive Hardening: Disabling EFS Services, Applying Endpoint Patches, and Blocking Unauthenticated EFSRPC Calls
+#### 10.13 Replication Consistency
 
-    #### 11.17 MS-RPRN
+* 10.13.1 Directory State Uniformity: Monitoring Convergence and Attribute Synchronization Health
+* 10.13.2 Auditing Tools: Validating Replication Health (`repadmin`, `Get-ADReplicationPartnerMetadata`)
 
-    * Print System Remote Protocol: `[MS-RPRN]` Interface for Remote Print Client-Server Communication
-    * Offensive Vector: PrinterBug Authentication Coercion (`RpcRemoteFindFirstPrinterChangeNotificationEx`)
-    * Defensive Hardening: Disabling the Print Spooler Service (`Spooler`) on Domain Controllers and Tier 0 Assets
+#### 10.14 NTDS.dit
 
-    #### 11.18 DFSR
+* 10.14.1 Database Anatomy: Structural Layout of the Active Directory JET Database Engine
+* 10.14.2 Core Database Tables: Data Table, Link Table, Security Descriptor Table, and SD Prop Table
+* 10.14.3 Offensive Vector: Offline Database Extraction via Volume Shadow Copy Service (VSS) or Disk Parsing (`ntdsutil`, `vssadmin`, `secretsdump`)
+* 10.14.4 Defensive Hardening: BitLocker Drive Encryption, VSS Access Restrictions, and Credential Guard Implementation
 
-    * Distributed File System Replication: `[MS-DFSR]` Engine for Multi-Master SYSVOL and Shared Folder Replication
-    * Staging & Conflict Resolution: Staging Directory Mechanics, RDC (Remote Differential Compression), and Conflict Resolution Folders
-    * FICAM & NIST Control Mapping: `AC-4` (Information Flow Enforcement), `SC-8` (Transmission Confidentiality and Integrity), `SC-13` (Cryptographic Protection), `AU-12` (Audit Generation)
-    * Telemetry & Event Auditing: Log Analysis for Event ID 2887/2889 (Unsigned LDAP Binds), Event ID 3039/3074 (LDAP Channel Binding Failures), Event ID 4624/4625 (Logon Events over Protocols), Event ID 4742 (Computer Account Modification - Netlogon), and Event ID 5136 (Directory Service Object Modification)
+#### 10.15 Extensible Storage Engine
+
+* 10.15.1 JET Blue Engine Physics: Page Allocation, B-Trees, Record Layouts, and Indexing Algorithms
+* 10.15.2 Database Performance: Caching Mechanics in System RAM (LSASS Memory Pressure)
+
+#### 10.16 Transaction Logs
+
+* 10.16.1 ACID Compliance: Write-Ahead Logging (`edb.log`), Checkpoint Files (`edb.chk`), and Reserve Logs
+* 10.16.2 Database Integrity: Crash Recovery Mechanics and Transaction Roll-Forward Operations
+
+#### 10.17 Registry Hives
+
+* 10.17.1 System Secret Anchors: Role of the `SYSTEM`, `SECURITY`, and `SOFTWARE` Hives on DCs
+* 10.17.2 LSA Secrets Storage: Local Security Authority Storage of Service Credentials, DPAPI Master Keys, and Machine Account Secrets
+
+#### 10.18 BootKey and Password Encryption Key (PEK)
+
+* 10.18.1 Cryptographic Architecture: SYSKEY/BootKey Extraction from the `SYSTEM` Registry Hive
+* 10.18.2 PEK Decryption Physics: Utilizing BootKey to Decrypt the PEK, Unlocking Encrypted NTLM Hashes and Kerberos Keys in `NTDS.dit`
+* 10.18.3 Offensive Vector: Offline PEK Decryption and Full-Forest Hash Extraction
+* 10.18.4 Defensive Hardening: Tier 0 Physical and Hypervisor-Level Access Protections
+
+#### 10.19 Directory Backup and Recovery Metadata
+
+* 10.19.1 System State Backup Architecture: Cryptographic Binding of Database, Registry Hives, SYSVOL, and Certificate Data
+* 10.19.2 DSRM Security: Directory Services Restore Mode Account Hardening and Local Account Passwords (`NTDSettings`)
+* 10.19.3 Offensive Vector: Abusing DSRM Accounts for Persistent Administrative Access (`DSRMAdminLogonBehavior`)
+* 10.19.4 FICAM and NIST Control Mappings
+  * 10.19.4.1 `CP-9` (Information System Backup)
+  * 10.19.4.2 `CP-10` (Information System Recovery)
+  * 10.19.4.3 `IA-2` (Identification and Authentication)
+  * 10.19.4.4 `SC-12` (Cryptographic Key Establishment and Management)
+* 10.19.5 Telemetry, Windows Event ID Auditing, and Log Analysis
+  * 10.19.5.1 Event ID 4662: Directory Service Access
+  * 10.19.5.2 Event ID 4932/4933: Replication Synchronization Success/Failure
+  * 10.19.5.3 Event ID 1658/1659: DRS Replication Events
+
+#### 10.20 Preparing for Chapter 11
+
+***
+
+### <mark style="color:yellow;">**Chapter 11 - Lightweight Directory Access Protocol (LDAP) and Windows Directory Protocols**</mark>
+
+#### 11.1 LDAP Architecture
+
+* 11.1.1 Core Protocol Specification: RFC 4511 Standards and the Active Directory LDAP Implementation
+* 11.1.2 Directory Server Listeners: Port Bindings for Standard LDAP (`TCP 389`), Secure LDAP (`TCP 636`), Global Catalog (`TCP 3268`), and Global Catalog SSL (`TCP 3269`)
+* 11.1.3 Message Structure & BER Encoding: Basic Encoding Rules (BER) Binary Data Marshaling for Requests and Responses
+
+#### 11.2 RootDSE
+
+* 11.2.1 Directory Entry Zero: Querying the Operational Attribute Container (`RootDSE`)
+* 11.2.2 Discovery Mechanics: Enumerating Supported SASL Mechanisms, Naming Contexts, Server Functionality Levels, and Capabilities
+* 11.2.3 Offensive Vector: Anonymous and Authenticated Pre-Domain Reconnaissance for Forest Topography and Policy State
+
+#### 11.3 LDAP Searches
+
+* 11.3.1 Search Execution Parameters: Base DN, Search Scope (`Base`, `OneLevel`, `Subtree`), and Attribute Selection
+* 11.3.2 Result Paging Controls: Simple Paged Results Control (`1.2.840.113556.14.319`) and Virtual List View (VLV) for Bypassing `MaxPageSize` Server Limits
+* 11.3.3 Offensive Vector: Automated Directory Harvesting and Enumeration Tools (`BloodHound`, `ldapsearch`)
+
+#### 11.4 Search Filters
+
+* 11.4.1 Filter Construction: Boolean Operators (`&`, `|`, `!`) and Attribute-Value Match Assertions
+* 11.4.2  Bitwise Match Rules: Matching Bitmasks via `LDAP_MATCHING_RULE_BIT_AND` (`1.2.840.113556.14.803`)
+* 11.4.3 Extensible Match Rules: Transitive Group Membership Expansion via `LDAP_MATCHING_RULE_IN_CHAIN` (`1.2.840.113556.14.1841`)
+* 11.4.4 Offensive Vector: Querying Sensitive Accounts, Unconstrained Delegation Targets, and Privileged Group Memberships
+
+#### 11.5 LDAP Binding
+
+* 11.5.1 Authentication States: Anonymous Bind, Simple Bind (Cleartext Credentials), and SASL Bind
+* 11.5.2 Security Exposure: Cleartext Credential Interception on Unencrypted Simple Binds over Port 389
+* 11.5.3 Defensive Hardening: Disabling Anonymous Binds and Enforcing Strong Authentication Protocols
+
+#### 11.6 SASL and SPNEGO
+
+* 11.6.1 Simple Authentication and Security Layer: RFC 4422 Abstraction Layer for Delegated Authentication
+* 11.6.2 SPNEGO Negotiation: Simple and Protected GSSAPI Negotiation Mechanism for Kerberos and NTLM Negotiation Over LDAP
+* 11.6.3 Session Cryptography: Establishing Integrity and Confidentiality Contexts Post-Authentication
+
+#### 11.7 LDAP Signing and Sealing
+
+* 11.7.1 Data Integrity vs. Privacy: Digital Signatures (Signing) vs. Payload Encryption (Sealing/GSS-API)
+* 11.7.2 Offensive Vector: LDAP Relay Attacks via Unsigned Binds to Elevate Privileges or Modify Directory Objects
+* 11.7.3 Defensive Hardening: Enforcing LDAP Server Signing Requirements (`LdapServerIntegrity = 2`) via Group Policy
+
+#### 11.8 LDAPS and StartTLS
+
+* 11.8.1 Transport Layer Encryption: SSL/TLS Tunneling (`TCP 636`) vs. In-Band TLS Upgrade via StartTLS Extension (`TCP 389`)
+* Certificate Validation: PKI Trust Anchor Requirements, Subject Alternative Names (SAN), and Certificate Revocation Checking
+* Channel Binding Tokens: Mitigating NTLM Relay with Extended Protection for Authentication (EPA / CBT) (`LdapEnforceChannelBinding`)
+
+#### 11.9 Global Catalog Queries
+
+* Forest-Wide Lookups: Querying the Partial Attribute Set (PAS) Across All Forest Domains via Ports 3268/3269
+* Cross-Domain Referrals: Handling Referral Responses (`LDAP_REFERRAL`) for Out-of-Partition Objects
+* Performance & Security: Balancing Global Catalog Replication Traffic Against Cross-Domain Query Scope
+* 11.18.1 Distributed File System Replication: `[MS-DFSR]` Engine for Multi-Master SYSVOL and Shared Folder Replication
+* 11.18.2 Staging & Conflict Resolution: Staging Directory Mechanics, RDC (Remote Differential Compression), and Conflict Resolution Folders
+* 11.18.3 FICAM & NIST Control Mapping: AC-4 (Information Flow Enforcement), SC-8 (Transmission Confidentiality and Integrity), SC-13 (Cryptographic Protection), AU-12 (Audit Generation)
+* 11.18.4 Telemetry & Event Auditing: Log Analysis for Event ID 2887/2889 (Unsigned LDAP Binds), Event ID 3039/3074 (LDAP Channel Binding Failures), Event ID 4624/4625 (Logon Events over Protocols), Event ID 4742 (Computer Account Modification - Netlogon), and Event ID 5136 (Directory Service Object Modification)
+
+#### 11.18 DFSR
+
+* 11.17.1 Print System Remote Protocol: `[MS-RPRN]` Interface for Remote Print Client-Server Communication
+* 11.17.2 Offensive Vector: PrinterBug Authentication Coercion (`RpcRemoteFindFirstPrinterChangeNotificationEx`)
+* 11.17.3 Defensive Hardening: Disabling the Print Spooler Service (`Spooler`) on Domain Controllers and Tier 0 Assets
+
+#### 11.17 MS-RPRN
+
+* 11.16.1 Encrypting File System Remote Protocol: `[MS-EFSR]` Interface for Remote EFS Maintenance Operations
+* 11.16.2 Offensive Vector: Authentication Coercion via PetitPotam (`EfsRpcOpenFileRaw`) Forcing Unauthenticated DC NTLM Authentication
+* 11.16.3 Defensive Hardening: Disabling EFS Services, Applying Endpoint Patches, and Blocking Unauthenticated EFSRPC Calls
+
+#### 11.16 EFSRPC
+
+* 11.15.1 Directory Replication Service Remote Protocol: `[MS-DRSR]` Interface for Active Directory Multi-Master Replication
+* 11.15.2 DRSUAPI RPC Interface: Core Replication Binding for Schema, Topology, and Object Updates
+* 11.15.3 Offensive Vector: DCSync Attack Vector via RPC Interface (`DSGetNCChanges`) to Extract Domain Hashes
+* 11.15.4 Defensive Hardening: Auditing Extended Directory Rights (`DS-Replication-Get-Changes-All`) and Restricting Replication Privileges
+
+#### 11.15 DRSR and DRSUAPI
+
+* 11.14.1 Local Security Authority Remote Protocol: `[MS-LSAD]` Interface for Local Security Policy Management
+* 11.14.2 Privilege & Identity Resolution: SID-to-Name Mapping, LSA Secrets Querying, and Privilege Right Assignments
+* 11.14.3 Offensive Vector: SID Lookup Reconnaissance and LSA Policy Enumeration
+* 11.14.4 Defensive Hardening: Restricting Anonymous LSA Access (`NullSessionPipes` and `RestrictNullSessAccess`)
+
+#### 11.14 LSARPC
+
+* 11.13.1 Security Account Manager Remote Protocol: `[MS-SAMR]` Interface for Managing Accounts, Groups, and Passwords
+* 11.13.2 Domain & Local Reconnaissance: Querying User Lists, Group Memberships, and Password Policies
+* 11.13.3 Offensive Vector: Anonymous and Low-Privilege User/Group Enumeration over SAMR
+* 11.13.4 Defensive Hardening: Configuring `RestrictRemoteSAM` Registry Policies to Limit Remote SAMR Access
+
+#### 11.13 SAMR
+
+* 11.12.1 Service Resolution: RPC Endpoint Mapper (EPMAP) Listener on TCP 135
+* 11.12.2 Dynamic Port Assignment: Mapping Interface UUIDs to Dynamic Server High-Port Ranges (TCP 49152-65535)
+* 11.12.3 Offensive Vector: RPC Interface Enumeration to Map Active Services and Unpatched Interfaces (`rpcdump`)
+* 11.12.4 Defensive Hardening: Restricting Dynamic RPC Port Ranges and Enforcing Network Segmentation Rules
+
+#### 11.12 RPC Endpoint Mapper
+
+* 11.11.1 Remote Procedure Call Framework: Client-Server Abstraction for Distributed Windows Services
+* 11.11.2 Data Marshaling: Network Data Representation (NDR) Serialization and Transfer Syntax
+* 11.11.3 RPC Transport Bindings: RPC over Connection-Oriented TCP/IP, Named Pipes (`ncacn_np` over SMB), and RPC over HTTP
+
+#### 11.11 MS-RPC
+
+* 11.10.1 MS-NRPC Architecture: Netlogon Remote Protocol for Member Workstation and Domain Controller Secure Channels
+* 11.10.2 Credential Validation: Pass-Through Authentication and Domain Trust Maintenance
+* 11.10.3 Offensive Vector: ZeroLogon (CVE-2020-1472) Exploitation of Weak Cryptographic Initialization Vectors (AES-CFB8)
+* 11.10.4 Defensive Hardening: Enforcing Secure Channel Encryption and Applying Netlogon Vulnerability Patches
+
+#### 11.10 Netlogon
+
+* 11.9.1 Forest-Wide Lookups: Querying the Partial Attribute Set (PAS) Across All Forest Domains via Ports 3268/3269
+* 11.9.2 Cross-Domain Referrals: Handling Referral Responses (`LDAP_REFERRAL`) for Out-of-Partition Objects
+* 11.9.3 Performance & Security: Balancing Global Catalog Replication Traffic Against Cross-Domain Query Scope
+
+#### 11.9 Global Catalog Queries
+
+* 11.8.2 Certificate Validation: PKI Trust Anchor Requirements, Subject Alternative Names (SAN), and Certificate Revocation Checking
+* 11.8.3 Channel Binding Tokens: Mitigating NTLM Relay with Extended Protection for Authentication (EPA / CBT) (`LdapEnforceChannelBinding`)
+
+#### ols), Event ID 4742 (Computer Account Modification - Netlogon), and Event ID 5136 (Directory Service Object Modification)
 
 #### 26.1 Identity Identity Graph Theory
 
-* 26.1.1 Applied Graph Theory in Identity Security: Nodes (Principals), Edges (Permissions/Trusts), and Directed Acyclic Graphs (DAGs)
+*   26.1.1 Applied Graph Theory in Identity Security: Nodes (Principals), Edges&#x20;
+
+    * 11.8.2 Certificate Validation: PKI Trust Anchor Requirements, Subject Alternative Names (SAN), and Certificate Revocation Checking
+    * 11.8.3 Channel Binding Tokens: Mitigating NTLM Relay with Extended Protection for Authentication (EPA / CBT) (`LdapEnforceChannelBinding`)
+
+    #### 11.9 Global Catalog Queries
+
+    * 11.9.1 Forest-Wide Lookups: Querying the Partial Attribute Set (PAS) Across All Forest Domains via Ports 3268/3269
+    * 11.9.2 Cross-Domain Referrals: Handling Referral Responses (`LDAP_REFERRAL`) for Out-of-Partition Objects
+    * 11.9.3 Performance & Security: Balancing Global Catalog Replication Traffic Against Cross-Domain Query Scope
+
+    #### 11.10 Netlogon
+
+    * 11.10.1 MS-NRPC Architecture: Netlogon Remote Protocol for Member Workstation and Domain Controller Secure Channels
+    * 11.10.2 Credential Validation: Pass-Through Authentication and Domain Trust Maintenance
+    * 11.10.3 Offensive Vector: ZeroLogon (CVE-2020-1472) Exploitation of Weak Cryptographic Initialization Vectors (AES-CFB8)
+    * 11.10.4 Defensive Hardening: Enforcing Secure Channel Encryption and Applying Netlogon Vulnerability Patches
+
+    #### 11.11 MS-RPC
+
+    * 11.11.1 Remote Procedure Call Framework: Client-Server Abstraction for Distributed Windows Services
+    * 11.11.2 Data Marshaling: Network Data Representation (NDR) Serialization and Transfer Syntax
+    * 11.11.3 RPC Transport Bindings: RPC over Connection-Oriented TCP/IP, Named Pipes (`ncacn_np` over SMB), and RPC over HTTP
+
+    #### 11.12 RPC Endpoint Mapper
+
+    * 11.12.1 Service Resolution: RPC Endpoint Mapper (EPMAP) Listener on TCP 135
+    * 11.12.2 Dynamic Port Assignment: Mapping Interface UUIDs to Dynamic Server High-Port Ranges (TCP 49152-65535)
+    * 11.12.3 Offensive Vector: RPC Interface Enumeration to Map Active Services and Unpatched Interfaces (`rpcdump`)
+    * 11.12.4 Defensive Hardening: Restricting Dynamic RPC Port Ranges and Enforcing Network Segmentation Rules
+
+    #### 11.13 SAMR
+
+    * 11.13.1 Security Account Manager Remote Protocol: `[MS-SAMR]` Interface for Managing Accounts, Groups, and Passwords
+    * 11.13.2 Domain & Local Reconnaissance: Querying User Lists, Group Memberships, and Password Policies
+    * 11.13.3 Offensive Vector: Anonymous and Low-Privilege User/Group Enumeration over SAMR
+    * 11.13.4 Defensive Hardening: Configuring `RestrictRemoteSAM` Registry Policies to Limit Remote SAMR Access
+
+    #### 11.14 LSARPC
+
+    * 11.14.1 Local Security Authority Remote Protocol: `[MS-LSAD]` Interface for Local Security Policy Management
+    * 11.14.2 Privilege & Identity Resolution: SID-to-Name Mapping, LSA Secrets Querying, and Privilege Right Assignments
+    * 11.14.3 Offensive Vector: SID Lookup Reconnaissance and LSA Policy Enumeration
+    * 11.14.4 Defensive Hardening: Restricting Anonymous LSA Access (`NullSessionPipes` and `RestrictNullSessAccess`)
+
+    #### 11.15 DRSR and DRSUAPI
+
+    * 11.15.1 Directory Replication Service Remote Protocol: `[MS-DRSR]` Interface for Active Directory Multi-Master Replication
+    * 11.15.2 DRSUAPI RPC Interface: Core Replication Binding for Schema, Topology, and Object Updates
+    * 11.15.3 Offensive Vector: DCSync Attack Vector via RPC Interface (`DSGetNCChanges`) to Extract Domain Hashes
+    * 11.15.4 Defensive Hardening: Auditing Extended Directory Rights (`DS-Replication-Get-Changes-All`) and Restricting Replication Privileges
+
+    #### 11.16 EFSRPC
+
+    * 11.16.1 Encrypting File System Remote Protocol: `[MS-EFSR]` Interface for Remote EFS Maintenance Operations
+    * 11.16.2 Offensive Vector: Authentication Coercion via PetitPotam (`EfsRpcOpenFileRaw`) Forcing Unauthenticated DC NTLM Authentication
+    * 11.16.3 Defensive Hardening: Disabling EFS Services, Applying Endpoint Patches, and Blocking Unauthenticated EFSRPC Calls
+
+    #### 11.17 MS-RPRN
+
+    * 11.17.1 Print System Remote Protocol: `[MS-RPRN]` Interface for Remote Print Client-Server Communication
+    * 11.17.2 Offensive Vector: PrinterBug Authentication Coercion (`RpcRemoteFindFirstPrinterChangeNotificationEx`)
+    * 11.17.3 Defensive Hardening: Disabling the Print Spooler Service (`Spooler`) on Domain Controllers and Tier 0 Assets
+
+    #### 11.18 DFSR
+
+    * 11.18.1 Distributed File System Replication: `[MS-DFSR]` Engine for Multi-Master SYSVOL and Shared Folder Replication
+    * 11.18.2 Staging & Conflict Resolution: Staging Directory Mechanics, RDC (Remote Differential Compression), and Conflict Resolution Folders
+    * 11.18.3 FICAM & NIST Control Mapping: AC-4 (Information Flow Enforcement), SC-8 (Transmission Confidentiality and Integrity), SC-13 (Cryptographic Protection), AU-12 (Audit Generation)
+    * 11.18.4 Telemetry & Event Auditing: Log Analysis for Event ID 2887/2889 (Unsigned LDAP Binds), Event ID 3039/3074 (LDAP Channel Binding Failures), Event ID 4624/4625 (Logon Events over Protocols), Event ID 4742 (Computer Account Modification - Netlogon), and Event ID 5136 (Directory Service Object Modification)
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* )
 * 26.1.2 Shortest Path Algorithms: Utilizing Dijkstra’s and Breadth-First Search (BFS) to Calculate Operational Attack Paths
 * 26.1.3 Transitive Trust & Privilege Cascades: Modeling Implicit Access Inheritance across Directory Boundaries
 
@@ -1569,6 +1928,10 @@
 * 40.6.2 Trust Key Lifecycle Management: Implementing Automated Trust Password Rotation Protocols and Monitoring Trust Modifications
 * 40.6.3 Cross-Forest SIEM Auditing & Telemetry: Monitoring Event ID 4706 (A Trust Relationship Was Created), Event ID 4707 (A Trust Relationship Was Removed), Event ID 4769 (Cross-Domain Service Ticket Requests), and MDI Cross-Forest Traversal Alerts
 
+***
+
+### <mark style="color:violet;">**Chapter 41 - Replication, Domain Dominance, and Persistence**</mark>
+
 #### 41.1 Active Directory Replication Mechanics and Protocols
 
 * 41.1.1 Directory Services Architecture: Partition Synchronization (Domain, Configuration, Schema, Application) and High-Water Marks / USN Vectoring
@@ -1611,6 +1974,10 @@
 * 41.7.1 Auditing Replication Events: Tracking Event ID 4662 (Operation Performed on Object) for Replication Extended Rights Access Requests
 * 41.7.2 Detecting DCShadow and Rogue DCs: Monitoring Schema Modifications, `CN=Configuration` Class Changes, and Network RPC Binding Anomalies
 * 41.7.3 Microsoft Defender for Identity (MDI) Alerts: Correlating DCSync Requests, Suspicious Ticket Renewal/PAC Anomalies, and Skeleton Key Detections
+
+***
+
+### <mark style="color:violet;">**Chapter 42 - Direct Identity-Service Exploitation and Mission Impact**</mark>
 
 #### 42.1 Identity Infrastructure Vulnerability Classes
 
@@ -1701,6 +2068,8 @@
 * 42.15.1 Cascading Enterprise System Failures: How Loss of Identity Halts Network Access, Email, PKI, and Operational Technology (OT) Systems
 * 42.15.2 Critical Infrastructure Impact: Quantifying Operational Stoppage in SCADA, Defense Enclaves, and Government Operations
 * 42.15.3 Continuity of Operations (COOP) Execution: Executing Forest Recovery Procedures to Re-establish Minimum Operational Identity Capabilities
+
+***
 
 ## <mark style="color:cyan;">**PART V - Defensive Identity Engineering**</mark>
 
@@ -1830,7 +2199,7 @@
 * 44.11.2 Hybrid Joined & Workplace Joined Devices: Securing Primary Refresh Tokens (PRTs) and TPM-Backed Device Certificates
 * 44.11.3 Device Health Attestation: Integrating TPM-Based Health Certificates into Network Access Control (NAC) and Conditional Access
 
-#### 44.12 Password and Fine-Grained Password Policies
+#### 44.12 Password and Fine-Grained Password Policies (FGPP)
 
 * 44.12.1 Domain Password Policy Limitations: Evaluating Legacy Single-Policy Restrictions in Active Directory Domains
 * 44.12.2 Fine-Grained Password Policies (FGPP): Configuring Password Settings Objects (PSOs) and `msDS-PSOAppliesTo` Attributes for Sensitive Accounts
@@ -1856,13 +2225,17 @@
 * 44.15.4 Credential Replacement: Secure Out-of-Band Delivery Channels for Initial Passwords, TAP Tokens, and Security Keys
 * 44.15.5 Revocation: Invalidating Active Refresh Tokens, Clearing Kerberos Ticket Caches, and Terminating Active Sessions Enterprise-Wide
 
+***
+
+### <mark style="color:cyan;">**Chapter 45 - Domain Controller and Recovery Infrastructure Hardening**</mark>
+
 #### 45.1 Domain Controller Isolation
 
 * 45.1.1 Tier 0 Network Microsegmentation: Placing Domain Controllers in Isolated VLAN Enclaves with Strict Stateful Firewall Rules
 * 45.1.2 Restricting Inbound RPC and Management Traffic: Whitelisting Only Necessary RPC Dynamic Ports, Kerberos (88), LDAPS (636), and SMB (445)
 * 45.1.3 Host-Based Firewalls and IPsec Policies: Enforcing Windows Defender Firewall with Advanced Security to Block Lateral Movement from Lower-Tier Servers
 
-#### 45.2 RODC Security
+#### 45.2 Read-Only Domain Controller (RODC) Security
 
 * 45.2.1 Read-Only Domain Controller Deployment Architecture: Isolating Branch Office and Low Physical Security Environments
 * 45.2.2 Unidirectional Replication Mechanics: Preventing Inbound Directory Changes from RODCs to Writable DCs
@@ -1880,7 +2253,7 @@
 * 45.4.2 Restricting Non-DC Replication Grants: Eliminating Unwanted Extended Rights that Enable DCSync Attacks
 * 45.4.3 Monitoring Replication Access: Tracking Event ID 4662 (Operation Performed on Object) for Replication Right Usage
 
-#### 45.5 FSMO Protection
+#### 45.5 Flexible Single Master Operations (FSMO) Protection
 
 * 45.5.1 Flexible Single Master Operation (FSMO) Roles: Hardening PDC Emulator, RID Master, Infrastructure Master, Schema Master, and Domain Naming Master
 * 45.5.2 Placement Strategy & Network Isolation: Distributing FSMO Roles Across Dedicated, Highly Available Tier 0 Domain Controllers
@@ -1904,13 +2277,13 @@
 * 45.8.2 Hypervisor Host Isolation: Shielding Hypervisor Hosts Managing Tier 0 vDCs Using Clean Source Principles
 * 45.8.3 BitLocker Enclave Protection: Enforcing BitLocker Drive Encryption on Virtual Hard Disks (`.vhdx`) with TPM-Backed Keys
 
-#### 45.9 VM-Generation ID
+#### 45.9 Virtual Machine (VM)-Generation ID
 
 * 45.9.1 VM-Generation ID Mechanics: Hypervisor-Exposed Identifiers (`vmgenid`) for Detecting Snapshot Restores and VM Cloning
 * 45.9.2 Active Directory Response Logic: Triggering Invocation ID Resets and RID Pool Invalidation Upon Snapshot Detection
 * 45.9.3 Monitoring VMGenID Events: Auditing Event ID 2168, 2170, and 2172 Logs to Verify Hypervisor Safety Controls
 
-#### 45.10 USN Rollback Prevention
+#### 45.10 Update Sequence Number (USN) Rollback Prevention
 
 * 45.10.1 Update Sequence Number (USN) Mechanics: Monotonic Counter Tracking Database Changes Across Replication Partners
 * 45.10.2 Causes and Impact of USN Rollback: Database Divergence, Re-introduced Deleted Objects (Lingering Objects), and Replication Stoppage
@@ -1934,7 +2307,9 @@
 * 45.13.2 Isolating Storage Networks: Protecting iSCSI and SAN Interfaces Connecting Domain Controller Virtual Hard Disks
 * 45.13.3 Third-Party Agent Auditing: Stripping Unnecessary System-Level Management Agents from Domain Controller Operating Systems
 
-### Capter 46 - Authenticationm and Network Access Hardening
+***
+
+### <mark style="color:cyan;">**Chapter 46 - Authentication and Network Access Hardening**</mark>
 
 #### 46.1 Kerberos Hardening
 
@@ -2038,7 +2413,9 @@
 * 46.17.2 Cross-Protocol Relay Defense Strategy: Binding Authentication to Transport Protection Across All Protocol Boundaries
 * 46.17.3 Comprehensive System Hardening: Enforcing RPC Packet Privacy, Disabling Unused Services, and Auditing Relay Telemetry
 
-### Chapter 47 - Policy, Trust, and Domain Post-Migration Hardening
+***
+
+### <mark style="color:cyan;">**Chapter 47 - Policy, Trust, and Domain Post-Migration Hardening**</mark>
 
 #### 47.1 GPO Delegation
 
@@ -2130,7 +2507,9 @@
 * 47.15.2 Isolating Control Planes: Preventing Administrative Escalation Across Forest Boundaries via Hardened Authentication Policies
 * 47.15.3 Continuous Trust Telemetry: Monitoring Event ID 4706, 4707, and Cross-Domain Authentication Anomaly Alerts
 
-### Chapter 48 - PKI, Smart Card, and Passwordless Hardening
+***
+
+### <mark style="color:cyan;">**Chapter 48 - PKI, Smart Card, and Passwordless Hardening**</mark>
 
 #### 48.1 CA Tiering
 
@@ -2234,7 +2613,9 @@
 * 48.17.2 Hybrid Cryptographic Certificates: Planning Dual-Key Classical/PQC Certificate Templates for AD CS Infrastructure
 * 48.17.3 Quantum-Resistant Identity Roadmap: Transitioning Tier 0 Identity Infrastructure to PQC-Compliant Protocols
 
-### Chapter 49 - Federation, Entra ID, and Hybrid Hardening
+***
+
+### <mark style="color:cyan;">**Chapter 49 - Federation, Entra ID, and Hybrid Hardening**</mark>
 
 #### 49.1 AD FS Isolation
 
@@ -2338,7 +2719,9 @@
 * 49.17.2 Real-Time Event Triggers: Enforcing Automated Token Rejection Upon Account Disabling, Password Resets, or Elevated User Risk State
 * 49.17.3 CAE for Workload Identities: Deploying Real-Time IP Location and Threat Revocation Across API Interactions for Service Principals
 
-### Chapter 50 - Identity Governance and Authoritative Attributes
+***
+
+### <mark style="color:cyan;">**Chapter 50 - Identity Governance and Authoritative Attributes**</mark>
 
 #### 50.1 Identity Governance and Administration
 
@@ -2430,6 +2813,10 @@
 * 50.15.2 Automated Policy Compliance Verification: Continuous Scanning to Confirm On-Ground Directory State Matches Governed State
 * 50.15.3 Continuous Telemetry and Audit Readiness: Maintaining Immutable Audit Trails Proving Complete Lineage from Policy Grant to Enforcement
 
+***
+
+### <mark style="color:cyan;">**Chapter 51 - Identity Exposure Management and Purple Team Validation**</mark>
+
 #### 51.1 Identity Security Posture Assessment
 
 * 51.1.1 Continuous Posture Assessment Architecture: Establishing Automated Frameworks to Audit Directory Configurations and Control Plane Integrity
@@ -2519,6 +2906,12 @@
 * 51.15.1 Quantitative Exposure Metrics: Tracking Tier 0 Exposure Indexes and Shortest-Path Transits Over Time
 * 51.15.2 Executive and Board Reporting: Translating Complex Graph Analytics and Cyber Hygiene Scores into Executive-Level Risk Trends
 * 51.15.3 Proving FICAM & Compliance Alignment: Producing Evidentiary Reporting Demonstrating Compliance with NIST SP 800-53 and CISA Zero Trust Baselines
+
+***
+
+## <mark style="color:purple;">**PART VI - Detection, Response, Forensics, and Recovery**</mark>
+
+### <mark style="color:purple;">**Chapter 52 - Identity Telemetry and Audit Architecture**</mark>
 
 #### 52.1 Identity Logging Strategy
 
@@ -2625,6 +3018,10 @@
 * 52.17.5 Log Forwarder Interruption: Monitoring Heartbeat Failures and Buffer Overflows on Windows Event Forwarding (WEF) Agents
 * 52.17.6 Cloud Audit Suppression: Tracking Disabling of Entra Diagnostic Settings, Graph API Log Exclusion Filters, and Defender Blinding
 
+***
+
+### <mark style="color:purple;">**Chapter 53 - Identity Detection Engineering**</mark>
+
 #### 53.1 Detection Engineering Methodology
 
 * 53.1.1 Detection Development Lifecycle (DDL): Structuring Detection Requirements, Telemetry Scoping, Rule Authoring, Testing, and Continuous Tuning
@@ -2721,6 +3118,10 @@
 * 53.16.2 Automated Incident Triage Runbooks: Enforcing Automated SOC Workflows to Enrich Telemetry (e.g., Pulling BloodHound Paths, HR Status)
 * 53.16.3 Measuring Detection Precision & Fatigue: Tracking False Positive Rates, Mean Time to Detect (MTTD), and Mean Time to Respond (MTTR) for Identity Alerts
 
+***
+
+### <mark style="color:purple;">**Chapter 54 - Detecting Replication and Mobility Abuse**</mark>
+
 #### 54.1 DCSync Detection
 
 * 54.1.1 Mechanics of MS-DRSR Abuse: Analyzing How Adversaries Invoke `DsGetNcChanges` Requests to Pull Password Hashes Without Executing Code on DCs
@@ -2792,6 +3193,10 @@
 * 54.12.1 Enforcing Control Plane Boundaries: Restricting Inbound Administrative Connections to Domain Controllers Exclusively from Dedicated PAWs
 * 54.12.2 Catching Tier-Violation Movements: Triggering Instant Critical Alerts When Tier 2 Workstation Accounts or Sessions Attempt Direct Management of Tier 0 Hosts
 * 54.12.3 Real-Time Network & Identity Correlation: Mapping Firewall Flow Logs and Identity Telemetry to Isolate and Neutralize Boundary-Crossing Movement
+
+***
+
+### <mark style="color:purple;">**Chapter 55 - Detecting PKI, Federation, and Hybrid Abuse**</mark>
 
 #### 55.1 Certificate Enrollment Monitoring
 
@@ -2882,6 +3287,10 @@
 * 55.15.1 Monitoring Entra ID Directory Role Assignments: Real-Time Telemetry for Assignment of `Global Administrator` or `Privileged Role Admin`
 * 55.15.2 Tracking PIM Activation & Elevation Anomalies: Catching Out-of-Bounds Privileged Identity Management Activations Lacking Change Tickets
 * 55.15.3 Cloud Break-Glass Account Activity Alerts: Immediate Security Alerts Triggered by Any Logon or Configuration Modification by Emergency Accounts
+
+***
+
+### <mark style="color:purple;">**Chapter 56 - Threat Hunting and Identity Deception**</mark>
 
 #### 56.1 Hunting the Directory
 
@@ -2979,6 +3388,10 @@
 * 56.16.2 Trapping Remote Management Trajectories: Monitoring Inbound RDP, WinRM, and SMB Binds Directed at Deceptive Management Endpoints
 * 56.16.3 Severing Trapped Attack Paths: Isolate and Contain Adversaries Interacting with Deceptive Paths Before Control Plane Reachability Is Established
 
+***
+
+### <mark style="color:purple;">**Chapter 57 - Identity Forensics**</mark>
+
 #### 57.1 Identity Forensic Methodology
 
 * 57.1.1 Evidence Handling in Identity Enclaves: Establishing Chain of Custody Protocols for Volatile Memory, Domain Controller Disks, and Active Directory Database Artifacts
@@ -3062,6 +3475,10 @@
 * 57.14.1 Graph-Based Post-Incident Mapping: Overlaying Forensic Discoveries onto BloodHound/Graph Topologies to Visualize Adversary Lateral Paths
 * 57.14.2 Validating Initial Access to Domain Escalation: Proving the Step-by-Step Chain from Initial Compromise, Credential Theft, to Tier 0 Takeover
 * 57.14.3 Formulating Evidence-Based Remediation Playbooks: Utilizing Confirmed Forensic Findings to Guarantee Elimination of All Persistence Backdoors
+
+***
+
+### <mark style="color:purple;">**Chapter 58 - Identity Incident Response and Security Orchestration and Automation Response (SOAR)**</mark>
 
 #### 58.1 Identity Incident Classification
 
@@ -3159,6 +3576,10 @@
 * 58.16.2 Updating Detection & Response Baselines: Translating Discovered Adversary TTPs into New SIEM Rules, MDI Detections, and SOAR Playbooks
 * 58.16.3 Refining FICAM Architecture & Control Plane Controls: Updating Security Architecture Baselines, GPO Configurations, and Zero Trust Policies Based on Lessons Learned
 
+***
+
+### <mark style="color:purple;">**Chapter 59 - Identity Resilience and Trust Restoration**</mark>
+
 #### 59.1 Identity Service Resilience
 
 * 59.1.1 Authentication Availability: Architecting High-Availability Active Directory and Entra ID Enclaves to Withstand Partial Domain Controller Loss
@@ -3216,6 +3637,12 @@
 * 59.7.1 Post-Restoration Integrity Auditing: Running Comprehensive Graph Differential Sweeps, DACL Audits, and MDI Scans to Confirm Zero Persistence Left
 * 59.7.2 Cryptographic Evidence Validation: Verifying CRL Publish Times, OCSP Responder Freshness, and `kvno` Uniformity Across All Forest Enclaves
 * 59.7.3 Formal Attestation & Re-entry Sign-off: Compiling Forensic Verification Reports and Securing CISO/DAO Executive Approval to Reconnect Control Plane Operations
+
+***
+
+## <mark style="color:green;">**PART VII - Operational Lessons and The Future of Identity-Centric Defense and Warfare**</mark>
+
+### <mark style="color:green;">**Chapter 60 - Operational Lessons and The Future of Identity-Centric Defense and Warfare**</mark>
 
 #### 60.1 Why Identity Programs Fail in Production
 
