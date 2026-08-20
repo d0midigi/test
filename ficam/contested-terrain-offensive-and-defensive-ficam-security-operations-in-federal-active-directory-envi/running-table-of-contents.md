@@ -1612,6 +1612,1793 @@
 * 41.7.2 Detecting DCShadow and Rogue DCs: Monitoring Schema Modifications, `CN=Configuration` Class Changes, and Network RPC Binding Anomalies
 * 41.7.3 Microsoft Defender for Identity (MDI) Alerts: Correlating DCSync Requests, Suspicious Ticket Renewal/PAC Anomalies, and Skeleton Key Detections
 
+#### 42.1 Identity Infrastructure Vulnerability Classes
+
+* 42.1.1 Architectural Vulnerability Vectors: Protocol Downgrades, Cryptographic Implementation Flaws, and Memory Corruption in Domain Services
+* 42.1.2 Unauthenticated Remote Code Execution: Impact of High-Severity Flaws in Core AD RPC Interfaces
+* 42.1.3 Exposure Surface Minimization: Isolating DC Interfaces and Hardening Network-Level Authentication (NLA)
+
+#### 42.2 Domain Controller Vulnerabilities
+
+* 42.2.1 Remote Code Execution Flaws: Exploiting Unpatched Memory Errors and Serialization Vulnerabilities in DC Services
+* 42.2.2 Service Coercion Protocols: Abusing MS-RPRN (PrinterBug), MS-EFSR (PetitPotam), and MS-DFSNM (DFSCoerce) to Force DC Authentication
+* 42.2.3 Host Isolation & Hardening: Enforcing Strict Protocol Whitelisting, Disabling Unused RPC Interfaces, and Enforcing RPC Packet Privacy
+
+#### 42.3 Netlogon Vulnerabilities
+
+* 42.3.1 Cryptographic Flaws in Netlogon (Zerologon / CVE-2020-1472): Abusing Insecure AES-CFB8 Initialization Vectors to Zero Out DC Machine Passwords
+* 42.3.2 Channel Binding & Secure RPC: Exploiting Unenforced `Netlogon` Secure Channel Bindings
+* 42.3.3 Mitigation & Enforcement Modes: Monitoring Event ID 5829 and Enforcing Strict Netlogon Secure Channel Requirements Enterprise-Wide
+
+#### 42.4 KDC and Kerberos Vulnerabilities
+
+* 42.4.1 PAC Validation Bypasses (MS14-068 / CVE-2021-42287): Forging Privilege Attribute Certificates to Claim Immediate Domain Admin Rights
+* 42.4.2 Cryptographic Downgrade Attacks: Forcing KDCs to Negotiate Weak RC4-HMAC Encryption for Ticket Granting Service (TGS) Requests
+* 42.4.3 KDC Patching & Hardening: Disabling Weak Ciphers (DES/RC4), Enforcing AES128/256, and Monitoring KDC Anomaly Events
+
+#### 42.5 LDAP Vulnerabilities
+
+* 42.5.1 Unauthenticated Bindings and LDAP Injection: Exploiting Weak Search Filters and Insecure Anonymous Binds
+* 42.5.2 LDAP Signing and Channel Binding Enforcement: Relaying NTLM Authentication over Plaintext LDAP (TCP 389) Services
+* 42.5.3 Enforcing LDAPS & Channel Binding: Requiring Signed LDAP (LDAPS / TCP 636) and Enforcing Extended Protection for Authentication (EPA)
+
+#### 42.6 AD CS Vulnerabilities
+
+* 42.6.1 Certificate Engine Exploitation: Leveraging Template Misconfigurations and Unauthenticated Web Enrollment Points
+* 42.6.2 Relaying to AD CS Endpoints: Coercing DC Authentication and Relaying to HTTP/RPC Certificate Services (ESC8/ESC11)
+* 42.6.3 Hardening PKI Infrastructure: Disabling NTLM on Web Enrollment, Enforcing EPA, and Enforcing KB5014754 Strong Certificate Binding
+
+#### 42.7 Federation-Service Vulnerabilities
+
+* 42.7.1 AD FS Software & Endpoint Exploitation: Targetting Authentication Protocols and Endpoints on Federated Identity Servers
+* 42.7.2 SAML Token Signing Key Extraction: Stealing Cryptographic Keys to Sign Forged SAML Assertions Off-Host
+* 42.7.3 Federation Security Baselines: Segmenting AD FS Proxy Servers (WAP), Enforcing MFA for SAML Endpoints, and Migrating to Native Entra ID Auth
+
+#### 42.8 Cloud and Synchronization Vulnerabilities
+
+* 42.8.1 Entra Connect Server Compromise: Extracting `MSOL_` Passwords and SQL Encryption Keys to Intercept Sync Pipelines
+* 42.8.2 Password Hash Sync (PHS) Exploitation: Injecting Modified Password Hashes Directly into Cloud Tenants via Compromised Sync Agents
+* 42.8.3 Securing Hybrid Pipelines: Treating Sync Servers as Tier 0 Assets, Enforcing Cloud Sync Architecture, and Isolating Sync Service Credentials
+
+#### 42.9 Authentication Denial
+
+* 42.9.1 Distributed Account Lockout Attacks: Exploiting Publicly Accessible Authentication Endpoints to Lock Out Privileged Enterprise Accounts
+* 42.9.2 KDC Resource Exhaustion: Flooding Domain Controllers with Malformed Kerberos Requests to Trigger Denial of Service (DoS)
+* 42.9.3 Mitigating Auth DoS: Implementing Smart Lockout Policies, Rate-Limiting Authentication Requests, and Isolating Internal KDCs
+
+#### 42.10 Directory Sabotage
+
+* 42.10.1 Mass Schema and Attribute Corruption: Executing Destructive Scripting to Delete or Overwrite Critical Directory Objects (`CN=Configuration`)
+* 42.10.2 Disruption of Replication Topology: Overwriting USN Vectors and Modifying Partition Metadata to Cause Directory Replication Collapses
+* 42.10.3 **Restoring Directory Integrity**: Deploying Active Directory Authoritative Restores and Enforcing Immutable Directory Snapshots
+
+#### 42.11 GPO Destruction
+
+* 42.11.1 **Mass GPO Overwriting**: Injecting Malicious or Blank `SYSVOL` Scripts to Wipe Local Computer Security Configurations
+* 42.11.2 **Unlinking Core Group Policy Objects (GPO)**: Detaching Default Domain and Domain Controller Policies to Neutralize Enterprise-Wide Security Controls
+* 42.11.3 **`SYSVOL` Protection and Auditing:** Restricting `Write` Access to `SYSVOL` Policies, Monitoring Event ID 5136 and GPO Modification Logs
+
+#### 42.12 Domain Trust Corruption
+
+* 42.12.1 **Severing Inter-Realm Trust Passwords**: Overwriting Shared Trust Secrets to Induce Cross-Forest Authentication Outages
+* 42.12.2 **Routing Table Modification**: Manipulating Name Suffix Routing Tables to Route Inter-Forest Authentication Requests to Attacker Infrastructure
+* 42.12.3 **Trust Resilience**: Automating Trust Key Health Checks and Enforcing Selective Authentication Protocols
+
+#### 42.13 Ransomware and Wipers That Target Active Directory Domain Components
+
+* 42.13.1 **Group Policy Object (GPO)-Driven Ransomware Deployment**: Abusing Active Directory Group Policy to Simultaneously Push Ransomware Payloads to All Domain-Joined Systems
+* 42.13.2 **Domain Controller Wipe Attacks**: Executing Low-Level Disk Wipers to Destroy the `NTDS.dit` Database and System State Files
+* 42.13.3 **Rapid Isolation and Backup Recovery**: Implementing Offline Air-Gapped Backups, Immutable Storage, and Isolated Forest Recovery Playbooks
+
+#### 42.14 Loss of Administrative Control
+
+* 42.14.1 Complete Tier 0 Lockout: Modifying All Domain Admin / Enterprise Admin Credentials and Revoking Emergency Access Handles
+* 42.14.2 Active Directory Database Encryption: Encrypting `NTDS.dit` In-Place to Prevent KDC and Directory Service Initialization
+* 42.14.3 Break-Glass Recovery Mechanisms: Maintaining Out-of-Band Physical Break-Glass Accounts and Isolated Standalone Recovery Controllers
+
+#### 42.15 Mission Degradation and Operational Impact
+
+* 42.15.1 Cascading Enterprise System Failures: How Loss of Identity Halts Network Access, Email, PKI, and Operational Technology (OT) Systems
+* 42.15.2 Critical Infrastructure Impact: Quantifying Operational Stoppage in SCADA, Defense Enclaves, and Government Operations
+* 42.15.3 Continuity of Operations (COOP) Execution: Executing Forest Recovery Procedures to Re-establish Minimum Operational Identity Capabilities
+
+## <mark style="color:cyan;">**PART V - Defensive Identity Engineering**</mark>
+
+### <mark style="color:cyan;">**Chapter 43 - Enterprise Access Model and Privileged Administration**</mark>
+
+#### 43.1 From Legacy Tiering to the Enterprise Access Model
+
+* 43.1.1 Evolution of Administrative Isolation: Transitioning from the Traditional 3-Tier Model (Tier 0/1/2) to the Enterprise Access Model (EAM)
+* 43.1.2 Plane Segmentation Overview: Mapping Control Planes, Management Planes, and User Access Planes
+* 43.1.3 Alignment with Zero Trust Architecture: Enforcing Explicit Verification and Least Privilege Access Across Administrative Boundaries (NIST SP 800-207)
+
+#### 43.2 Tier 0, Tier 1, and Tier 2
+
+* 43.2.1 Control Plane (Tier 0): Securing Identity Store Assets (Domain Controllers, PKI, AD FS, Entra ID, Key Management Systems)
+* 43.2.2 Management Plane (Tier 1): Enterprise Servers, Hypervisors, Database Engines, SCCM/MCM, and Line-of-Business Applications
+* 43.2.3 User Access Plane (Tier 2): End-User Workstations, Mobile Devices, Peripheral Assets, and User Identity Contexts
+
+#### 43.3 Clean Source Principle and Control Plane Isolation
+
+* 43.3.1 Clean Source Mechanics: Ensuring Administrative Dependencies Meet or Exceed the Trust Level of the Target Managed System
+* 43.3.2 Identifying Dependency Violations: Auditing Cross-Plane Jump Hosts, Shared Storage, Management Agents, and Dual-Homed Devices
+* 43.3.3 Technical Boundary Enforcement: Applying Network Microsegmentation, Firewall Enclaves, and Strict IP Whitelisting for Control Plane Interfaces
+
+#### 43.4 Privileged Access Workstations (PAWs) and SAWs
+
+* 43.4.1 PAW Architecture & Hardware-Enforced Isolation: Deploying Hardened Workstations with Virtualization-Based Security (VBS) and Device Guard
+* 43.4.2 PAW Deployment Models: Comparing Dedicated Physical PAWs, Dual-Device Strategies, and Virtualized Administrative Desktops
+* 43.4.3 Securing PAW Lifecycle: Restricting Web Browsing, Email Clients, Local Admin Access, and Unapproved Software Ingestion on PAWs
+
+#### 43.5 Administrative Identity Segregation and Credential Isolation
+
+* 43.5.1 Account Naming Conventions & Segregation: Provisioning Distinct Accounts for Control Plane (`admin_user_t0`), Server Admin (`admin_user_t1`), and Daily Use
+* 43.5.2 Blocking Cross-Plane Authentication: Applying `Deny Logon Through Remote Desktop Services` and `Deny Logon Locally` User Rights via GPOs
+* 43.5.3 Restricted Admin Mode & Remote Credential Guard: Securing RDP Sessions to Prevent Credential Caching in LSASS on Target Systems
+
+#### 43.6 Just-In-Time (JIT) and Just-Enough-Administration (JEA)
+
+* 43.6.1 Eliminating Standing Privileges: Implementing Ephemeral Group Memberships and Time-Bound Role Assignment
+* 43.6.2 PowerShell Just-Enough-Administration (JEA): Creating Constrained Endpoint Configurations, Role Capability Definitions, and Command Whitelisting
+* 43.6.3 Operationalizing JEA Endpoints: Delegating Helpdesk and System Admin Tasks Without Granting Native Domain Admin Access
+
+#### 43.7 Privileged Access Management (PAM) and Break-Glass Architecture
+
+* 43.7.1 PAM Infrastructure & Session Vaulting: Deploying Privileged Access Management Bastions for Password Auto-Rotation and Session Recording
+* 43.7.2 Cloud & On-Premises Break-Glass Accounts: Configuring Out-of-Band Emergency Accounts Excluded from Conditional Access and MFA Dependencies
+* 43.7.3 Auditing Emergency Access: Real-Time Alerting and Automated Incident Workflows Triggered Upon Any Break-Glass Account Authentication Event
+
+#### 43.8 Hybrid Identity Governance and Privileged Cloud Roles
+
+* 43.8.1 Entra ID Privileged Identity Management (PIM): Configuring Time-Bound Activation, Approval Workflows, and Justification Rules for Cloud Roles
+* 43.8.2 High-Privilege Role Isolation: Securing Global Administrator, Privileged Role Administrator, and Hybrid Identity Administrator Accounts
+* 43.8.3 Aligning On-Premises Tier 0 with Entra ID: Establishing Unified Control Plane Boundaries Across Hybrid Directory Environments
+
+#### 43.9 Hardening, Auditing, and Administrative Telemetry
+
+* 43.9.1 User Rights Assignment Baselines: Configuring `Enable Admin Approval Mode`, Disabling Local Account Use of Blank Passwords, and Restricting Network Logons
+* 43.9.2 Telemetry Event Monitoring: Auditing Event ID 4672 (Special Privileges Assigned), Event ID 4624 (Logon Types 2/3/10), and Event ID 4104 (Script Block Logging)
+* 43.9.3 Microsoft Defender for Identity (MDI) Integration: Tracking Sensitive Account Lateral Movement Paths and Administrative Anomaly Alerts
+
+***
+
+### <mark style="color:cyan;">**Chapter 44 - Identity Lifecycle Hardening**</mark>
+
+#### 44.1 Human Identity Hygiene
+
+* 44.1.1 Enterprise Naming & Provisioning Baselines: Standardizing Identity Identifiers, UPN Mappings, and Immutable Object GUIDs
+* 44.1.2 Least Privilege Identity Onboarding: Minimizing Initial Entitlements and Default Group Assignments During Account Provisioning
+* 44.1.3 Continuous Identity Auditing: Enforcing Periodic Access Certification Cycles and Account Telemetry Reviews
+
+#### 44.2 Joiner-Mover-Leaver Controls
+
+* 44.2.1 Joiner Automated Workflows: Integrating HR Systems with Active Directory / Entra ID via SCIM and Automated Identity Pipelines
+* 44.2.2 Mover Entitlement Hygiene: Clearing Residual Group Memberships and Delegated Permissions During Intra-Organizational Transfers
+* 44.2.3 Leaver Offboarding Enforcement: Immediate Deprovisioning, Session Termination, Kerberos Ticket Invalidation, and Token Revocation Protocols
+
+#### 44.3 Stale and Orphaned Accounts
+
+* 44.3.1 Identifying Dormant Identities: Querying `lastLogonTimestamp`, `pwdLastSet`, and Interactive Sign-In Logs via PowerShell and LDAP
+* 44.3.2 Automated Lifecycle Quarantine: Moving Inactive Accounts to Isolated OUs, Stripping Privileges, and Disabling Account Objects
+* 44.3.3 Orphaned Account Decommissioning: Deleting Abandoned Test Accounts, Former Vendor Access, and Legacy Administrative Handles
+
+#### 44.4 Privileged Group Governance
+
+* 44.4.1 Tier 0 Group Auditing: Restricting Standing Memberships in `Domain Admins`, `Enterprise Admins`, `Schema Admins`, and `Account Operators`
+* 44.4.2 Shadow Admin Identification: Scanning Direct and Transitive DACL Assignments Granting Administrative Control Over Directory Objects
+* 44.4.3 Access Certification & Recertification: Implementing Automated Approval Workflows for Privileged Group Inclusion
+
+#### 44.5 Windows LAPS
+
+* 44.5.1 Windows LAPS Architecture: Schema Extensions, Centralized Encryption, and Automated Local Admin Password Rotation
+* 44.5.2 Delegating LAPS Read Permissions: Auditing DACLs over `msLAPS-Password` Attributes to Prevent Insecure Secret Exposure
+* 44.5.3 Hybrid LAPS Integration: Synchronizing Local Administrator Passwords to Entra ID and Enforcing Access Auditing
+
+#### 44.6 Service Account Hardening
+
+* 44.6.1 Service Account Discovery: Cataloging Interactive Service Accounts, Scheduled Tasks, and Application Pool Identities
+* 44.6.2 Enforcing Non-Interactive Logons: Assigning `Deny Logon Locally` and `Deny Logon Through Remote Desktop Services` Rights
+* 44.6.3 Hardening Passwords and Encryption: Enforcing 128-Character Passwords and AES128/256-Only Kerberos Encryption Flags
+
+#### 44.7 MSA, gMSA, and dMSA
+
+* 44.7.1 Standalone Managed Service Accounts (sMSA): Architecture, Automatic Password Management, and Host Binding Limits
+* 44.7.2 Group Managed Service Accounts (gMSA): Key Distribution Service (KDS) Root Keys, `msDS-GroupMSAMembership` Security Descriptors, and Deployment
+* 44.7.3 Delegated Managed Service Accounts (dMSA): Windows Server 2025 dMSA Architecture, Binding Service Accounts to Machine Identifiers, and Eliminating Stored Hashes
+
+#### 44.8 SPN Governance
+
+* 44.8.1 Service Principal Name Auditing: Cataloging Duplicate, Orphaned, and Weakly Authenticated SPNs Across the Directory
+* 44.8.2 Kerberoasting Surface Reduction: Identifying High-Privilege Accounts with Registered SPNs and Migrating Services to gMSAs
+* 44.8.3 SPN Lifecycle Automation: Binding SPN Registration Rights to Automated Service Deployment Pipelines
+
+#### 44.9 Non-Person Identity Governance
+
+* 44.9.1 Non-Person Identity (NPI) Classification: Categorizing API Keys, Service Principals, Automated Test Drivers, and Network Device Credentials
+* 44.9.2 Ownership & Custody Assignment: Binding Every NPI to an Active Human Custodian and Business Unit
+* 44.9.3 Cryptographic Key Binding: Replacing Plaintext Secrets with Mutual TLS (mTLS) and Hardware-Backed Private Keys
+
+#### 44.10 Workload Identity Security
+
+* 44.10.1 Cloud & Hybrid Workload Identities: Securing Entra ID Service Principals, Managed Identities, and App Registrations
+* 44.10.2 Conditional Access for Workload Identities: Enforcing Location, IP, and Risk-Based Policies for Service Account Interactions
+* 44.10.3 Credential Hygiene & Expiration: Blocking Long-Lived Client Secrets and Enforcing Federated Identity Credentials (OIDC)
+
+#### 44.11 Device Identity Hardening
+
+* 44.11.1 Domain-Joined Device Hygiene: Auditing Machine Account Creation, Password Rotation, and Stale Computer Objects
+* 44.11.2 Hybrid Joined & Workplace Joined Devices: Securing Primary Refresh Tokens (PRTs) and TPM-Backed Device Certificates
+* 44.11.3 Device Health Attestation: Integrating TPM-Based Health Certificates into Network Access Control (NAC) and Conditional Access
+
+#### 44.12 Password and Fine-Grained Password Policies
+
+* 44.12.1 Domain Password Policy Limitations: Evaluating Legacy Single-Policy Restrictions in Active Directory Domains
+* 44.12.2 Fine-Grained Password Policies (FGPP): Configuring Password Settings Objects (PSOs) and `msDS-PSOAppliesTo` Attributes for Sensitive Accounts
+* 44.12.3 Password Protection & Banned Words: Integrating Entra Password Protection On-Premises to Block Common Passwords and Dict Patterns
+
+#### 44.13 Account Lockout
+
+* 44.13.1 Lockout Threshold Mechanics: Balancing Denial-of-Service (DoS) Risks against Password Guessing Mitigation
+* 44.13.2 Smart Lockout Policies: Differentiating Between Authorized User Locations and Malicious Authentication Floods
+* 44.13.3 Investigating Lockout Sources: Tracing Persistent Lockout Causes via Netlogon Logs and Event ID 4740 Telemetry
+
+#### 44.14 Credential Rotation
+
+* 44.14.1 Automated Rotation Intervals: Establishing Rotation Cycles for Service Accounts, Computer Accounts, and High-Privilege Users
+* 44.14.2 Dual-Key Rotation Protocols: Managing Overlapping Rotation Windows for High-Availability Services to Prevent Downtime
+* 44.14.3 Emergency Credential Invalidation: Rapid-Reset Playbooks for Compromised Cryptographic Keys and Enterprise Accounts
+
+#### 44.15 Authenticator Recovery
+
+* 44.15.1 Lost Authenticators: Provisions for Temporary Access Passes (TAP), FIDO2 Key Replacement, and Hardware Token Revocation
+* 44.15.2 MFA Reset: Securing Helpdesk Support Workflows Against Social Engineering Attacks Targetting Phone/App MFA Resets
+* 44.15.3 Reproofing: High-Assurance In-Person or Remote Identity Proofing (NIST SP 800-63A IAL2/IAL3) Before Issuing Replacement Credentials
+* 44.15.4 Credential Replacement: Secure Out-of-Band Delivery Channels for Initial Passwords, TAP Tokens, and Security Keys
+* 44.15.5 Revocation: Invalidating Active Refresh Tokens, Clearing Kerberos Ticket Caches, and Terminating Active Sessions Enterprise-Wide
+
+#### 45.1 Domain Controller Isolation
+
+* 45.1.1 Tier 0 Network Microsegmentation: Placing Domain Controllers in Isolated VLAN Enclaves with Strict Stateful Firewall Rules
+* 45.1.2 Restricting Inbound RPC and Management Traffic: Whitelisting Only Necessary RPC Dynamic Ports, Kerberos (88), LDAPS (636), and SMB (445)
+* 45.1.3 Host-Based Firewalls and IPsec Policies: Enforcing Windows Defender Firewall with Advanced Security to Block Lateral Movement from Lower-Tier Servers
+
+#### 45.2 RODC Security
+
+* 45.2.1 Read-Only Domain Controller Deployment Architecture: Isolating Branch Office and Low Physical Security Environments
+* 45.2.2 Unidirectional Replication Mechanics: Preventing Inbound Directory Changes from RODCs to Writable DCs
+* 45.2.3 Delegated Administrator Accounts: Granting Limited Local Administrative Privileges Without Delegating Domain-Wide Rights
+
+#### 45.3 Password Replication Policy
+
+* 45.3.1 PRP Mechanics & Credential Caching: Filtering Which User and Computer Password Hashes Are Stored on RODCs
+* 45.3.2 Default Denied and Allowed Groups: Enforcing Implicit Deny Rules for `Domain Admins`, `Enterprise Admins`, and Sensitive Service Accounts
+* 45.3.3 Auditing Cached Credentials: Utilizing `Get-ADDomainControllerPasswordReplicationPolicy` to Verify PRP Compliance and Identify High-Risk Accounts
+
+#### 45.4 Replication Rights
+
+* 45.4.1 Directory Replication Service (DRS) Permissions: Auditing `Replicating Directory Changes` and `Replicating Directory Changes All`
+* 45.4.2 Restricting Non-DC Replication Grants: Eliminating Unwanted Extended Rights that Enable DCSync Attacks
+* 45.4.3 Monitoring Replication Access: Tracking Event ID 4662 (Operation Performed on Object) for Replication Right Usage
+
+#### 45.5 FSMO Protection
+
+* 45.5.1 Flexible Single Master Operation (FSMO) Roles: Hardening PDC Emulator, RID Master, Infrastructure Master, Schema Master, and Domain Naming Master
+* 45.5.2 Placement Strategy & Network Isolation: Distributing FSMO Roles Across Dedicated, Highly Available Tier 0 Domain Controllers
+* 45.5.3 Seizure & Transfer Protocols: Establishing Emergency FSMO Role Seizure Playbooks in Response to Offline DC Events
+
+#### 45.6 Global Catalog Security
+
+* 45.6.1 Global Catalog (GC) Infrastructure: Managing Universal Group Membership Caching and Cross-Domain Query Performance
+* 45.6.2 Partial Attribute Set (PAS) Hardening: Securing Replicated Attributes Across Forest Domain Boundaries
+* 45.6.3 Restricting GC Exposure: Disabling Unnecessary GC Roles on Non-Essential Domain Controllers to Reduce Attack Surface
+
+#### 45.7 Directory Service Permissions
+
+* 45.7.1 Active Directory DACL Auditing: Enforcing Strict Access Control Lists Over `CN=System`, `CN=Configuration`, and Domain Root
+* 45.7.2 Object Inheritance Control: Blocking Unintended DACL Inheritance Across Organizational Units (OUs)
+* 45.7.3 Protecting System Containers: Restricting Modification Rights Over `Program Data`, `PKI Services`, and `GPO Policies`
+
+#### 45.8 Virtualization Security
+
+* 45.8.1 Virtualized DC (vDC) Security Risks: Mitigating Memory Dumps, Host-Level File Snapshot Access, and Unauthenticated Disk Mounting
+* 45.8.2 Hypervisor Host Isolation: Shielding Hypervisor Hosts Managing Tier 0 vDCs Using Clean Source Principles
+* 45.8.3 BitLocker Enclave Protection: Enforcing BitLocker Drive Encryption on Virtual Hard Disks (`.vhdx`) with TPM-Backed Keys
+
+#### 45.9 VM-Generation ID
+
+* 45.9.1 VM-Generation ID Mechanics: Hypervisor-Exposed Identifiers (`vmgenid`) for Detecting Snapshot Restores and VM Cloning
+* 45.9.2 Active Directory Response Logic: Triggering Invocation ID Resets and RID Pool Invalidation Upon Snapshot Detection
+* 45.9.3 Monitoring VMGenID Events: Auditing Event ID 2168, 2170, and 2172 Logs to Verify Hypervisor Safety Controls
+
+#### 45.10 USN Rollback Prevention
+
+* 45.10.1 Update Sequence Number (USN) Mechanics: Monotonic Counter Tracking Database Changes Across Replication Partners
+* 45.10.2 Causes and Impact of USN Rollback: Database Divergence, Re-introduced Deleted Objects (Lingering Objects), and Replication Stoppage
+* 45.10.3 Quarantine & Isolation Actions: Automatic Execution of Event ID 2095, Disabling Netlogon, and Quarantine Recovery Procedures
+
+#### 45.11 Backup Protection
+
+* 45.11.1 Active Directory Backup Mechanisms: System-State Backups, Volume Shadow Copy Service (VSS), and Bare-Metal Recovery Images
+* 45.11.2 Immutable Backup Architecture: Cryptographically Locking Backups Against Ransomware Deletion or Alteration
+* 45.11.3 Encryption of Backups: Utilizing AES-256 BitLocker or Application-Level Encryption for Offline System-State Files
+
+#### 45.12 Recovery-System Isolation
+
+* 45.12.1 Out-of-Band Isolated Recovery Environment (IRE): Establishing Air-Gapped Networks for Disaster Restoration
+* 45.12.2 Clean-Room Jumpbox Deployment: Provisioning Uncompromised Administrative Workstations for Forest Recovery Operations
+* 45.12.3 Automated Forest Recovery Playbooks: Validating Active Directory Forest Recovery (ADFR) Procedures Under Isolated Test Conditions
+
+#### 45.13 Administrative Dependencies
+
+* 45.13.1 Eliminating Downward Dependencies: Securing DNS, Hypervisors, Storage Arrays, and Backup Agents Managing Tier 0 Systems
+* 45.13.2 Isolating Storage Networks: Protecting iSCSI and SAN Interfaces Connecting Domain Controller Virtual Hard Disks
+* 45.13.3 Third-Party Agent Auditing: Stripping Unnecessary System-Level Management Agents from Domain Controller Operating Systems
+
+### Capter 46 - Authenticationm and Network Access Hardening
+
+#### 46.1 Kerberos Hardening
+
+* 46.1.1 Disabling Weak Encryption Ciphers: Purging DES and RC4-HMAC Ciphers to Enforce AES-128 and AES-256 Bit Encryption Enterprise-Wide
+* 46.1.2 Pre-Authentication Requirements: Auditing and Remediating Accounts Set with `Do not require Kerberos preauthentication` Flags
+* 46.1.3 Ticket Lifetime & Renewal Controls: Restricting Maximum TGT and Service Ticket Validity Windows via KDC Group Policies
+
+#### 46.2 Kerberos Armoring
+
+* 46.2.1 Flexible Authentication Secure Tunneling (FAST): Enforcing RFC 6113 Armoring to Encapsulate `AS-REQ` Pre-Authentication Trajectories
+* 46.2.2 Compound Authentication Mechanics: Binding User Authorization Contexts with Computer Account Cryptographic Keys
+* 46.2.3 Armoring Deployment Strategies: Enforcing KDC and Client-Side Support for Kerberos Armoring Across Enterprise Domains
+
+#### 46.3 NTLM Reduction
+
+* 46.3.1 Auditing NTLM Footprints: Utilizing Event ID 8001/8004 Telemetry and Windows Server Enhanced Auditing Policies
+* 46.3.2 Restricting Inbound and Outbound NTLM: Configuring `Restrict NTLM` Group Policies and Mapping Fallback Triggers
+* 46.3.3 Executing NTLM Deprecation: Transitioning Environments to Local KDC, IAKerb, and Modern Kerberos-Only Endpoints
+
+#### 46.4 LDAP Signing
+
+* 46.4.1 Plaintext LDAP Risks: Identifying Credential Exposure and Session Hijacking Risks Across Unencrypted TCP 389 Queries
+* 46.4.2 Enforcing LDAP Server Signing: Configuring Domain Controller Policies to Reject Unsigned SASL LDAP Binds
+* 46.4.3 Client-Side LDAP Hardening: Requiring Signed LDAP Binds Across Member Servers, Workstations, and Third-Party Applications
+
+#### 46.5 LDAP Channel Binding
+
+* 46.5.1 Channel Binding Token (CBT) Mechanics: Binding Outer TLS Cryptographic Tunnels to Inner SASL Authentication Contexts
+* 46.5.2 Domain Controller Enforcement Levels: Configuring `LdapEnforceChannelBinding` to Level 2 (Always Enforce)
+* 46.5.3 Diagnosing Compatibility Issues: Correlating Event ID 2886, 2887, and 2889 Logs to Remediate Non-Compliant LDAP Clients
+
+#### 46.6 SMB Signing
+
+* 46.6.1 Message Integrity Protections: Defeating SMB Relay and Session Hijacking via Cryptographic Signatures
+* 46.6.2 SMB Signing Enforcement: Requiring SMB Signing Across All Domain Controllers, Member Servers, and Workstations
+* 46.6.3 Transitioning to SMB3 Encryption: Enforcing End-to-End SMB Encryption for High-Value Storage Shares and SYSVOL Data
+
+#### 46.7 Extended Protection for Authentication
+
+* 46.7.1 Service Binding & Channel Binding Tokens: Protecting Web and RPC Authentication Protocols Against Relay Attacks
+* 46.7.2 EPA Implementation Across IIS and Web Services: Enforcing Hardened EPA Settings for AD CS, AD FS, and Enterprise Portals
+* 46.7.3 Remediating Relay Vulnerabilities: Eliminating Credential Relay Exposure Points Across HTTP, RPC, and Enterprise Application Gateways
+
+#### 46.8 Secure Channel Protection
+
+* 46.8.1 Netlogon Secure Channel Hardening: Enforcing Strict RPC Secure Channel Sign and Seal Operations
+* 46.8.2 Machine Account Password Rotation: Automating Computer Account Secret Updates and Purging Stale Machine Accounts
+* 46.8.3 Blocking Vulnerable Channel Bindings: Monitoring Event ID 5829 and Enforcing Strict Netlogon Enforcement Mode
+
+#### 46.9 LLMNR and NBT-NS Reduction
+
+* 46.9.1 Multicast Name Resolution Exposure: Mitigating LLMNR/NBT-NS Poisoning and Poisoning-Based Credential Theft
+* 46.9.2 Disabling LLMNR via Group Policy: Configuring `Turn off Link-Local Multicast Name Resolution` Policies Domain-Wide
+* 46.9.3 Decommissioning NetBIOS over TCP/IP: Disabling NBT-NS Across Network Adapters and DHCP Scope Options
+
+#### 46.10 WPAD Controls
+
+* 46.10.1 Web Proxy Auto-Discovery Exploitation: Mitigating Rogue WPAD Server Spoofing and Unauthenticated Traffic Hijacking
+* 46.10.2 Disabling Automatic Proxy Detection: Enforcing GPO and Registry Controls to Block WPAD Auto-Lookup Mechanisms
+* 46.10.3 Restricting DNS WPAD Records: Configuring DNS Global Query Blocklists and Disabling Dynamic Registration for WPAD
+
+#### 46.11 Secure DNS
+
+* 46.11.1 DNS Security Extensions (DNSSEC): Cryptographically Signing DNS Zones to Prevent Cache Poisoning and Record Spoofing
+* 46.11.2 Secure Dynamic Update Protections: Restricting Active Directory-Integrated Zone Updates to Authenticated Clients Only
+* 46.11.3 DNS Transport Encryption: Implementing DNS over HTTPS (DoH) and DNS over TLS (DoT) for Enterprise Name Resolution
+
+#### 46.12 RADIUS and NPS Hardening
+
+* 46.12.1 Network Policy Server (NPS) Architecture: Securing Centralized RADIUS Infrastructure for Remote Access and 802.1X
+* 46.12.2 Protecting RADIUS Shared Secrets: Deploying Complex Shared Secrets and Restricting RADIUS Client IP Enclaves
+* 46.12.3 Hardening RADIUS Transport: Implementing RadSec (RADIUS over TLS) to Prevent Secret Sniffing Across Network Segments
+
+#### 46.13 802.1X
+
+* 46.13.1 Port-Based Network Access Control: Establishing Hardware-Enforced Layer 2 Network Perimeter Controls
+* 46.13.2 Infrastructure Integration: Configuring Enterprise Switches, Wireless Access Points, and NPS Access Policies
+* 46.13.3 Dynamic Access Assignment: Routing Devices to Quarantined or Restricted Network Segments Based on Health State
+
+#### 46.14 EAP-TLS
+
+* 46.14.1 High-Assurance EAP-TLS 1.3 Deployment: Utilizing RFC 9190 Standards for Mutual Certificate-Based Authentication
+* 46.14.2 Certificate Validation Controls: Enforcing SAN/UPN Mappings, Extended Key Usages (EKUs), and Strict Revocation Checking (CRL/OCSP)
+* 46.14.3 TPM-Backed Certificate Enrollment: Issuing Keys Secured by Hardware Trusted Platform Modules via Auto-Enrollment
+
+#### 46.15 Legacy EAP Reduction
+
+* 46.15.1 Weak EAP Protocol Risks: Deprecating Vulnerable Protocols (EAP-MD5, LEAP, EAP-FAST, and PEAP-MSCHAPv2)
+* 46.15.2 Mitigating Password Exposure: Eliminating Challenge-Response Protocols Subject to Offline Dictionary Attacks
+* 46.15.3 Migrating to Pure Certificate Authentication: Transitioning Enterprise Wireless and Wired Networks Exclusively to EAP-TLS
+
+#### 46.16 VPN and Remote Access Authentication
+
+* 46.16.1 Securing Remote Access Gateways: Integrating Multi-Factor Authentication (MFA) and Device Health Attestation
+* 46.16.2 Always On VPN & Zero Trust Architecture: Deploying Machine and User Certificate Binds with Device Tunneling
+* 46.16.3 Conditional Access Integration: Enforcing Location, Device Compliance, and Risk-Based Controls for Remote Connections
+
+#### 46.17 Coercion and Relay Resistance
+
+* 46.17.1 Protocol Coercion Vectors: Neutralizing Unauthenticated RPC Call Coercion (PetitPotam, ShadowCoerce, DFSCoerce)
+* 46.17.2 Cross-Protocol Relay Defense Strategy: Binding Authentication to Transport Protection Across All Protocol Boundaries
+* 46.17.3 Comprehensive System Hardening: Enforcing RPC Packet Privacy, Disabling Unused Services, and Auditing Relay Telemetry
+
+### Chapter 47 - Policy, Trust, and Domain Post-Migration Hardening
+
+#### 47.1 GPO Delegation
+
+* 47.1.1 Restricting Group Policy Creation & Modification: Restricting `Group Policy Creator Owners` Group Memberships and Delegated Edit Rights
+* 47.1.2 Auditing GPO Access Control Lists: Identifying Insecure `WriteDACL`, `WriteProperty`, or `GenericAll` Permissions Over GPO Objects
+* 47.1.3 Enforcing Least Privilege Delegation: Assigning Role-Based Access Controls for OU-Level Policy Linking and Management
+
+#### 47.2 GPO Change Control
+
+* 47.2.1 Advanced Group Policy Management (AGPM): Deploying AGPM for Version Control, Check-in/Check-out Workflows, and Approval Pipelines
+* 47.2.2 Policy Rollback and Auditing: Maintaining GPO Revision History and Automating Rollback Configurations Upon Unauthorized Changes
+* 47.2.3 Monitoring Policy Modifications: Correlating Event ID 5136 and AGPM Audit Logs to Track GPO Attribute and Policy State Alterations
+
+#### 47.3 SYSVOL Permissions
+
+* 47.3.1 SYSVOL ACL Security Baselines: Securing Default NTFS and Share Permissions Over `\\<Domain>\SYSVOL`
+* 47.3.2 Restricting Write Access: Blocking Non-Administrative Accounts from Modifying SYSVOL Scripts, Executables, and Policy Templates
+* 47.3.3 Auditing SYSVOL Integrity: Deploying File Integrity Monitoring (FIM) and Auditing Event ID 4663 to Detect SYSVOL File Modifications
+
+#### 47.4 Script Integrity
+
+* 47.4.1 Cryptographic Script Signing: Enforcing Digital Signatures Over PowerShell, VBScript, and Batch Startup/Logon Scripts
+* 47.4.2 Execution Policy Enforcement: Configuring `AllSigned` or `RemoteSigned` Execution Policies via Group Policy
+* 47.4.3 Application Control in SYSVOL: Applying WDAC / AppLocker Rules to Prevent Unapproved Script Execution from SYSVOL Paths
+
+#### 47.5 DFSR Health
+
+* 47.5.1 Distributed File System Replication Mechanics: Managing Multi-DC SYSVOL Synchronization and Replication Topologies
+* 47.5.2 DFSR Health Monitoring: Detecting Replication Stoppages, Backlogs, and Database Corruption via `dfsrdiag` and PowerShell
+* 47.5.3 Remediating SYSVOL Desynchronization: Executing Authoritative (`D4`) and Non-Authoritative (`D2`) SYSVOL Restores safely
+
+#### 47.6 Security Filtering
+
+* 47.6.1 Security Filtering Mechanics: Utilizing Read and Apply Group Policy ACLs to Scope GPO Application
+* 47.6.2 Enforcing Authenticated Users Read Rights: Maintaining `Authenticated Users` Read Access (MS16-072) to Prevent GPO Processing Failures
+* 47.6.3 Security Group Architecture: Structuring Targeted Security Groups to Preempt Policy Overreach Across Enclaves
+
+#### 47.7 WMI Filtering
+
+* 47.7.1 WMI Filter Architecture: Evaluating Query Performance and Targeting Logic for OS, Hardware, and Registry Criteria
+* 47.7.2 Mitigating Performance Impact: Preventing Logon Delays and CPU Spikes Caused by Inefficient WMI Query Constructs
+* 47.7.3 WMI Filter Security: Auditing DACLs on WMI Filter Containers (`CN=SOM,CN=WMIP,CN=System`) to Prevent Unauthorized Targeting
+
+#### 47.8 Trust Minimization
+
+* 47.8.1 Trust Architecture Review: Evaluating Forest, External, Realm, and Shortcut Trust Necessity Across Infrastructure Boundaries
+* 47.8.2 Transitivity Controls: Restricting Unnecessary Non-Transitive vs. Transitive Trust Relationships
+* 47.8.3 Enforcing One-Way Trust Topologies: Transitioning High-Assurance Enclaves to One-Way Incoming/Outgoing Trust Relationships
+
+#### 47.9 Selective Authentication
+
+* 47.9.1 Selective Authentication Mechanics: Restricting Inter-Forest Authentication to Explicitly Authorized Resource Accounts
+* 47.9.2 Provisioning Allowed-to-Authenticate Rights: Granting `Allowed to Authenticate` Permissions Over Specific Target Computer Objects
+* 47.9.3 Auditing Cross-Forest Logons: Tracking Event ID 4624 (Logon Type 3) and Selective Authentication Failures Across Trust Boundaries
+
+#### 47.10 SID Filtering
+
+* 47.10.1 SID Filtering Mechanics: Enforcing SID History Quarantine to Block Extra SIDs in Inter-Forest Kerberos Tickets
+* 47.10.2 Enabling Forest Trust Quarantine: Configuring `netdom trust /quarantine:yes` to Neutralize Golden Ticket SID Injection Vectors
+* 47.10.3 Identifying SID Filtering Exceptions: Auditing forest trust SID filtering rules for legitimate migration scenarios
+
+#### 47.11 Name-Suffix Routing
+
+* 47.11.1 Routing Table Governance: Managing User Principal Name (UPN) and Service Principal Name (SPN) Routing Across Forest Trusts
+* 47.11.2 Disabling Untrusted Name Suffixes: Blocking Conflicting or Malicious Name Suffix Requests Across Inter-Forest Interfaces
+* 47.11.3 Preventing Identity Spoofing: Restricting Routing Collisions and Spoofed Domain Names via Name-Suffix Routing Validation
+
+#### 47.12 Foreign Security Principal Governance
+
+* 47.12.1 Foreign Security Principal (FSP) Containers: Mechanics of `CN=ForeignSecurityPrincipals` in Cross-Domain Group Membership
+* 47.12.2 Auditing Legacy FSP Objects: Identifying Orphaned FSPs Pointing to Decommissioned or Untrusted Domains
+* 47.12.3 Purging Stale FSPs: Automating FSP Cleanup to Prevent Unintended Access Paths Across Merged Identity Topology
+
+#### 47.13 SIDHistory Governance
+
+* 47.13.1 Post-Migration `sIDHistory` Exposure: Mitigating Privilege Escalation Risks Caused by Residual Injected SIDs
+* 47.13.2 Auditing `sIDHistory` Attributes: Scanning All User and Group Objects for Non-Standard SIDs via PowerShell
+* 47.13.3 Purging Legacy SIDs: Executing Systematic `sIDHistory` Removal Operations Post-Migration Validation
+
+#### 47.14 Migration Cleanup
+
+* 47.14.1 Post-Migration Identity Decommissioning: Disabling and Deleting Source Domain Accounts and Trust Relationships
+* 47.14.2 Active Directory Migration Tool (ADMT) Cleanup: Purging Migration Service Accounts, Database Logs, and Temporary Delegation Rules
+* 47.14.3 Forest Decommissioning Protocols: Systematically Retiring Legacy Child Domains and Forest Trust Infrastructure
+
+#### 47.15 Cross-Forest Segmentation
+
+* 47.15.1 Zero Trust Cross-Forest Design: Treating Connected Forests as External, Untrusted Boundaries
+* 47.15.2 Isolating Control Planes: Preventing Administrative Escalation Across Forest Boundaries via Hardened Authentication Policies
+* 47.15.3 Continuous Trust Telemetry: Monitoring Event ID 4706, 4707, and Cross-Domain Authentication Anomaly Alerts
+
+### Chapter 48 - PKI, Smart Card, and Passwordless Hardening
+
+#### 48.1 CA Tiering
+
+* 48.1.1 PKI Architecture Hierarchy: Structuring Offline Root CAs, Policy CAs, and Online Enterprise Subordinate Issuing CAs
+* 48.1.2 Control Plane Classification: Isolating Issuing Certificate Authorities as Tier 0 Assets Within the Enterprise Access Model
+* 48.1.3 Segregation of Duties: Restricting `CA Administrator`, `Certificate Manager`, and `Auditor` Roles to Dedicated Accounts
+
+#### 48.2 Offline Root Protection
+
+* 48.2.1 Physical & Air-Gapped Security: Securing Standalone Offline Root CAs in Vault Enclaves with Hardware Access Control
+* 48.2.2 Key Generation & Storage: Utilizing Hardware Security Modules (HSMs) for Offline Root Master Private Key Pair Generation
+* 48.2.3 Root CA Lifecycle Operations: Establishing Secure Protocols for Subordinate CA Certificate Signing and Root CRL Publishing
+
+#### 48.3 Certificate Template Governance
+
+* 48.3.1 Template DACL Security Baselines: Auditing `WriteDACL`, `WriteProperty`, and `Enroll` Permissions Across Certificate Templates
+* 48.3.2 Neutralizing ESC Vulnerability Classes: Preventing Misconfigured Client Authentication Templates (ESC1, ESC2, ESC3, ESC4, ESC9)
+* 48.3.3 Enterprise Template Auditing: Enforcing Manager Approval and Authorized Signature Requirements for Sensitive Templates
+
+#### 48.4 Enrollment Security
+
+* 48.4.1 Securing Enrollment Endpoints: Hardening Network Device Enrollment Service (NDES), CES, and CEP Services
+* 48.4.2 EPA and NTLM Blocking on Enrollment Interfaces: Enforcing Extended Protection for Authentication and TLS on Web Enrollment (ESC8)
+* 48.4.3 Restricted Auto-Enrollment Policies: Scope-Limiting Auto-Enrollment Group Policies via Strict Security Filtering
+
+#### 48.5 Strong Certificate Mapping
+
+* 48.5.1 Mechanics of KB5014754 Enforcement: Understanding Explicit Certificate Mapping Requirements on Windows Domain Controllers
+* 48.5.2 Mapping Methods Comparison: Transitioning from Weak SAN/UPN Mappings to Strong `altSecurityIdentities` (X509IssuerSubject / SKI)
+* 48.5.3 Remediating Mapping Bypasses: Auditing Event ID 39, 40, and 41 Telemetry to Eliminate Unmapped Authentications
+
+#### 48.6 Private-Key Protection
+
+* 48.6.1 Exportability Controls: Marking Private Keys as Non-Exportable and Enforcing Software Key Protection (CryptoAPI / CNG)
+* 48.6.2 Key Archival & Recovery: Securing Key Recovery Agent (KRA) Certificates and DPAPI-Protected Archival Databases
+* 48.6.3 Protecting Client Private Keys: Deploying TPM-Backed Key Storage Providers (KSPs) for Enterprise Workstations
+
+#### 48.7 HSMs
+
+* 48.7.1 Hardware Security Module Architecture: Deploying FIPS 140-2/3 Level 3 Network and PCIe HSMs for Enterprise CAs
+* 48.7.2 PKCS#11 and CNG Provider Integration: Configuring Cryptographic Next Generation Providers for CA Master Key Protection
+* 48.7.3 HSM Key Backup & High Availability: Managing Cryptographic Partition Backups and Multi-Node HSM Clustering
+
+#### 48.8 Certificate Revocation
+
+* 48.8.1 Revocation Vector Triggers: Standardizing Revocation Playbooks for Compromised Keys, Terminated Users, and Retired Assets
+* 48.8.2 Executing Immediate Revocation: Utilizing `certutil` and AD CS Administrative Interfaces for Rapid Invalidations
+* 48.8.3 Revocation Delta Management: Optimizing Delta CRL Publishing Intervals and Emergency Revocation Distribution
+
+#### 48.9 CRL and OCSP Resilience
+
+* 48.9.1 High-Availability CRL Distribution Points (CDP): Deploying Redundant HTTP CDPs for High-Throughput Revocation Checks
+* 48.9.2 Online Certificate Status Protocol (OCSP) Responding: Configuring OCSP Array Responders with Dedicated Signing Certificates
+* 48.9.3 Preventing Revocation Outages: Mitigating Authentication Failures Caused by Expired CRLs or Unreachable Revocation Points
+
+#### 48.10 FPKI Trust
+
+* 48.10.1 Federal PKI Architecture: Cross-Certificate Bridges, Federal Bridge CA (FBCA), and Trust Anchor Management
+* 48.10.2 External CA Trust Ingestion: Securing Enterprise Trust Stores Against Unauthorized External Intermediate Certificates
+* 48.10.3 Path Validation & Policy Constraints: Enforcing Explicit Policy Mappings, Inhibit Policy Mapping, and Require Explicit Policy Flags
+
+#### 48.11 PIV/CAC Hardening
+
+* 48.11.1 Personal Identity Verification (PIV) Standards: Aligning Enterprise Smart Card Deployments with FIPS 201 Guidelines
+* 48.11.2 Enforcement of Smart Card Logon: Setting `Smart card is required for interactive logon` for All High-Privilege Accounts
+* 48.11.3 PIN Policy & Middleware Security: Hardening PIV Middleware, PIN Retries, and Physical Smart Card Reader Interfaces
+
+#### 48.12 PKINIT Hardening
+
+* 48.12.1 Kerberos PKINIT Protocols: Public Key Cryptography for Initial Authentication in Active Directory
+* 48.12.2 Enforcing PKINIT Freshness Extension: Implementing RFC 8636 Freshness Tokens to Prevent Replay Attacks
+* 48.12.3 Armoring PKINIT Trajectories: Enforcing FAST (Flexible Authentication Secure Tunneling) for All PKINIT Authentications
+
+#### 48.13 Windows Hello for Business
+
+* 48.13.1 WHfB Architecture: TPM-Backed Asymmetric Key Pair Generation and Two-Factor Strong Authentication
+* 48.13.2 Key Trust vs. Certificate Trust Deployments: Evaluating Infrastructure Requirements and Domain Controller Certificates
+* 48.13.3 WHfB Lifecycle Governance: Automating Enrollment, PIN Reset Services, and Revocation Upon Account Deprovisioning
+
+#### 48.14 FIDO2 and Passkeys
+
+* 48.14.1 WebAuthn and FIDO2 Architecture: Deploying Passwordless FIDO2 Hardware Security Keys (AAL3 Assurance)
+* 48.14.2 Passkey Enterprise Controls: Distinguishing Between Device-Bound Passkeys and Synced Passkeys in High-Assurance Enclaves
+* 48.14.3 Restricting Authenticator AAGUIDs: Whitelisting Approved Hardware FIDO2 Authenticator Models via Conditional Access
+
+#### 48.15 Cloud Kerberos Trust
+
+* 48.15.1 Cloud Kerberos Trust Mechanics: Hybrid Passwordless Access to On-Premises Resources via Entra ID Issued Read-Only TGTs
+* 48.15.2 Eliminating On-Premises PKI Dependencies: Deploying Cloud Kerberos Objects in Active Directory Without Certificate Infrastructure
+* 48.15.3 Hybrid Access Control: Securing On-Premises Active Directory Resources Accessed via Passwordless Cloud Authenticators
+
+#### 48.16 Cryptographic Agility
+
+* 48.16.1 Auditing Enterprise Cryptographic Suites: Inventorying RSA, ECC, Hash Functions, and Cipher Suites Across PKI Templates
+* 48.16.2 Modernizing Cryptographic Providers: Migrating Legacy CryptoAPI (CAPI) Architecture to Cryptographic Next Generation (CNG)
+* 48.16.3 Phasing Out Deprecated Algorithms: Deprecating SHA-1, RSA 1024/2048, and Weak ECC Curves Enterprise-Wide
+
+#### 48.17 Post-Quantum Readiness
+
+* 48.17.1 Post-Quantum Cryptography (PQC) Standards: Preparing for NIST PQC Algorithms (ML-KEM / FIPS 203, ML-DSA / FIPS 204)
+* 48.17.2 Hybrid Cryptographic Certificates: Planning Dual-Key Classical/PQC Certificate Templates for AD CS Infrastructure
+* 48.17.3 Quantum-Resistant Identity Roadmap: Transitioning Tier 0 Identity Infrastructure to PQC-Compliant Protocols
+
+### Chapter 49 - Federation, Entra ID, and Hybrid Hardening
+
+#### 49.1 AD FS Isolation
+
+* 49.1.1 AD FS Tier 0 Enclave Classification: Isolating AD FS Servers and Web Application Proxies (WAP) within Tier 0 Control Planes
+* 49.1.2 Web Application Proxy (WAP) Perimeter Hardening: Deploying WAPs in DMZ Segments to Prevent Direct External RPC/HTTPS Exposure to AD FS
+* 49.1.3 Restricting Administrative Access: Enforcing Clean Source Principles and Blocking Non-Essential Inbound Ports (e.g., SMB, WinRM) to Federation Hosts
+
+#### 49.2 Token-Signing Key Protection
+
+* 49.2.1 Mitigating Golden SAML Attacks: Securing Private Token-Signing Keys Against Extraction and Unauthorized Certificate Generation
+* 49.2.2 Hardware Security Module (HSM) Binding: Storing AD FS Token-Signing and Token-Decrypting Certificates in FIPS 140-2 Level 3 HSMs
+* 49.2.3 Automating Certificate Auto-Rollover: Configuring Secure Key Rotation Cycles and Monitoring Event ID 335 Log Telemetry
+
+#### 49.3 Claims Governance
+
+* 49.3.1 Claims Xpath & Transformation Rules: Enforcing Custom Claims Issuance Rules to Filter Authorization Contexts
+* 49.3.2 Restricting External Claims Trajectories: Blocking Untrusted SAML Attributes and Strip Unsanitized Active Directory Group SIDs
+* 49.3.3 Issuance Authorization Policies: Configuring Device-Aware and Network-Aware Authorization Rules at the Federation Layer
+
+#### 49.4 Relying-Party Governance
+
+* 49.4.1 Auditing Relying Party Trusts (RPTs): Inventorying Active SAML 2.0 and WS-Federation Integrations Across Cloud and On-Premises
+* 49.4.2 Enforcing Encrypted SAML Assertions: Requiring Encrypted Tokens for High-Assurance Third-Party Applications
+* 49.4.3 Decommissioning Legacy Trusts: Removing Unused, Unmonitored, or Non-Compliant Relying Party Relationships
+
+#### 49.5 Audience Restrictions
+
+* 49.5.1 SAML Audience Restriction Verification: Enforcing Strict URI Matching to Prevent Assertion Replay Attacks Across Applications
+* 49.5.2 Restricting Multi-Tenant Token Scope: Validating Target Resource Identifiers (`aud` claim) Within Web Applications
+* 49.5.3 Detecting Token Misdirection: Monitoring Authentication Logs for Mismatched Audience Claims and Cross-App Replay Vectors
+
+#### 49.6 Federation Trust Management
+
+* 49.6.1 Federated vs. Managed Authentication: Evaluating Migration Paths from AD FS to Password Hash Sync (PHS) or Pass-Through Authentication (PTA)
+* 49.6.2 Securing Immutable ID (`mS-DS-ConsistencyGuid`): Preventing Source Anchor Manipulation and User Account Hijacking
+* 49.6.3 Federation Metadata Integrity: Enforcing HTTPS and Cryptographic Signature Verification for Automated Metadata Updates
+
+#### 49.7 Entra Connect Security
+
+* 49.7.1 Entra Connect Host Hardening: Classifying Synchronization Servers as Tier 0 Assets and Restricting Local Administrative Rights
+* 49.7.2 Enforcing Server Build Hardening: Upgrading Entra Connect Sync Servers to Hardened Builds (v2.5.79.0+) or Transitioning to Cloud Sync
+* 49.7.3 Staging Mode Deployment Architecture: Utilizing Isolated Staging Servers for High Availability, Audit Logs, and Safe Configuration Testing
+
+#### 49.8 Synchronization Account Protection
+
+* 49.8.1 On-Premises AD DS Connector Account: Restricting Privileges of the `MSOL_` Account (Limiting Password Hash Sync Rights)
+* 49.8.2 Directory Synchronization Accounts in Entra ID: Auditing `Sync_*` Cloud Service Principals and Enforcing MFA/Conditional Access Exemptions
+* 49.8.3 Mitigating Sync-Based Elevation Attacks: Monitoring for Unauthorized Writes Over Sensitive On-Premises Attributes (e.g., `sIDHistory`, `adminCount`)
+
+#### 49.9 Conditional Access
+
+* 49.9.1 Zero Trust Conditional Access Architecture: Designing Strict Access Policies Based on User, Device, Location, and Real-Time Risk
+* 49.9.2 Requiring Compliant & Managed Devices: Enforcing Hybrid Entra Joined or Intune Compliant Device Checks for Sensitive Applications
+* 49.9.3 Blocking Legacy Authentication: Creating Blanket Denial Rules for Basic Auth Protocols (POP3, IMAP4, SMTP) Lacking MFA Support
+
+#### 49.10 Privileged Role Governance
+
+* 49.10.1 Entra ID Privileged Identity Management (PIM): Enforcing Just-In-Time (JIT) Activation and Approval Workflows for Tier 0 Cloud Roles
+* 49.10.2 Global Administrator Minimization: Restricting Standing Global Admin Roles to Fewer Than 5 Break-Glass Accounts
+* 49.10.3 Access Reviews for Cloud Admins: Automating Recertification Cycles for High-Privilege Roles (`Privileged Role Administrator`, `Authentication Admin`)
+
+#### 49.11 Service Principals
+
+* 49.11.1 Service Principal Inventory & Auditing: Cataloging Enterprise Application Registrations and Secret Expiration Lifecycles
+* 49.11.2 Eliminating Password Credentials: Replacing Plaintext Client Secrets with X.509 Certificates or Federated Identity Credentials (OIDC)
+* 49.11.3 Least Privilege API Permissions: Restricting High-Risk Application Permissions (`Directory.ReadWrite.All`, `RoleManagement.ReadWrite.Directory`)
+
+#### 49.12 Workload Identities
+
+* 49.12.1 Entra Workload ID Governance: Deploying Workload Identity Premium Controls to Monitor Non-Human Access Trends
+* 49.12.2 Managed Identities Deployment: Utilizing User-Assigned and System-Assigned Managed Identities for Azure Workloads to Eliminate Keys
+* 49.12.3 Conditional Access for Workload Identities: Enforcing Location and Risk-Based Restrictions directly on Service Principals
+
+#### 49.13 Application Consent
+
+* 49.13.1 Neutralizing Consent Grant Attacks: Disabling User Consent for Unverified Third-Party OAuth Applications
+* 49.13.2 Admin Consent Workflows: Establishing Automated Request and Security Review Pipelines for Multi-Tenant App Onboarding
+* 49.13.3 Publisher Verification Controls: Requiring MPN-Verified Publisher Status for Applications Requested Within the Tenant
+
+#### 49.14 Cross-Tenant Access
+
+* 49.14.1 Cross-Tenant Access Settings: Managing Inbound and Outbound B2B Collaboration Settings in Entra External ID
+* 49.14.2 Trusting External MFA & Device Claims: Selectively Trusting MFA, Compliant Device, and Hybrid Joined Claims from Trusted Partner Tenants
+* 49.14.3 Restricting B2B Direct Connect: Configuring Cross-Tenant Boundaries for Teams Shared Channels and Extranet Resources
+
+#### 49.15 External Collaboration
+
+* 49.15.1 Guest User Access Restrictions: Setting Restrictive Options for External Guest Enumeration of Tenant Users and Groups
+* 49.15.2 One-Time Passcode (OTP) Authentication: Standardizing Guest User Authentication Protocols via Email OTP or Federated IdPs
+* 49.15.3 Automated Guest Lifecycle Purging: Implementing Entra ID Governance Access Reviews to Automatically Deprovision Inactive Guest Accounts
+
+#### 49.16 Token Revocation
+
+* 49.16.1 Emergency Session Revocation: Executing Immediate Refresh Token Invalidation via `Revoke-MgUserSignInSession` and Graph API
+* 49.16.2 Emergency Access (Break-Glass) Playbooks: Bypassing Standard MFA Pipelines During Outages via Hardened, Un-Federated Cloud Accounts
+* 49.16.3 Token Lifetime Policies: Restricting Refresh Token Validity and Enforcing Short-Lived Access Tokens for Privileged Roles
+
+#### 49.17 Continuous Access Evaluation
+
+* 49.17.1 Continuous Access Evaluation (CAE) Architecture: Enabling Real-Time Claims Evaluation via RFC 8693 / Security Events 1.0 Protocols
+* 49.17.2 Real-Time Event Triggers: Enforcing Automated Token Rejection Upon Account Disabling, Password Resets, or Elevated User Risk State
+* 49.17.3 CAE for Workload Identities: Deploying Real-Time IP Location and Threat Revocation Across API Interactions for Service Principals
+
+### Chapter 50 - Identity Governance and Authoritative Attributes
+
+#### 50.1 Identity Governance and Administration
+
+* 50.1.1 IGA Architecture & FICAM Integration: Aligning Centralized IGA Engines with Enterprise Directory Controls and NIST SP 800-53 (AC-2)
+* 50.1.2 Unified Identity Warehousing: Aggregating Accounts, Groups, and Entitlements Across On-Premises AD, Entra ID, and SaaS Endpoints
+* 50.1.3 Compliance & Audit Telemetry: Automating Continuous Policy Compliance Reporting and Evidentiary Collection for Audit Frameworks
+
+#### 50.2 Authoritative Identity Sources
+
+* 50.2.1 Primary System of Record (SoR) Binding: Integrating Enterprise HR Systems (e.g., Workday, SAP) as Immutable Identity Sources
+* 50.2.2 Multi-SoR Priority Resolution: Structuring Precedence Rules when Ingesting Attributes from Overlapping HR and Vendor Databases
+* 50.2.3 Source Ingestion Hardening: Securing HR-to-IGA Connectors Against Unauthenticated Payload Injection and Man-in-the-Middle Manipulation
+
+#### 50.3 Attribute Provenance
+
+* 50.3.1 Cryptographic Attribute Lineage: Verifying System-of-Origin Signing for Sensitive Attributes (`department`, `clearance`, `mail`)
+* 50.3.2 System-of-Origin Tracking: Maintaining Detailed Audit Logs of System Writes to Identify Out-of-Band Directory Modification
+* 50.3.3 Detecting Attribute Mutation Anomalies: Triggering Real-Time Security Alerts When Authoritative Attributes Change Outside Standard IGA Channels
+
+#### 50.4 Attribute Integrity
+
+* 50.4.1 Schema Normalization & Validation: Enforcing Strict Regex Validation, Case-Formatting, and Character Encoding on Ingested Data
+* 50.4.2 Immutable Identifier Mapping: Assigning Non-Reusable Unique Identifiers (GUIDs/UUIDs) to Prevent Identity Collision and Re-use
+* 50.4.3 Preventing Attribute Poisoning & Injection: Filtering Malicious LDAP Injection Characters and Scripting Payloads from HR Input Fields
+
+#### 50.5 Provisioning and SCIM
+
+* 50.5.1 SCIM v2.0 Protocol Implementation: Deploying Standardized RESTful JSON SCIM APIs (RFC 7643/7644) for Cross-Domain Synchronization
+* 50.5.2 Automated Event-Driven Provisioning Pipelines: Executing Real-Time Account Creation and Attribute Propagation Upon HR Trigger
+* 50.5.3 Securing SCIM API Gateways: Enforcing OAuth 2.0 Bearer Tokens, Mutual TLS (mTLS), and IP Whitelisting on SCIM Interfaces
+
+#### 50.6 Entitlement Governance
+
+* 50.6.1 Entitlement Catalog Architecture: Structuring Standardized Catalogs of Active Directory Groups, Application Roles, and Direct Permissions
+* 50.6.2 Birthright Entitlement Baselines: Establishing Minimal Core Entitlement Sets Derived Automatically from Department and Job Function
+* 50.6.3 Out-of-Band Entitlement Remediation: Automatically Detecting and Stripping Unmanaged Privileges Directly Assigned via Directory DACLs
+
+#### 50.7 Role Engineering
+
+* 50.7.1 Role-Based Access Control (RBAC) Mining: Analyzing Historical Group Memberships to Build Optimally Scoped Business Roles
+* 50.7.2 Attribute-Based Access Control (ABAC) Integration: Dynamically Evaluating User and Environmental Attributes for Real-Time Access Decisions
+* 50.7.3 Preventing Role Explosion: Implementing Role Hierarchy Limits and Periodic Consolidation Reviews to Eliminate Over-Customized Roles
+
+#### 50.8 Segregation of Duties
+
+* 50.8.1 Toxic Combination Matrix Design: Defining Explicit Conflicts Between Sensitive Business Functions and Privileged Roles (NIST SP 800-53 AC-5)
+* 50.8.2 Preventive vs. Detective SoD Enforcement: Blocking Conflicting Entitlement Requests at Request Time vs. Scanning for Violations
+* 50.8.3 Cross-Control Plane SoD Governance: Correlating On-Premises Administrative Rights with Cloud/SaaS High-Privilege Roles
+
+#### 50.9 Access Certification
+
+* 50.9.1 High-Assurance Certification Campaign Design: Establishing Scheduled and Targeted Access Review Cycles for Sensitive Enclaves
+* 50.9.2 Manager vs. Resource Owner Attestation: Routing Certification Tasks to Direct Line Managers and Specific System/Data Owners
+* 50.9.3 Mitigating Fatigue via Risk-Weighted Certification: Prioritizing Review Actions Based on Entitlement Risk Scores and Usage Analytics
+
+#### 50.10 Recertification
+
+* 50.10.1 Event-Driven Micro-Recertifications: Triggering Immediate Attestation Actions Upon User Transfer, Promotion, or Role Change
+* 50.10.2 Privileged Role & Entitlement Recertification: Enforcing Shortened Review Cycles (e.g., Monthly/Quarterly) for Tier 0 and Tier 1 Access
+* 50.10.3 Automated Revocation Mechanics Upon Attestation Failure: Deprovisioning Uncertified Entitlements Instantly When Reviews Time Out or Reject
+
+#### 50.11 Sponsorship
+
+* 50.11.1 Identity Sponsorship Frameworks: Mandating Active Full-Time Employee Custodians for All Contingent or Temporary Accounts
+* 50.11.2 Custodial Responsibility Binding: Requiring Sponsors to Formally Verify Identity Validity, Scope of Access, and Business Justification
+* 50.11.3 Sponsor Offboarding and Re-Sponsorship Protocols: Re-assigning or Disabling Sponsored Accounts Instantly When a Sponsor Departs
+
+#### 50.12 Contractor Identity Governance
+
+* 50.12.1 Third-Party Lifecycle Management: Managing Vendor, Partner, and Consultant Identities Separately from Core Employee Databases
+* 50.12.2 Hard Expiration & Time-Bound Access Enforcement: Setting Mandatory Fixed Account Expiration Dates Not Exceeding 180 Days
+* 50.12.3 Contractor Reproofing & Access Scope Isolation: Enforcing Remote Identity Re-Verification (NIST SP 800-63A IAL2) and Segmented Enclave Access
+
+#### 50.13 Non-Person Identity Governance
+
+* 50.13.1 Service & Workload Identity Attestation: Cataloging Service Accounts, API Keys, and Managed Identities Under Governed Lifecycles
+* 50.13.2 Custodian Binding for NPI Objects: Enforcing Human Ownership and Accountability over Every Service Principal and Service Account
+* 50.13.3 Automated NPI Deprovisioning Lifecycle: Decommissioning Unlinked, Unused, or Un-certified Non-Person Identities Automatically
+
+#### 50.14 Deprovisioning
+
+* 50.14.1 Rapid Deprovisioning Playbooks: Executing Immediate Multi-Stage Account Disabling Upon HR Termination Signal
+* 50.14.2 Active Session Termination & Revocation: Revoking Kerberos Tickets, OAuth Tokens, and Active Web Sessions Instantly Enterprise-Wide
+* 50.14.3 Post-Deprovisioning Residual Access Auditing: Verification Systems Confirming Full Removal Across Secondary Systems and On-Premises Shares
+
+#### 50.15 Governance-to-Technical-Control Traceability
+
+* 50.15.1 Mapping Policy to Directory DACLs and Scopes: Linking High-Level IGA Policies Directly to Active Directory ACLs, OUs, and Entra Roles
+* 50.15.2 Automated Policy Compliance Verification: Continuous Scanning to Confirm On-Ground Directory State Matches Governed State
+* 50.15.3 Continuous Telemetry and Audit Readiness: Maintaining Immutable Audit Trails Proving Complete Lineage from Policy Grant to Enforcement
+
+#### 51.1 Identity Security Posture Assessment
+
+* 51.1.1 Continuous Posture Assessment Architecture: Establishing Automated Frameworks to Audit Directory Configurations and Control Plane Integrity
+* 51.1.2 Evaluating Configuration Drift: Tracking Unsanitized Object Changes, Stray Group Memberships, and Delegated Access Creep Over Time
+* 51.1.3 Aligning Posture Metrics with Federal Baselines: Mapping Directory Telemetry to NIST SP 800-53, DISA STIGs, and CIS Benchmarks
+
+#### 51.2 Attack-Path Exposure
+
+* 51.2.1 Mechanics of Identity Attack Paths: Analyzing How Chained Misconfigurations (DACLs, SPNs, Session Leaks, Weak Passwords) Lead to Domain Compromise
+* 51.2.2 Identity Blast Radius Modeling: Quantifying the Impact and Lateral Movement Reach of Compromised Non-Privileged Accounts
+* 51.2.3 Graph-Based Structural Analysis: Utilizing Directed Graph Models to Map Hidden Access Choke Points and Transit Vectors Across Enclaves
+
+#### 51.3 BloodHound for Defensive Analysis
+
+* 51.3.1 BloodHound Infrastructure & Data Collection: Deploying SharpHound and AzureHound Data Collectors Safely in Production Systems
+* 51.3.2 Querying High-Risk Graph Edges: Writing Cypher Queries to Identify `GenericAll`, `WriteDACL`, `ForceChangePassword`, and `AddMembers` Escalation Vectors
+* 51.3.3 Enterprise Graph Analytics: Utilizing BloodHound Enterprise (BHE) for Continuous Tier 0 Exposure Tracking and Choke-Point Identification
+
+#### 51.4 PingCastle
+
+* 51.4.1 Health Check Engine Deployment: Executing Risk-Based Auditing of Domain Controllers, Trusts, Anomalies, and Stale Objects
+* 51.4.2 PingCastle Score Modeling: Interpreting Risk Indicators Across Privileged Accounts, Forest Trusts, Stale Objects, and Protocol Security
+* 51.4.3 Automating Posture Reporting: Integrating PingCastle Scans into Scheduled Pipeline Audits for Enterprise Risk Monitoring
+
+#### 51.5 Purple Knight
+
+* 51.5.1 Rapid Posture Assessment: Executing Community/Enterprise Scans to Detect Active Directory and Entra ID Security Gaps
+* 51.5.2 Evaluating Indicators of Exposure (IoEs): Scrutinizing Findings Across Kerberos Configuration, PKI Templates, Group Policy, and Hybrid Sync
+* 51.5.3 Prioritizing Technical Findings: Categorizing Remediation Tasks Based on Exploitation Likelihood and Severity Scores
+
+#### 51.6 Effective Control Analysis
+
+* 51.6.1 Paper Controls vs. Effective Controls: Validating Whether Documented Security Policies Are Cryptographically and Technical Enforced
+* 51.6.2 DACL & ACE Evaluation: Calculating Effective Permissions Over Sensitive Directory Objects Considering Group Inheritance and Token Claims
+* 51.6.3 Security Policy Audit Mechanics: Testing Local Security Authority (LSA) Policies and Group Policy Enforcement Across Member Endpoints
+
+#### 51.7 Tier 0 Reachability
+
+* 51.7.1 Defining Control Plane Boundaries: Classifying Domain Controllers, AD CS, AD FS, Entra Connect, and Hypervisors as Tier 0
+* 51.7.2 Shortest-Path Tier 0 Transit Calculations: Executing Graph Algorithms to Measure the Minimum Hop Count from Any Compromised Account to Tier 0
+* 51.7.3 Isolating Indirect Escalation Vectors: Identifying Shadow Admins and Non-Standard Permission Chains Leading to Control Plane Privilege
+
+#### 51.8 Exposure Prioritization
+
+* 51.8.1 Contextual Risk Scoring: Prioritizing Remediations Based on Path Transience, Asset Criticality, and Exposure to Internet Enclaves
+* 51.8.2 High-Impact Choke Point Identification: Target Remediation Efforts on Single DACL or Policy Changes That Sever Hundreds of Potential Attack Paths
+* 51.8.3 Cost-Benefit Analysis in Remediation: Balancing Threat Reduction Against Operational Impact and Business Interruption Risks
+
+#### 51.9 Continuous Attack-Path Reduction
+
+* 51.9.1 Automated Choke-Point Remediation: Deploying Scripted DACL Cleansing and Tiering Enforcements to Break Graph Chains
+* 51.9.2 Continuous Graph Analytics Integration: Incorporating Real-Time BloodHound Graph Updates into Security Operations Center (SOC) Operations
+* 51.9.3 Preventing Attack Path Re-Emergence: Enforcing GPO and IGA Governance Baseline Rules to Block Misconfiguration Resurgence
+
+#### 51.10 Adversary Emulation
+
+* 51.10.1 MITRE ATT\&CK Mapping for Identity: Designing Emulation Plans Scoped to Identity Tactics (T1003, T1558, T1098, T1484)
+* 51.10.2 Executing Safe Offensive TTPs: Conducting Controlled Kerberoasting, AS-REP Roasting, DCSync, and ESC1 Exploitation Exercises
+* 51.10.3 Threat Actor Playbook Reenactment: Simulating Known Threat Actor Methodologies (e.g., Solorigate, SCATTERED SPIDER) Against Hybrid Controls
+
+#### 51.11 Breach and Attack Simulation
+
+* 51.11.1 Automated BAS Platform Integration: Deploying Continuous Simulation Engines to Validate Network and Identity Boundary Defenses
+* 51.11.2 Safe Payload Execution in Enclaves: Executing Synthetic Telemetry and Non-Destructive Exploitation Simulations in Live Production Scenarios
+* 51.11.3 Measuring Telemetry Drift: Tracking Gaps Between Simulated Adversary Execution and Detection Generation in SIEM/EDR
+
+#### 51.12 Purple-Team Validation
+
+* 51.12.1 Purple-Team Exercise Frameworks: Aligning Offensive Execution (Red) with Defensive Telemetry Analysis (Blue) in Real-Time
+* 51.12.2 Interactive Attack-Detection Cycles: Step-by-Step Step Execution of Identity Attack Vectors to Observe Live SIEM/EDR Event Generation
+* 51.12.3 Cross-Functional Playbook Optimization: Refining Incident Response Runbooks Based on Real-Time Collaboration Between Red and Blue Teams
+
+#### 51.13 Detection Validation
+
+* 51.13.1 Auditing Detection Coverage: Mapping Event Logs (4624, 4662, 4768, 4769, 4776) Against SIEM Correlation Rules
+* 51.13.2 Eliminating Blind Spots: Identifying Siloed Telemetry Sources Across Domain Controllers, Network Firewalls, and Cloud Identity Logs
+* 51.13.3 Tuning Detection Precision: Minimizing False Positive Rates While Ensuring Zero Missed Alerts for High-Consequence Attacks (e.g., DCSync)
+
+#### 51.14 Remediation Testing
+
+* 51.14.1 Closed-Loop Remediation Workflows: Verifying That Technical Fixes Effectively Sever Intended Attack Paths Without Breaking Applications
+* 51.14.2 Regression Testing Infrastructure: Executing Automated Health and Functional Audits Post-Remediation Application
+* 51.14.3 DACL / Policy Rollback Safety: Establishing Reversion Protocols to Rapidly Restore Operational Baselines If Services Malfunction
+
+#### 51.15 Demonstrating Attack-Path Closure
+
+* 51.15.1 Quantitative Exposure Metrics: Tracking Tier 0 Exposure Indexes and Shortest-Path Transits Over Time
+* 51.15.2 Executive and Board Reporting: Translating Complex Graph Analytics and Cyber Hygiene Scores into Executive-Level Risk Trends
+* 51.15.3 Proving FICAM & Compliance Alignment: Producing Evidentiary Reporting Demonstrating Compliance with NIST SP 800-53 and CISA Zero Trust Baselines
+
+#### 52.1 Identity Logging Strategy
+
+* 52.1.1 Enterprise Audit Strategy Design: Defining Telemetry Scopes Across Tier 0 Assets, Member Servers, and Cloud Identity Workloads
+* 52.1.2 Balancing Storage vs. Visibility: Sizing Local Log Buffers, Forwarding Bandwidth, and SIEM Ingestion Volumes Across Active Directory Enclaves
+* 52.1.3 Regulatory Alignment: Mapping Audit Baselines to NIST SP 800-53 Rev. 5, DoD Security Technical Implementation Guides (STIGs), and CISA Guidelines
+
+#### 52.2 Advanced Audit Policy
+
+* 52.2.1 AAPC vs. Legacy Audit Policy: Enforcing Advanced Audit Policy Configuration (AAPC) to Eliminate Legacy Category Overwrites
+* 52.2.2 Core AAPC Subcategory Baselines: Enabling High-Fidelity Subcategories Including _Directory Service Changes_, _Account Management_, and _Logon/Logoff_
+* 52.2.3 Enforcing Policy Uniformity: Deploying AAPC Settings via Group Policy Objects (`GPO -> Advanced Audit Policy Configuration`) and Auditing via `auditpol.exe`
+
+#### 52.3 SACL Strategy
+
+* 52.3.1 Directory SACL Architecture: Defining Target Object SACLs to Generate Event ID 4662 (Operation Performed on Object) for High-Risk Actions
+* 52.3.2 Scoping Attribute-Level SACLs: Applying Focused Auditing Over Critical Attributes (`servicePrincipalName`, `msDS-AllowedToDelegateTo`, `member`)
+* 52.3.3 Mitigating SACL Performance Impact: Balancing SACL Granularity Against Domain Controller LSA and CPU Overhead
+
+#### 52.4 Authentication Events
+
+* 52.4.1 Kerberos Authentication Telemetry: Capturing TGT Requests (Event ID 4768), Service Ticket Requests (4769), and Renewal Events
+* 52.4.2 Interactive & Network Logons: Analyzing Successful Logons (4624) and Failed Logons (4625) Across Logon Types (Type 2 Interactive, Type 3 Network, Type 10 RDP)
+* 52.4.3 NTLM Authentication Monitoring: Tracking Event ID 8001–8004 Telemetry to Identify Fallback NTLM Authentications and Relay Attempts
+
+#### 52.5 Authorization Events
+
+* 52.5.1 Explicit Credential Usage: Monitoring Event ID 4648 (Logon with Explicit Credentials) to Detect Runas and Pass-the-Hash Executions
+* 52.5.2 Privilege Assignment & Elevation: Tracking Special Privileges (Event ID 4672) Assigned to New Logons (e.g., `SeDebugPrivilege`, `SeEnableDelegationPrivilege`)
+* 52.5.3 Kerberos Pre-Authentication & Ticket Anomaly Detection: Detecting AS-REP Roasting (Event ID 4768 with Pre-Auth Disabled) and Failed Kerberos Pre-Auth (4771)
+
+#### 52.6 Directory Change Auditing
+
+* 52.6.1 Object Creation & Deletion: Correlating Event ID 5137 (Directory Object Created) and 5141 (Directory Object Deleted)
+* 52.6.2 Attribute Modification Tracking: Analyzing Event ID 5136 (Directory Service Object Modified) to Capture Old vs. New Attribute Values
+* 52.6.3 DACL Modification Auditing: Detecting Permission Tampering Over OUs, Containers, and High-Value Administrative Accounts
+
+#### 52.7 Group and Privilege Changes
+
+* 52.7.1 Security Group Governance Logs: Monitoring Member Additions/Removals in Privileged Groups via Event IDs 4728, 4732, and 4756
+* 52.7.2 AdminCount & SDProp Tracking: Auditing Background Propagations of Security Descriptors Over Protected Accounts
+* 52.7.3 Account Status Alterations: Tracking Account Disabling (4725), Unlocking (4767), and Password Reset (4724) Actions
+
+#### 52.8 GPO Changes
+
+* 52.8.1 Group Policy Object Modification: Tracking Event ID 5136 Over `CN=Policies,CN=System` Containers and GPC Attributes
+* 52.8.2 SYSVOL File Modifications: Correlating Directory Service Logs with File Integrity Monitoring (FIM) and VSS Shadow Copy Telemetry
+* 52.8.3 Link and Enforcement Alterations: Auditing GPO Link Changes (Event ID 4932/4933) Over High-Assurance Enclave OUs
+
+#### 52.9 Replication Telemetry
+
+* 52.9.1 Directory Replication Service (DRS) Logs: Monitoring Inbound Replication Events and `DsGetNcChanges` API Calls
+* 52.9.2 Detecting DCSync Attacks: Correlating Event ID 4662 (Directory Object Access with DRS Replication Guids) From Non-DC IP Addresses
+* 52.9.3 Tracking Replication Errors: Monitoring Event IDs 2095 and 1388 to Detect USN Rollbacks and Lingering Objects
+
+#### 52.10 PKI Logs
+
+* 52.10.1 AD CS Certificate Authority Auditing: Enabling Extended CA Auditing to Track Certificate Requests, Issuances, and Denials
+* 52.10.2 Template Modification Telemetry: Monitoring Event ID 4898 (Certificate Template Loaded) and Event 5136 Over Template ACLs
+* 52.10.3 Enrollment Service Telemetry: Tracking NDES and Web Enrollment Request Logs for ESC Exploitation Patterns
+
+#### 52.11 Federation Logs
+
+* 52.11.1 AD FS Auditing Engine: Enabling Verbose Security Auditing in AD FS Properties to Track Issued Tokens and Auth Requests
+* 52.11.2 SAML Assertion & Claim Telemetry: Analyzing Event ID 403, 410, and 501 Logs to Track Claims Transformations and Relying Party Issuance
+* 52.11.3 WAP Perimeter Logs: Ingesting Web Application Proxy Event Logs to Correlate External Client IPs with On-Premises Auth Claims
+
+#### 52.12 Entra and Cloud Logs
+
+* 52.12.1 Entra ID Audit Logs: Ingesting Tenant Audit Logs for Role Assignments, Service Principal Credentials, and App Registrations
+* 52.12.2 Entra ID Sign-In Logs: Correlating Interactive, Non-Interactive, Service Principal, and Managed Identity Sign-in Logs
+* 52.12.3 Diagnostic Settings Pipelines: Streaming Cloud Audit Telemetry via Azure Monitor and Graph Streaming APIs to Security Data Lakes
+
+#### 52.13 Network Authentication Logs
+
+* 52.13.1 RADIUS and NPS Logging: Ingesting Network Policy Server Logs to Audit 802.1X Wired/Wireless and VPN Connection Attempts
+* 52.13.2 DNS Security Telemetry: Tracking DNS Dynamic Updates (Event ID 2501), Zone Transfer Requests, and Query Resolution Logs
+* 52.13.3 DHCP & IPAM Logs: Correlating IP Allocation Records with Domain Controller Logons to Track Transient Devices
+
+#### 52.14 Microsoft Defender for Identity
+
+* 52.14.1 MDI Sensor Telemetry Integration: Capturing Deep Network Packet Inspection (RPC, SMB, Kerberos, LDAP) and ETW Events
+* 52.14.2 MDI Alert Schema: Mapping Defender for Identity Detections (e.g., Reconnaissance, Credential Access, Lateral Movement) into XDR
+* 52.14.3 Sensor Health Monitoring: Tracking Sensor Offline Events, Performance Degradation, and Packet Dropping Telemetry
+
+#### 52.15 SIEM Integration
+
+* 52.15.1 Windows Event Forwarding (WEF): Deploying Standardized WEF Subscriptions with HTTPS/WinRM to Centralize Collector Topologies
+* 52.15.2 Ingestion Architecture: Utilizing Azure Monitor Agent (AMA), Syslog, and Graph APIs to Transport Telemetry to Microsoft Sentinel/SIEM
+* 52.15.3 Event Filtering & Parsing: Parsing Unstructured Event Data into Normalized Security Schemas (ASIM / CIM) for Real-Time Correlation
+
+#### 52.16 Evidence Integrity
+
+* 52.16.1 Immutable Storage Mechanisms: Forwarding Logs to Write-Once-Read-Many (WORM) Repositories and Cryptographically Sealed Storage
+* 52.16.2 Log Hash Chaining: Utilizing Cryptographic Hashing and Digital Signatures on Exported Event Log Bundles
+* 52.16.3 Segregation of Audit Administration: Restricting Access to Centralized Log Repositories Away from Domain Admins to Prevent Evidence Alteration
+
+#### 52.17 Identity Anti-Forensics
+
+* 52.17.1 Event Log Clearing: Detecting Event ID 1102 (Security Audit Log Cleared) and Event ID 104 (System Log Cleared) Across Domain Controllers
+* 52.17.2 Audit Policy Modification: Monitoring Event ID 4719 (System Audit Policy Changed) to Spot Unauthorized Category Disabling
+* 52.17.3 SACL Removal: Triggering High-Priority Alerts When SACL Entries are Removed from Sensitive Directory Containers
+* 52.17.4 Sensor Tampering: Detecting MDI Sensor Service Stoppages, Driver Unloading, and Process Injection Attempts
+* 52.17.5 Log Forwarder Interruption: Monitoring Heartbeat Failures and Buffer Overflows on Windows Event Forwarding (WEF) Agents
+* 52.17.6 Cloud Audit Suppression: Tracking Disabling of Entra Diagnostic Settings, Graph API Log Exclusion Filters, and Defender Blinding
+
+#### 53.1 Detection Engineering Methodology
+
+* 53.1.1 Detection Development Lifecycle (DDL): Structuring Detection Requirements, Telemetry Scoping, Rule Authoring, Testing, and Continuous Tuning
+* 53.1.2 Mapping to MITRE ATT\&CK & CAR: Aligning Detection Logic with Identity Attack Techniques (T1558, T1110, T1003, T1098, T1484)
+* 53.1.3 Detection-as-Code (DaC) Architecture: Managing SIEM Detection Rules, KQL Queries, and Sigma Rules via Version-Controlled CI/CD Pipelines
+
+#### 53.2 Baselines and Normal Behavior
+
+* 53.2.1 Establishing Protocol & Authentication Baselines: Profiling Standard Operating Hours, Source Subnets, and Request Volumes per Principal
+* 53.2.2 Filtering Administrative Baseline Noise: Whitelisting Legitimate System Accounts, Scheduled Tasks, and Authorized Security Scanners
+* 53.2.3 Statistical Anomaly Thresholding: Utilizing Dynamic Standard Deviations and Time-Series Analytics to Reduce False Positive Rates
+
+#### 53.3 Kerberos Detection
+
+* 53.3.1 Anomalous Ticket-Granting Ticket (TGT) Requests: Detecting Anomalous Encryption Downgrades (RC4-HMAC Requests) via Event ID 4768
+* 53.3.2 Ticket Renewal & Lifetime Anomalies: Tracking Suspicious Ticket Renewal Request Patterns and Out-of-Bounds Ticket Lifetimes
+* 53.3.3 Kerberos Pre-Authentication Bypasses: Monitoring Failed Pre-Authentications (Event ID 4771) and Unexpected Pre-Auth Disabling Events
+
+#### 53.4 NTLM Detection
+
+* 53.4.1 Unexpected NTLM Usage: Monitoring Fallback to NTLM v1/v2 in Environments Enforcing Kerberos First Policies (Event ID 8001–8004)
+* 53.4.2 Cross-Domain NTLM Anomaly Detection: Identifying Anomalous External NTLM Authentication Vectors Across Forest Trust Interfaces
+* 53.4.3 Catching NTLM Relay Patterns: Correlating Rapid, Multi-Host NTLM Binds Originating from Singular Internal Machine Addresses
+
+#### 53.5 LDAP Detection
+
+* 53.5.1 Unencrypted & Anonymous LDAP Query Monitoring: Tracking Cleartext Binds (Port 389) and Unauthenticated Schema Enumeration via Event ID 2887/2889
+* 53.5.2 LDAP Reconnaissance Detection: Identifying Heavy Mass-Object Enumeration Queries Targeted at High-Value Groups and Sensitive Attributes
+* 53.5.3 Detecting Malformed & Excessive Filters: Catching Complex LDAP Injection Patterns and Reckless Graph Scans
+
+#### 53.6 Password Spray Detection
+
+* 53.6.1 Horizontal vs. Vertical Password Spray Mechanics: Distinguishing Low-and-Slow Password Sprays from Traditional Brute-Force Floods
+* 53.6.2 Correlating Multi-Source Event ID 4625/4771 Logs: Aggregating Failed Logon Telemetry Across Multiple Accounts Targeted from Singular Source IPs/Hosts
+* 53.6.3 Hybrid Password Spray Tracking: Correlating On-Premises Netlogon Failures with Entra ID Sign-In Risk Telemetry
+
+#### 53.7 Kerberoasting Detection
+
+* 53.7.1 Service Ticket Request Volumetrics: Detecting Spikes in TGS Requests (Event ID 4769) Requesting Weak RC4 Encryption Options
+* 53.7.2 High-Value Account Monitoring: Alerting Instantly When TGS Requests Target Tier 0 Service Principal Names (SPNs)
+* 53.7.3 Deception-Based Kerberoasting Alerts: Setting Up Lure/Honey SPN Accounts to Produce 100% High-Confidence Detections Upon TGS Request
+
+#### 53.8 AS-REP Roasting Detection
+
+* 53.8.1 Pre-Authentication Disabled Monitoring: Alerting When Event ID 4768 Is Generated for Accounts Configured with `DONT_REQUIRE_PREAUTH`
+* 53.8.2 Bulk AS-REP Request Tracking: Detecting Mass Kerberos TGT Requests Lacking Pre-Authentication Across Short Time Intervals
+* 53.8.3 Account Configuration Tracking: Correlating Event ID 5136 (Attribute Modification) When `userAccountControl` Flags Are Altered to Disable Pre-Auth
+
+#### 53.9 Credential Access Detection
+
+* 53.9.1 DCSync Attack Detection: Catching Non-DC Directory Replication Requests via Event ID 4662 (Matching DRS Guids: `1131f6aa-...` / `1131f6ad-...`)
+* 53.9.2 NTDS.dit Extraction Telemetry: Monitoring VSS Service Creation (Event ID 7036), Volume Shadow Copy Access, and `esentutl.exe` Invocations
+* 53.9.3 LSA Secrets & Memory Dumps: Catching Unauthorized LSASS Process Access (Event ID 10 in Sysmon) and Secrets Dump Execution
+
+#### 53.10 Privileged Group Change Detection
+
+* 53.10.1 Direct Tier 0 Membership Changes: High-Priority Real-Time Alerts for Additions to `Domain Admins`, `Enterprise Admins`, and `Schema Admins` (Event ID 4728/4756)
+* 53.10.2 Transitive & Nested Group Modification: Detecting Indirect Privilege Escalation via Nested Sub-Group Membership Insertions
+* 53.10.3 Out-of-Change-Window Group Modifications: Correlating Group Mod Events Against Scheduled Change Management Tickets
+
+#### 53.11 ACL and ACE Change Detection
+
+* 53.11.1 Directory DACL Modification Auditing: Capturing Write-DACL and Ownership Overrides Over Sensitive Containers via Event ID 5136
+* 53.11.2 Detecting Shadow Admin Creation: Identifying Newly Assigned Dangerous Rights (`GenericAll`, `WriteProperty`, `ResetPassword`) Over High-Value Objects
+* 53.11.3 AdminSDHolder Modification Alerts: Monitoring ACL Alterations on the `CN=AdminSDHolder` Container Before SDProp Execution
+
+#### 53.12 GPO Change Detection
+
+* 53.12.1 Unscheduled GPO Mod Monitoring: Capturing Object Modifications Within `CN=Policies,CN=System` Containers
+* 53.12.2 High-Risk GPO Setting Alterations: Detecting Modification of Audit Policies, Security Options, Restricted Groups, or User Rights Assignments
+* 53.12.3 SYSVOL Script & Executable Tampering: Alerting on New or Modified `.ps1`, `.bat`, or `.exe` Files Deposited Within SYSVOL Policies Paths
+
+#### 53.13 Service Account Detection
+
+* 53.13.1 Interactive Logon Alerts for Non-Human Accounts: Catching Service Accounts Executing Interactive Logons (Logon Type 2 / Type 10)
+* 53.13.2 gMSA & dMSA Abuse Anomalies: Detecting Unauthorized Hosts Attempting Key Distribution Service (KDS) Secret Retrieval
+* 53.13.3 Service Account Behavior Variance: Tracking Deviations in Source Machine, Target Machine, or API Query Patterns for Managed Identities
+
+#### 53.14 Authentication Correlation
+
+* 53.14.1 Multi-Log Event Chaining: Linking Source Network IP, Domain Controller Event ID 4624/4769, and Endpoint Process Creation Logs
+* 53.14.2 Session Lifetime Correlation: Matching Ticket-Granting Services (TGS) to Active Network Connections to Identify Ticket Abuse/Pass-the-Ticket
+* 53.14.3 Detecting Authentication Anomalies Across Tiers: Alerting When Lower-Tier Accounts Attempt Direct Authentication to Higher-Tier Systems
+
+#### 53.15 Cross-Identity Correlation
+
+* 53.15.1 On-Premises to Cloud Sign-In Correlation: Mapping Active Directory Logons to Upstream Microsoft Entra ID Interactive and Non-Interactive Sign-Ins
+* 53.15.2 Tracking Identity Pivot Chains: Correlating Cloud Compromise Telemetry (e.g., Entra ID Risk Events) with On-Premises Kerberos Requests
+* 53.15.3 B2B and Federated Identity Abuse: Auditing Federation Assertion Ingestion Against Downstream Local Resource Authorizations
+
+#### 53.16 Alert Triage and Prioritization
+
+* 53.16.1 Contextual Severity Scoring: Dynamic Alert Scoring Based on Target Principal Tier, System Criticality, and Asset Location
+* 53.16.2 Automated Incident Triage Runbooks: Enforcing Automated SOC Workflows to Enrich Telemetry (e.g., Pulling BloodHound Paths, HR Status)
+* 53.16.3 Measuring Detection Precision & Fatigue: Tracking False Positive Rates, Mean Time to Detect (MTTD), and Mean Time to Respond (MTTR) for Identity Alerts
+
+#### 54.1 DCSync Detection
+
+* 54.1.1 Mechanics of MS-DRSR Abuse: Analyzing How Adversaries Invoke `DsGetNcChanges` Requests to Pull Password Hashes Without Executing Code on DCs
+* 54.1.2 Directory SACL & Event ID 4662 Correlation: Detecting Non-DC IP Addresses Requesting Directory Replication Extended Rights (`1131f6aa-9c0e-11d1-a7f3-00c04f79e7a0` and `1131f6ad-9c0e-11d1-a7f3-00c04f79e7a0`)
+* 54.1.3 RPC Network Telemetry & MDI Integration: Utilizing Deep Packet Inspection (DPI) via Microsoft Defender for Identity to Flag Anomaly DRSUAPI Calls
+
+#### 54.2 DCShadow Detection
+
+* 54.2.1 Rogue Domain Controller Registration Mechanics: Analyzing How Threat Actors Inject Modifications via Temporary Configuration Partition Registration
+* 54.2.2 Monitoring Configuration Partition Modifications: Alerting on Event ID 5136/5137 Over `CN=Sites,CN=Configuration` and SPN Registrations (`GC/` or KrbTgt GUIDs)
+* 54.2.3 Detecting Push Replication Anomalies: Catching Unsolicited `DsReplicaAdd` or `DsReplicaSync` RPC Calls Initiated from Non-DC Workstations
+
+#### 54.3 Replication Rights Monitoring
+
+* 54.3.1 Auditing Domain Head DACLs: Scanning Root Domain Security Descriptors for Non-Standard `Replicating Directory Changes` Rights Assignments
+* 54.3.2 SDProp & AdminSDHolder Replication Leakage: Tracking System Access Control Lists (SACLs) Over Protected Administrative Groups
+* 54.3.3 Real-Time ACL Modification Telemetry: Generating High-Priority Alerts When `DS-Replication-Get-Changes` Rights Are Delegated to Non-DC Accounts
+
+#### 54.4 Abnormal Replication
+
+* 54.4.1 Baseline Replication Topologies: Profiling Standard DC-to-DC Replication Traffic Schedules, Partner Pairs, and Data Transfer Volumes
+* 54.4.2 Inbound/Outbound Replication Drift: Detecting Unscheduled Inter-Site Transits and High-Frequency Partial Attribute Set (PAS) Updates
+* 54.4.3 Tracking DRS Replication Error Event Logs: Correlating Event IDs 2095, 1388, and 1925 to Spot Out-of-Sequence Replication Activity
+
+#### 54.5 SMB Movement
+
+* 54.5.1 Admin Share Access Telemetry: Monitoring Authentication and File Access Over Administrative Shares (`C$`, `ADMIN$`, `IPC$`) via Event ID 5140/5145
+* 54.5.2 SMB Named Pipe Inspection: Tracking Remote Named Pipe Operations (`\pipe\svcctl`, `\pipe\atsvc`, `\pipe\samr`) Used for Remote Execution
+* 54.5.3 Detecting Lateral SMB File Transfers: Identifying Binary Drops, Script Transfers, and Staging Directories Across Internal Subnets
+
+#### 54.6 WinRM Movement
+
+* 54.6.1 PowerShell Remoting & WinRM Telemetry: Ingesting Event ID 4624 (Logon Type 3) Combined with `WSMan` Operational Log Tracing
+* 54.6.2 Script Block & Transcribing Auditing: Enabling PowerShell Event ID 4104 (Script Block Logging) to Capture Obfuscated Commands Executed via WinRM
+* 54.6.3 Restricting WinRM Administrative Paths: Profiling and Alerting on Non-Jump-Host Connections to Port 5985 (HTTP) and 5986 (HTTPS)
+
+#### 54.7 WMI and DCOM Movement
+
+* 54.7.1 WMI Remote Execution Telemetry: Correlating Event ID 4624 (Type 3) with WMI Operational Logs (`Microsoft-Windows-WMI-Activity/Operational` Event ID 5861)
+* 54.7.2 DCOM Object Instantiation: Tracking Remote Creation of Sensitive COM Objects (e.g., `MMC20.Application`, `ShellWindows`, `ShellBrowserWindow`)
+* 54.7.3 Detecting Persistent WMI Event Consumers: Alerting on Unauthorized Creation of `__EventFilter`, `__EventConsumer`, and `__FilterToConsumerBinding`
+
+#### 54.8 RDP Movement
+
+* 54.8.1 Remote Desktop Logon Telemetry: Monitoring Event ID 4624 (Logon Type 10) and `TerminalServices-LocalSessionManager` Event ID 21/22
+* 54.8.2 Detecting Restricted Admin Mode & Pass-the-Hash for RDP: Tracking Network Logons (Type 3) Utilizing RDP Endpoints Without Interactive Credential Input
+* 54.8.3 Anomalous RDP Source Tracking: Alerting on External, Non-PAW (Privileged Access Workstation) RDP Sessions Targeting Tier 0/1 Servers
+
+#### 54.9 PsExec and Service Execution
+
+* 54.9.1 Service Control Manager Telemetry: Detecting Remote Service Installations via Event ID 7045 (New Service Created) and Event ID 4697
+* 54.9.2 PsExec Artifact Signatures: Matching Named Pipe Generations (`\pipe\psexec*`), Binary Drops (`PSEXESVC.exe`), and Custom Service Names
+* 54.9.3 Catching Living-off-the-Land Services: Identifying Legitimate Utilities (e.g., `sc.exe`, `net.exe`) Executed via Remote Service Management Interfaces
+
+#### 54.10 Scheduled Task Activity
+
+* 54.10.1 Remote Task Scheduling Telemetry: Monitoring Event ID 4698 (Scheduled Task Created) and Event ID 4702 (Scheduled Task Updated)
+* 54.10.2 Task Scheduler RPC Calls: Tracking `ITaskSchedulerService` Interfaces and Remote Modifications Over `C:\Windows\System32\Tasks`
+* 54.10.3 Identifying Volatile/Immediate Tasks: Detecting Tasks Configured to Run Immediately and Delete Themselves Upon Completion to Evade Audits
+
+#### 54.11 Lateral Authentication
+
+* 54.11.1 Tracking Pass-the-Hash (PtH) & Pass-the-Ticket (PtT): Correlating NTLM Authentication (Event ID 4624 with NTLM Package) Without Prior TGT Requests
+* 54.11.2 Detecting Kerberos Ticket Injections: Identifying Mismatched Kerberos Ticket Client Names and Workstation Identifiers Across Network Session Logs
+* 54.11.3 Explicit Credential Telemetry (Runas): Tracking Event ID 4648 Across Member Servers to Detect Secondary Process Execution Under Alternate Principals
+
+#### 54.12 Tier 0 Administrative Movement
+
+* 54.12.1 Enforcing Control Plane Boundaries: Restricting Inbound Administrative Connections to Domain Controllers Exclusively from Dedicated PAWs
+* 54.12.2 Catching Tier-Violation Movements: Triggering Instant Critical Alerts When Tier 2 Workstation Accounts or Sessions Attempt Direct Management of Tier 0 Hosts
+* 54.12.3 Real-Time Network & Identity Correlation: Mapping Firewall Flow Logs and Identity Telemetry to Isolate and Neutralize Boundary-Crossing Movement
+
+#### 55.1 Certificate Enrollment Monitoring
+
+* 55.1.1 Event ID 4887 & CA Audit Ingestion: Monitoring Certificate Authority Issuance Events to Match Requestor Identity Against Subject Alt Name (SAN)
+* 55.1.2 Detecting SAN Misalignments: Alerting on Certificate Requests Where UPN/DNS SAN Entries Mismatch the Requesting Principal's Security Context
+* 55.1.3 Anomalous Auto-Enrollment & Volumetrics: Identifying Mass Certificate Requests Originating from Low-Privileged Accounts across Short Intervals
+
+#### 55.2 Certificate Template Changes
+
+* 55.2.1 Tracking Event ID 4898 & 5136 Over Templates: Monitoring Modulations in `CN=Certificate Templates,CN=Public Key Services` Containers
+* 55.2.2 Detecting Dangerous EKU and Flag Insertions: Alerting on the Activation of `ENROLLEE_SUPPLIES_SUBJECT` or `Client Authentication` EKUs on Open Templates
+* 55.2.3 DACL Tampering on Certificate Templates: Catching Permission Modifications Granting `Enroll` or `GenericAll` Rights to Unprivileged Groups
+
+#### 55.3 CA Configuration Changes
+
+* 55.3.1 Auditing Event ID 4885 & Registry Modulations: Monitoring Modifies to `HKLM\SYSTEM\CurrentControlSet\Services\CertSvc\Configuration`
+* 55.3.2 Catching Flag Modifications (`EDITF_ATTRIBUTESUBJECTALTNAME2`): Alerting on Dynamic Alterations to CA Flag Settings Enabling User-Defined SAN Extensions
+* 55.3.3 Auditing CA Security Descriptors: Detecting Administrative Access Delegations and `WriteDACL` Overrides Over Certification Authority Objects
+
+#### 55.4 Certificate Mapping Anomalies
+
+* 55.4.1 KB5014754 Correlation & Event ID 39/40/41 Audit: Tracking Weak vs. Strong Certificate Binding Events on Domain Controllers
+* 55.4.2 Detecting Explicit `altSecurityIdentities` Injections: Alerting on Manual User Account Attribute Modifications Adding Unrecognized X.509 Mappings
+* 55.4.3 Identifying Computer Account Name Collisions: Catching CVE-2022-26923 Manipulation Involving `dNSHostName` Modifications Prior to Cert Enrollment
+
+#### 55.5 PKINIT Anomalies
+
+* 55.5.1 Kerberos Event ID 4768 Pre-Auth Analysis: Tracking TGT Requests Authenticated via Certificates (`PA-PK-AS-REQ`) Without Corresponding Interactive Sessions
+* 55.5.2 Cross-Domain PKINIT Impersonation: Monitoring Mismatched Client Principal Names and Ticket Certificate Identifiers During Initial Authentication
+* 55.5.3 Detecting PKINIT Encryption Downgrades: Catching Kerberos Pre-Authentication Requests Enforcing Legacy RC4 Encryption Keys Over Smart Cards
+
+#### 55.6 AD CS Escalation Indicators
+
+* 55.6.1 Monitoring ESC Vulnerability Chains (ESC1–ESC17): Correlating Certipy/Certify Tooling Signatures with High-Risk Template Enrollment Events
+* 55.6.2 Detecting HTTP & RPC NTLM Relay Attempts (ESC8/ESC11): Tracking Unauthenticated NTLM Invocations Targeting AD CS Web Enrollment Endpoints
+* 55.6.3 CA Private Key Extraction Telemetry (ESC5/ESC7): Alerting on Backup Key Requests, `CertUtil` Export Commands, and Unapproved KRA Access
+
+#### 55.7 Token-Signing Activity
+
+* 55.7.1 AD FS Token Issuance Logging: Ingesting Event ID 500 and 501 Telemetry to Track SAML Assertion Generation Contexts
+* 55.7.2 Golden SAML Token Detection: Catching SAML Tokens Presented to Cloud Apps Lacking Corresponding On-Premises AD FS Authentication Logs
+* 55.7.3 Token-Signing Certificate Export & Rollover Alerts: Monitoring Unscheduled Access to Private Key Storage Containers (`CN=ADFS,CN=Microsoft...`)
+
+#### 55.8 Claims Manipulation
+
+* 55.8.1 Tracking Federation Claims Engine Modifications: Auditing Configuration Changes to AD FS Claims Transformation Rules via Event ID 307
+* 55.8.2 Detecting Administrative Claim Overrides: Alerting on Issuance Rules Modified to Force High-Privilege Group SIDs into SAML Assertions
+* 55.8.3 Unsanitized Claims Processing: Identifying Injected Attributes Bypassing Perimeter WAP Validation Rules at the Federation Gateway
+
+#### 55.9 Federation Trust Changes
+
+* 55.9.1 Monitoring Relying Party Trust (RPT) Alterations: Tracking Event ID 303 & 304 Log Telemetry Flagging New or Modified SAML Integrations
+* 55.9.2 Unapproved Cross-Tenant Federation Additions: Alerting on New External Identity Provider Registrations in Entra ID and On-Premises AD FS
+* 55.9.3 Metadata Endpoint Tampering: Detecting Insecure HTTP Metadata Refresh Calls and Untrusted Issuer Certificate Binds
+
+#### 55.10 Entra Connect Abuse
+
+* 55.10.1 Monitoring Synchronization Account Telemetry: Tracking Anomalous Logons or API Calls Executed by the On-Premises `MSOL_` / `ADSync` Accounts
+* 55.10.2 Detecting Sync Service Password Extraction: Alerting on Process Access (LSASS / DPAPI) Targeting Entra Connect Encryption Keys
+* 55.10.3 Staging Mode Misconfiguration & Takeover: Identifying Unauthorized Promotion of Rogue Entra Connect Staging Servers into Active Sync Roles
+
+#### 55.11 Synchronization Anomalies
+
+* 55.11.1 Detecting Shadow Credential Injections (`msDS-KeyCredentialLink`): Monitoring Out-of-Band Additions of Public Keys to Synchronized Account Objects
+* 55.11.2 Immutable ID (`mS-DS-ConsistencyGuid`) Hijacking: Alerting on Source Anchor Changes Used to Map On-Premises Accounts to Unlinked Cloud Users
+* 55.11.3 Mass Attribute Mutation Auditing: Detecting Sudden Bulk Modifications to `mail`, `userPrincipalName`, or Group Membership Attributes During Sync
+
+#### 55.12 Token Theft Indicators
+
+* 55.12.1 Primary Refresh Token (PRT) Extraction: Catching LSASS Dumping or TPM Key Usage Targeting Entra ID PRT Credentials on Endpoints
+* 55.12.2 Detecting Session Hijacking & Token Replay: Correlating Mismatched Device Identifiers, IP Ranges, and User-Agents across OAuth Access Tokens
+* 55.12.3 Anomaly Alerts for Continuous Access Evaluation (CAE): Monitoring Real-Time Token Revocation Triggers and CAE Re-Authentication Requests
+
+#### 55.13 Service Principal Changes
+
+* 55.13.1 Auditing Entra ID Application Credential Addition: Alerting on New Client Secrets or Certificates Added to Privileged Enterprise Applications
+* 55.13.2 Monitoring High-Risk API Permission Grants: Tracking App Registrations Assigned `Directory.ReadWrite.All` or `RoleManagement.ReadWrite.Directory`
+* 55.13.3 Federated Identity Credential Abuse: Detecting Unapproved OIDC Trust Additions Binding External Workloads to Internal Service Principals
+
+#### 55.14 Application Consent Abuse
+
+* 55.14.1 Detecting Illicit OAuth Consent Grants: Tracking User or Admin Consent Events Granted to Unverified, Multi-Tenant Applications
+* 55.14.2 High-Risk Permission Scope Alerts: Generating High-Severity Alerts When Apps Request `Offline_Access`, `Mail.Read`, or `Files.ReadWrite.All`
+* 55.14.3 Monitoring Admin Consent Workflow Bypasses: Identifying Applications Granted Direct Tenant-Wide Privileges Without Security Review Approval
+
+#### 55.15 Cloud Privilege Changes
+
+* 55.15.1 Monitoring Entra ID Directory Role Assignments: Real-Time Telemetry for Assignment of `Global Administrator` or `Privileged Role Admin`
+* 55.15.2 Tracking PIM Activation & Elevation Anomalies: Catching Out-of-Bounds Privileged Identity Management Activations Lacking Change Tickets
+* 55.15.3 Cloud Break-Glass Account Activity Alerts: Immediate Security Alerts Triggered by Any Logon or Configuration Modification by Emergency Accounts
+
+#### 56.1 Hunting the Directory
+
+* 56.1.1 Hypothesis-Driven Directory Hunting: Formulating Threat Hypotheses Based on Adversary TTPs (MITRE ATT\&CK) and Directory Telemetry
+* 56.1.2 LDAP Baseline Differencing: Executing Automated Directory Snapshots to Identify Stale, Modified, or Unexpectedly Created Objects
+* 56.1.3 Hunting Schema & Container Anomalies: Auditing Schema Modifications, Non-Standard Object Classes, and Suspicious Structural Containers
+
+#### 56.2 Hunting Effective Control
+
+* 56.2.1 Graph Differential Analysis: Comparing Historical BloodHound/Cypher Snapshots to Identify Newly Emerged Attack Paths
+* 56.2.2 Uncovering Shadow Admins: Searching for Indirect Control Over Tier 0 Accounts via Rights Like `WriteDACL`, `GenericAll`, and `WriteProperty`
+* 56.2.3 Calculating Effective Permission Baselines: Evaluating Complex Token Access Rights across Nested Groups and OU Inheritance Trees
+
+#### 56.3 Hunting Privileged Groups
+
+* 56.3.1 AdminSDHolder & SDProp Auditing: Sweeping Protected Administrative Groups (`Domain Admins`, `Enterprise Admins`) for Unauthorized Additions
+* 56.3.2 Hunting Nested & Transitive Group Memberships: Identifying Obfuscated Access Chains Created by Nesting Lower-Tier Groups into Higher-Tier Enclaves
+* 56.3.3 Auditing Dynamic & Foreign Group Memberships: Sweeping Cross-Domain and Foreign Security Principal (FSP) Group Membership Links
+
+#### 56.4 Hunting ACL Backdoors
+
+* 56.4.1 Sweeping Directory Object DACLs: Writing PowerShell and LDAP Scripts to Identify Non-Standard ACE Grants Over Sensitive Containers
+* 56.4.2 Hunting `ForceChangePassword` & Ownership Abuse: Identifying Accounts Granted Explicit Password Reset or Ownership Permissions Over Tier 0 Objects
+* 56.4.3 Detecting Orphaned & Suspicious SIDs: Auditing Access Control Lists for Deleted SIDs or Unrecognized External Domain Identifiers
+
+#### 56.5 Hunting Delegation
+
+* 56.5.1 Hunting Unconstrained Delegation: Sweeping the Domain for Non-DC Computer Accounts Configured with `TRUSTED_FOR_DELEGATION`
+* 56.5.2 Hunting Constrained Delegation Abuses: Auditing `msDS-AllowedToDelegateTo` Attributes for Sensitive Target Services (e.g., `cifs/`, `ldap/`, `host/`)
+* 56.5.3 Hunting Resource-Based Constrained Delegation (RBCD): Sweeping `msDS-AllowedToActOnBehalfOfOtherIdentity` Attributes Over High-Value Computer Objects
+
+#### 56.6 Hunting GPO Persistence
+
+* 56.6.1 GPC/GPT Consistency Sweeps: Differencing Group Policy Container Attributes in AD Against SYSVOL Policy Template Files
+* 56.6.2 Hunting Immediate Scheduled Task Injections: Sweeping `ScheduledTasks.xml` Files Within SYSVOL Policies for Malicious Binary Execution
+* 56.6.3 Auditing Restrictive Group Policy Settings: Identifying Unauthorized Modulations to Local Security Options, User Rights, and Audit Configurations
+
+#### 56.7 Hunting Replication Rights
+
+* 56.7.1 Auditing `DS-Replication-Get-Changes` Access: Sweeping the Domain Head Security Descriptor for Non-DC Principals Granted Directory Replication Rights
+* 56.7.2 Identifying Stealthy DCSync Persistence: Uncovering Accounts Possessing Both `DS-Replication-Get-Changes` and `DS-Replication-Get-Changes-All`
+* 56.7.3 Tracking Extended Right Delegation Patterns: Auditing Delegated Operational Rights across Custom Partition Boundaries
+
+#### 56.8 Hunting Certificate Abuse
+
+* 56.8.1 Sweeping Certificate Templates for ESC Vulnerabilities: Auditing Template EKUs, DACLs, and `ENROLLEE_SUPPLIES_SUBJECT` Flags (ESC1–ESC17)
+* 56.8.2 Hunting SAN/UPN Mapping Anomalies: Identifying Certificates Issued with Mismatched Subject Alternative Names or Alternate Mappings
+* 56.8.3 Auditing CA Security Configurations: Sweeping Certificate Authority Registry Flags (`EDITF_ATTRIBUTESUBJECTALTNAME2`) and CA Permissions
+
+#### 56.9 Hunting Federation Persistence
+
+* 56.9.1 Auditing AD FS Claims Transformation Rules: Sweeping Issuance Claims Rules for Injected Custom Logic Adding Explicit Group Claims
+* 56.9.2 Hunting Exported Token-Signing Certificates: Auditing Private Key Access Logs Over the `CN=ADFS,CN=Microsoft...` Active Directory Container
+* 56.9.3 Relying Party Trust Sweeps: Identifying Secondary, Unregistered, or Insecure Relying Party Trusts Configured on Federation Gateways
+
+#### 56.10 Hunting Hybrid Trust
+
+* 56.10.1 Hunting Shadow Credentials (`msDS-KeyCredentialLink`): Sweeping User and Computer Objects for Out-of-Band Key Credentials Appended to Attributes
+* 56.10.2 Sweeping Entra Connect & Cloud Sync Persistence: Auditing `MSOL_` / `ADSync` Accounts for Unauthorized Privilege Escalations and Writebacks
+* 56.10.3 Hunting OIDC & Federated Identity Credentials: Auditing Service Principals in Entra ID for Unapproved External Federated Key Bindings
+
+#### 56.11 Honeytokens
+
+* 56.11.1 Designing High-Fidelity Honeytokens: Crafting Unused Accounts, Keys, and Tokens with Attractive Naming Schemes (e.g., `svc_backup_admin`)
+* 56.11.2 Auditing SACLs Over Honeytokens: Applying Explicit Read and Operation SACLs Over Honeytoken Attributes to Generate Instant Alerts
+* 56.11.3 Honeytoken Ingestion Pipelines: Routing Any Interaction with Honeytoken Accounts directly to Tier 1 Incident Response Playbooks
+
+#### 56.12 Decoy Accounts
+
+* 56.12.1 Deploying Deceptive Domain Accounts: Constructing Fully Provisioned Decoy Administrator and Service Accounts Integrated into the Directory
+* 56.12.2 Enforcing Zero-Legitimate-Use Controls: Blocking All Legitimate Operations on Decoy Accounts to Guarantee 100% Signal-to-Noise Ratio
+* 56.12.3 Monitoring Decoy Authentication Attempts: Alerting Instantly on Event ID 4625/4768 Logs Target Decoy User Principals
+
+#### 56.13 Decoy Credentials
+
+* 56.13.1 Injecting Lured Credentials in Memory: Depositing Synthetic Credentials into LSASS Memory on High-Exposure Workstations and Jump Hosts
+* 56.13.2 LSASS Dumping Traps: Catching Credential Access Utilities (e.g., Mimikatz, LSASS memory readers) Triggering Alerts Upon Lure Access
+* 56.13.3 DPAPI & Browser Decoy Artifacts: Depositing Decoy Credentials and Saved Passwords in Endpoint Credential Vaults to Catch Reconnaissance
+
+#### 56.14 Decoy SPNs
+
+* 56.14.1 Constructing Kerberoasting Traps: Assigning Decoy Service Principal Names (SPNs) Configured with Weak RC4 Encryption Keys to Lure Accounts
+* 56.14.2 Monitoring TGS Ticket Requests: Generating High-Priority Real-Time Alerts via Event ID 4769 Whenever a Decoy SPN Is Requested
+* 56.14.3 Deceptive SPN Placement: Placing Decoy SPNs Strategically in Directory Containers to Intercept Automated Kerberoasting Scanners
+
+#### 56.15 Decoy Certificates
+
+* 56.15.1 Deploying Vulnerable Decoy Templates: Publishing Seemingly Misconfigured AD CS Templates (Decoy ESC1/ESC2) Scoped with Tight SACLs
+* 56.15.2 Trapping Automated PKI Scanners: Catching Tools (e.g., Certify, Certipy) Requesting Certificates Against Decoy Templates
+* 56.15.3 Decoy Certificate Revocation Tracking: Alerting on Enrollment Attempts (Event ID 4887) Targeting Canary Certificate Infrastructure
+
+#### 56.16 Decoy Administrative Paths
+
+* 56.16.1 Constructing Canary Jump Hosts & PAWs: Placing Seemingly Unlocked Administrative Workstations with Active Sessions in Low-Security Segments
+* 56.16.2 Trapping Remote Management Trajectories: Monitoring Inbound RDP, WinRM, and SMB Binds Directed at Deceptive Management Endpoints
+* 56.16.3 Severing Trapped Attack Paths: Isolate and Contain Adversaries Interacting with Deceptive Paths Before Control Plane Reachability Is Established
+
+#### 57.1 Identity Forensic Methodology
+
+* 57.1.1 Evidence Handling in Identity Enclaves: Establishing Chain of Custody Protocols for Volatile Memory, Domain Controller Disks, and Active Directory Database Artifacts
+* 57.1.2 Scoping Identity Incidents: Defining Boundaries Between Host-Level Exploitation, Local Credential Theft, and Control Plane Domain Compromise
+* 57.1.3 Forensic Workstation & Tooling Baselines: Deploying Isolated Forensic Enclaves Equipped with `NTDS.dit` Parsers, Volatility, and Log Correlation Pipelines
+
+#### 57.2 LSASS and Memory
+
+* 57.2.1 Volatile Memory Acquisition on DCs: Executing Crash Dumps and Live Memory Extractions on Domain Controllers and Privileged Access Workstations
+* 57.2.2 Carving LSASS Process Memory: Analyzing LSASS Dumps for Injected DLLs, Unloaded Drivers, Process Hollowing, and Hooked LSA Authenticators
+* 57.2.3 Extracting Memory-Resident Credentials: Recovering Plaintext Passwords, NTLM Hashes, Kerberos Encryption Keys, and PINs from In-Memory LSA Structures
+
+#### 57.3 Tokens and Logon Sessions
+
+* 57.3.1 Token Manipulation Forensics: Analyzing Primary, Impersonation, and Delegation Tokens Active in Endpoint Kernel Memory
+* 57.3.2 Reconstructing Active Logon Sessions: Mapping Logon Session LUIDs Against Event ID 4624 Logs to Identify Pass-the-Hash and Token Theft Vectors
+* 57.3.3 Detecting Access Token Injections: Identifying Mismatched Process Tokens and Privileged Security Identifiers (SIDs) Injected into User-Mode Processes
+
+#### 57.4 Kerberos Tickets
+
+* 57.4.1 Forensic Analysis of Kerberos Artifacts: Extracting and Parsing `.kirbi` Files, Cache Files (`krb5cc`), and LSASS Kerberos Ticket Stores
+* 57.4.2 Detecting Golden and Silver Ticket Forgery: Analyzing Ticket Lifetime Anomalies, Non-Standard PAC Signatures, Mismatched SIDs, and Encryption Suite Downgrades
+* 57.4.3 Pass-the-Ticket & Overpass-the-Hash Identification: Correlating Memory-Resident Tickets with Domain Controller Issue Logs to Identify Injected TGTs
+
+#### 57.5 Credential Artifacts
+
+* 57.5.1 Parsing the LSA Secrets Registry Hive: Forensic Extraction of Cached Domain Credentials (`MSCASH2`), Service Account Hashes, and Autologon Passwords
+* 57.5.2 SAM & Vault Forensic Analysis: Recovering Local Administrator Account Hashes, Credential Manager Vaults, and Web Browser Stored Passwords
+* 57.5.3 Offline `NTDS.dit` Database Parsing: Carving Active Directory Database Snapshots to Audit Historic Hash Values, `sIDHistory` Injections, and Tombstoned Objects
+
+#### 57.6 DPAPI
+
+* 57.6.1 Data Protection API (DPAPI) Architecture: Mechanics of Master Keys, Domain Backup Keys, and DPAPI-Protected Secret Encryption
+* 57.6.2 Extracting DPAPI Domain Master Keys: Recovering LSA Domain DPAPI Backup Keys (`PREFERRED` / `masterkey`) to Decrypt Enterprise Secret Stores
+* 57.6.3 Forensic Decryption of Protected User Data: Utilizing Extracted DPAPI Keys to Unveil Saved Certificates, Wi-Fi Passwords, RDP Credentials, and Browser Data
+
+#### 57.7 Directory Change Analysis
+
+* 57.7.1 Directory Service Database Reconstruction: Analyzing Metadata Attributes (`whenCreated`, `whenChanged`, `usnCreated`, `usnChanged`) Across Object Lifecycles
+* 57.7.2 Uncovering Hidden Attribute Modifications: Identifying Historical Injections in `msDS-AllowedToDelegateTo`, `msDS-KeyCredentialLink`, and `adminCount`
+* 57.7.3 Tombstone & Deleted Object Forensics: Restoring and Analyzing Deleted Directory Objects from the Active Directory Recycle Bin and Directory Database Stores
+
+#### 57.8 Replication Artifacts
+
+* 57.8.1 Analyzing Update Sequence Numbers (USNs): Tracking High-Water Mark and Vector Tables Across Domain Controllers to Identify Out-of-Sequence Writes
+* 57.8.2 Detecting DCShadow Injections via Metadata: Uncovering Transient Objects, Schema Additions, and Replica Links Deposited During Rogue DC Operations
+* 57.8.3 DRSUAPI Log & Packet Analysis: Reconstructing RPC-Level Replication Sessions to Audit Unauthorized Password Hash Pulls (DCSync)
+
+#### 57.9 Group Policy Evidence
+
+* 57.9.1 SYSVOL & GPT Differential Analysis: Comparing SYSVOL Filesystem Timestamps and Version Numbers Against Directory Container (`GPC`) Attributes
+* 57.9.2 Forensic Parsing of Policy Artifacts: Extracting Malicious Scheduled Tasks, Immediate Tasks, Registry Settings, and Startup Scripts Deposited in GPOs
+* 57.9.3 Tracking GPO Link Modification History: Reconstructing Historical Policy Application Paths Across OUs and Enclaves
+
+#### 57.10 Certificate Evidence
+
+* 57.10.1 AD CS Database (`edb.log` / `certsrv.msc`) Parsing: Carving CA Databases for Issued Certificates, Denied Requests, and Private Key Export Records
+* 57.10.2 Forensic Analysis of Compromised Certificates: Extracting Serial Numbers, SAN Extensions, and Issuer Signatures to Track ESC Impersonation Campaigns
+* 57.10.3 Tracking Certificate Revocation & KRA Access: Analyzing Audit Logs for Unauthorized Key Recovery Agent (KRA) Requests and Revocation List Disabling
+
+#### 57.11 Federation Evidence
+
+* 57.11.1 AD FS Operational & Tracing Log Analysis: Reconstructing Issued SAML Assertions, Relying Party Invocation, and Claims Transformations
+* 57.11.2 Detecting Token-Signing Key Theft Artifacts: Analyzing Access to ADFS Private Keys in Active Directory and HSM Log Trajectories
+* 57.11.3 Golden SAML Forensic Reconstruction: Correlating Cloud Application Sign-In Logs Against Missing On-Premises AD FS Issuance Events
+
+#### 57.12 Entra and Cloud Evidence
+
+* 57.12.1 Entra ID Unified Audit Log Parsing: Investigating Cloud Administrative Operations, Service Principal Modifications, and App Registration Key Additions
+* 57.12.2 Primary Refresh Token (PRT) & Session Forensics: Analyzing Endpoint PRT Cache Artifacts, Device Claims, and Session Refresh Requests
+* 57.12.3 Reconstructing Cross-Tenant Movement: Tracking B2B Guest Ingestion, Cross-Tenant Trust Modifications, and Multi-Tenant App Consent Events
+
+#### 57.13 Authentication Timelines
+
+* 57.13.1 Normalizing Multi-Source Time Structures: Aligning UTC Timestamps Across On-Premises Event Logs, Cloud Diagnostic Logs, and Endpoint Telemetry
+* 57.13.2 Super-Timeline Generation for Identity Events: Building Unified Incident Timelines Merging Kerberos TGT/TGS Requests, NTLM Binds, and Web SSO Actions
+* 57.13.3 Identifying Gaps & Log Tampering: Spotting Missing Event ID Sequences, Time-Stomping, Event Log Clearing (1102), and Audit Policy Disabling
+
+#### 57.14 Reconstructing Identity Attack Paths
+
+* 57.14.1 Graph-Based Post-Incident Mapping: Overlaying Forensic Discoveries onto BloodHound/Graph Topologies to Visualize Adversary Lateral Paths
+* 57.14.2 Validating Initial Access to Domain Escalation: Proving the Step-by-Step Chain from Initial Compromise, Credential Theft, to Tier 0 Takeover
+* 57.14.3 Formulating Evidence-Based Remediation Playbooks: Utilizing Confirmed Forensic Findings to Guarantee Elimination of All Persistence Backdoors
+
+#### 58.1 Identity Incident Classification
+
+* 58.1.1 Categorizing Identity Threat Severity: Defining Criteria for Low (Tier 2 User Compromise), Medium (Tier 1 Server/Service Account Compromise), and Critical (Tier 0 Domain/Forest Takeover) Incidents
+* 58.1.2 Assessing Control Plane Blast Radius: Mapping Adversary Reach Across On-Premises Active Directory, AD CS, Federation Gateways, and Entra ID Cloud Tenants
+* 58.1.3 Establishing Incident Thresholds: Automating Severity Escalations Based on TTP Indicators (e.g., DCSync, Golden SAML, Shadow Credential Creation)
+
+#### 58.2 Initial Triage
+
+* 58.2.1 Rapid Alert Verification & Telemetry Ingestion: Validating SIEM/MDI Alerts Against Domain Controller Event Logs, EDR Signals, and Cloud Sign-In Logs
+* 58.2.2 Scoping Identity Blast Radius: Identifying Compromised Principals, Active Logon Sessions, Target Systems, and Exploited Network Segments
+* 58.2.3 Preserving Volatile Context: Capturing Active Kerberos Tickets, In-Memory Session Tokens, and Network Socket States Prior to Executing Containment Playbooks
+
+#### 58.3 Account Containment
+
+* 58.3.1 Disabling Standard Compromised Accounts: Automating User Account Disablement (`ACCOUNTDISABLE` Flag) and Setting `userAccountControl` Security Locks
+* 58.3.2 Force Password Reset Workflows: Invalidating User Credentials and Enforcing Immediate Password Change Flags Across On-Premises AD and Entra ID
+* 58.3.3 Quarantine Group Placement: Dynamically Moving Compromised Accounts to Restricted Access Groups Enforced by Restrictive Network DACLs
+
+#### 58.4 Privileged Account Containment
+
+* 58.4.1 Tier 0 & Privileged Account Quarantine: Executing Emergency Privileged Disablement While Protecting Core Operational Break-Glass Accounts
+* 58.4.2 Enforcing Smart Card / MFA Requirement Flags: Enabling `SMARTCARD_REQUIRED` Flags on Privileged Principals to Invalidate NTLM Hashes and Plaintext Passwords
+* 58.4.3 Stripping Privileged Group Memberships: Dynamically Removing Compromised Accounts from `Domain Admins`, `Enterprise Admins`, and Custom Shadow Admin Groups
+
+#### 58.5 Session Revocation
+
+* 58.5.1 Active Interactive Session Disconnection: Initiating Remote Terminal Services / RDP Session Logoffs (`logoff.exe`) Across Affected Tier 0/1 Systems
+* 58.5.2 SMB & Network Share Session Termination: Flushing Active SMB Connections (`net session /delete`) and Intercepting Open File Handles
+* 58.5.3 Purging LSA Logon Sessions: Executing Local Security Authority Session Purges to Invalidated In-Memory Credentials and Impersonation Tokens
+
+#### 58.6 Token Revocation
+
+* 58.6.1 Flushing Kerberos Ticket Caches: Executing `klist purge` across Enclave Endpoints to Evict Stale TGTs and TGSs
+* 58.6.2 Invalidating Cloud Refresh Tokens & PRTs: Invoking Entra ID `revokeSignInSessions` Graph APIs to Nullify Primary Refresh Tokens (PRTs) and OAuth Sessions
+* 58.6.3 Intercepting Continuous Access Evaluation (CAE): Triggering Real-Time CAE Revocation Events to Terminate Cloud Resource Access Instantly
+
+#### 58.7 Credential Rotation
+
+* 58.7.1 Dual `krbtgt` Password Reset Procedure: Managing the Staged Double-Reset of the Domain `krbtgt` Account Password to Invalidate Golden Tickets
+* 58.7.2 Service Account & gMSA Key Rotation: Automating Password and Key Resets for Service Accounts, Managed Service Accounts, and Application Pools
+* 58.7.3 Domain Controller Machine Account Resets: Executing Controlled Machine Account Password Resets (`Reset-ComputerMachinePassword`) Over DC Infrastructure
+
+#### 58.8 Certificate Revocation
+
+* 58.8.1 Publishing High-Priority Certificate Revocation Lists (CRLs): Immediately Revoking Compromised Authentication Certificates and Forcing Immediate CRL Updates
+* 58.8.2 Disabling Compromised Certificate Templates: Removing Enrollees' Ability to Request Certificates Against Potentially Exploited AD CS Templates
+* 58.8.3 Certification Authority Private Key Protection: Securing CA Hardware Security Modules (HSMs) and Disabling Insecure Web Enrollment (CES/CES) Endpoints
+
+#### 58.9 Tier 0 Isolation
+
+* 58.9.1 Severing Domain Controller Network Access: Applying Automated Host-Based Firewall Rules to Isolate Compromised DCs to Essential Replication Ports Only
+* 58.9.2 Locking Down Privileged Access Workstations (PAWs): Terminating Remote Administrative Access to PAWs and Re-enforcing Strict IPsec Tunneling
+* 58.9.3 Segmenting Out-of-Band Management Interfaces: Isolating iLO/iDRAC and Virtualization Hypervisors from Compromised Corporate Network Segments
+
+#### 58.10 Federation Containment
+
+* 58.10.1 Breaking AD FS Relying Party Trusts: Temporarily Disabling Affected Federation Trusts to Prevent Cross-Boundary Impersonation into Cloud Systems
+* 58.10.2 Emergency Token-Signing Certificate Rollover: Generating New AD FS Token-Signing Certificates to Render Forged SAML Tokens Ineffective
+* 58.10.3 Restricting Web Application Proxy (WAP) Traffic: Blocking Inbound Federated Authentication Traffic at Perimeter WAP Gateways
+
+#### 58.11 Hybrid Identity Containment
+
+* 58.11.1 Pausing Entra Connect / Cloud Sync Synchronization: Stopping the Sync Engine (`Start-ADSyncSyncCycle -PolicyType Delta` Pause) to Prevent On-Premises Attack Persistence from Syncing to Cloud
+* 58.11.2 Disabling Cloud Writeback Interfaces: Severing Password Writeback and Device Writeback Channels to Protect On-Premises AD from Cloud-Origin Attacks
+* 58.11.3 Quarantining Staging & Sync Servers: Isolating Entra Connect Servers to Prevent LSASS Credential Harvesting and Key Theft
+
+#### 58.12 Evidence Preservation
+
+* 58.12.1 Capturing Forensic Images Before Disablement: Automating Memory and Disk Artifact Collection Prior to Executing Destructive Account/Session Resets
+* 58.12.2 Offloading Directory Security Event Logs: Forwarding Active Directory Security Logs, CA Logs, and ADFS Operational Logs to WORM (Write-Once-Read-Many) Storage
+* 58.12.3 Exporting Directory State Snapshots: Taking Offline Snapshots of `NTDS.dit` and Configuration Partitions to Support Post-Incident Forensic Reconstruction
+
+#### 58.13 SOAR-Assisted Containment
+
+* 58.13.1 Building Automated Identity Response Playbooks: Constructing Orchestrated Workflows Integrating SIEM, EDR, Active Directory, and Entra ID APIs
+* 58.13.2 Implementing Operational Safety Guardrails: Injecting Human-in-the-Loop Approval Checks for Destructive Containment Actions (e.g., Domain-Wide `krbtgt` Reset)
+* 58.13.3 API Rate Limiting & Fail-Safe Mechanisms: Ensuring Automated Containment Playbooks Do Not Trigger Self-Inflicted Denial-of-Service During Mass Incident Outbreaks
+
+#### 58.14 Mission Coordination
+
+* 58.14.1 Out-of-Band (OOB) Communications: Establishing Secure, Non-Federated Communication Channels (e.g., Out-of-Band Signal/Email) Unreachable by AD Adversaries
+* 58.14.2 Operational Security (OpSec) During Remediation: Executing Containment Actions in Synchronized Waves to Prevent Adversaries from Detecting Countermeasures Early
+* 58.14.3 Coordinating Cross-Functional Enclave Teams: Aligning Identity Engineers, SOC Analysts, Forensics Teams, and Executive Leadership During Crisis Operations
+
+#### 58.15 Communications and Escalation
+
+* 58.15.1 Regulatory & Federal Reporting Timelines: Fulfilling CISA, FedCIRC, DoD CIO, or HIPAA Mandatory Incident Reporting Deadlines Within Required Windows
+* 58.15.2 Leadership & CISO Briefings: Translating Technical Identity Telemetry into Operational Impact Statements, Root Causes, and Remediation Roadmaps
+* 58.15.3 Public & Partner Disclosure Protocols: Managing External Incident Notification Channels While Preserving Operational Security Integrity
+
+#### 58.16 After-Action Review
+
+* 58.16.1 Post-Incident Root-Cause Analysis (RCA): Conducting Formal Technical Reviews to Identify Initial Access Vectors, Control Plane Gaps, and Detection Latencies
+* 58.16.2 Updating Detection & Response Baselines: Translating Discovered Adversary TTPs into New SIEM Rules, MDI Detections, and SOAR Playbooks
+* 58.16.3 Refining FICAM Architecture & Control Plane Controls: Updating Security Architecture Baselines, GPO Configurations, and Zero Trust Policies Based on Lessons Learned
+
+#### 59.1 Identity Service Resilience
+
+* 59.1.1 Authentication Availability: Architecting High-Availability Active Directory and Entra ID Enclaves to Withstand Partial Domain Controller Loss
+* 59.1.2 Degraded Operations: Defining Reduced-Functionality Operational Modes to Maintain Core Authentication During Identity Control Plane Stress
+* 59.1.3 Disconnected Operations: Designing Tactical and Offline Authentication Capabilities Utilizing Local Caching and PKI Tokens During WAN Partitioning
+* 59.1.4 COOP (Continuity of Operations): Aligning Identity Infrastructure Recovery Procedures with Federal COOP Directives and Critical Asset Priorities
+* 59.1.5 Dependency Mapping: Documenting Inter-Service Dependencies (DNS, DHCP, PKI, KMS, Hypervisors) Required for Sequential Identity Service Bootstrapping
+* 59.1.6 Protected Backups: Securing Bare-Metal, System State, and `NTDS.dit` Backups Using Immutable Storage, Cryptographic Signing, and Air-Gapping
+* 59.1.7 Recovery Readiness: Conducting Periodic Active Directory Disaster Recovery (ADDR) Tabletop Exercises and Forest Recovery Simulations
+
+#### 59.2 KRBTGT Recovery
+
+* 59.2.1 Determining Whether KRBTGT Is Compromised: Establishing Indicators of Compromise (IoCs) Requiring Immediate Emergency `krbtgt` Account Key Rotation
+* 59.2.2 First KRBTGT Reset: Executing the Initial Password Reset of the Domain `krbtgt` Account to Retain Historical Key Material for Valid Sessions
+* 59.2.3 Replication Validation: Verifying Active Directory Replication Topology Across All Domain Controllers to Guarantee Complete First-Key Distribution
+* 59.2.4 Second KRBTGT Reset: Initiating the Second `krbtgt` Reset After Ticket Lifetime Expiration (`MaxTicketAge`) to Completely Purge the Compromised Key
+* 59.2.5 Ticket Invalidation: Monitoring Domain Logs to Confirm Mass Invalidation of Pre-Existing Kerberos Ticket Granting Tickets (TGTs)
+* 59.2.6 Key-Version Transition: Tracking Key Version Number (`msDS-KeyVersionNumber` / `kvno`) Increments Across Domain Controllers
+
+#### 59.3 Tier 0 Forest Recovery
+
+* 59.3.1 Administrative Clean Room: Constructing an Isolated, Secure Enclave Network Free from Adversary Persistence to Rebuild Forest Operations
+* 59.3.2 Domain Controller Rebuild: Provisioning Fresh Domain Controller Operating Systems from Verified, Hardened Media (STIG-Compliant)
+* 59.3.3 Authoritative Restore: Performing Authoritative Database Restores over Specific Tier 0 Containers (`OU=Domain Controllers`, `CN=Configuration`)
+* 59.3.4 Non-Authoritative Restore: Re-seeding Secondary Domain Controllers in the Clean Room Environment via Standard Inbound DRS Replication
+* 59.3.5 Privileged Credential Renewal: Resetting Passwords and Keys for All Domain Admins, Enterprise Admins, Service Accounts, and Machine Accounts
+* 59.3.6 Replication Revalidation: Auditing Metadata, USN Ranges, and Vector Tables to Ensure Replication Integrity across Rebuilt DCs
+* 59.3.7 Trust Reconstitution: Re-establishing Inter-Forest, External, and Shortcut Trusts with Reset Passwords and Re-validated SID Filtering
+
+#### 59.4 PKI Recovery
+
+* 59.4.1 CA Recovery: Restoring Root and Subordinate Certification Authorities (AD CS) from Clean System State and HSM Key Backups
+* 59.4.2 Key Renewal: Generating New Private Keys for Root and Issuing CAs Following Key Material Compromise or Exfiltration
+* 59.4.3 Certificate Revocation: Issuing Immediate Emergency Revocation Commands for Compromised Domain Certificates and Publishing Updated CRLs
+* 59.4.4 Certificate Reissuance: Systematically Re-issuing Authentication Certificates to Domain Controllers, Smart Cards, and Critical Infrastructure
+* 59.4.5 Trust-Anchor Validation: Verifying and Redeploying Root CA Certificates and NTAuth Certificate Stores Across All Domain Endpoints
+
+#### 59.5 Federation Recovery
+
+* 59.5.1 AD FS Recovery: Rebuilding Active Directory Federation Services Farm Servers from Known-Good States in the Isolated Enclave
+* 59.5.2 Token-Signing Key Replacement: Generating New Token-Signing and Token-Decrypting Certificates in AD FS to Invalidate Forged SAML Tokens
+* 59.5.3 Relying-Party Revalidation: Re-exporting Federation Metadata and Re-establishing Trust Endpoints Across All Enterprise Relying Party Applications
+* 59.5.4 Partner Trust Revalidation: Re-anchoring B2B External Identity Provider Trusts with Verified Cryptographic Key Material
+
+#### 59.6 Hybrid and Cloud Recovery
+
+* 59.6.1 Entra Session Revocation: Executing Tenant-Wide Revocation of Interactive Sign-In Sessions, Refresh Tokens, and Continuous Access Evaluation (CAE) Tokens
+* 59.6.2 Synchronization Recovery: Re-installing and Hardening Microsoft Entra Connect / Cloud Sync Servers with Reset Service Account Credentials
+* 59.6.3 Service Principal Credential Rotation: Purging and Rotating All Client Secrets, Certificates, and Federated Identity Credentials on Cloud Applications
+* 59.6.4 Application Credential Rotation: Re-securing Managed Identities, OAuth Application Keys, and High-Privilege API Connections in Azure/Entra
+* 59.6.5 Cross-Tenant Trust Validation: Auditing and Re-confirming B2B Collaboration Settings, Cross-Tenant Access Policies, and Inbound/Outbound Direct Trusts
+
+#### 59.7 Proving That Identity Trust Has Been Restored
+
+* 59.7.1 Post-Restoration Integrity Auditing: Running Comprehensive Graph Differential Sweeps, DACL Audits, and MDI Scans to Confirm Zero Persistence Left
+* 59.7.2 Cryptographic Evidence Validation: Verifying CRL Publish Times, OCSP Responder Freshness, and `kvno` Uniformity Across All Forest Enclaves
+* 59.7.3 Formal Attestation & Re-entry Sign-off: Compiling Forensic Verification Reports and Securing CISO/DAO Executive Approval to Reconnect Control Plane Operations
+
+#### 60.1 Why Identity Programs Fail in Production
+
+* 60.1.1 The Illusion of Deployment Completion: Examining Why Installing an Identity Management Product or Deploying MFA Does Not Equal Operational Security
+* 60.1.2 Complexity vs. Maintainability: Analyzing How Over-Engineered Custom Integrations Outpace Internal Engineering Maintenance Capacity
+* 60.1.3 Drift from Baseline: Mapping the Inevitable Degradation of Initial Security Deployments Under Day-to-Day Operational Pressure
+
+#### 60.2 Configuration Drift
+
+* 60.2.1 Unaudited Manual Overrides: Documenting How Emergency "Temporary" Changes Become Permanent Production Vulnerabilities
+* 60.2.2 GPO and Policy Drift: Tracking Divergences Between Stated Security Baselines and Active Domain Controller Configurations
+* 60.2.3 Automated Drift Detection & Enforcement: Implementing Continuous Compliance Guardrails Using Configuration-as-Code and Desired State Configuration (DSC)
+
+#### 60.3 Documentation Failure
+
+* 60.3.1 The Tribal Knowledge Trap: Risks Associated with Relying on Undocumented Active Directory Topologies and Custom Scripts
+* 60.3.2 Architecture-to-Reality Gaps: Addressing Outdated Network Diagrams, Schema Extensions, and Unmapped Trust Relationships
+* 60.3.3 Enforcing Documentation-as-Code: Mandating Version-Controlled Infrastructure Documentation Alongside Code Releases
+
+#### 60.4 Contractor and Personnel Turnover
+
+* 60.4.1 Offboarding Blind Spots: Managing Privileged Access Lifecycles and Shared Credentials Across External Contractors
+* 60.4.2 Loss of Institutional Context: Mitigating the Impact of Senior Security Engineer Departure on Enclave Resilience
+* 60.4.3 Automated Access Reviews: Implementing Rigorous Periodic Attestations to Prevent Privilege Creep
+
+#### 60.5 Service Account Sprawl
+
+* 60.5.1 Unmonitored Non-Human Identities: Auditing Proliferating Service Accounts Lacking Password Rotation and Expiration Policies
+* 60.5.2 Legacy Account Dependencies: Untangling Hardcoded Passwords in Legacy Applications Tied to Tier 0 Service Principals
+* 60.5.3 Transition to Group Managed Service Accounts (gMSA): Enforcing Native Automatic Password Management Across Enterprise Services
+
+#### 60.6 PKI Ownership Failure
+
+* 60.6.1 Orphaned Certificate Authorities: Identifying Unowned or Unpatched AD CS Environments Operating Without Security Oversight
+* 60.6.2 Key Management Abandonment: Managing Expired Root Keys, Lost HSM Backups, and Unmonitored Enrollment Endpoints
+* 60.6.3 Establishing PKI Governance: Defining Clear Operational Ownership Between Enterprise IT, Security, and Cryptographic Teams
+
+#### 60.7 Federation Ownership Failure
+
+* 60.7.1 The AD FS / IdP Blind Spot: Addressing Divided Responsibilities Between On-Premises Infrastructure and Cloud Identity Teams
+* 60.7.2 Abandoned Relying Party Trusts: Auditing Legacy External Partner Integrations Left Active After Contract Termination
+* 60.7.3 Unified Federation Governance: Consolidating Single Sign-On (SSO) Lifecycles Under a Singular Identity Security Authority
+
+#### 60.8 Hybrid Identity Ownership Failure
+
+* 60.8.1 The On-Premises vs. Cloud Divide: Resolving Security Ownership Ambiguities Across Hybrid Boundaries (AD to Entra ID)
+* 60.8.2 Synchronization Boundary Failures: Managing Configuration Drift and Security Misalignments on Entra Connect / Cloud Sync Servers
+* 60.8.3 Integrated Hybrid Operations: Unifying Incident Response and Change Management Across Both Control Planes
+
+#### 60.9 SOC and Identity-Team Disconnect
+
+* 60.9.1 Siloed Domain Knowledge: Bridging the Gap Between Enterprise AD Administrators Who Don't Do Detection and SOC Analysts Who Don't Understand AD Internals
+* 60.9.2 Alert Relevance & Tuning Failures: Training SOC Personnel on High-Fidelity Identity TTPs Beyond Generic Event Log Alerts
+* 60.9.3 Joint Response Protocols: Integrating Identity Engineers Directly into High-Severity Security Incident Response Cells
+
+#### 60.10 Alert Fatigue
+
+* 60.10.1 The Cost of High False-Positive Rates: Analyzing How Ignored Security Warnings Enable Dwell Time for Real Attackers
+* 60.10.2 Noise Reduction Strategies: Tuning Thresholds, Leveraging Behavioral Baselines, and Enriching Telemetry Context
+* 60.10.3 Prioritizing Actionable Signals: Shifting Focus from Volume-Based Detections to High-Confidence Identity Exploit Indicators
+
+#### 60.11 Recovery Assumption Failures
+
+* 60.11.1 Untested Disaster Recovery Plans: Exposing Flaws in Backup Restoration Strategies That Assume Clean Active Directory States
+* 60.11.2 Reintroducing Backdoors via Restore: Examining How Restoring Compromised System States Rebuilds Adversary Persistence
+* 60.11.3 Mandatory Clean-Room Validation: Enforcing Isolated Recovery and Air-Gapped Restoration Protocols
+
+#### 60.12 Identity Ownership Ambiguity
+
+* 60.12.1 The "Not My Job" Dilemma: Addressing Security Gaps Occurring When Identity Spans Multiple Organizational Silos
+* 60.12.2 Defining Control Plane Accountability: Establishing Executive Sponsorship and Clear Operational Ownership for Tier 0 Assets
+* 60.12.3 Cross-Functional Governance Frameworks: Aligning Identity Engineering, Compliance, and Defense Operations
+
+#### 60.13 Lessons for the Engineer Inheriting an Existing Environment
+
+* 60.13.1 Triage and Discovery First: Conducting Comprehensive BloodHound, LDAP, and PKI Sweeps Before Making Structural Changes
+* 60.13.2 Mapping Hidden Technical Debt: Identifying Legacy Trusts, Unpatched Vulnerabilities, and Undocumented Admin SIDs
+* 60.13.3 Stabilizing Before Hardening: Prioritizing Foundational Integrity and Logging Visibility Over Aggressive Policy Changes That Break Production
+
+#### 60.14 Operational Judgment
+
+* 60.14.1 Balancing Security vs. Mission Availability: Navigating the Tension Between Absolute Control Plane Lockdown and Operational Velocity
+* 60.14.2 Risk-Based Decision Making: Applying Pragmatic Mitigations When Perfect Architectural Remediation is Impractical
+* 60.14.3 Crisis Leadership in Identity: Maintaining Clear Communication and Methodical Execution During High-Pressure Domain Incidents
+
+#### 60.15 Identity Threat Detection and Response
+
+* 60.15.1 Evolution of ITDR: Moving Beyond Endpoint Detection to Monitor Identity Control Plane Native Protocols
+* 60.15.2 Protocol-Level Visibility: Integrating Deep Packet Inspection, ETW, and Cloud Log Streams into Unified Detection Pipelines
+* 60.15.3 Automated Response Integration: Connecting ITDR Insights Directly with SOAR Playbooks for Sub-Second Containment
+
+#### 60.16 Identity Exposure Management
+
+* 60.16.1 Continuous Attack Path Mapping: Proactively Identifying Vulnerable ACLs, Delegations, and Trust Misconfigurations Before Exploitation
+* 60.16.2 Prioritizing Remediation Efforts: Focusing Engineering Resources on High-Value Tier 0 Exposure Nodes
+* 60.16.3 Measuring Identity Posture: Establishing Quantitative Metrics for Enterprise Identity Risk and Attack Surface Reduction
+
+#### 60.17 Machine-Identity Security
+
+* 60.17.1 The Explosion of Non-Human Principals: Securing API Keys, Secrets, Certificates, and Managed Identities at Scale
+* 60.17.2 Lifecycle Management for Machine Workloads: Automating Rotation and Revocation for Application-to-Application Credentials
+* 60.17.3 Detecting Non-Human Compromise: Monitoring Anomalous API Usage and Lateral Movement by Automated Service Principals
+
+#### 60.18 AI-Assisted Identity Attacks
+
+* 60.18.1 AI-Assisted Reconnaissance: Leveraging LLMs to Automate OSINT, Map Attack Surfaces, and Parse Complex Directory Structures
+* 60.18.2 Automated Attack-Path Discovery: Using Machine Learning to Dynamically Identify and Chain Novel Privilege Escalation Paths
+* 60.18.3 AI-Assisted Phishing and Social Engineering: Countering Hyper-Realistic, Context-Aware Credential Harvesting Campaigns
+* 60.18.4 Synthetic Identity and Impersonation Threats: Defending Against AI-Generated Deepfakes and Synthetic Biometrics in Remote Verification
+
+#### 60.19 AI-Assisted Identity Defense
+
+* 60.19.1 Detection Enrichment: Utilizing AI to Correlate Fragmented Identity Telemetry and Reduce Investigation Triage Times
+* 60.19.2 Behavioral Analysis: Deploying Machine Learning Baselines to Detect Subtle, Low-and-Slow Anomalous Principal Behavior
+* 60.19.3 Automated Exposure Prioritization: Using Intelligent Graph Modeling to Highlight Critical Attack Paths for Immediate Remediation
+* 60.19.4 Response Orchestration: Leveraging Autonomous Agents to Execute Containment Workbooks Safely at Scale
+
+#### 60.20 Passwordless Identity
+
+* 60.20.1 Eliminating the Primary Human Weakness: Transitioning Away from Phishable Passwords and Shared Secrets
+* 60.20.2 Enterprise Adoption Challenges: Balancing User Experience with High-Assurance Hardware Security Requirements
+* 60.20.3 Fallback Mechanics: Securing Recovery Paths Without Reintroducing Vulnerable Legacy Authentication Channels
+
+#### 60.21 Passkeys and FIDO2
+
+* 60.21.1 Cryptographic Authentication Mechanics: Understanding Public-Key Credentials Bound to Hardware Authenticators
+* 60.21.2 Phishing-Resistance Guarantees: Enforcing Origin-Bound Signatures That Render Man-in-the-Middle Relay Attacks Obsolete
+* 60.21.3 Enterprise Deployment Strategies: Integrating FIDO2 Passkeys Across Hybrid Active Directory and Cloud Environments
+
+#### 60.22 Adaptive Authentication
+
+* 60.22.1 Context-Aware Access Policies: Dynamically Adjusting Authentication Requirements Based on Risk, Location, and Device Posture
+* 60.22.2 Real-Time Risk Scoring: Integrating Threat Intelligence and Behavioral Telemetry Into Access Decision Gates
+* 60.22.3 Balancing Friction and Security: Minimizing Authentication Prompts for Trusted Users While Challenging Anomalous Sessions
+
+#### 60.23 Continuous Access Evaluation
+
+* 60.23.1 Beyond Point-in-Time Authentication: Enforcing Real-Time Revocation of Access Tokens Based on Policy Changes
+* 60.23.2 Instantaneous Session Termination: Utilizing CAE to Drop Compromised Sessions Within Seconds of Threat Detection
+* 60.23.3 Hybrid Implementation Challenges: Extending Continuous Evaluation from Cloud Enclaves down to On-Premises Domain Controllers
+
+#### 60.24 Cryptographic Agility
+
+* 60.24.1 Designing for Algorithmic Transition: Building Identity Infrastructures Capable of Swapping Underlying Cryptographic Primitives
+* 60.24.2 Inventorying Cryptographic Assets: Cataloging All Algorithms, Key Sizes, and X.509 Certificates Across Enterprise Enclaves
+* 60.24.3 Avoiding Vendor Lock-In: Ensuring Software and Hardware Security Module (HSM) Interoperability Across Identity Platforms
+
+#### 60.25 Post-Quantum Identity Infrastructure
+
+* 60.25.1 The Quantum Threat Model: Understanding Shor's Algorithm and the "Harvest Now, Decrypt Later" Risk to Long-Lived Identity Secrets
+* 60.25.2 NIST PQC Standardization: Implementing FIPS-approved post-quantum algorithms—including ML-KEM for key encapsulation and ML-DSA for digital signatures
+* 60.25.3 Hardening Active Directory and PKI: Migrating Domain Controllers, Kerberos encryption types, and AD CS certificate templates to quantum-resistant standards before regulatory deadlines
+
+#### 60.26 Zero Trust Modernization
+
+* 60.26.1 Implementing CISA Zero Trust Pillars: Aligning Identity, Devices, Networks, Applications, and Data into a Cohesive Defense Architecture
+* 60.26.2 Eradicating Implicit Trust: Replacing Perimeter-Based Security Models with Continuous Explicit Verification
+* 60.26.3 Measuring Maturity Progress: Utilizing Maturity Models to Track Advancements from Traditional Enclaves to Optimal Zero Trust Operations
+
+#### 60.27 Future Federal and DoD ICAM
+
+* 60.27.1 FICAM Evolution: Adapting Federal Identity Mandates to Distributed, Multi-Cloud, and Edge Operational Environments
+* 60.27.2 Tactical Identity Architecture: Securing Disconnected, Intermittent, and Low-Bandwidth Military Enclaves
+* 60.27.3 Interoperability and Standards: Unifying Identity Credentials Across Coalition Partners and Joint Federal Agencies
+
+#### 60.28 Identity-Centric Warfare
+
+* 60.28.1 The Control Plane as Primary Battlefield: Recognizing That Modern Adversaries Target Identity Infrastructure Rather Than Forcing Network Perimeters
+* 60.28.2 Contested Identity Environments: Operating and Defending Identity Services Under Active State-Sponsored Cyber Warfare
+* 60.28.3 Offensive Identity Defense: Utilizing Deception, Active Hunting, and Rapid Reconstitution to Dominate the Control Plane
+
+#### 60.29 Building Resilient Identity Infrastructure
+
+* 60.29.1 Engineering Principles for Domain Survivability: Designing Fault-Tolerant, Highly Monitored, and Immutable Identity Silos
+* 60.29.2 Redundancy and Air-Gapping: Protecting Core Tier 0 Backups and Recovery Assets Against Catastrophic Destruction
+* 60.29.3 Continuous Validation: Institutionalizing Regular Disaster Recovery Drills, Red Teaming, and Automated Posture Assessments
+
+#### 60.30 Final Operational Lessons
+
+* 60.30.1 Identity is Security: Reaffirming That Protecting the Identity Control Plane is the Ultimate Determinant of Enterprise Survival
+* 60.30.2 The Immutable Rule of Least Privilege: Enforcing Strict, Unyielding Access Controls Across Every User, Machine, and Cloud Workload
+* 60.30.3 The Enduring Mandate: Maintaining Vigilance, Technical Depth, and Engineering Discipline in the Ever-Evolving Landscape of Identity Warfare
+
 The Directory is a "collection of open systems cooperating to provide directory services" \[X.500]. A directory user, which may be a human or non-person entity (NPE), accesses the Directory through a client (or Directory User Agent (DUA)). The client, on behalf of the directory user's authorized and authenticated login, interacts with one or more servers (or Directory System Agents (DSA)). Clients therefore interact with servers using a directory access protocol.
 
 This section details the protocol elements of the Lightweight Directory Access Protocol (LDAP), along with its semantics. Following the description of protocol elements, it describes the way in which the protocol elements are encoded and transferred across infrastructure.

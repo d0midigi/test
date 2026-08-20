@@ -1,4 +1,8 @@
-# Chapter 27 — Initial Identity Acquisition
+---
+icon: digital-ocean
+---
+
+# Chapter 27 - Initial Identity Acquisition
 
 ### 27.1 Valid Accounts as Initial Access
 
