@@ -2,11 +2,14 @@
 
 * [ Contested Terrain: Offensive and Defensive FICAM Security Operations in Federal Active Directory Environments-Proposed Roadmap](README.md)
   * [Canonical Blueprint](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/canonical-blueprint.md)
-  * [Author Notes](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/author-notes.md)
-  * [Running Table of Contents](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/running-table-of-contents.md)
+  * [Author Notes](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/author-notes/README.md)
+    * [Author Notes - Random Thoughts I Want to Remember](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/author-notes/author-notes-random-thoughts-i-want-to-remember.md)
+  * [Running Table of Contents](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/running-table-of-contents/README.md)
+    * [Compact Running Table of Contents](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/running-table-of-contents/compact-running-table-of-contents.md)
   * [Glossary](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/glossary.md)
   * [📝 Additional Writeups-Possible Sections?](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/README.md)
     * [Active Directory Attack Playbook](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/active-directory-attack-playbook.md)
+    * [Federal Cybersecurity ICAM Governance](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/federal-cybersecurity-icam-governance.md)
 
 ## 📕 Part I - Reader Orientation, Identity, and The Federal Mission
 
