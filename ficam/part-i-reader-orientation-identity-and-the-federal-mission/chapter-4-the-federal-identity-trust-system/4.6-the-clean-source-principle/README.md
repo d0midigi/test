@@ -1,4 +1,4 @@
-# 4.6 The Clean Source Principle
+# ✔️ 4.6 The Clean Source Principle
 
 {% hint style="info" %}
 Administrative actions inherit risk from their workstations, credentials, software supply chains, and recovery sources.
@@ -32,9 +32,9 @@ The second question reveals the architecture that absolutely matters.
 
 > #### **Did You Know?**
 >
-> **The clean source principle originated in Microsoft's Privileged Access Workstation and Enhanced Security Administrative Environment (ESAE, informally the "Red Forest") guidance. Microsoft retired the ESAE hardened-forest pattern as a general recommendation in 2020 and folded the underlying principle into the Enterprise Access Model and its privileged access rapid modernization guidance. Federal and DoD documentation lags that change by years. You will still encounter system security plans, contract deliverables, and architecture review boards that reference ESAE as current doctrine or that treat "we built a Red Forest" as the end-state. The forest was never the primary source of control. The clean source principle was, and it survived the pattern that popularized it.**
+> The clean source principle originated in Microsoft's Privileged Access Workstation and Enhanced Security Administrative Environment (ESAE, informally the "Red Forest") guidance. Microsoft retired the ESAE hardened-forest pattern as a general recommendation in 2020 and folded the underlying principle into the Enterprise Access Model and its privileged access rapid modernization guidance. Federal and DoD documentation lags that change by years. You will still encounter system security plans, contract deliverables, and architecture review boards that reference ESAE as current doctrine or that treat "we built a Red Forest" as the end-state. The forest was never the primary source of control. The clean source principle was, and it survived the pattern that popularized it.
 
-#### 4.6.1 Administration Is a Directed Trust Graph
+### 4.6.1 Administration Is a Directed Trust Graph
 
 The clean source principle is easier to apply when it is treated as a graph problem rather than a policy statement.
 
@@ -88,7 +88,7 @@ Two properties of this graph are worth stating plainly.
 
 The graph is larger than the diagram. Network diagrams show packets. Control graphs show authority. A backup agent that never appears on a network diagram because it uses an existing management VLAN still holds a state-restoration edge into every host it protects.
 
-#### 4.6.2 A System Cannot Be Administered Safely From a Less-Trusted System
+### 4.6.2 A System Cannot Be Administered Safely From a Less-Trusted System
 
 Consider a Domain Admin using an ordinary enterprise workstation to administer a domain controller.
 
@@ -162,7 +162,7 @@ Several platform controls narrow the endpoint problem without actually solving i
 
 Read that table as a set of narrowing measures, not as a stack that adds up to assurance. Each one removes a technique. None removes the dependency.
 
-A Privileged Access Workstation (PAW) /Secured Administrative Workstation (SAW) exists for the dependency. Its value does not come from being called a PAW/SAW. The value comes from deliberately reducing the number of people, applications, management systems, browsing sessions, communication tools, software packages, and lower-trust administrative mechanisms capable of influencing the platform from which privileged authority originates.
+A Privileged Access Workstation (PAW) / Secured Administrative Workstation (SAW) exists for the dependency. Its value does not come from being called a PAW/SAW. The value comes from deliberately reducing the number of people, applications, management systems, browsing sessions, communication tools, software packages, and lower-trust administrative mechanisms capable of influencing the platform from which privileged authority originates.
 
 A PAW/SAW managed by the same unrestricted endpoint-management system as every ordinary workstation fails the clean source test.
 
@@ -172,7 +172,7 @@ A PAW/SAW whose administrator checks email, opens a browser to a public site, or
 
 The label is irrelevant. The dependency graph decides.
 
-#### 4.6.3 Administrative Dependencies Inherit the Target's Security Tier
+### 4.6.3 Administrative Dependencies Inherit the Target's Security Tier
 
 Administrative tiering is frequently misunderstood as a classification applied only to user accounts.
 
@@ -213,7 +213,7 @@ Two secrets deserve individual attention, because both are recoverable from depe
 
 **The `krbtgt` account's keys.** Anyone able to read a domain controller's `NTDS.dit` offline - from a backup, a snapshot, a mounted virtual disk, or an unencrypted replica - holds the material required to forge Kerberos tickets for any principal in the domain, indefinitely, until `krbtgt` is reset twice with sufficient 10-hour separation.
 
-The domain DPAPI backup key. The domain's DPAPI backup key (BCKUPKEY) allows decryption of DPAPI-protected secrets belonging to any domain user in the forest - saved browser credentials, certificates with exportable private keys, scheduled task passwords, and stored RDP credentials. It is recoverable from a domain controller and from a system-state backup of one. Unlike a password, it cannot be rotated without consequence, and most agencies have never rotated it.
+**The domain DPAPI backup key.** The domain's DPAPI backup key (`BCKUPKEY`) allows decryption of DPAPI-protected secrets belonging to any domain user in the forest - saved browser credentials, certificates with exportable private keys, scheduled task passwords, and stored RDP credentials. It is recoverable from a domain controller and from a system-state backup of one. Unlike a password, it cannot be rotated without consequence, and most agencies have never rotated it.
 
 Neither secret is protected by hardening the domain controller if a Tier 1 backup platform can read the disk.
 
@@ -249,7 +249,7 @@ A scanner storing credentials that authenticate to domain controllers is.
 
 The clean source principle makes these relationships visible because it forces the architect to follow authority backward toward every system capable of originating trusted administrative change.
 
-#### 4.6.4 Credential Entry Creates Trust Relationships
+### 4.6.4 Credential Entry Creates Trust Relationships
 
 Credential placement is one of the most overlooked forms of architectural trust.
 
@@ -289,7 +289,7 @@ The logon-rights matrix is the blunt instrument here, and it works. Three Group 
 
 Denying Tier 0 accounts on lower-level tiers is the half that gets skipped, and it is also the exact half that stops credential theft. Blocking downward logon is what prevents a Domain Admin from depositing a TGT on a workstation during a "quick" troubleshooting session.
 
-Authentication Policy Silos ennforce the same boundary in the directory rather than on the endpoint, which means the restriction travels with the account instead of depending on correct GPO scoping:
+**Authentication Policy Silos** enforce the same boundary in the directory rather than on the endpoint, which means the restriction travels with the account instead of depending on correct GPO scoping:
 
 ```powershell
 # Create the silo that will contain Tier 0 accounts, hosts, and service accounts
@@ -338,7 +338,7 @@ One describes identity ownership.
 
 The other describes identity exposure.
 
-#### 4.6.5 The Hybrid Control Plane Runs in Both Directions
+### 4.6.5 The Hybrid Control Plane Travels in Both Directions
 
 Nothing in the preceding sections assumed the control path stays on-premises. In practice it rarely does, and hybrid identity produces the trust inversions that federal environments discover last.
 
@@ -350,8 +350,8 @@ Other hybrid edges worth mapping:
 
 * **Seamless SSO** creates the `AZUREADSSOACC$` computer account, whose Kerberos decryption key is used to validate tokens. That key does not rotate on its own. Possession of it enables forged Kerberos tickets accepted for cloud authentication. Rotate it on a defined schedule or do not deploy the feature.
 * **Pass-through Authentication agents** validate cloud sign-ins against on-premises Active Directory. An agent host that an adversary controls sits directly in the authentication path.
-* **Federation servers -** AD FS or a third-party IdP - hold token-signing keys that let the holder assert any identity the relying party trusts. This is the Golden SAML path covered earlier in the manuscript; here the point is narrower. The federation server, its configuration database, and its private key store are Tier 0 regardless of which team operates them.
-* **Cloud-managed endpoints administering on-premises systems.** If a PAW is enrolled in a cloud device-management tenant, every administrator of that tenant holds a code-execution edge into the PAW, and therefore into Tier 0. The tenant's Global Administrators are Tier 0 whether or not they hold a single on-premises permission.
+* **Federation servers -** AD FS or a third-party IdP - hold token-signing keys that let the holder assert any identity the relying party trusts. This is the Golden SAML path where the point is narrower. The federation server, its configuration database, and its private key store are Tier 0 regardless of which team operates them.
+* **Cloud-managed endpoints administering on-premises systems.** If a PAW/SAW is enrolled in a cloud device-management tenant, every administrator of that tenant holds a code-execution edge into the PAW/SAW, and therefore into Tier 0. The tenant's Global Administrators are Tier 0 whether or not they hold a single on-premises permission.
 * **Cloud-side password reset and role assignment.** Where writeback or hybrid role assignment is enabled, cloud administrative roles can influence on-premises privileged accounts. Control flows down the pipe in both directions.
 * **Cloud-stored secrets.** Windows LAPS can store local administrator passwords in Entra ID. That is a legitimate design. It also means the tenant holds recovery material for on-premises Tier 0 hosts, and tenant read permissions become an on-premises secret-recovery edge.
 
@@ -361,7 +361,7 @@ State the rule directly:
 
 **A cloud control plane administering an on-premises identity system, and an on-premises system administering a cloud identity plane, are each governed by the clean source principle. The higher-authority side sets the requirement.**
 
-#### **4.6.6 Software Supply and Deployment Pathways Matter**
+### **4.6.6 Software Supply and Deployment Pathways Matter**
 
 Administrative trust does not require a human login.
 
@@ -397,9 +397,9 @@ This is especially consequential for automation.
 
 PowerShell modules, Desired State Configuration, infrastructure-as-code definitions, Group Policy startup and logon scripts, configuration-management agents, endpoint detection and response agents, and administrative tooling execute with enormous authority while receiving input from repositories far removed from the domain controllers themselves. A module installed from a public gallery onto a PAW is a supply edge from the internet into Tier 0, mediated only by whoever last published that module.
 
-SYSVOL deserves specific attention because it is a software supply path that most agencies classify as a file share. Any principal able to write to SYSVOL, modify a GPO linked to the domain controllers OU, or alter a script referenced by a startup task holds a code-execution edge into every host in scope. GPO delegation drifts across reorganizations; the permission granted to a defunct desktop-support group in 2014 still executes code as `SYSTEM` in 2026.
+`SYSVOL` deserves specific attention because it is a software supply path that most agencies classify as a file share. Any principal able to write to `SYSVOL`, modify a GPO linked to the domain controllers OU, or alter a script referenced by a startup task holds a code-execution edge into every host in scope. GPO delegation drifts across reorganizations; the permission granted to a defunct desktop-support group in 2014 still executes code as `SYSTEM` in 2026.
 
-> #### **Warning — Scripts Are Software**
+> #### **Warning - Scripts Are Software**
 >
 > Administrative scripts stored on a general-purpose file share, retrieved by a scheduled task on a domain controller, and executed under a privileged context are indistinguishable from a supply-chain implant if the share ACL permits lower-tier write access. This pattern is common because it grew organically: someone needed an automated report, the share already existed, and nobody performed an authority analysis on a `.ps1` file. Audit write access to every path referenced by a Tier 0 scheduled task, service, GPO script, or agent configuration.
 
@@ -423,7 +423,7 @@ _What evidence proves the artifact that was approved is the artifact that execut
 
 These are identity-security questions, because executable code running under a trusted administrative context exercises that context's authority.
 
-Practical enforcement means signature validation that fails closed rather than warns, application control policies (WDAC or AppLocker in enforcement mode) applied to Tier 0 hosts and PAWs, authenticated transport for every repository serving Tier 0, separate repositories for Tier 0 artifacts, and integrity verification recorded as evidence rather than performed and forgotten. Where the acquisition supports it, software bills of materials and provenance attestation belong in the same evidence package. NIST SP 800-53 Rev. 5 addresses this directly through the SR family — SR-3, SR-4, SR-5, SR-6, and SR-11 — alongside CM-5, CM-7, CM-14, SA-10, SA-11, and SI-7.
+Practical enforcement means signature validation that fails closed rather than warns, application control policies (WDAC or AppLocker in enforcement mode) applied to Tier 0 hosts and PAWs, authenticated transport for every repository serving Tier 0, separate repositories for Tier 0 artifacts, and integrity verification recorded as evidence rather than performed and forgotten. Where the acquisition supports it, software bills of materials and provenance attestation belong in the same evidence package. NIST SP 800-53 Rev. 5 addresses this directly through the `SR` family - SR-3, SR-4, SR-5, SR-6, and SR-11 - alongside CM-5, CM-7, CM-14, SA-10, SA-11, and SI-7.
 
 Software provenance and privileged identity are connected more closely than traditional diagrams show.
 
@@ -532,7 +532,7 @@ An identity authority is restored when there is defensible reason to believe the
 
 That standard is considerably higher, and it is the standard an authorizing official should be applying before the system returns to operational use.
 
-#### 4.6.10 Bootstrapping the First Clean Source
+### 4.6.10 Bootstrapping the First Clean Source
 
 Every clean source chain terminates somewhere, and the terminal node is a problem in its own right. A PAW/SAW must be built by something. That something must be trustworthy. Well, what builds it?
 
@@ -546,11 +546,11 @@ The chain cannot regress forever, so it must terminate in a small set of artifac
 
 The bootstrap is a one-time act with permanent consequences. Once the first clean administrative device exists, it can build the second, and the chain becomes self-sustaining. Until it exists, everything downstream of it will inherit the trust posture of whatever entity built it - usually the general-purpose imaging infrastructure the design was meant to escape.
 
-#### 4.6.11 Verifying Clean Source
+### 4.6.11 Verifying Clean Source
 
 The control graph is testable. Treating clean source as an assertion in a System Security Plan (SSP) rather than a measured property is how trust inversions persist through consecutive assessments.
 
-**Graph analysis.** BloodHound and SharpHound compute attack pathways across directory permissions, session data, and local group membership; the shortest pathways to Domain Admins are a direct answer to "what can control Tier 0?" PingCastle and Purple Knight surface delegation, ACL, and configuration weaknesses with less collection overhead. Microsoft Defender for Identity (MDI), where deployed, reports lateral movement pathways built from observed sessions. Each tool answers part of the larger question. None enumerates BMCs, backup software, or scanning appliances - those require manual mapping against the catalog in 4.6.3.
+**Graph analysis.** BloodHound and SharpHound compute attack pathways across directory permissions, session data, and local group membership; the shortest pathways to Domain Admins are a direct answer to _"what can control Tier 0?"_ PingCastle and Purple Knight surface delegation, ACL, and configuration weaknesses with less collection overhead. Microsoft Defender for Identity (MDI), where deployed, reports lateral movement pathways built from observed sessions. Each tool answers part of the larger question. None enumerates BMCs, backup software, or scanning appliances - those require manual mapping against the catalog in 4.6.3.
 
 **Authentication exposure.** The inversion posed in 4.6.4 is a query, not a philosophy. Detect Tier 0 accounts authenticating to hosts outside the Tier 0 boundary as such:
 
@@ -581,6 +581,8 @@ SecurityEvent
 
 ```
 
+Kusto Query Language (`kql`)
+
 ```splunk
 index=wineventlog EventCode=4624 LogonType IN (2,3,7,10,11)
 | eval account=lower(mvindex(split(Account_Name,"\\"),-1))
@@ -600,43 +602,185 @@ index=wineventlog EventCode=4624 LogonType IN (2,3,7,10,11)
 
 Splunk Query Language (`spl`)
 
+### 4.6.12 Relevant Event IDs for Hunting
 
-
-Relevant Event IDs for this class of hunting:
-
-4624 - logon, with logon type; 4648 - explicit credential use - the "runas" trail that reveals tiering violations; 4672 - special privileges assigned, a proxy for privileged logon; 4768 and 4769 - Kerberos TGT and service ticket requests, with encryption type; 4776 - NTLM authentication attempt; 4964 - special group logon; 4820 - 4823 - Kerberos armoring and authentication policy failures; and, 5136 - directory object modification, for delegation and GPO changes.
+* 4624 - logon, with logon type;
+* 4648 - explicit credential use - the "runas" trail that reveals tiering violations;
+* 4672 - special privileges assigned, a proxy for privileged logon;
+* 4768 and 4769 - Kerberos TGT and service ticket requests, with encryption type;
+* 4776 - NTLM authentication attempt;
+* 4964 - special group logon;
+* 4820 - 4823 - Kerberos armoring and authentication policy failures; and,
+* 5136 - directory object modification, for delegation and GPO changes.
 
 Delegation and supply-path audit. Enumerate who holds write authority over the domain objects and file pathways that constitute Tier 0 supply.
 
-powershell
+```powershell
+# Non-default principals holding write-class rights on the Domain Controllers OU
+$dcOU = (Get-ADDomain).DomainControllersContainer
+$acl  = Get-Acl -Path "AD:\$dcOU"
+$acl.Access |
+  Where-Object {
+    $_.ActiveDirectoryRights -match 'WriteProperty|GenericAll|GenericWrite|WriteDacl|WriteOwner' -and
+    $_.IdentityReference -notmatch 'BUILTIN\\Administrators|NT AUTHORITY\\SYSTEM|Enterprise Admins|Domain Admins'
+  } |
+  Select-Object IdentityReference, ActiveDirectoryRights, ObjectType, InheritanceType
 
-## Non-default principals holding write-class rights on the Domain Controllers OU
+# Principals able to modify GPOs linked to the Domain Controllers OU
+Get-GPInheritance -Target $dcOU | Select-Object -ExpandProperty GpoLinks | ForEach-Object {
+    $gpo = Get-GPO -Guid $_.GpoId
+    [pscustomobject]@{
+        GPO        = $gpo.DisplayName
+        Editors    = (Get-GPPermission -Guid $gpo.Id -All |
+                      Where-Object { $_.Permission -match 'GpoEdit|GpoEditDeleteModifySecurity' } |
+                      ForEach-Object { $_.Trustee.Name }) -join '; '
+    }
+}
 
-$dcOU = (Get-ADDomain).DomainControllersContainer $acl = Get-Acl -Path "AD:$dcOU" $acl.Access | Where-Object { $_.ActiveDirectoryRights -match 'WriteProperty|GenericAll|GenericWrite|WriteDacl|WriteOwner' -and $_.IdentityReference -notmatch 'BUILTIN\Administrators|NT AUTHORITY\SYSTEM|Enterprise Admins|Domain Admins' } | Select-Object IdentityReference, ActiveDirectoryRights, ObjectType, InheritanceType
+# Accounts with unconstrained delegation — every one is a credential-capture edge
+Get-ADObject -LDAPFilter '(userAccountControl:1.2.840.113556.1.4.803:=524288)' `
+  -Properties samAccountName, objectClass |
+  Select-Object samAccountName, objectClass
+```
 
-## Principals able to modify GPOs linked to the Domain Controllers OU
+**Assessment questions that produce evidence rather than assurances:**
 
-Get-GPInheritance -Target $dcOU | Select-Object -ExpandProperty GpoLinks | ForEach-Object { $gpo = Get-GPO -Guid $_.GpoId \[pscustomobject]@{ GPO = $gpo.DisplayName Editors = (Get-GPPermission -Guid $gpo.Id -All | Where-Object { $_.Permission -match 'GpoEdit|GpoEditDeleteModifySecurity' } | ForEach-Object { $\_.Trustee.Name }) -join '; ' } }
-
-## Accounts with unconstrained delegation — every one is a credential-capture edge
-
-Get-ADObject -LDAPFilter '(userAccountControl:1.2.840.113556.1.4.803:=524288)' \` -Properties samAccountName, objectClass | Select-Object samAccountName, objectClass
-
-Assessment questions that produce evidence rather than assurances:
-
-SHow the list of every account and system that can execute code on a domain controller. Not the list of Domain Admins - the list of everything with that edge. For each item on that list, show its patch status, its administrative source, and where its administrators authenticate. Show 30 days of Tier 0 authentication events landing on non-Tier 0 hosts and territory. Show the ACL on every file pathway referenced by a Tier 0 scheduled task, service, or GPO script. Show the credentials configured in the vulnerability scanner, the backup platform, and the endpoint management console, and the tier of each. Show who can access the BMC of each domain controller host, and how they authenticate to it. Demonstrate a domain controller restore into an isolated environment, and identify who could have altered the backup.
+1. Show the list of every account and system that can execute code on a domain controller. Not the list of Domain Admins - the list of everything with that edge.
+2. For each item on that list, show its patch status, its administrative source, and where its administrators authenticate.
+3. Show 30 days of Tier 0 authentication events landing on non-Tier 0 hosts and territory.
+4. Show the ACL on every file pathway referenced by a Tier 0 scheduled task, service, or GPO script.
+5. Show the credentials configured in the vulnerability scanner, the backup platform, and the endpoint management console, and the tier of each.
+6. Show who can access the BMC of each domain controller host, and how they authenticate to it.
+7. Demonstrate a domain controller restore into an isolated environment, and identify who could have altered the backup.
 
 An environment that cannot produce these artifacts has not implemented the clean source principle regardless of what the control implementation statement says.
 
-***
+### 4.6.13 Common Trust Inversions
 
-###
+The same failures recur across federal and military enterprises. Each entry below is an inversion - an upstream node less protected than what it controls.
 
-***
+| Pattern                                                       | The inversion                                                                  |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| PAW/SAWs enrolled in the general endpoint management system   | Tier 2 management holds code execution on Tier 0 devices                       |
+| Jump host reachable from ordinary user desktops               | The hardened host inherits the trust level of its callers                      |
+| Hypervisor administrators outside Tier 0                      | Platform control without Tier 0 governance                                     |
+| Backup service account in Domain Admins                       | Convenience purchase of a permanent Tier 0 edge                                |
+| Credentialed scanning with a Domain Admin account             | A single appliance holds the highest credential in the entire forest           |
+| EDR/MDR/NDR/XDR console operated by a Tier 1 team             | Arbitrary `SYSTEM` execution on DCs, delegated downward                        |
+| Entra Connect server built as a member server                 | Directory-write authority on a Tier 1 baseline                                 |
+| Service desk holds reset rights over privileged accounts      | Account lifecycle control without tier alignment                               |
+| Tier 0 admin account has a mailbox and browses the web        | The administrative identity acquires an internet and web server attack surface |
+| DC host BMC on the general management VLAN                    | Below-OS access with above-OS consequences                                     |
+| Break-glass credentials stored in the PAM vault               | Recovery depends on the system a compromise would take                         |
+| ESAE forest built, the administered from production endpoints | The architecture exists; the principle was never applied                       |
+| "Tier 0" defined as a group membership list                   | Tiering applied to accounts rather than to capability                          |
 
+The final row is the most common of all, and it is why this section leads with the graph rather than with the group.
 
+### 4.6.14 Implementation Sequence and Interim Risk
 
-aegjegnrg
+Clean source is frequently presented as an absolute, which invites the response that it is unaffordable, which produces no change at all. A sequenced approach preserves the principle while acknowledging that most environments start deep in violation of it.
+
+**Phase 1 - Discovery.** Map the control graph. Produce the list of everything holding an edge into Tier 0. Do this before purchasing anything. The output is an inventory, and it is usually the most valuable artifact the exercise produces.
+
+**Phase 2 - Contain credentials.** Deploy the tier-based deny-logon GPOs, place Tier 0 accounts in Protected Users, remove Tier 0 accounts from routine use, and stand up dedicated administrative endpoints (PAW/SAW) for the smallest possible set of Tier 0 operations as feasibly possible. This, in turn, greatly reduces credential attack surface, escalation of privileges, pivoting, and horizontal / vertical lateral movement. Further, this phase also produces the largest reduction in exposure per single dollar.
+
+**Phase 3 - Separate management.** Move Tier 0 assets of shared endpoint management, shared scanning credentials, and shared deployment infrastructure. Give the Tier 0 control plane its own patching, its own repositories, and its own administrators.
+
+**Phase 4 — Secure supply and platform.** Application control on Tier 0 hosts and PAW/SAWs, authenticated repositories, signature enforcement, dedicated virtualization or physical hardware, and BMC isolation with unique credentials.
+
+**Phase 5 — Prove recovery.** Isolated recovery environment, validated media, tested forest recovery including secret rotation, and evidence retained for the authorizing official.
+
+Where a phase cannot be completed, the gap belongs in the Plan of Action and Milestones (POA\&M)  with the dependency named explicitly. _"Tier 0 hosts are managed by the enterprise endpoint management system, which is administered by personnel outside the Tier 0 boundary"_ is an accurate, assessable, and fundable statement. _"Privileged access management is implemented in accordance with agency policy"_ is none of those things.
+
+Interim compensating controls that carry real weight while a phase is outstanding: monitoring every action the over-privileged dependency takes against Tier 0, requiring change approval for its deployments to Tier 0 targets, restricting its Tier 0 scope to an enumerated host list, and alerting on any expansion of that list. These do not satisfy the principle. They make its violation visible, which is the next best thing.
+
+### 4.6.15 MITRE ATT\&CK & D3FEND Framework and Control Mapping
+
+<table><thead><tr><th>Clean source requirement</th><th>NIST SP 800-53 Rev. 5</th><th width="177.5714111328125">Other authorities</th><th width="149">ATT&#x26;CK</th><th>D3FEND</th></tr></thead><tbody><tr><td>Privileged access originates from dedicated, hardened endpoints</td><td>AC-6(1), AC-6(2), AC-6(5), AC-17, AC-19</td><td>DoD ZT (User and Device pillars); DISA Windows STIGs</td><td>T1078.002, T1021.001</td><td>Credential Hardening, Execution Isolation</td></tr><tr><td>Credentials restricted to appropriate boundaries</td><td>IA-2, IA-5, AC-3, AC-6(10)</td><td>OMB M-22-09; DoDI 8520.03; NIST SP 800-63 AAL3</td><td>T1550.002, T1550.003, T1003</td><td>Credential Transmission Scoping</td></tr><tr><td>Administrative dependencies tiered by capability</td><td>CA-3, PM-5, RA-3, SA-8</td><td>NIST SP 800-207; DoDI 8510.01</td><td>T1072, T1078</td><td>Asset Inventory, Network Mapping</td></tr><tr><td>Software supply integrity into Tier 0</td><td>CM-5, CM-7, CM-14, SA-10, SA-11, SI-7, SR-3, SR-4, SR-5, SR-6, SR-11</td><td>NIST SP 800-161r1; EO 14028 §4</td><td>T1195, T1072, T1554</td><td>Executable Allowlisting, File Integrity Monitoring</td></tr><tr><td>Out-of-band and platform paths governed</td><td>MA-4, PE-3, SC-7, SI-7(9)</td><td>CISA BOD 23-02; platform STIGs</td><td>T1542, T1200</td><td>Platform Monitoring, Firmware Verification</td></tr><tr><td>Recovery sources trustworthy and validated</td><td>CP-9, CP-10, CP-2, SI-7(1)</td><td>NSA/CISA/ACSC AD compromise guidance (2024)</td><td>T1490, T1078.002</td><td>Backup Integrity, System Restoration</td></tr><tr><td>Personnel and lifecycle authority aligned to tier</td><td>AC-2, AC-5, PS-2, PS-3, PS-7</td><td>DoD 8140 workforce framework</td><td>T1078, T1098</td><td>Account Locking, Authorization Event Thresholding</td></tr></tbody></table>
+
+Adjust the D3FEND column to the specific technique identifiers used elsewhere in the book so this table matches the crosswalk in the appendix rather than duplicating it.
+
+### 4.6.16 Field Note - Follow the Administrative Pathway Backward
+
+When evaluating a high-value identity system, begin with the system and work backward.
+
+Do not stop at the administrators listed in the access-control documentation.
+
+Ask what can control the administrators.
+
+Then ask what control those systems.
+
+Continue until the pathway reaches components whose compromise cannot alter the original target.
+
+For a domain controller, the pathway may look similar to this:
+
+```
+Domain Controller
+  ← Privileged Administration
+    ← Privileged Access Workstation
+      ← PAW Management Infrastructure
+        ← Software Deployment Platform
+          ← Administrative Repository
+            ← Build or Package Authority
+```
+
+Another pathway:
+
+```
+Domain Controller
+  ← Virtual Machine
+    ← Hypervisor
+      ← Virtualization Management Platform
+        ← Virtualization Administrator
+          ← Administrator's Workstation
+```
+
+Another:
+
+```
+Domain Controller
+  ← System-State Backup
+    ← Backup Platform
+      ← Backup Administrator
+        ← Backup Vendor Support Tooling
+```
+
+And the one most often missing from the diagram entirely:
+
+```
+Domain Controller
+  ← Host Hardware
+    ← Baseboard Management Controller
+      ← Management Network
+        ← Whoever Can Reach It
+```
+
+If any upstream node is less protected than the domain controller while retaining the ability to influence its state, the architecture contains a trust inversion.
+
+Attackers look for those exact inversions because they provide a route around the strongest defenses.
+
+Defenders should find them first.
+
+> ### Sidebar - The Professional: Patience Is A Control Bypass
+>
+> _I never went at the domain controllers. Why would I? They were the one thing that team actually watched._\
+> _I took a build server. Not a glamorous one - a box that pushed agent updates and had been running the same service account since a migration nobody documented. It could write to a share. The share fed a scheduled task. The task ran on four machines, and one of them mattered._\
+> _Then I waited._\
+> _Eleven days. On the twelfth, someone with real authority connected to troubleshoot a certificate problem, and every control they had bought that year became decoration, because the environment they trusted was already mine. It had been mine. I didn't crack anything. I didn't need to spend wads of cash on an expensive zero-day from the dark web or vanilla-net hacker forum. I needed them to keep doing their jobs the way they always had._\
+> _That is the part defenders underestimate. I am not fighting your strongest control. I am standing behind it, holding the door._
+
+### 4.6.17 Chapter Summary
+
+The clean source principle is therefore not a workstation-hardening recommendation. It is a method for discovering the true perimeter of administrative authority. Applied correctly, it exposes hidden Tier 0 systems, unsafe credential placements, untrusted deployment chains and pipelines, out-of-band control pathways, hybrid identity inversions, and recovery dependencies that ordinary identity diagrams fail to show.
+
+For federal and Department of Defense environments, this carries direct mission significance. Identity systems determine which people, devices, services, and workloads the enterprise accepts as legitimate. If the systems administering those identity authorities cannot themselves be trusted, neither can the decisions produced by the identity infrastructure they effectively control.
+
+The security boundary does not end at the domain controller, the Certificate Authority (CA), or the Identity Provider (IdP).
+
+It ends at the least-trusted system still capable of changing them.
+
+### 4.6.18 Chapter Concepts Review
 
 
 
