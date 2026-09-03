@@ -175,7 +175,7 @@ These conditions must not be confused or interchanged.
 
 Suppose any agency implements an excellent quarterly review of Domain Admin membership. Every member has documented justification. Every reviewer signs on time. Every addition and removal traces to an approved request. The control may be operating exactly as designed.
 
-Now suppose a server-management group outside Domain Admins holds `WriteDACL` over an Organizational Unit (OU) containing a privileged service account. That account ultimately controls a management platform that is capable of excuting commands on domain controllers.
+Now suppose a server-management group outside Domain Admins holds `WriteDACL` over an Organizational Unit (OU) containing a privileged service account. That account ultimately controls a management platform that is capable of executing commands on domain controllers.
 
 The Domain Admin review has not failed.
 
@@ -211,7 +211,7 @@ _What can be made true by someone who is not authorized to make it true?_
 
 For purposes of this chapter, FICAM provides the intended identity state against which technical reality can be examined.
 
-The oeprated word is _**intended**._
+The operative word is _**intended**._
 
 If an identity should be unique, attributable, appropriately proofed, correctly credentialed, granted only necessary access, and removed when its mission relationship ends, each of those characteristics creates something that can be tested.
 
@@ -505,11 +505,87 @@ It cannot be tested, because nothing in the sentence identifies what would count
 
 The first analytical task is therefore to determine what the requirement is actually asserting about the environment. A useful technique is to force the requirement into a falsifiable form by asking what observation would prove it false.
 
-| Requirement as written                            | Falsifiable form                                                                   |
-| ------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Access shall follow least prvileged               | No identity holds an entitlement not traceable to a current, approved mission need |
-| Credentials shall be bound to verified identities | Every credential 8                                                                 |
-|                                                   |                                                                                    |
+| Requirement as written                            | Falsifiable form                                                                                                            |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Access shall follow least prvileged               | No identity holds an entitlement not traceable to a current, approved mission need                                          |
+| Credentials shall be bound to verified identities | Every credential in the environment maps to an identity that completed proofing at the required assurance level             |
+| Privileged access shall be limited                | No identity can reach administrative authority over a Tier 0 system without appearing in the approved privileged population |
+| Access shall be removed upon separation           | No authentication artifact associated with a separated identity can produce a successful authorization decision             |
+| Identity events shall be auditable                | Every change to an identity's effective authority produces evidence attributable to an accountable actor                    |
+
+The right-hand column is where security engineering begins. Each statement is now something an operator can attempt to disprove.
+
+Note that the falsifiable forms are deliberately absolute. Real environments will not satisfy them completely, and that is the point: the exceptions are the findings.
+
+### 7.2.2 Control Objective
+
+A control objective narrows the requirement to a specific condition that a control is meant to preserve. It answers the question, _"What must reliably occur for this requirement to hold?"_
+
+The translation is not mechanical, and this is where most identity programs lose fidelity. A single requirement usually decomposes into several objectives, and objectives that go unwritten become gaps that no control covers.
+
+Take the requirement that access be removed upon separation. Reasonable objectives include:
+
+* the separation event is detected and communicated to the identity system within a defined period;
+* the primary directory account is disabled;
+* credentials bound to the identity are revoked, not merely deactivated;
+* active sessions and refresh tokens are terminated;
+* entitlements held in systems that do not consume the enterprise directory are removed;
+* shared or service credentials known to the separated person are rotated; and
+* resources owned by the identity are reassigned to an accountable owner.
+
+Most agencies write the second objective and assume the rest.
+
+An assessor testing only the second objective can issue a clean result while five of the seven remain unaddressed. The adversary works the five.
+
+The defensive discipline here is decomposition. For every identity requirement, enumerate the objectives that must all hold, and identify which have an owner, a control, and evidence. Objectives with none of the three are the chapter's recurring subject.
+
+### 7.2.3 Technical Implementation
+
+Implementation is the mechanism that enforces the objective in the actual environment. It is also where the objective's meaning quietly changes.
+
+Consider the objective that only approved personnel may hold privileged authority. Implementations might include:
+
+* membership in named privileged groups;
+* role assignments in a privileged identity management platform;
+* delegated permissions on directory objects;
+* local administrator group membership on servers;
+* application-level administrative roles;
+* cloud directory roles and administrative units;
+* Authentication Policy Silo membership;
+* Group Policy user rights assignments; and
+* service account permissions and constrained delegation.
+
+Every one of those is a legitimate implementation of privilege. Only the first two are typically enumerated when someone is asked to produce "the list of privileged users."
+
+Three implementation questions carry disproportionate security weight:
+
+**Does the implementation enforce the objective, or does it record it?** A ticket recording approval does not restrict anything. A group membership does. Confusing recording controls with enforcing controls produces documentation that describes an environment nobody is actually constrained by.
+
+**Is the implementation the only path to the outcome?** If administrative authority can be reached through directory delegation, a management platform, or a backup system, then restricting group membership constrains one path of three.
+
+**Can the implementation be modified by the population it governs?** If privileged users can alter the mechanism restricting privileged users, the control is advisory.
+
+That last question is management override expressed technically, and it is the single most productive question to ask about any identity control.
+
+### 7.2.4 Expected Evidence
+
+Evidence is what the control produces to demonstrate that it operated. It is not the same as the security state, and the difference is the source of an entire class of finding.
+
+Evidence has properties that determine how much weight it can bear:
+
+| Property     | Question                                      | Failure mode                                   |
+| ------------ | --------------------------------------------- | ---------------------------------------------- |
+| Completeness | Does the evidence cover the whole population? | Blind spot outside the query                   |
+| Accuracy     | Does it reflect the actual technical state?   | Report generated from stale or cached data     |
+| Timeliness   | Does it describe the period under review?     | Point-in-time snapshot missing interim changes |
+
+
+
+
+
+####
+
+
 
 
 
