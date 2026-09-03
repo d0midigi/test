@@ -1,0 +1,5 @@
+# Copy of 5.2.2 FISMA and Identity Security
+
+{% hint style="info" %}
+Identity systems fall within FISMA risk-management obligations because failures in authentication, authorization, privileged access, credentials, and trust relationships can compromise the confidentiality, integrity, and availability of federal information systems.
+{% endhint %}

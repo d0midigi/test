@@ -1,0 +1,2 @@
+# 7.10.8 EAP-SIM and EAP-AKA
+
