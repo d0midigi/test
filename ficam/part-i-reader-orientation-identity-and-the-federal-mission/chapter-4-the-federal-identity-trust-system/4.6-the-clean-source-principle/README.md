@@ -4,9 +4,15 @@
 Administrative actions inherit risk from their workstations, credentials, software supply chains, and recovery sources.
 {% endhint %}
 
+_**TL;DR** Modern identity systems are deeply interconnected, and every weak dependency creates an attack path - no matter how strong any single platform appears. The Clean Source Principle and BloodHound OpenGraph make these hidden relationships visible, empowering defenders to treat Attack Path Management as an ongoing discipline rather than a one-time project._
+
+### 4.6.1 Introduction to the Active Directory Clean Source Principle (CSP)
+
 Identity security is often discussed as though trust begins when a user enters a credential and ends when an access-control decision is returned. That view is much too narrow for a federal Active Directory environment. A domain controller may accept only approved administrative identities, require phishing-resistant authentication, enforce hardened Group Policies, and reside behind tightly controlled network boundaries, and the domain can still be lost if those administrators reach it from systems an adversary already owns.
 
 The reason is straightforward: administration is itself a trust relationship.
+
+This also proposes a deceptively simple rule: _all security dependencies must be as trustworthy as the object being secured;_ however, this simple rule is violated constantly in modern enterprise environments. These violations are what give rise to attack paths.
 
 When one system is allowed to configure, repair, monitor, virtualize, back up, deploy software to, image, attest, or otherwise control another system, the security of the target becomes dependent upon the security of the administrative source. The target may never explicitly identify that source as a trusted identity provider. Operationally, it has granted that source something more consequential - the ability to alter its state.
 
@@ -15,6 +21,8 @@ This produces one of the most important architectural rules in privileged-access
 > **A system must not be administered from a security context less trustworthy than the system being administered.**
 
 This is the Clean Source Principle.
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt="" width="563"><figcaption></figcaption></figure>
 
 The word _source_ should be interpreted broadly, however. It includes the workstation from which an administrator connects. It also includes management servers, automation platforms, deployment systems, virtualization infrastructure, baseboard management controllers, backup consoles, software repositories, administrative scripts, recovery media, security tooling, credentialed vulnerability scanners, directory synchronization servers, and any other mechanism capable of introducing state into the protected production environment.
 
@@ -34,7 +42,126 @@ The second question reveals the architecture that absolutely matters.
 >
 > The clean source principle originated in Microsoft's Privileged Access Workstation and Enhanced Security Administrative Environment (ESAE, informally the "Red Forest") guidance. Microsoft retired the ESAE hardened-forest pattern as a general recommendation in 2020 and folded the underlying principle into the Enterprise Access Model and its privileged access rapid modernization guidance. Federal and DoD documentation lags that change by years. You will still encounter system security plans, contract deliverables, and architecture review boards that reference ESAE as current doctrine or that treat "we built a Red Forest" as the end-state. The forest was never the primary source of control. The clean source principle was, and it survived the pattern that popularized it.
 
-### 4.6.1 Administration Is a Directed Trust Graph
+In today’s security discourse, phrases like _“identity is the new perimeter”_ are often repeated as though they capture the whole story. They suggest that if an organization hardens its identity provider, deploys MFA, and centralizes authentication, it will have contained its risk. The reality is far more complicated.
+
+Identities never exist in isolation. They are embedded in a web of devices, platforms, agents, and other identities. These relationships, often hidden, sprawling, and poorly understood, are what adversaries exploit to move through an environment. A system may appear well-secured on its own, but if it inherits trust from another weaker system, it is vulnerable.
+
+Most agencies do not realize the depth of their interconnections. They may invest heavily in hardening one platform, only to leave open attack paths through another. Without visibility into how dependencies actually link together, security leaders and enterprise defenders are left managing fragments of risk rather than the whole picture.
+
+The Clean Source Principle provides a unifying way to understand these risks. Violations of the principle are what make modern attack pathways possible. By examining how dependencies span across platforms and compound through transitive relationships, we can see why conventional strategies fall short, and why graph-based analysis is essential to bring these hidden risks into view. To illustrate this, let’s begin with a simple but powerful case study: how the security of a GitHub repository can be silently chained to platforms its administrators never intended to trust.
+
+### **4.6.2 Case Study: GitHub’s Hidden Dependencies**
+
+Consider a GitHub Enterprise environment hosting an organization’s most sensitive intellectual property. Imagine a private repository containing unreleased source code or proprietary algorithms. At first glance, it appears to be a simple access control problem: secure the repository by tightly managing who has permissions.
+
+For this example, we’ll use **BloodHound’s new OpenGraph capability** to visualize the configuration as we discuss it.
+
+### **4.6.3 The Repository in Isolation**
+
+**The repository appears to stand alone, protected only by the permissions assigned by administrators.**
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt="" width="563"><figcaption></figcaption></figure>
+
+### **4.6.4 Mapping GitHub Access**
+
+Expanding outward reveals the GitHub users and teams who have access. Some accounts may have read permissions, others write, and a few may hold administrative control. The repository is no longer an isolated object; it is part of a web of relationships where each user or team becomes a potential dependency.
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt="" width="563"><figcaption></figcaption></figure>
+
+### **4.6.5 Revealing External Identities**
+
+Many of those GitHub accounts authenticate through an external identity provider such as Entra ID via SSO. Once those relationships are revealed, the dependency becomes clear: GitHub’s security is directly tied to the security of Entra.
+
+<figure><img src="../../../.gitbook/assets/image (7).png" alt="" width="563"><figcaption></figcaption></figure>
+
+Here, the Clean Source Principle comes into focus: **GitHub is only as secure as the identity provider it depends on.** If the IdP is compromised, so too are the GitHub accounts federated to it and by extension, the repositories they control.
+
+### **4.6.6 Escalation: Entra Depends on Active Directory**
+
+At this point, we’ve shown that GitHub’s security is chained to Entra’s security through single sign-on. But the chain rarely stops there.
+
+In many enterprises, Entra is not an independent identity system. Entra users are often synchronized from on-premises Active Directory. This means that a compromise of an AD account can cascade upward into Entra, and from there into GitHub.
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt="" width="563"><figcaption></figcaption></figure>
+
+The picture is now clear:
+
+* GitHub’s security depends on Entra.
+* Entra’s security depends on Active Directory.
+* Therefore, GitHub’s security also depends on Active Directory.
+
+This is the essence of a **transitive security dependency**. The administrator of the GitHub repository may never think about Active Directory when assigning access, but in practice the security of their most sensitive repository is only as strong as the related Active Directory domain.
+
+### **4.6.7 The Probability Problem: Assume Breach** <a href="#the-probability-problem-assume-breach" id="the-probability-problem-assume-breach"></a>
+
+A thoughtful CISO might still push back: surely compromise of the one specific AD user synced to Entra is unlikely. Unfortunately, the data tells a different story.
+
+In real-world Active Directory Security Assessments (ADSAs) and CORA readiness inspections, by deploying BloodHound Enterprise across hundreds of environments, a striking pattern emerges: in roughly **95% of enterprises**, the Domain Users group has an attack path to Tier Zero. In plain terms, virtually _every_ user in the domain has some path, often short and exploitable, to compromise the entire AD forest.
+
+<figure><img src="https://specterops.io/wp-content/uploads/sites/3/2025/10/image_5ab9b7.png?w=1024" alt=""><figcaption></figcaption></figure>
+
+This means that if attackers can compromise _any_ AD user, they can find a path to _every_ AD user. And because Entra identities are frequently synced from AD, compromise of AD translates directly into control of Entra accounts.
+
+Even more concerning, we often find that **highly privileged Entra accounts are synced from non-privileged AD accounts.** From a Clean Source Principle perspective, this is a glaring violation: a weak, low-value AD account inherits the power to control an administrative identity in Entra. In this scenario, the attacker doesn’t even need to escalate to Tier Zero, compromise of a relatively unprivileged AD user may be enough to seize control of a global administrator in Entra, and from there, access to critical GitHub repositories.
+
+Once inside Entra, the attacker inherits all the relationships we saw earlier. If an Entra user is linked to a GitHub account with write or administrative access to a sensitive repository, the repository is effectively compromised. This is why the **Assume Breach** paradigm matters: defenders must act as though an arbitrary AD user _will_ be compromised at some point. When that assumption holds, the attack path to the GitHub repository is not a remote edge case, it is a certainty waiting to be exploited.
+
+### **4.6.8 Addressing Common Objections**
+
+_**"We're cloud-native. We don't have AD."**_
+
+A small minority of organizations have escaped Active Directory altogether, usually because they were born recently in the cloud era. But even those organizations are not exempt from the Clean Source Principle.
+
+Cloud-native enterprises almost always centralize trust into a single identity provider such as Okta, Entra, or Ping. This creates the same class of dependency problem: GitHub, or any other SaaS platform, is only as secure as the IdP it federates to. From a CIA triad perspective, SSO consolidates availability, integrity, and confidentiality risks into a single point of failure.
+
+Escaping AD does not mean escaping dependencies. It only means that the dependency graph has shifted.
+
+_"We've implemented Zero Trust."_
+
+Zero Trust is another common defense offered by security leaders. The problem is that the term is overloaded, it can mean anything from “we enforce MFA at login” to “we bought a vendor suite marketed as Zero Trust.” In practice, Zero Trust does not eliminate hybrid attack paths, for four reasons.
+
+* **The user access layer is highly interconnected.** At Black Hat, SpecterOps researchers released _JamfHound_, and we are currently developing an Intune extension for OpenGraph. These efforts demonstrate that even in “Zero Trust” environments, device management systems themselves create new webs of trust relationships.
+* **Segmentation without visibility is a paper exercise.** Customers who worked with Microsoft to implement Tiered Administration later used BloodHound to validate their approach with troubling results.  First, many attack paths were still present despite these efforts simply due to a lack of visibilty. They were working in the blind.  Second, small user permission modifications here and there combined to further erode the tiers that took over a year to put in place.   &#x20;
+* **Identities in transit reconnect what segmentation attempts to divide.** Cloud services must still be accessed from user devices. Sessions cached on those devices can be stolen to bypass MFA and other controls.
+
+The net result: Zero Trust may constrain certain avenues of compromise, but it does not dissolve the transitive dependencies that generate hybrid attack paths.
+
+_"We're migrating away from AD."_
+
+This is another familiar refrain: AD is a legacy anchor, but in 12–18 months, it will be gone. In our experience, this rarely happens. AD’s gravitational pull is too strong, too many applications and devices are entangled with it.
+
+Even for the few agencies that succeed in reducing their AD footprint, the fundamental problem does not disappear. It simply reconstitutes itself in other platforms. Intune, Jamf, Okta, and Ping all step into the same role that AD once played, becoming new hubs of centralized trust.At the end of the day, users will still have devices. Devices will still be compromised through phishing or client-side attacks. And those devices will still bridge access to identity providers. No matter what technology stack governs them, **attack paths are inevitable when dependencies are invisible.**
+
+### **4.6.9 The Broader Lesson: Security Dependencies Are Eternal** <a href="#the-broader-lesson-security-dependencies-are-eternal" id="the-broader-lesson-security-dependencies-are-eternal"></a>
+
+The GitHub → Entra → Active Directory example is just one illustration of a larger truth: **modern environments are built on layers of dependency, and those dependencies inevitably leak trust.** Attack paths are not anomalies, they are symptoms of this structural reality.
+
+It helps to think about these dependencies on two levels:
+
+* **Intra-platform dependencies** exist inside a single system.
+  * In Active Directory, the relationship between Domain Users and Tier Zero assets creates predictable attack paths.&#x20;
+  * In GitHub, team structures and repository permissions can unintentionally grant excessive control.
+* **Inter-platform dependencies** span across systems. GitHub federating to Entra, Entra syncing from AD, or Jamf enforcing policies on Mac workstations are all examples. These connections multiply the attack surface, because the security of one platform now inherits the weaknesses of another.
+
+And here lies the uncomfortable insight: **the combination is more dangerous than either system in isolation.** An Active Directory environment riddled with attack paths is dangerous. A GitHub organization with overly broad permissions is dangerous. But when GitHub becomes dependent on AD through Entra, the risk compounds.
+
+The Clean Source Principle tells us that if a dependency is weaker than the object it secures, an attack path exists. Intra-platform and inter-platform dependencies both violate this principle, and adversaries exploit both. What makes inter-platform dependencies especially dangerous is that they are often invisible to the teams who own each platform. A GitHub administrator may never realize their repository’s security hinges on an AD user they’ve never heard of.
+
+The lesson is stark: dependencies are eternal. Active Directory may shrink, Intune or Okta may grow, Jamf may dominate in MacOS environments, but the attack paths will keep re-emerging wherever dependencies are hidden or misaligned. The only way to manage identity risk is to make these dependencies visible, across and within platforms, and to continually validate that the Clean Source Principle is not being violated.
+
+### **4.6.10 OpenGraph as the Future-Proof Strategy** <a href="#opengraph-as-the-future-proof-strategy" id="opengraph-as-the-future-proof-strategy"></a>
+
+BloodHound was originally built to map Active Directory. That model exposed a reality defenders had long suspected but could never fully prove: nearly every AD environment is saturated with attack paths. For years, that visibility alone transformed how enterprises understood identity risk.
+
+But the most critical risks are no longer contained within a single platform. They emerge in the **spaces between platforms**; GitHub federating to Entra, Entra syncing from AD, Jamf enforcing policy on Mac devices, Okta brokering authentication across SaaS. These hybrid paths are what turn isolated weaknesses into enterprise-wide compromise.
+
+This is why we built **BloodHound OpenGraph**. OpenGraph extends BloodHound beyond AD, allowing defenders to model _any_ platform, capture its internal access control model, and then connect it to the systems around it. Whether you are running Intune, Jamf, Ping, Okta, or GitHub Enterprise, the same principle applies: your security is only as strong as the platforms you depend on, and those dependencies can be visualized, queried, and managed in the graph.
+
+The key differentiator is not just the ability to add new platforms, but the ability to see **hybrid attack paths**. Hardening AD alone or tightening GitHub permissions alone is insufficient if the platforms are chained together. The combination is more dangerous than either in isolation. OpenGraph allows defenders to surface those chains, understand their full impact, and prioritize breaking the most dangerous paths first.
+
+Most importantly, OpenGraph is a **future-proof strategy**. The leviathan of today may be Active Directory; tomorrow it may be Intune, Okta, or something yet to emerge. But the problem is eternal: security dependencies accumulate, and attackers will always exploit them. By abstracting the platform and focusing on the relationships between systems, BloodHound ensures defenders will never be left blind to the next identity core.
+
+### 4.6.11 Administration Is a Directed Trust Graph
 
 The clean source principle is easier to apply when it is treated as a graph problem rather than a policy statement.
 
@@ -88,7 +215,7 @@ Two properties of this graph are worth stating plainly.
 
 The graph is larger than the diagram. Network diagrams show packets. Control graphs show authority. A backup agent that never appears on a network diagram because it uses an existing management VLAN still holds a state-restoration edge into every host it protects.
 
-### 4.6.2 A System Cannot Be Administered Safely From a Less-Trusted System
+### 4.6.12 A System Cannot Be Administered Safely From a Less-Trusted System
 
 Consider a Domain Admin using an ordinary enterprise workstation to administer a domain controller.
 
@@ -172,7 +299,7 @@ A PAW/SAW whose administrator checks email, opens a browser to a public site, or
 
 The label is irrelevant. The dependency graph decides.
 
-### 4.6.3 Administrative Dependencies Inherit the Target's Security Tier
+### 4.6.13 Administrative Dependencies Inherit the Target's Security Tier
 
 Administrative tiering is frequently misunderstood as a classification applied only to user accounts.
 
@@ -249,7 +376,7 @@ A scanner storing credentials that authenticate to domain controllers is.
 
 The clean source principle makes these relationships visible because it forces the architect to follow authority backward toward every system capable of originating trusted administrative change.
 
-### 4.6.4 Credential Entry Creates Trust Relationships
+### 4.6.14 Credential Entry Creates Trust Relationships
 
 Credential placement is one of the most overlooked forms of architectural trust.
 
@@ -338,7 +465,7 @@ One describes identity ownership.
 
 The other describes identity exposure.
 
-### 4.6.5 The Hybrid Control Plane Travels in Both Directions
+### 4.6.15 The Hybrid Control Plane Travels in Both Directions
 
 Nothing in the preceding sections assumed the control path stays on-premises. In practice it rarely does, and hybrid identity produces the trust inversions that federal environments discover last.
 
@@ -361,7 +488,7 @@ State the rule directly:
 
 **A cloud control plane administering an on-premises identity system, and an on-premises system administering a cloud identity plane, are each governed by the clean source principle. The higher-authority side sets the requirement.**
 
-### **4.6.6 Software Supply and Deployment Pathways Matter**
+### **4.6.16 Software Supply and Deployment Pathways Matter**
 
 Administrative trust does not require a human login.
 
@@ -427,7 +554,7 @@ Practical enforcement means signature validation that fails closed rather than w
 
 Software provenance and privileged identity are connected more closely than traditional diagrams show.
 
-### 4.6.7 Out-of-Band, Firmware, and Physical Paths Are Administrative Paths
+### 4.6.17 Out-of-Band, Firmware, and Physical Pathways Are Administrative Pathways
 
 Every control discussed so far operates inside the operating system. Several of the most reliable paths into Tier 0 operate beneath it.
 
@@ -445,7 +572,7 @@ The practical consequence for federal environments is uncomfortable. The platfor
 
 **Classification and enclave boundaries.** In DoD environments the clean source principle has a security-domain expression: a system in a lower-classification enclave must not administer a system in a higher-classification enclave. Administrative connections crossing a boundary - through a cross-domain solution, a dual-homed management host, a shared KVM, or a shared administrator working both sides from one device - invert trust in exactly the way the principle prohibits. The same rule governs shared administrative tooling across mission enclaves that are otherwise separated.
 
-### 4.6.8 People Are Part of the Source
+### 4.6.18 People Are Part of the Source
 
 A control graph that stops at machines is incomplete, because the last edge into every Tier 0 system terminates at a person.
 
@@ -465,7 +592,7 @@ Two process controls belong in the design rather than the policy appendix:
 
 **Break-glass handling.** Emergency access accounts must be excluded from the authentication restrictions that would otherwise prevent recovery, which makes them the most dangerous credentials in the environment. Split knowledge, sealed and serialized envelopes, physical custody in a safe or GSA-approved container, documented two-person integrity for retrieval, and alerting on any use are minimum handling requirements. An emergency account whose password lives in the same vault that a compromise would take is not an emergency account.
 
-### 4.6.9 Recovery Sources Must Also Be Clean
+### 4.6.19 Recovery Sources Must Also Be Clean
 
 The clean source principle matters most when an environment is under the greatest pressure: recovery from compromise.
 
@@ -532,7 +659,7 @@ An identity authority is restored when there is defensible reason to believe the
 
 That standard is considerably higher, and it is the standard an authorizing official should be applying before the system returns to operational use.
 
-### 4.6.10 Bootstrapping the First Clean Source
+### 4.6.20 Bootstrapping the First Clean Source
 
 Every clean source chain terminates somewhere, and the terminal node is a problem in its own right. A PAW/SAW must be built by something. That something must be trustworthy. Well, what builds it?
 
@@ -546,7 +673,7 @@ The chain cannot regress forever, so it must terminate in a small set of artifac
 
 The bootstrap is a one-time act with permanent consequences. Once the first clean administrative device exists, it can build the second, and the chain becomes self-sustaining. Until it exists, everything downstream of it will inherit the trust posture of whatever entity built it - usually the general-purpose imaging infrastructure the design was meant to escape.
 
-### 4.6.11 Verifying Clean Source
+### 4.6.21 Verifying Clean Source
 
 The control graph is testable. Treating clean source as an assertion in a System Security Plan (SSP) rather than a measured property is how trust inversions persist through consecutive assessments.
 
@@ -575,10 +702,6 @@ SecurityEvent
     SourceIPs   = make_set(IpAddress, 25)
   by AccountName, TargetHost
 | order by LastSeen desc
-
-
-
-
 ```
 
 Kusto Query Language (`kql`)
@@ -602,7 +725,7 @@ index=wineventlog EventCode=4624 LogonType IN (2,3,7,10,11)
 
 Splunk Query Language (`spl`)
 
-### 4.6.12 Relevant Event IDs for Hunting
+### 4.6.22 Relevant Event IDs for Hunting
 
 * 4624 - logon, with logon type;
 * 4648 - explicit credential use - the "runas" trail that reveals tiering violations;
@@ -655,7 +778,7 @@ Get-ADObject -LDAPFilter '(userAccountControl:1.2.840.113556.1.4.803:=524288)' `
 
 An environment that cannot produce these artifacts has not implemented the clean source principle regardless of what the control implementation statement says.
 
-### 4.6.13 Common Trust Inversions
+### 4.6.23 Common Trust Inversions
 
 The same failures recur across federal and military enterprises. Each entry below is an inversion - an upstream node less protected than what it controls.
 
@@ -677,7 +800,7 @@ The same failures recur across federal and military enterprises. Each entry belo
 
 The final row is the most common of all, and it is why this section leads with the graph rather than with the group.
 
-### 4.6.14 Implementation Sequence and Interim Risk
+### 4.6.24 Implementation Sequence and Interim Risk
 
 Clean source is frequently presented as an absolute, which invites the response that it is unaffordable, which produces no change at all. A sequenced approach preserves the principle while acknowledging that most environments start deep in violation of it.
 
@@ -687,21 +810,21 @@ Clean source is frequently presented as an absolute, which invites the response 
 
 **Phase 3 - Separate management.** Move Tier 0 assets of shared endpoint management, shared scanning credentials, and shared deployment infrastructure. Give the Tier 0 control plane its own patching, its own repositories, and its own administrators.
 
-**Phase 4 — Secure supply and platform.** Application control on Tier 0 hosts and PAW/SAWs, authenticated repositories, signature enforcement, dedicated virtualization or physical hardware, and BMC isolation with unique credentials.
+**Phase 4 - Secure supply and platform.** Application control on Tier 0 hosts and PAW/SAWs, authenticated repositories, signature enforcement, dedicated virtualization or physical hardware, and BMC isolation with unique credentials.
 
-**Phase 5 — Prove recovery.** Isolated recovery environment, validated media, tested forest recovery including secret rotation, and evidence retained for the authorizing official.
+**Phase 5 - Prove recovery.** Isolated recovery environment, validated media, tested forest recovery including secret rotation, and evidence retained for the authorizing official.
 
 Where a phase cannot be completed, the gap belongs in the Plan of Action and Milestones (POA\&M)  with the dependency named explicitly. _"Tier 0 hosts are managed by the enterprise endpoint management system, which is administered by personnel outside the Tier 0 boundary"_ is an accurate, assessable, and fundable statement. _"Privileged access management is implemented in accordance with agency policy"_ is none of those things.
 
 Interim compensating controls that carry real weight while a phase is outstanding: monitoring every action the over-privileged dependency takes against Tier 0, requiring change approval for its deployments to Tier 0 targets, restricting its Tier 0 scope to an enumerated host list, and alerting on any expansion of that list. These do not satisfy the principle. They make its violation visible, which is the next best thing.
 
-### 4.6.15 MITRE ATT\&CK & D3FEND Framework and Control Mapping
+### 4.6.25 MITRE ATT\&CK & D3FEND Framework and Control Mapping
 
 <table><thead><tr><th>Clean source requirement</th><th>NIST SP 800-53 Rev. 5</th><th width="177.5714111328125">Other authorities</th><th width="149">ATT&#x26;CK</th><th>D3FEND</th></tr></thead><tbody><tr><td>Privileged access originates from dedicated, hardened endpoints</td><td>AC-6(1), AC-6(2), AC-6(5), AC-17, AC-19</td><td>DoD ZT (User and Device pillars); DISA Windows STIGs</td><td>T1078.002, T1021.001</td><td>Credential Hardening, Execution Isolation</td></tr><tr><td>Credentials restricted to appropriate boundaries</td><td>IA-2, IA-5, AC-3, AC-6(10)</td><td>OMB M-22-09; DoDI 8520.03; NIST SP 800-63 AAL3</td><td>T1550.002, T1550.003, T1003</td><td>Credential Transmission Scoping</td></tr><tr><td>Administrative dependencies tiered by capability</td><td>CA-3, PM-5, RA-3, SA-8</td><td>NIST SP 800-207; DoDI 8510.01</td><td>T1072, T1078</td><td>Asset Inventory, Network Mapping</td></tr><tr><td>Software supply integrity into Tier 0</td><td>CM-5, CM-7, CM-14, SA-10, SA-11, SI-7, SR-3, SR-4, SR-5, SR-6, SR-11</td><td>NIST SP 800-161r1; EO 14028 §4</td><td>T1195, T1072, T1554</td><td>Executable Allowlisting, File Integrity Monitoring</td></tr><tr><td>Out-of-band and platform paths governed</td><td>MA-4, PE-3, SC-7, SI-7(9)</td><td>CISA BOD 23-02; platform STIGs</td><td>T1542, T1200</td><td>Platform Monitoring, Firmware Verification</td></tr><tr><td>Recovery sources trustworthy and validated</td><td>CP-9, CP-10, CP-2, SI-7(1)</td><td>NSA/CISA/ACSC AD compromise guidance (2024)</td><td>T1490, T1078.002</td><td>Backup Integrity, System Restoration</td></tr><tr><td>Personnel and lifecycle authority aligned to tier</td><td>AC-2, AC-5, PS-2, PS-3, PS-7</td><td>DoD 8140 workforce framework</td><td>T1078, T1098</td><td>Account Locking, Authorization Event Thresholding</td></tr></tbody></table>
 
 Adjust the D3FEND column to the specific technique identifiers used elsewhere in the book so this table matches the crosswalk in the appendix rather than duplicating it.
 
-### 4.6.16 Field Note - Follow the Administrative Pathway Backward
+### 4.6.26 Field Note - Follow the Administrative Pathway Backward
 
 When evaluating a high-value identity system, begin with the system and work backward.
 
@@ -770,7 +893,7 @@ Defenders should find them first.
 > _Eleven days. On the twelfth, someone with real authority connected to troubleshoot a certificate problem, and every control they had bought that year became decoration, because the environment they trusted was already mine. It had been mine. I didn't crack anything. I didn't need to spend wads of cash on an expensive zero-day from the dark web or vanilla-net hacker forum. I needed them to keep doing their jobs the way they always had._\
 > _That is the part defenders underestimate. I am not fighting your strongest control. I am standing behind it, holding the door._
 
-### 4.6.17 Chapter Summary
+### 4.6.27 Adopting the CSP as an Attack Pathway Management Routine Discipline
 
 The clean source principle is therefore not a workstation-hardening recommendation. It is a method for discovering the true perimeter of administrative authority. Applied correctly, it exposes hidden Tier 0 systems, unsafe credential placements, untrusted deployment chains and pipelines, out-of-band control pathways, hybrid identity inversions, and recovery dependencies that ordinary identity diagrams fail to show.
 
@@ -780,17 +903,300 @@ The security boundary does not end at the domain controller, the Certificate Aut
 
 It ends at the least-trusted system still capable of changing them.
 
-### 4.6.18 Chapter Concepts Review
+### **4.6.28 From Principle to Practice** <a href="#conclusion-from-principle-to-practice" id="conclusion-from-principle-to-practice"></a>
 
+The Clean Source Principle gives us a simple but powerful lens: security dependencies must be as trustworthy as the objects they secure. When that rule is violated, attack paths emerge. Our exploration of GitHub, Entra, and Active Directory shows how easily these violations occur, and how they compound across platforms.
 
+The lesson is clear: you cannot treat identity risk as a one-time project or as a siloed control. Dependencies are structural. They evolve as your platforms evolve, and they re-emerge wherever trust is concentrated. Hardening alone will never be enough, and you cannot even see these security dependencies without the visibility that BloodHound provides.
 
+This is why **Attack Path Management must be treated as a practice.** Like vulnerability management or detection engineering, it is not a box to check, it is a discipline that requires visibility, prioritization, and continual validation. Our Attack Path Management maturity model makes this explicit: organizations must progress from simply seeing attack paths, to understanding their dependencies, to actively constraining and removing them as part of routine operations.
 
+BloodHound OpenGraph provides the foundation for this practice. It surfaces both intra- and inter-platform dependencies, reveals hybrid attack paths that no human could model alone, and ensures that as the identity ecosystem shifts, defenders are never blind to the new leviathan.
 
+The time to build this practice is now. Attackers are already exploiting hybrid paths; every dependency you fail to see is one they will. By adopting Attack Path Management as a routine discipline, agencies and commands can finally get ahead of this structural problem, cut off entire classes of attack, and take control of their own identity risk.
 
+### 4.6.29 Section 4.6 Key Concepts Review
 
+* Administration is a trust relationship. When one system can configure, repair, deploy to, virtualize, backup, restore, or attest another, the target's security then depends on the source caller's.
+* A system must not be administered from a security context less trustworthy than the system being administered. That is the Clean Source Principle in one sentence.
+* Model the environment as a directed control graph. Draw an edge wherever A can change B is or what B believes, then treat tiering as a question of reachability.
+* Tier follows effective control, not group membership, job title, or product category. A backup platform that can restore the `NTDS.dit` file is Tier 0 regardless of what the asset inventory calls it.
+* The hazard is not a large Tier 0. The hazard is a Tier 0 dependency nobody has recognized as one.
+* Authentication places reusable credential material on the destination host. Ask where privileged accounts _have authenticated_, not only where they are _supposed to work_.
+* Strong authentication defeat credential duplication, not session abuse. Phishing-resistant MFA does not remove the requirement for a trustworthy administrative endpoint.
+* Software, firmware, out-of-band interfaces, and hybrid synchronization all carry authority into Tier 0 without a human login. Each is an administrative pathway.
+* People are nodes in the graph. The device holding the second factor, the administrator's ordinary identity, and whoever can reset a privileged account all sit upstream of the root directory.
+* Recovery has its own pedigree. A restore that reinstates adversarial persistence has recovered availability and not trust.
+* The chain must terminate in artifacts verified outside the environment being protected, or everything downstream inherits the trust posture of whatever or whoever built it.
+* The security boundary ends at the least-trusted system still capable of changing the identity authority.
 
+### 4.6.30 Terms Introduced
 
+Clean source principle · control graph · control edge · trust inversion · hidden Tier 0 · credential placement · administrative dependency · inheritance · service restoration versus trust restoration · clean source bootstrap
 
+### 4.6.31 Section 4.6 Basic Review Questions
 
+_Answers are found in the subsection noted after each question._
 
+1. State the clean source principle in one sentence, and explain why the security of a domain controller can depend on a system that holds no directory permissions at all. (§4.6)
+2. Name four of the eight control-edge types, and give an example of a product or platform that typically holds each one over a domain controller. (§4.6.1)
+3. Define a trust inversion. Why is an inversion more useful to an attacker than a vulnerability or a zero-day in the target itself? (§4.6.1)
+4. A domain administrator authenticates with a PIV card to a Tier 1 server that is already compromised. Explain what the adversary can do despite the card never leaving the card reader. (§4.6.2)
+5. An account is configured with `Smart Card Required for Interactive Logon`. Why does it still have an NT hash, what makes that hash so dangerous, and what setting causes it to rotate? (§4.6.2)
+6. A backup server holds no privileged group memberships and its administrators cannot open the Active Directory Users and Computers (ADUC) administrative console. Explain why it may still be Tier 0. (§4.6.3)
+7. Name two secrets that are recoverable from a domain controller system-state ackup and that survive a full password reset of every privileged account. (§4.6.3, §4.6.9)
+8. Deny-logon policy is applied so that Tiers 1 and 2 accounts cannot log on to Tier 0 systems. Whivh half of the control is missing, and what attack does the missing half prevent? (§4.6.4)
+9. Why is the directory synchronization server a Tier 0 asset, and name two other hybrid components that hold an identity-issuance edge. (§4.6.5)
+10. Explain how write access to a file share can be equivalent to code execution on a domain controller. (§4.6.6)
+11. A domain controller that is fully STIG-compliant, patched, and hardened can still be authenticated to by an attacker. Describe two ways an adversary can read its `NTDS.dit` without authenticating to Windows at all. (§4.6.7)
+12. Distinguish service restoration from trust restoration. Give two artifacts that a successful restore can reinstate on the adversary's behalf. (§4.6.9)
+13. Every clean source depends on a cleaner source. Explain how the chain terminates without regressing forever. (§4.6.10)
+14. Why is "Tier 0 consists of the members of the Domain Admins, Enterprise Admins, and Schema Admins groups" an inadequate definition? (§4.6.3, §4.6.12)
 
+### 4.6.32 Deep-Dive Review Questions (Q\&A)
+
+_Use these open-ended and scenario-based questions for review or self-study to better help you apply these concepts critically._
+
+**Q1: Define the Clean Source Principle (CSP) using the concept of security dependencies.**
+
+* **Answer:** CSP dictates that an object's security is only as strong as the security of all its dependencies. A "security dependency" exists if an entity can control, modify, or compromise another entity. Under CSP, highly trusted systems (e.g., Tier 0 assets like Domain Controllers) must only have security dependencies that are _equally or more trusted_ than themselves. If a Tier 0 asset relies on a lower-security system (e.g., a standard workstation), that lower system becomes a hidden backdoor into the core identity infrastructure.
+
+**Q2: Scenario: An Active Directory administrator routinely logs into a standard receptionist workstation using their Domain Admin account to troubleshoot a local software issue. Explain how this violates the Clean Source Principle.**
+
+* **Answer:** This violates CSP because it creates a reverse security dependency where a Tier 0 asset (Domain Admin credentials) relies on the integrity of a Tier 2 asset (the receptionist’s workstation). If the workstation is infected with malware, an attacker can use tools to extract the Domain Admin’s credentials or Kerberos tickets straight from memory. The administrator has effectively allowed a lower-trust system to dictate the security of the highest-trust system in the organization.
+
+**Q3: What role do Secure Administrative Workstations (SAWs) or Privileged Access Workstations (PAWs) play in upholding CSP?**
+
+* **Answer:** Secure Admin Workstations (SAWs) or PAWs serve as the _only_ "clean source" from which privileged administrative actions can be initiated. By enforcing a rule where directory administration can only happen from hardened, internet-restricted, and strictly monitored devices, organizations ensure that the administrative session is not exposed to common vectors like phishing or web-based malware. This isolates Tier 0 administrative tasks from lower-trust user environments.
+
+**Q4: How does a Tiered Administration Model align with the Clean Source Principle?**
+
+*   **Answer:** The Microsoft Tiered Administration Model splits an environment into strict security boundaries:
+
+    * **Tier 0:** Identity systems (Domain Controllers, PKI, identity management tools).
+    * **Tier 1:** Enterprise servers, cloud applications, and databases.
+    * **Tier 2:** End-user devices (workstations, laptops, printers).
+
+    This aligns with CSP by strictly banning credentials and administrative access from mixing across tiers. High-tier accounts are blocked from logging into lower-tier assets, preventing lateral movement and credential theft from weaker sources.
+
+### 4.6.33 Section 4.6 Question & Answer (Q\&A) Review
+
+_Answers are found at the end of this section._
+
+1. **What is the fundamental objective of the Clean Source Principle?**
+
+* [ ] A. To ensure that all user accounts are periodically audited and purged if inactive for over 90 days.
+* [ ] B. To guarantee that administrative tools, operatingsystems, and deployment media used for Tier 0 assets originate from a known, trusted, and uncompromised state.
+* [ ] C. To automatically clea and sanitize the Active Directory database (`NTDS.dit`) of dangling SIDs and orphaned domain objects.
+* [ ] D. To restrict standard users from accessing domain controllers via network shares.<br>
+
+2. **In the framework of the Clean Source Principle, why are downstream security dependencies (such as third-party software repositories or master virtual machine images) considered critical vectors of compromise?**
+
+* [ ] A. They increase the replication traffic between domain controllers across Wide Area Network (WAN) links.
+* [ ] B. They cause Kerberos Ticket Granting Service (TGS) request failures due to mismatched encryption types.
+* [ ] C. They prevent Active Directory from validating LDAP bindings against external identity providers.
+* [ ] D. They can introduce supply-chain vulnerabilities or hidden modifications that bypass local security boundaries during initial deployment.<br>
+
+3. **How does the Clean Source Principle apply when deploying management tools or Group Policy Objects (GPOs) from Tier 1 (Server Administration) to Tier 0 (Enterprise Administration)?**
+
+* [ ] A. Tier 0 assets must never rely on trust tools, management stations, or configurations managed by a lower tier (Tier 1 or Tier 2), as a compromise in a lower tier invalidates the higher tier.
+* [ ] B. Tier 1 assets are allowed to manage Tier 0 assets as long as multi-factor authentication is enforced.
+* [ ] C. Tier 0 and Tier 1 can share the same administrative sign-on credentials to streamline operational efficiency.
+* [ ] D. Tier 1 resources can override Tier 0 Access Control Lists (ALCs) if authorized by a Domain Admin.<br>
+
+4. **If an organization fails to enforce the Clean Source Principle on standard IT workstations used by helpdesk staff, how does this directly facilitate lateral movement by an attacker?**
+
+* [ ] A. It forces domain controllers to disable Server Message Block (SMB) signing, exposing them to NTLM relay attacks.
+* [ ] B. It allows attackers to spoof DNS records and redirect replication traffic to a rogue domain controller.
+* [ ] C. It enables attackers who compromise a lower-privilege machine to harvest privileged credentials (e.g., via memory dumping or keyloggers) used during administrative sessions on that machine.
+* [ ] D. It causes the Key Distribution Center (KDC) to issue over-privileged golden tickets automatically.<br>
+
+5. **What makes a Privileged Access Workstation / Secure Administrative Workstation (PAW/SAW) a direct implementation of the Clean Source Principle for Tier 0 administrators?**
+
+* [ ] A. It automatically wipes and reinstalls its operating system every 24 hours using a local recovery partition.
+* [ ] B. It runs an immutable, strictly controlled operating system with no internet borwsing or general email access, ensi=uring the environment remains untainted by external threats.
+* [ ] C. It uses biometric authentication that bypasses Active Directory's Kerberos verification completely.
+* [ ] D. It encrypts the NTDS.dit file locally on the workstation to prevent offline cracking.
+
+***
+
+### 4.6.34 Applied Exercise - Meridian Component
+
+Meridian Component operates a single-domain forest with four domain controllers for redundancy. Its architecture documentation records the following.
+
+{% hint style="info" %}
+The domain controllers run as virtual machines (VMs) on the general-purpose Hyper-V cluster, administered by the server operations team. That cluster's hosts are Dell servers whose iDRAC interfaces sit on a management Virtual Local Area Network (VLAN) that is reachable from the operations team's standard desktops, using a shared credential documented in the team's runbook.\
+\
+Six Domain Admin accounts exist. Their holders connect through a hardened jump host, reaching it via Remote Desktop Protocol (RDP) from their ordinary enterprise user workstations. Two privileged access workstations (PAW/SAW) were procured last year and enrolled in the enterprise endpoint management system alongside all 4,000 user devices.\
+\
+Backups are handled by an enterprise platform whose agent runs under a service account added to Domain Admins during the 2019 installation (it is current 2026). Assured Compliance Assessment Scanner (ACAS) credentialed scanning uses a separate account holding local administrator rights on all servers, including the domain controllers. Entra Connect runs on a member server built from the standard server image and patched on the server team's monthly cycle.\
+\
+The Backup & Disaster Recovery Plan (BDRP) calls for restoring domain controllers from the most recent system-state backup, verifying replication, and returning the forest to complete functional service.
+{% endhint %}
+
+15. Draw the control graph for one domain controller. Identify every node holding an edge into it and label the edge type.
+16. Identify at least six trust inversions in this environment. For each, state which upstream node is less protected than the asset it can reach.
+17. Which single change would remove the most inversions for the least cost, and why?
+18. The BDRP is executed after a confirmed Domain Admin compromise. State what the restored forest still contains, and what steps are missing.
+
+### 4.6.35 Answer Key - Meridian Component Applied Exercise
+
+> 15. **At minimum:** the Hyper-V cluster and its management platform (platform control); the iDRAC interfaces and anyone who can reach the management VLAN (platform control); the enterprise endpoint management system (code execution, via the PAW/SAWs and any managed Tier 0 host); the jump host and the ordinary user workstations upstream of it (human control, credential placement); the backup platform and its service account (state restoration, secret recovery); the ACAS scanner and its stored credentials (secret recovery, code execution); Entra Connect (secret recovery, identity issuance); and the server operations, backup, scanning, and endpoint teams as human nodes upstream of each.
+
+> 16. **Six or more of:** (a) domain controllers on a shared hypervisor administered by a Tier 1 team - platform control without Tier0governance; (b) iDRAC on a reachable VLAN with a shared credential - below-OS access from ordinary desktops; (c) the jump host reached from unmanaged user workstations - the hardened host inherits its callers' trust posture/level; (d) PAW/SAWs enrolled in the enterprise endpoint management system - Tier 2 management holding code execution on Tier 0 devices; (e) the backup service account in Domain Admins - a permanent Tier 0 edge purchased for installation convenience; (f) ACAS credentials with local administrator rights on domain controllers - one appliance storing credentials that yield Tier 0; (g) Entra Connect on a Tier 1 baseline and patching cycle while holding directory-write authority.
+
+> 17. Credential containment, per §4.6.13 - deny-logon policy in both directions plus dedicated administrative endpoints not managed by the enterprise system. It is policy rather than procurement, it removes inversions (c), (d), and much of the exposure created by (e) and (f), and it does not depend on finding a separate hypervisor cluster. Removing the backup service account from Domain Admins is the single cheapest individual fix and should accompany it.
+
+> 18. The restored forest contains whatever persistence existed at backup time: attacker-created ACLs and delegation, modified GPO content, `AdminSDHolder` changes, unauthorized group membership, and issued certificates. It also restores the `krbtgt` keys as they existed at backup, so any previously extracted key material remains valid for ticket forgery, and the domain DPAPI backup key is unchanged.\
+>     \
+>     **Missing Steps:**
+>
+> * establishing trusted administrative devices and credentials before the rebuild;
+> * validating the backup's integrity and the trustworthiness of the hypervisor receiving it;
+> * double-resetting `krbtgt` inside the recovered boundary with replication convergence between resets;
+> * reviewing and reissuing certificates;
+> * rotating service and computer account secrets.
+>
+> The plan restores availability and asserts nothing about trust.
+
+***
+
+### 4.6.36 Answer Key for Questions & Answers (Q\&A) Review
+
+1. **What is the fundamental objective of the Active Directory "Clean Source Principle"?**
+
+{% hint style="danger" %}
+A. To ensure that all user accounts are periodically audited and purged if inactive for over 90 days.\
+\
+Incorrect. Inactive account management is part of lifecycle hygiene, but the Clean Source Principle specifically targets the integrity of security tools, deployment media, and operational environments rather than account inactivity lifecycles.
+{% endhint %}
+
+{% hint style="success" %}
+**B. To guarantee that administrative tools, operating systems, and deployment media used for Tier 0 assets originate from a known, trusted, and uncompromised state.**\
+\
+**Correct!** The Clean Source Principle dictates that nothing used to manage, build, or deploy high-privilege assets can be trusted if it has passed through or originated from an untrusted or contaminated environment.
+{% endhint %}
+
+{% hint style="danger" %}
+C. To automatically clean and sanitize the Active Directory database (`NTDS.dit`) of dangling SIDs and domain orphaned objects.\
+\
+Incorrect. Sanitizing the `NTDS.dit` database relates to garbage collection and metadata cleanup, not the architectural philosophy of sourcing trusted administrative components.
+{% endhint %}
+
+{% hint style="danger" %}
+D. To restrict standard users from accessing domain controllers via network shares.\
+\
+Incorrect. Restricting network access is a general hardening measure (access control), whereas the Clean Source Principle focuses on the integrity of the origin of administrative tools and systems.
+{% endhint %}
+
+***
+
+2. **In the framework of the Clean Source Principle, why are downstream security dependencies (such as third-party software repositories or master virtual machine images) considered critical vectors of compromise?**
+
+{% hint style="danger" %}
+A. They increase the replication traffic between domain controllers across Wide Area Network (WAN) links.\
+\
+Incorrect. WAN replication traffic is an infrastructure/topology concern and does not directly relate to the conceptual security compromise vectors addressed by the Clean Source Principle.
+{% endhint %}
+
+{% hint style="danger" %}
+B. They cause Kerberos ticket-granting service (TGS) request failures due to mismatched encryption types.\
+\
+Incorrect. Kerberos encryption mismatches are configuration or functional issues, not a core vector of compromise under the Clean Source framework.
+{% endhint %}
+
+{% hint style="danger" %}
+C. They prevent Active Directory from validating LDAP bindings against external identity providers.\
+\
+Incorrect. LDAP binding validation issues stem from protocol or trust configurations, rather than the integrity of source assets and dependencies.
+{% endhint %}
+
+{% hint style="success" %}
+**D. They can introduce supply-chain vulnerabilities or hidden modifications that bypass local security boundaries during initial deployment.**\
+\
+**Correct!** If a dependency or base blueprint used to construct systems is tainted upstream, all downstream builds inherit that compromise, rendering local security controls ineffective.
+{% endhint %}
+
+***
+
+3. **How does the Clean Source Principle apply when deploying management tools or group policy objects (GPOs) from Tier 1 (Server Administration) to Tier 0 (Enterprise Administration)?**
+
+{% hint style="success" %}
+**A. Tier 0 assets must never rely on or trust tools, management stations, or configurations managed by a lower tier (Tier 1 or Tier 2), as a compromise in a lower tier invalidates the higher tier.**\
+\
+**Correct!** Tiering relies on unidirectional trust. A lower tier cannot be a "clean source" for a higher tier because any breach at Tier 1 or Tier 2 would automatically compromise Tier 0.
+{% endhint %}
+
+{% hint style="danger" %}
+B. Tier 1 assets are allowed to manage Tier 0 assets as long as multi-factor authentication is enforced.\
+\
+Incorrect. MFA mitigates credential theft, but it does not alter the architectural reality that trusting a lower tier violates the isolation required by the Clean Source and Tiering principles.
+{% endhint %}
+
+{% hint style="danger" %}
+C. Tier 0 and Tier 1 can share the same administrative sign-on credentials to streamline operational efficiency.\
+\
+Incorrect. Sharing credentials across tiers completely destroys the tiering boundary, allowing a Tier 1 compromise to instantly translate into Enterprise Admin control.
+{% endhint %}
+
+{% hint style="danger" %}
+D. Tier 1 resources can override Tier 0 access control lists if authorized by a Domain Admin.\
+\
+Incorrect. Tier 0 represents the absolute top of the enterprise security boundary; lower tiers cannot override or manage Tier 0 components.
+{% endhint %}
+
+***
+
+4. **If an organization fails to enforce the Clean Source Principle on standard IT workstations used by helpdesk staff, how does this directly facilitate lateral movement by an attacker?**
+
+{% hint style="danger" %}
+A. It forces domain controllers to disable SMB signing, exposing them to NTLM relay attacks.\
+\
+Incorrect. Workstation management hygiene does not dynamically alter domain controller SMB signing configurations.
+{% endhint %}
+
+{% hint style="danger" %}
+B. It allows attackers to spoof DNS records and redirect replication traffic to a rogue domain controller.\
+\
+Incorrect. DNS security relies on zone protection, secure dynamic updates, and proper access controls on DNS servers, not the cleanliness of a helpdesk workstation source.
+{% endhint %}
+
+{% hint style="success" %}
+**C. It enables attackers who compromise a lower-privilege machine to harvest privileged credentials (e.g., via memory dumping or keyloggers) used during administrative sessions on that machine.**\
+\
+**Correct!** Logging into an unclean or compromised workstation exposes administrative credentials to memory scrapers, allowing attackers to escalate privilege and move laterally.
+{% endhint %}
+
+{% hint style="danger" %}
+D. It causes the Key Distribution Center (KDC) to issue over-privileged golden tickets automatically.\
+\
+Incorrect. Golden tickets require compromise of the krbtgt account hash, which is independent of helpdesk workstation configurations.
+{% endhint %}
+
+***
+
+5. **What makes a Privileged Access Workstation (PAW) a direct implementation of the Clean Source Principle for Tier 0 administrators?**
+
+{% hint style="danger" %}
+A. It automatically wipes and reinstalls its operating system every 24 hours using a local recovery partition.\
+\
+Incorrect. While dynamic rebuilding is a great security practice, PAWs achieve their clean source status through hardware isolation, strict lockdown, and preventing general usage, not necessarily a 24-hour wipe cycle.
+{% endhint %}
+
+{% hint style="success" %}
+**B. It runs an immutable, strictly controlled operating system with no internet browsing or general email access, ensuring the environment remains untainted by external threats.**\
+\
+**Correct!** PAW/SAWs implement the Clean Source Principle by separating day-to-day productivity tasks (where compromise typically occurs) from high-privilege management tasks.
+{% endhint %}
+
+{% hint style="danger" %}
+C. It uses biometric authentication that bypasses Active Directory's Kerberos verification completely.\
+\
+Incorrect. PAW/SAWs still utilize secure authentication protocols like Kerberos or smart cards; they do not bypass AD authentication.
+{% endhint %}
+
+{% hint style="danger" %}
+D. It encrypts the NTDS.dit file locally on the workstation to prevent offline cracking.\
+\
+Incorrect. The NTDS.dit database resides on domain controllers, not locally on a Privileged Access Workstation.
+{% endhint %}
