@@ -1,0 +1,25 @@
+# Hackers are Here to Stay
+
+Hackers Are Here To Stay
+
+The explosive growth of the Internet has reigned down upon us many a nice thing: e-commerce, easy access to a vast amount of stores and caches of reference materials, collaborative computing, email, instant messaging, virtual reality, and new avenues for advertising and information distribution and dissemination, to name a few. As with most technological advancements, there also comes a bad side: cybercriminals and malicious hackers. Governments, companies, and private citizens around the world are anxious to be a part of this revolution, but they are afraid that some malicious hacker will break into their web servers and replace their professional logos with pornography and lewd materials, read their emails, steal their credit card and most personal information. The list of concerns is to exhaustive to list here in this context, but one thing remains for sure is that with these concerns and others, ethical hackers are here to stay and they’re here to help.
+
+The term “hacker” itself has been programmed into the general population’s mindset to be associated with negative connotations, crime, disruption, and trouble. The term has always been a double-edged sword; a term that carries dual usage in the computer industry as we know it today. Originally, the term was defined as:
+
+**HACKER&#x20;**_**noun.**_**&#x20;1.** A person who enjoys learning the details of computing and computer systems and how to stretch their capabilities – as opposed to most users of computers, who prefer to learn only the minimum amount necessary. 2. One who programs enthusiastically or who enjoys programming rather than just theorizing about programming.
+
+This complimentary description was often extended to the verb form _“hacking,”_ which was used to describe the “rapid crafting of a new program or the making of changes to existing, usually complicated software.”
+
+Occasionally the less talented, or less careful, intruders would accidentally bring down a system or damage its filesystem, leaving system and network administrators and engineers to remediate the situation promptly. Other times, when these intruders were again denied access once their unauthorized activities were discovered, they would react with purposefully destructive actions. When the number of these destructive computer intrusions and breaches became noticeable, due to the visibility of the system or to the extent of the damage inflicted, it became mainstream “news” and the news media picked up on related stories. Instead of using the more accurate term of, oh maybe, I don’t know, a computer **criminal**, the media, not knowing any better, paired probably the only phrase they knew that meant to describe an entity + computers; therefore, hacker was paired with both the good and the bad. Like the homage goes: one spoiled apple…
+
+The media begin using the term “hacker” to describe individuals who broke into computers for fun, revenge, or profit. Since calling someone a “hacker” was originally meant as a compliment, computer security professionals prefer to now use the term _**“cracker”**_ or _**“intruder”**_ for those hackers who hack maliciously and with mal intent. Hence, there are two types of hackers, in this sense: “ethical hacker” vs. “unethical hacker.”
+
+What is Ethical Hacking?
+
+With the growth of the Internet, computer security has become a major concern for business and governments. They want to be able to take advantage of the Internet for electronic commerce, advertising information distribution and access, and other pursuits, but they are worried about the possibility of being “hacked.” At the same time, the potential customers of these services are worried about maintaining control of personal in formation that varies from credit card numbers to social security numbers and home addresses.
+
+In their search for a way to approach this problem, organizations came to realize that one of the best ways to evaluate an intrusion, or an intruder’s threat to their interests, would be to have a group of independent computer security professionals attempt to breach their defenses and hack their computer systems. This scheme is similar to having independent auditors come into an organization to verify security control and regulations compliances, or to something as simple as merely verifying bookkeeping records. In the case of computer security, these “tiger teams” or “ethical hackers” would employ the same tools, tactics, techniques, and procedures (TTPs) as adversaries; yet instead of hacking under malicious pretenses, these evaluations were conducted in good faith-target systems are evaluated to test security defenses and implementations, to report findings of weaknesses, flaws, threats, gaps, and vulnerabilities back to senior management and system owners ready to provide them with instructions and recommendations ofr mitigation and remediation.
+
+Who Are Ethical Hackers?
+
+_**“One of the best ways to evaluate the intruder threat is to have an independentS**_

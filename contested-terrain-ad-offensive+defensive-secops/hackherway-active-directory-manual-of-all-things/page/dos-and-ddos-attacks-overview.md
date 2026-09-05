@@ -1,0 +1,9 @@
+# DoS and DDoS Attacks Overview
+
+A denial of service (DoS) attack is designed to overwhelm the resources of a system to the point where it is unable to reply to legitimate service requests. A distributed denial of service (DDoS) attack is similar in that it also seeks to drain the resources of a system. A DDoS attack is initiated by a vast array of malware-infected host machines controlled by the adversary. These are referred to as “denial of service” attacks because the victim site is unable to further provide services to those who want or need to access them.
+
+With a DoS attack, the target site gets flooded with illegitimate requests. Because the site has to respond to each request, its resources get consumed by all the responses. This makes it impossible for the site to serve users as it normally does and often results in a complete shutdown of the site.
+
+DoS and DDoS attacks are different from other types of cyberattacks that enable the hacker to either obtain access to a system or increase the access they currently have. With these types of attacks, the adversary directly benefits from their efforts. With DoS and DDoS network attacks, on the other hand, the objective is simply to interrupt the effectiveness of the target’s service. If the adversary is hired by a business competitor, they may benefit financially from their efforts.
+
+A DoS attack can also be used to create vulnerability for another type of attack. With a successful DoS or DDoS attack, the system often has to come offline, which can leave it vulnerable to other types of attacks. One common way to prevent DoS attacks is to use a firewall that detects whether requests sent to your site are legitimate. Imposter requests can then be discarded, allowing normal traffic to flow without interruption. An example of a major internet attack of this kind occurred in February 2020 to Amazon Web Services (AWS).

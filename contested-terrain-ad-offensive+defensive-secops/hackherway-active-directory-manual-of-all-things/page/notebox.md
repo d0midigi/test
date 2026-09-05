@@ -1,0 +1,5 @@
+# Notebox
+
+Don’t be misled by the abundance of dynamic content seen on the internet today; not everything appears dynamic, even though it might seem that way. There are numerous webpages and pieces of content that remain purely static, relying solely on HTML without employing scripts, shared content, or other methods to personalize the user’s experience. On the flip side, don’t mistake a webpage’s lack of special formatting or interactivity for being static – there might still be background or backend scripting at work that isn’t immediately apparent.
+
+As we move forward with the following chapters, examining the source code of the webpages you visit can reveal much about the nature of the content you’re interacting with. This insight aids in understanding whether the content is static or dynamic. This examination can be easily performed directly from your web browser. Additionally, paying attention to the URLs you navigate can provide clues , as some URLs disclose CGI or other directional information, offering deeper insights into the context you’re engaging with.
