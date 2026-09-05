@@ -1,0 +1,31 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: "Contested Terrain: AD Offensive+Defensive SecOps"
+  structure:
+    - type: section
+      key: section-1
+      title: "Contested Terrain: AD Offensive+Defensive SecOps"
+      path: contested-terrain-ad-offensive+defensive-secops
+      description: ""
+      default: true
+      children:
+        - type: space
+          key: space-1
+          title: hackherway active directory manual of all things
+          path: hackherway-active-directory-manual-of-all-things
+          default: true
+          content:
+            directory: ./contested-terrain-ad-offensive+defensive-secops/hackherway-active-directory-manual-of-all-things
+    - type: section
+      key: section-2
+      title: Roadmap
+      path: roadmap
+      children:
+        - type: space
+          key: space-2
+          title: Roadmap
+          path: product-docs
+          default: true
+          draft: true
+          content:
+            directory: ./ficam
