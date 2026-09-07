@@ -2,6 +2,7 @@
 description: >-
   React to deploys, comments, and external events with workflows that run on the
   platform.
+hidden: true
 ---
 
 # ❌ Chapter 9 - Lateral Movement and Identity Mobility

@@ -3,7 +3,7 @@ description: Definitions of terms you'll encounter in the docs and dashboard.
 icon: bookmark
 ---
 
-# Additional Appendices
+# Definitions of Terms / Glossary
 
 Plain-language definitions of terms used across the platform. Click any entry to expand it.
 
@@ -67,7 +67,7 @@ The set of variables, secrets, and configuration that applies when your project 
 
 <summary><strong>Guest</strong></summary>
 
-A workspace role that can view published deploys but nothing else. Guests don't count towards your member limit. See [Broken link](/broken/pages/fb922e107b31a3e9e9fcf81410029e993b0a9afc "mention").
+A workspace role that can view published deploys but nothing else. Guests don't count towards your member limit.
 
 </details>
 

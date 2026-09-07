@@ -2,6 +2,7 @@
 description: >-
   React to deploys, comments, and external events with workflows that run on the
   platform.
+hidden: true
 ---
 
 # ❌ Chapter 10 - Persistence and Domain Dominance

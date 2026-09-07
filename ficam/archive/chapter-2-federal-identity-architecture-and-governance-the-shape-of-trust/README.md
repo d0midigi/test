@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ❌ Chapter 2 - Federal Identity Architecture and Governance: The Shape of Trust
 
 ### Abstract

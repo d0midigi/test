@@ -4,14 +4,39 @@
   * [Canonical Blueprint](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/canonical-blueprint.md)
   * [Author Notes](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/author-notes/README.md)
     * [Author Notes - Random Thoughts I Want to Remember](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/author-notes/author-notes-random-thoughts-i-want-to-remember.md)
-  * [Running Table of Contents](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/running-table-of-contents/README.md)
-    * [Compact Running Table of Contents](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/running-table-of-contents/compact-running-table-of-contents.md)
+  * [Definitions of Terms / Glossary](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/definitions-of-terms-glossary.md)
   * [Glossary](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/glossary.md)
   * [📝 Additional Writeups-Possible Sections?](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/README.md)
     * [Active Directory Attack Playbook](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/active-directory-attack-playbook.md)
     * [Federal Cybersecurity ICAM Governance](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/federal-cybersecurity-icam-governance.md)
     * [Connecting a "Dirty Box" to a Federal Environment for AD Posture Assessment / Penetration Test](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/connecting-a-dirty-box-to-a-federal-environment-for-ad-posture-assessment-penetration-test.md)
-  * [Random, But Useful Images For Chapters](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/random-but-useful-images-for-chapters.md)
+    * [Personal Writeups](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/personal-writeups.md)
+  * [Random, But Useful Images For Chapters](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/random-but-useful-images-for-chapters/README.md)
+    * [Book Images](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/random-but-useful-images-for-chapters/book-images.md)
+
+## 📔 Appendices
+
+* [Appendix A: MITRE ATT\&CK Techniques for Active Directory](appendices/appendix-a-mitre-att-and-ck-techniques-for-active-directory.md)
+* [Appendix B: Windows Event Log Reference for Identity Attacks](appendices/appendix-b-windows-event-log-reference-for-identity-attacks.md)
+* [Appendix C: BloodHound Cypher Query Reference](appendices/appendix-c-bloodhound-cypher-query-reference.md)
+* [Appendix D: DISA STIG Quick-Mapping for AD Security](appendices/appendix-d-disa-stig-quick-mapping-for-ad-security.md)
+* [Appendix E: Lab Environment Build Guide](appendices/appendix-e-lab-environment-build-guide.md)
+* [Appendix F: PowerShell and Python Tool Reference](appendices/appendix-f-powershell-and-python-tool-reference.md)
+* [Appendix G: Federal Identity and Active Directory Glossary](appendices/appendix-g-federal-identity-and-active-directory-glossary.md)
+* [Defensive and Architecture Appendices](appendices/defensive-and-architecture-appendices/README.md)
+  * [Appendix X: DISA STIG & CIS Benchmark Mapping Matrix](appendices/defensive-and-architecture-appendices/appendix-x-disa-stig-and-cis-benchmark-mapping-matrix.md)
+  * [Appendix X: FICAM / DoD ICAM Compliance Mapping](appendices/defensive-and-architecture-appendices/appendix-x-ficam-dod-icam-compliance-mapping.md)
+  * [Appendix X: PKI & PIV/CAC Integration Reference Architecture](appendices/defensive-and-architecture-appendices/appendix-x-pki-and-piv-cac-integration-reference-architecture.md)
+  * [Appendix X: Hardened GPO Baseline Templates](appendices/defensive-and-architecture-appendices/appendix-x-hardened-gpo-baseline-templates.md)
+  * [Appendix X: Tiered Administration Model Architecture](appendices/defensive-and-architecture-appendices/appendix-x-tiered-administration-model-architecture.md)
+* [Offensive and Assessment Appendices](appendices/offensive-and-assessment-appendices/README.md)
+  * [Appendix X: Threat Modeling & MITRE ATT\&CK Mapping](appendices/offensive-and-assessment-appendices/appendix-x-threat-modeling-and-mitre-att-and-ck-mapping.md)
+  * [Appendix X: Allowed and Blocked Tools and Scripts Inventory](appendices/offensive-and-assessment-appendices/appendix-x-allowed-and-blocked-tools-and-scripts-inventory.md)
+  * [Appendix X: Compromise Assessment Checklist](appendices/offensive-and-assessment-appendices/appendix-x-compromise-assessment-checklist.md)
+* [Operational & Telemetry Appendices](appendices/operational-and-telemetry-appendices/README.md)
+  * [Appendix X: Advanced Audit Policy Configuration & SIEM Ingestion Guide](appendices/operational-and-telemetry-appendices/appendix-x-advanced-audit-policy-configuration-and-siem-ingestion-guide.md)
+  * [Appendix X: Active Directory Disaster Recovery (ADDR) Playbook](appendices/operational-and-telemetry-appendices/appendix-x-active-directory-disaster-recovery-addr-playbook.md)
+  * [Appendix X: Data Dictionary & Custom Schema Extensions](appendices/operational-and-telemetry-appendices/appendix-x-data-dictionary-and-custom-schema-extensions.md)
 
 ## 📕 Part I - Reader Orientation, Identity, and The Federal Mission
 
@@ -2334,41 +2359,13 @@
 * [Chapter 99 - Active Directory Object Deletion, Tombstone Reanimation, Lingering Objects, and Replication Residue Abuse (Offensive)](part-vii-operational-lessons-and-the-future/chapter-99-active-directory-object-deletion-tombstone-reanimation-lingering-objects-and-replication.md)
 * [Chapter 100 - Built-In Privileged Group Exploitation, Operator Rights, and Hidden Administrative Escalation (Offensive)](part-vii-operational-lessons-and-the-future/chapter-100-built-in-privileged-group-exploitation-operator-rights-and-hidden-administrative-escalat.md)
 
-## 📔 Appendices
-
-* [Appendix A: MITRE ATT\&CK Techniques for Active Directory](appendices/appendix-a-mitre-att-and-ck-techniques-for-active-directory.md)
-* [Appendix B: Windows Event Log Reference for Identity Attacks](appendices/appendix-b-windows-event-log-reference-for-identity-attacks.md)
-* [Appendix C: BloodHound Cypher Query Reference](appendices/appendix-c-bloodhound-cypher-query-reference.md)
-* [Appendix D: DISA STIG Quick-Mapping for AD Security](appendices/appendix-d-disa-stig-quick-mapping-for-ad-security.md)
-* [Appendix E: Lab Environment Build Guide](appendices/appendix-e-lab-environment-build-guide.md)
-* [Appendix F: PowerShell and Python Tool Reference](appendices/appendix-f-powershell-and-python-tool-reference.md)
-* [Appendix G: Federal Identity and Active Directory Glossary](appendices/appendix-g-federal-identity-and-active-directory-glossary.md)
-* [Defensive and Architecture Appendices](appendices/defensive-and-architecture-appendices/README.md)
-  * [Appendix X: DISA STIG & CIS Benchmark Mapping Matrix](appendices/defensive-and-architecture-appendices/appendix-x-disa-stig-and-cis-benchmark-mapping-matrix.md)
-  * [Appendix X: FICAM / DoD ICAM Compliance Mapping](appendices/defensive-and-architecture-appendices/appendix-x-ficam-dod-icam-compliance-mapping.md)
-  * [Appendix X: PKI & PIV/CAC Integration Reference Architecture](appendices/defensive-and-architecture-appendices/appendix-x-pki-and-piv-cac-integration-reference-architecture.md)
-  * [Appendix X: Hardened GPO Baseline Templates](appendices/defensive-and-architecture-appendices/appendix-x-hardened-gpo-baseline-templates.md)
-  * [Appendix X: Tiered Administration Model Architecture](appendices/defensive-and-architecture-appendices/appendix-x-tiered-administration-model-architecture.md)
-* [Offensive and Assessment Appendices](appendices/offensive-and-assessment-appendices/README.md)
-  * [Appendix X: Threat Modeling & MITRE ATT\&CK Mapping](appendices/offensive-and-assessment-appendices/appendix-x-threat-modeling-and-mitre-att-and-ck-mapping.md)
-  * [Appendix X: Allowed and Blocked Tools and Scripts Inventory](appendices/offensive-and-assessment-appendices/appendix-x-allowed-and-blocked-tools-and-scripts-inventory.md)
-  * [Appendix X: Compromise Assessment Checklist](appendices/offensive-and-assessment-appendices/appendix-x-compromise-assessment-checklist.md)
-* [Operational & Telemetry Appendices](appendices/operational-and-telemetry-appendices/README.md)
-  * [Appendix X: Advanced Audit Policy Configuration & SIEM Ingestion Guide](appendices/operational-and-telemetry-appendices/appendix-x-advanced-audit-policy-configuration-and-siem-ingestion-guide.md)
-  * [Appendix X: Active Directory Disaster Recovery (ADDR) Playbook](appendices/operational-and-telemetry-appendices/appendix-x-active-directory-disaster-recovery-addr-playbook.md)
-  * [Appendix X: Data Dictionary & Custom Schema Extensions](appendices/operational-and-telemetry-appendices/appendix-x-data-dictionary-and-custom-schema-extensions.md)
-
-## 📔 Source Material
-
-* [Book Images](source-material/book-images.md)
-* [Personal Writeups](source-material/personal-writeups.md)
-* [Additional Appendices](source-material/additional-appendices.md)
-
 ***
 
 * [🗃️ ARCHIVE](archive/README.md)
   * [❌ Chapter 1 - Identity Control Plane as a Battlefield](archive/chapter-1-identity-control-plane-as-a-battlefield.md)
-  * [❌ Chapter 2 - Federal Identity Architecture and Governance: The Shape of Trust](archive/chapter-2-federal-identity-architecture-and-governance-the-shape-of-trust.md)
+  * [❌ Chapter 2 - Federal Identity Architecture and Governance: The Shape of Trust](archive/chapter-2-federal-identity-architecture-and-governance-the-shape-of-trust/README.md)
+    * [Running Table of Contents](archive/chapter-2-federal-identity-architecture-and-governance-the-shape-of-trust/running-table-of-contents/README.md)
+      * [Compact Running Table of Contents](archive/chapter-2-federal-identity-architecture-and-governance-the-shape-of-trust/running-table-of-contents/compact-running-table-of-contents.md)
   * [❌ Chapter 3 - The Network Substrate of Identity Trust](archive/chapter-3-the-network-substrate-of-identity-trust.md)
   * [❌ Chapter 4 - Federal Governance, Assurance, and Identity Accountability](archive/chapter-4-federal-governance-assurance-and-identity-accountability.md)
   * [❌ Chapter 5 - Authentication, Authorization, and the Exercise of Trust](archive/chapter-5-authentication-authorization-and-the-exercise-of-trust.md)

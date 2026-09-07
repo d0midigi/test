@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ❌ Chapter 4 - Federal Governance, Assurance, and Identity Accountability
 
 ### Abstract

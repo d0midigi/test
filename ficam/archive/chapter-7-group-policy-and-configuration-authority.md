@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ❌ Chapter 7 - Group Policy and Configuration Authority
 
 ### Abstract

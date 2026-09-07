@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ❌ Chapter 1 - Identity Control Plane as a Battlefield
 
 ## Part I - Foundations and Terrain

@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ❌ Chapter 6 - Directory Authority Boundaries, Forests, Domains, and Trusts
 
 ### Abstract

@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ❌ Chapter 5 - Authentication, Authorization, and the Exercise of Trust
 
 ### Abstract

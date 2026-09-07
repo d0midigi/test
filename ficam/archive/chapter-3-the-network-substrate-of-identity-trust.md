@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ❌ Chapter 3 - The Network Substrate of Identity Trust
 
 ### Abstract
