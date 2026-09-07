@@ -1,0 +1,7 @@
+---
+icon: box-magnifying-glass
+---
+
+# Chapter 25 - Identity Exposure Management, Attack-Surface Prioritization, and Continuous Attack-Path Reduction
+
+Large identity environments rarely fail because of a single isolated misconfiguration. Risk accumulates through exposed identities, excessive privilege, credential placement, administrative dependencies, reachable Tier 0 systems, stale delegation, certificate authority, hybrid identity bridges, and multiple attack paths that converge on the same critical assets. This chapter moves beyond individual attack paths to examine identity exposure as an enterprise-scale security condition. Readers learn to measure privileged reachability, path diversity, choke points, blast radius, shadow authority, credential exposure, administrative concentration, and control-plane dependencies across Active Directory, PKI, Microsoft Entra ID, management systems, and recovery infrastructure. Offensive analysis focuses on identifying exposed starting points and high-leverage relationships that provide reliable routes to mission-relevant authority. Defensive analysis emphasizes systemic remediation, attack-surface reduction, path elimination, prioritization by mission consequence, continuous graph collection, and validation after change. The chapter establishes that effective identity exposure management is not the accumulation of findings; it is the continuous reduction of unnecessary pathways through which an adversary can convert initial access into consequential authority.
