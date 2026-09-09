@@ -14,6 +14,12 @@
   * [Random, But Useful Images For Chapters](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/random-but-useful-images-for-chapters/README.md)
     * [Book Images](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/random-but-useful-images-for-chapters/book-images.md)
 
+## 📚 Part I - Reader Orientation, Federal Mission, Governance, Identity Assurance, and Trust
+
+* [Chapter 1 - The Reader's Guide to the Identity Battlefield](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-1-the-readers-guide-to-the-identity-battlefield.md)
+* [Chapter 2 - Mission Discipline, Ethics, and Operational Responsibility in Federal Cybersecurity](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-2-mission-discipline-ethics-and-operational-responsibility-in-federal-cybersecurity.md)
+* [Chapter 3Federal Identity Architecture, Trust, and Governance Foundations](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-3federal-identity-architecture-trust-and-governance-foundations.md)
+
 ## 📔 Appendices
 
 * [Appendix A: MITRE ATT\&CK Techniques for Active Directory](appendices/appendix-a-mitre-att-and-ck-techniques-for-active-directory.md)
