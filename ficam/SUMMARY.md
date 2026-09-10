@@ -25,6 +25,8 @@
 * [Chapter 4 - The Federal Identity Trust System - Boundaries, Dependencies, and Mission Authority](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-4-the-federal-identity-trust-system-boundaries-dependencies-and-mission-authority.md)
 * [Chapter 5 - Legal Authorities, Federal Policies, and Compliance Mechanics in Federal Identity Governance](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-5-legal-authorities-federal-policies-and-compliance-mechanics-in-federal-identity-governance.md)
 * [Chapter 6 - Federal and DoD Cybersecurity Assessment, Security Assurance, and Mission-Risk Validation](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-6-federal-and-dod-cybersecurity-assessment-security-assurance-and-mission-risk-validation.md)
+* [Chapter 7 - FICAM and FISCAM: From Identity Architecture to Audit Assurance](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-7-ficam-and-fiscam-from-identity-architecture-to-audit-assurance.md)
+* [Chapter 8 - The Risk Management Framework (RMF), Authorization, and Continuous Identity Assurance](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-8-the-risk-management-framework-rmf-authorization-and-continuous-identity-assurance.md)
 
 ## 📔 Appendices
 

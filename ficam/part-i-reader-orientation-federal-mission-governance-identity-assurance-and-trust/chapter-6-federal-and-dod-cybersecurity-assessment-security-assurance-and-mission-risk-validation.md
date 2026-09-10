@@ -331,6 +331,12 @@ Federal and Department of Defense (DoD) cybersecurity assessments differs fundam
 
 * 6.30.1 Translating Threat Intelligence Into Realistic Adversary TTP Scenarios
 * 6.30.2 Scope Boundaries and Rules of Engagement for Emulated Adversarial Attacks
+* 6.30.3 Validating Defensive Detection Horizons and Security Telemetry Coverage
+* 6.30.4 Measuing Incident Response Time, Containment, and Escalation Efficacy
+* 6.30.5 Assessing Privilege Escalation, lateral Movement, and Identity Exploitation
+* 6.30.6 Evaluating Data Exfiltration Vectors and Egress Filtering Controls
+* 6.30.7 Purple-Team Alignment for Collaborative Defensive Rule Calibration
+* 6.30.8 Quantifying Defensive Resilience Against Advanced Persistent Threat (APT) Profiles
 
 ### <mark style="color:$warning;">6.31 Classified and National Security Systems (NSS) Require Additional Assessment Discipline</mark>
 
@@ -460,66 +466,123 @@ Federal and Department of Defense (DoD) cybersecurity assessments differs fundam
 * 6.41.14 Root-Cause Remediation and Path Removal Verification
 * 6.41.15 Defensible Security Assurance Criteria
 
-### 6.42 Federal and DoD Inspection Frameworks: CCRI, CORA, and Readiness Preparation
+### <mark style="color:$warning;">6.42 Federal and DoD Inspection Frameworks: CCRI, CORA, and Readiness Preparation</mark>
 
 * 6.42.1 Evaluating the Shift From Legacy CCRI Checklist Compliance to Threat-Informed Joint Force Headquarters-Department of Defense Information Network (JFHQ-DoDIN) CORA Command Readiness
 * 6.42.2 Assessing Key Indicators of Risk (KIORs) and MITRE ATT\&CK Mapping Under DISA CORA Standards
+* 6.42.3 Differentiating Objective-Based Penetration Testing From Compliance-Driven Operational Inspections
+* 6.42.4 Auditing Orders, Directives, and Policies (ODP) Alignment and Network Disconnection Risk Factors
+* 6.42.5 Evaluating No-Notice Inspection Readiness and Continuous Posture Verification Workflows
+* 6.42.6 Assessing Security Technical Implementation Guide (STIG) and Security Requirements Guide (SRG) Validation Within Inspection Scopes
+* 6.42.7 Auditing Area of Operation (DAO) Boundary Controls and Critical Terrain Asset Identification
+* 6.42.8 Validating Inspection Remediation Action Plans, Finding Appeals, and Re-Inspection Workflows
 
-### Full Chapter Narrative Notes
+### <mark style="color:$warning;">6.43 Automated Vulnerability Assessment Engines: ACAS, SCAP, Nessus, and Baseline Scanners</mark>
 
-### Key Relationships and Responsibilities
+6.43.1 Auditing Assured Compliance Assessment Solution (ACAS) Architecture, Deployment, and Engine Health
+
+6.43.2 Evaluating Security Content Automation Protocol (SCAP) Content Integration and Baseline Accuracy
+
+6.43.3 Assessing Extensible Configuration Checklist Description Format (XCCDF) and OVAL Script Execution
+
+6.43.4 Testing ACAS Continuous Monitoring Feeds, Dashboard Aggregation, and Centralized Reporting
+
+6.43.5 Auditing Passive Network Sensor (PNS) Deployment and Unmanaged or Rogue Asset Discovery Efficacy
+
+6.43.6 Evaluating Vulnerability Engine Patch Management, Plugin Updates, and Database Feed Synchronizations
+
+6.43.7 Assessing Enterprise Scan Engine Performance Tuning, Network Bandwidth Impact, and Scope Limits
+
+6.43.8 Validating Automated Compliance Report Generation and STIG Viewer Integration Protocols
+
+### <mark style="color:$warning;">6.44 Credentialed Versus Non-Credentialed Scanning Mechanics and Vulnerability Analysis</mark>
+
+* 6.44.1 Differentiating Surface Exposure Vectors In Non-Credentialed Scans From Cerdentialed In-Depth Reviews
+* 6.44.2 Managing High-Privilege Scanning Credentials, Service Account Hardening, and Vault Integration
+* 6.44.3 Evaluating Local Host Agent-Based Scanning Architecture Versus Network-Based Probing
+* 6.44.4 Auditing False Positive Identification, Root-Cause Analysis, and Exclusion Documentation
+* 6.44.5 Identifying False Negatives Resulting From Firewall Interference, Rate Limiting, and Probe Drop (Enumeration) Rules
+* 6.44.6 Testing Scanning Tool Interactions with Endpoint Detection and Response (EDR) Defensive Agents
+* 6.44.7 Evaluating Scanning Impact on Legacy Infrastructure, Operational Technology (OT), and Fragile Systems
+* 6.44.8 Validating Re-Testing Protocols, Finding Closure Proof, and Vulnerability Lifecycle Accountability Tracking via POA\&M Management
+
+### <mark style="color:$warning;">6.45 Vulnerability Assessment Constraints In SCIF, Tactical, and Air-Gapped Environments</mark>
+
+* 6.45.1 Designing Vulnerability Assessment Workflows for Sensitive Compartmented Information Facilities (SCIF)
+* 6.45.2 Managing Offline SCAM Compliance Toolkits and Manual Script Execution In Isolated Networks
+* 6.45.3 Evaluating Cross-Domain Data Transfer Rules for Scan Results and Artifact Ingestion
+* 6.45.4 Auditing Offline Vulnerability Database Update Pipelines and Portable Media Import Safeguards
+* 6.45.5 Testing Air-Gapped Active Directory and Directory Service Assessment Methodologies
+* 6.45.6 Assessing Tactical Enclave Scanning Constraints, Low-Bandwidth Limitations, and Intermittent Links
+* 6.45.7 Evaluating Physical Hardware Inspection Requirements, USB Port Enforcement, and Hardware Tamper Checks
+* 6.45.8 Validating Audit Log Retention, Local Evidence Vaulting, and Sanitization in High-Assurance Zones
+
+### <mark style="color:$warning;">6.46 Concrete Vulnerability Scoring Models and Risk Prioritization Frameworks</mark>
+
+* 6.46.1 Calculating Common Vulnerability Scoring System (CVSS v3.1/v4.0) Base, Temporal, abd Environmental Scores
+* 6.46.2 Mapping CVSS Metrics to CORA Vulnerability Severity Scoring (CAT I, CAT II, CAT III) and POA\&M Timelines
+* 6.46.3 Incorporating CISA Known Exploited Vulnerabilities (KEV) Catalog Data Into Remediation Priority
+* 6.46.4 Evaluating Exploit Prediction Scoring System (EPSS) Integration for Real-World Likelihhod Weighting
+* 6.46.5 Assessing Asset Criticality Scoring, Mission Essential Function (MEF) Mapping, and Risk Multipliers
+* 6.46.6 Auditing Risk-Adjusted Vulnerability Scoring Models for Compensating Control Evaluations
+* 6.46.7 Evaluating Vulnerability Trend Analysis, Mean-Time-To-Remediate (MTTR), and Service Level Agreement (SLA) Tracking
+* 6.46.8 Validating Formal Waiver, Exception, and Operational Risk Acceptance (ATO/cATO/dATO/iATO) Documentation Workflows
+
+### <mark style="color:$warning;">Full Chapter Narrative Notes</mark>
+
+### <mark style="color:$warning;">Security Assessing Agency Key Relationships and Responsibilities</mark>
 
 * **JFHQ-DoDIN**: Administers and executes the CORA program (which replaced the legacy Command Cyber Readiness Inspection (CCRI) program).
 * **USCYBERCOMMAND**: JFHQ-DoDIN operates as a subordinate headquarters under the Us. Cyber Command.
 * **DISA**: While the older CCRI program was originally launched and driven by the Defense Information Systems Agency (DISA), the transition and administration of the modernized CORA framework fall under JFHQ-DoDIN (though leadership roles like the DISA Director have historically also dual-hatted as JFHQ-DoDIN Commanders).
 
-### Assessment Severity Levels
+### <mark style="color:$warning;">CORA Assessment Severity Levels</mark>
 
 CAT I, II, and III severity categories are still heavily used, but how they now impact overall evaulation has completely changed.
 
 The transition from the legacy Command Cyber Readiness Inspection (CCRI) to the more modernized Cyber Operational Readiness Assessment (CORA) represents a massive cultural shift from "checkbox compliance," to "real-time, true, and threat-informed operational resilience."
 
-#### 1. The Survival of CAT I, II, and III Findings
+#### <mark style="color:$warning;">1. The Survival of CAT I, II, and III Findings</mark>
 
 Vulnerability categories (CAT I for critical/severe, CAT II for notable risk, and CAT III for moderate/potential weaknesses) are still foundational to DoD cybersecurity. They are still used during the Cyber Maintenance portion of CORA to evaluate Security Technical Implementation Guide (STIG) and Security Requirements Guide (SRG) compliance.
 
 However, under the old CCRI system, a high volume of CAT II or CAT III findings could mathematically sink your inspection score (70% to be considered "passing," and "compliant"). Under CORA, a vulnerability is no longer evaluated in a percentage-based pass/fail grading system. Instead, CORA filters these findings and their severities through the lens of Key Indicators of Risk (KIORs). If a CAT finding directly maps to an active cyber threat capability - such as Initial Access, Privilege Escalation, Lateral Movement, or Exfiltration pathways outlined in the MITRE ATT\&CK Framework - it is flagged as a KIOR and heavily penalized.
 
-### Offensive Perspective: Most Common Ways Security Assessment Frameworks Are Attacked (Tampered/Manipulated)
+### <mark style="color:$warning;">Offensive Perspective: Most Common Ways Security Assessment Frameworks Are Attacked (Tampered/Manipulated)</mark>
 
 From an offensive perspective - whether looking through the lens of a malicious adversary (APT) trying to blend in, or a defense team (insider) attempting to game or manipulate their score - assessment frameworks like CCRI and CORA are prime targets.
 
 When attackers or compliance-dodgers attempt to tamper with, evade, or manipulate these audits, they typically rely on several common tactics:
 
-#### 1. Script Tampering and Tool Blindspots
+#### <mark style="color:$warning;">1. Script Tampering and Tool Blindspots</mark>
 
 Automated compliance scripts (like DISA STIG Viewer or SCAP Compliance Checker) are used to scan assets for vulnerabilities. If you control the machine, you can control the output.
 
 * **Malicious Manipulation:** Advanced actors alter the local audit repositories or manipulate the configuration files of compliance scanners so that critical failures are skipped or falsely reported as "compliant."
 * **The "Clean Image" Swap:** Systems administrators facing an inspection have historically been caught setting up temporary, hyper-secure "golden images" or pristine virtual machines exclusively for the scanners to audit, only to swap the live, insecure production environments back into place immediately after the inspectors leave.
 
-#### 2. Forensic Log Cleansing and Time-Stamping
+#### <mark style="color:$warning;">2. Forensic Log Cleansing and Time-Stamping</mark>
 
 Auditors rely on system logs to verify Orders, Directives, and Policies (ODP) tracking and patch history.
 
 * **Log Scrubbing:** Attackers use specialized malware or administrative privileges to selectively delete security event logs (like Windows Event ID 1102 - "Audit log was cleared") or replace them with fabricated historical logs that make the system appear perfectly patched.
 * **Time Skewing (Timestomping):** Adversaries alter the "Modified, Accessed, Created, and Executed" (MACE) file attributes to make unauthorized configuration modifications or backdoor installations look like they were part of a legacy, authorized update from years ago, bypassing the audit delta checks.
 
-#### 3. Evading Key Indicators of Risk (KIORs) via Framework Exploitation
+#### <mark style="color:$warning;">3. Evading Key Indicators of Risk (KIORs) via Framework Exploitation</mark>
 
 Because CORA explicitly weights its scoring against known MITRE ATT\&CK framework tactics (Initial Access, Lateral Movement), an advanced offensive operator will deliberately architect their attack surface to exploit things the framework _doesn't_ actively track as a KIOR.
 
 * **Living off the Land (LotL):** Instead of using flaggable malware that triggers a CAT finding or a KIOR alert, attackers map out administrative dual-use tools (like PowerShell, WMI, or legitimate backup software) to move laterally. Since these tools are compliant with STIG configurations, standard audit sweeps often overlook them.
 * **Exfiltration via Compliant Channels:** Attackers will tunnel stolen data through protocols that are technically green-lit by policy (like heavily encrypted, allowed HTTPS streams to trusted government cloud subdomains), hiding their tracks inside compliant architecture.
 
-#### 4. Policy/ODP Forgery and "Paperwork Compliance"
+#### <mark style="color:$warning;">4. Policy/ODP Forgery and "Paperwork Compliance"</mark>
 
 Since 50% of modern CORA failures stem from Orders, Directives, and Policies (ODP) documentation, manipulating the paperwork side of the house is highly effective.
 
 * **Backdated Waivers:** Insider threats or lazy network admins sometimes forge digital signatures or backdate Plan of Action and Milestones (POA\&M) documents and Risk Acceptance profiles. This makes an unpatched, high-risk vulnerability look legally accepted by high-level leadership.
 * **Asset Inventory Obfuscation:** The easiest way to pass an audit on a vulnerable machine is to ensure the auditors don't know it exists. Adversaries and rogue admins use "shadow IT" - disconnecting highly vulnerable or compromised servers from the automated asset inventory networks right before a scan, making them invisible to the audit scope.
 
-#### 5. Why CORA Restructured to Stop This
+#### <mark style="color:$warning;">5. Why CORA Restructured to Stop This</mark>
 
 JFHQ-DoDIN specifically designed CORA to defeat these exact manipulation tactics. By introducing up to 15% completely unannounced (No-Notice) inspections and shifting to a data-driven threat model, commands can no longer spin up a temporary "perfect environment" or cleanly scrub their systems in a 30-day window before inspectors arrive.
 
@@ -529,37 +592,35 @@ When a network has months to prepare, administrators can temporarily fix issues 
 
 The mechanics of a No-Notice audit directly disrupt the common offensive and administrative evasion techniques in several ways:
 
-#### 1. Defeating the "Golden Image" and Asset Swapping
+#### <mark style="color:$warning;">1. Defeating the "Golden Image" and Asset Swapping</mark>
 
 * **The Evasion:** Administrators spun up heavily hardened, unpopulated servers just for scheduled scanners to audit, swapping live, misconfigured production boxes back into the ecosystem post-inspection.
 * **The CORA Counter:** Because inspectors arrive with zero warning, there is no time to shut down production systems or safely substitute VM snapshots. Auditors capture the network exactly as it operates during an average Tuesday morning shift. Live, messy production traffic is what gets scanned, making it impossible to masquerade behind a sterile, temporary environment.
 
-#### 2. Eliminating the Log Cleansing Window
+#### <mark style="color:$warning;">2. Eliminating the Log Cleansing Window</mark>
 
 * **The Evasion:** Malicious attackers or negligent administrators clear system event logs, rewrite telemetry, or "timestomp" file attributes to erase evidence of misconfigurations or backdoors.
 * **The CORA Counter:** Manually scrubbing logs, forging change-management approvals, and generating believable, backdated history takes days - if not weeks - of careful execution. Under a No-Notice audit, the audit log state is frozen in time the moment inspectors plug into the environment. If an admin or an adversary cleared logs yesterday to hide an issue, the lack of historical data will trigger immediate, catastrophic failures on the Orders, Directives, and Policies (ODP) side of the scorecard.
 
-#### 3. Exposing "Shadow IT" and Asset Hiding
+#### <mark style="color:$warning;">3. Exposing "Shadow IT" and Asset Hiding</mark>
 
 * **The Evasion:** Highly vulnerable legacy servers or compromised developmental boxes are unplugged or hidden from the automated inventory scanner right before a known audit date.
 * **The CORA Counter:** When auditors conduct a surprise visit, they don’t just trust the pre-compiled asset list provided by the command. They perform real-time network discovery maps. Because the command had no warning to isolate or disconnect their "shadow IT" devices, these hidden systems are caught actively talking on the network, immediately flagging unauthorized, unpatched attack vectors.
 
-#### 4. Exposing Fake "Paperwork Compliance"
+#### <mark style="color:$warning;">4. Exposing Fake "Paperwork Compliance"</mark>
 
 * **The Evasion:** Commands forge, rush-sign, or backdate Plan of Action and Milestones (POA\&M) waivers to make missing patches look legally excused.
 * **The CORA Counter:** When a surprise audit occurs, inspectors check the registry dates of legal waivers. If a severe vulnerability is found active on a machine without an existing, approved waiver already stamped in the central repository _prior_ to the team's unannounced arrival, it cannot be retroactively fixed. A lack of notice completely removes the administrative runway needed to draft frantic, last-minute risk acceptance paperwork.
 
-#### 5. Shift to Risk-Based Cadence
+#### <mark style="color:$warning;">5. Shift to Risk-Based Cadence</mark>
 
 Instead of letting a command "pass" an inspection and relax for a year, CORA utilizes continuous monitoring. If threat intelligence indicates a certain region or network type is being actively targeted by an adversary, JFHQ-DoDIN can deploy a No-Notice team to that specific site immediately.
 
 Ultimately, No-Notice audits weaponize the element of surprise to ensure that cyber maintenance is treated as a continuous daily function, rather than an annual event to be "gamed."
 
+### <mark style="color:$warning;">1. DoD and Military Cybersecurity Inspection Frameworks (Beyond CCRI/CORA)</mark>
 
-
-### 1. DoD and Military Cybersecurity Inspection Frameworks (Beyond CCRI/CORA)
-
-#### 1.1 RMF (Risk Management Framework) → CSRMC (Cybersecurity Risk Management Construct)
+#### <mark style="color:$warning;">1.1 RMF (Risk Management Framework) → CSRMC (Cybersecurity Risk Management Construct)</mark>
 
 DoD announced in **September 2025** that RMF is being replaced by the **CSRMC**, a continuous-monitoring, automation-driven construct designed for cyber survivability and operational speed.
 
@@ -572,7 +633,7 @@ The CSRMC includes:
 
 This is now the **primary DoD cybersecurity assessment and authorization framework.**
 
-#### **1.2 CNSS / National Security Systems (NSS) Oversight**
+#### <mark style="color:$warning;">**1.2 CNSS / National Security Systems (NSS) Oversight**</mark>
 
 Under **NSPM-12 (2026)**, the NSA (as National Manager for NSS) oversees cybersecurity governance for National Security Systems.
 
@@ -583,7 +644,7 @@ This includes:
 * NSA-directed cybersecurity oversight
 * Requirements exceeding standard federal systems
 
-#### 1.3 DFARS 252.204-7012 / DoD Contractor Cybersecurity Assessments
+#### <mark style="color:$warning;">1.3 DFARS 252.204-7012 / DoD Contractor Cybersecurity Assessments</mark>
 
 DFARS requires:
 
@@ -594,11 +655,11 @@ DFARS requires:
 
 This is enforced through DoD acquisition channels.
 
-#### 1.4 CMMC (Cybersecurity Maturity Model Certification)
+#### <mark style="color:$warning;">1.4 CMMC (Cybersecurity Maturity Model Certification)</mark>
 
 CMMC adds third-party verification for defense contractors handling CUI. It is a DoD-wide inspection and mandatory certification program.
 
-#### 1.5 Cyber Survivability / Operational Resilience Assessments
+#### <mark style="color:$warning;">1.5 Cyber Survivability / Operational Resilience Assessments</mark>
 
 Under CSRMC and DoD modernization, cyber survivability inspections validate:
 
@@ -608,9 +669,9 @@ Under CSRMC and DoD modernization, cyber survivability inspections validate:
 
 These are increasingly replacing legacy RMF-based evaluations.
 
-### 2. Federal Civilian Cybersecurity Inspection Frameworks
+### <mark style="color:$warning;">2. Federal Civilian Cybersecurity Inspection Frameworks</mark>
 
-#### 2.1 FISMA (Federal Information Security Modernization Act) Audits
+#### <mark style="color:$warning;">2.1 FISMA (Federal Information Security Modernization Act) Audits</mark>
 
 FISMA mandates:
 
@@ -621,7 +682,7 @@ FISMA mandates:
 
 These are formal federal inspections of agency cybersecurity posture.
 
-#### 2.2 NIST RMF (SP 800-37) Assessments
+#### <mark style="color:$warning;">2.2 NIST RMF (SP 800-37) Assessments</mark>
 
 RMF is the operational framework used to implement FISMA. It includes:
 
@@ -633,7 +694,7 @@ RMF is the operational framework used to implement FISMA. It includes:
 
 RMF assessments are performed across all federal agencies.
 
-#### 2.3 FedRAMP (Federal Risk and Authorization Management Program)
+#### <mark style="color:$warning;">2.3 FedRAMP (Federal Risk and Authorization Management Program)</mark>
 
 FedRAMP is the federal government's standardized cloud security assessment and authorization framework. It includes:
 
@@ -644,7 +705,7 @@ FedRAMP is the federal government's standardized cloud security assessment and a
 
 FedRAMP is mandatory for federal cloud-based services used by all federal agencies.
 
-#### 2.4 Agency-Specific Inspection Programs
+#### <mark style="color:$warning;">2.4 Agency-Specific Inspection Programs</mark>
 
 Many federal agencies have their own cybersecurity inspection frameworks, including:
 
@@ -657,27 +718,27 @@ Many federal agencies have their own cybersecurity inspection frameworks, includ
 
 These vary by mission and regulatory authority.
 
-### 3. Supply-Chain and Contractor Cybersecurity Inspection Frameworks
+### <mark style="color:$warning;">3. Supply-Chain and Contractor Cybersecurity Inspection Frameworks</mark>
 
-#### 3.1 CMMC (covered above)
+#### <mark style="color:$warning;">3.1 CMMC (covered above)</mark>
 
 Third-party assessments for defense contractors.
 
-#### 3.2 NIST SP 800-171 Assessments
+#### <mark style="color:$warning;">3.2 NIST SP 800-171 Assessments</mark>
 
 Required for contractors handling Controlled Unclassified Information (CUI).
 
-#### 3.3 DFARS 7012 Audits
+#### <mark style="color:$warning;">3.3 DFARS 7012 Audits</mark>
 
 Mandatory DoD contractor cybersecurity inspections.
 
-#### 3.4 FedRAMP for Cloud Service Providers (CSP) Providing Federal Services
+#### <mark style="color:$warning;">3.4 FedRAMP for Cloud Service Providers (CSP) Providing Federal Services</mark>
 
 Cloud vendors undergo rigorous third-party assessments.
 
-### 4. Intelligence Community (IC) Cybersecurity Inspection Frameworks
+### <mark style="color:$warning;">4. Intelligence Community (IC) Cybersecurity Inspection Frameworks</mark>
 
-#### 4.1 ICD 503 Assessments
+#### <mark style="color:$warning;">4.1 ICD 503 Assessments</mark>
 
 The IC's version of RMF, used for:
 
@@ -685,17 +746,17 @@ The IC's version of RMF, used for:
 * SCI environments
 * Cross-domain solutions
 
-#### 4.2 NSA/CNSS Oversight (covered above)
+#### <mark style="color:$warning;">4.2 NSA/CNSS Oversight (covered above)</mark>
 
 NSS systems undergo NSA-directed cybersecurity inspections.
 
-### 5. Cross-Agency and National-Level Cybersecurity Oversight
+### <mark style="color:$warning;">5. Cross-Agency and National-Level Cybersecurity Oversight</mark>
 
-#### 5.1 OMB Circular A-130 Audits
+#### <mark style="color:$warning;">5.1 OMB Circular A-130 Audits</mark>
 
 OMB oversees federal cybersecurity governance and mandates agency compliance.
 
-#### 5.2 CISA Cybersecurity Review
+#### <mark style="color:$warning;">5.2 CISA Cybersecurity Review</mark>
 
 CISA conducts:
 
@@ -704,25 +765,25 @@ CISA conducts:
 * Penetration testing
 * Incident response readiness assessments
 
-#### 5.3 GAO Cybersecurity Audits
+#### <mark style="color:$warning;">5.3 GAO Cybersecurity Audits</mark>
 
 GAO performs independent audits of federal cybersecurity programs.
 
-### Threat-Informed Assessment Tests the Federal Environment Against Relevant Adversary Behaviors
+### <mark style="color:$warning;">Threat-Informed Assessment Tests the Federal Environment Against Relevant Adversary Behaviors</mark>
 
 Threat-informed assessment is the disciplined practice of evaluating an identity-centric environment - particularly federal and DoD Active Directory (AD) domains - against real behaviors adversaries use to compromise identity systems. Rather than relying solely on compliance checklists or theoretical controls, threat-informed testing validates whether FICAM/ICAM-aligned identity architectures can withstand the Tactics, Techniques, and Procedures (TTPs) used by nation-state actors, Advanced Persistent Threats (APTs, and sophisticated insiders.
 
 However, in federal and DoD network, identity is the operational backbone. Active Directory forests, domain trusts, federation services, certificate services, and hybrid identity bridges form the trust fabric that enables authentication, authorization, accountability (AAA) and access control. Simply stated: when adversaries compromise identity, they compromsie everything. Threat-informed assessment ensures that identity systems are not only compliant but resilient against adversary behaviors observed in real-world incidents such as the SolarWindws/UNC2452, APT29 credential theft campaigns, Volt Typhoon Living-Off-The-Land (LOTL) operations, and privilege escalation chains targeting federal enclaves.
 
-### Identity-Centric Adversary Behaviors
+### <mark style="color:$warning;">Identity-Centric Adversary Behaviors</mark>
 
 Adversaries frequently target identity first because it provides the most leverage and is an attack vector that creates the least noise out of other available attack pathways and vectors. Credential theft, token impersonation, Kerberos manipulation, and abuse of misconfigured delegations allow attackers to escalate privleges rapidly. Threat-informed assessments evaluate whether identity protections - Credential Guard, hardened Kerberos policies, privileged access tiering, and strong authentication - actually prevent these behaviors from being initiated, continuing, or reoccurring.
 
-### Federal Active Directory Attack Surface Versus Commercial Active Directory Attack Surface
+### <mark style="color:$warning;">Federal Active Directory Attack Surface Versus Commercial Active Directory Attack Surface</mark>
 
 A federal Active Directory attack surface differs from a commercial Active Directory attack surface in that: 1). it is a significantly larger attack surface; 2). it is generally more complex; and, 3) it is more trust-rich and more identity-interdependent thatn a commercial Active Directory environment. It exposes unique risks that are tied to FICAM/ICAM, multi-forest enclaves, cross-domain trusts, classified networks, hybrid identity bridges, and DoD-specific operational constraints that simply do not exist in commercial enterprises.
 
-### How Federal AD Attack Surfaces Differ From Commercial AD Attack Surfaces
+### <mark style="color:$warning;">How Federal AD Attack Surfaces Differ From Commercial AD Attack Surfaces</mark>
 
 Federal and DoD AD environments rarely operate as a single forest. They typically include:
 
@@ -736,13 +797,13 @@ These trust chains create a massive lateral movement surface that adversaries ca
 
 Commercial AD environments usually contain one forest, maybe two, and far fewer trust relationships.
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Domain trust exploitation
 * SIDHistory abuse
 * Cross-forest Kerberos attacks
 
-### Federal Active Directory Must Support FICAM/ICAM Identities
+### <mark style="color:$warning;">Federal Active Directory Must Support FICAM/ICAM Identities</mark>
 
 Federal identity systems must comply with:
 
@@ -761,12 +822,12 @@ This, in turn, introduces unique attack surfaces and vectors to appear:
 
 Commercial Active Diretory environments rarely use smartcard-first authentication, federal PKI (FPKI), or multi-agency identity governance.
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Authentication downgrade attacks
 * Federation token theft
 
-### Federal Active Direcotry Has More Legacy Systems That Cannot Be Removed
+### <mark style="color:$warning;">Federal Active Directory Has More Legacy Systems That Cannot Be Removed</mark>
 
 Federal networks often include:
 
@@ -784,12 +845,12 @@ This creates persistent exposures:
 * NTLM relay
 * Delegation abuse
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Kerberos attack surface
 * Service account vulnerabilities
 
-### Federal Active Directory Environments Are Hybrid by Necessity, Not by Choice
+### <mark style="color:$warning;">Federal Active Directory Environments Are Hybrid by Necessity, Not by Choice</mark>
 
 Federal agencies must integrate:
 
@@ -808,12 +869,12 @@ This creates hybrid identity attack surfaces:
 
 Commercial environments often adopt bybrid identity gradually and with fewer constraints.
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Hybrid identity compromise
 * AD Connect exploitation
 
-### Federal Active Directory Has Tier 0 Assets That Are National-Level Targets
+### <mark style="color:$warning;">Federal Active Directory Has Tier 0 Assets That Are National-Level Targets</mark>
 
 Federal Active Directory Tier 0 includes:
 
@@ -828,12 +889,12 @@ These are high-value targets for nation-state actors, not just run-of-the-mill c
 
 Commercial Tier 0 is important, but not geopolitically strategic.
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Privilege escalation chains
 * Identity trust exploitation
 
-### Federal Active Directory Must Support Classified and Unclassified Enclaves
+### <mark style="color:$warning;">Federal Active Directory Must Support Classified and Unclassified Enclaves</mark>
 
 Federal networks include:
 
@@ -852,12 +913,12 @@ Identity often spans these enclaves in infirect ways:
 
 Commercial AD environments do not have classified enclaves or cross-domain guards.
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Boundary bypass techniques
 * Enclave lateral movement
 
-### Federal Active Directory Has Higher Operational Constraints
+### <mark style="color:$warning;">Federal Active Directory Has Higher Operational Constraints</mark>
 
 Federal agencies often cannot:
 
@@ -872,12 +933,12 @@ Commercial enterprises usualy have more freedom to modernize.
 
 This means federal AD attack surfaces are persistent, not easily remediated.
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Living-Off-The-Land (LOTL) techniques
 * Credential harvesting pivot points
 
-### Federal Active Directory is a Prime Target for Nation-State Adversaries
+### <mark style="color:$warning;">Federal Active Directory is a Prime Target for Nation-State Adversaries</mark>
 
 Federal Active Directory is most targeted by:
 
@@ -898,12 +959,12 @@ These actors specifically target:
 
 Commercial AD environments face cybercrime; federal AD faces geopolitical adversarial groups.
 
-#### Relevant Adversarial Behaviors
+#### <mark style="color:$warning;">Relevant Adversarial Behaviors</mark>
 
 * Supply-chain compromise
 * Federation token abuse
 
-#### Summary Table: Federal Versus Commercial Active Directory Attack Surfaces
+#### <mark style="color:$warning;">Summary Table: Federal Versus Commercial Active Directory Attack Surfaces</mark>
 
 | Category                    | Federal AD                                 | Commercial AD            |
 | --------------------------- | ------------------------------------------ | ------------------------ |
@@ -916,34 +977,34 @@ Commercial AD environments face cybercrime; federal AD faces geopolitical advers
 | **Operational Constraints** | High                                       | Moderate                 |
 | **Adversary Profile**       | Nation-state APTs                          | Cybercriminals           |
 
-### Nation-State Advanced Persistent Threats (APTs) That Are Common, Repeated Offenders to Federal Active Directory FICAM/ICAM Environments
+### <mark style="color:$warning;">Nation-State Advanced Persistent Threats (APTs) That Are Common, Repeated Offenders to Federal Active Directory FICAM/ICAM Environments</mark>
 
 Russian, Chinese, and Iranian state-sponsored cyber adversaries and advanced persistent threats (APTs) are the most persistent threat actors targeting U.S. Federal and Department of Defense (DoD) Identity, Credential, and Access Management (FICAM/ICAM) frameworks. Rather than attempting to bypass or crack heavily foritified perimeters, these nation-state APT groups prioritize subverting identity ecosystems to manipulate access controls, masquerade as legitimate federal personnel, and perform long-term inliligence ciphoning operations.
 
 The key nation-state adversaries and repeated threat actors targeting these frameworks follow distinct profiles:
 
-### 1. The Russian Federation (Strategic Identity Subversion)
+### <mark style="color:$warning;">1. The Russian Federation (Strategic Identity Subversion)</mark>
 
 Russian cyber operations are the most sophisticated attackers of federal and DoD identity structures. They specialize in cloud-native identity infrastructure and manipulating domain trust relationships.
 
 * **Primary Threat Actors: APT29** (also known as Midnight Blizzard or Cozy Bear) and **APT28** (Fancy Bear).
 * **ICAM Specific Targeting:** APT29 pioneered some of the most destructive identity attacks against the U.S. Government. Instead of exploiting normal system code, they repeatedly target Single Sign-On (SSO) and federation infrastructure (like Active Directory Federation Services (AD FS)). By compromising administrative identity keys, they can forge security tokens (SAML tokens). This technique allows them to create fully trusted identities that bypass multi-factor authentication (MFA) to access secure DoD and federal Software-as-a-Service (SaaS) environments without triggering standard defensive alerts.
 
-### 2. The People's Republic of China (Credential Harvesting and Living-Off-The-Land)
+### <mark style="color:$warning;">2. The People's Republic of China (Credential Harvesting and Living-Off-The-Land)</mark>
 
 Chinese cyber espionage focuses heavily on collecting massive repositories of personnel data and maintaining persistence across dual-use civilian and military defense networks.
 
 * **Primary Threat Actors: APT41** (Winnti Group), **Volt Typhoon**, and **Mustang Panda.**
 * **ICAM Specific Targeting:** These groups aggressively target edge devices (VPNs, firewalls, and routers) to orchestrate Credential Harvesting attacks. They excel at finding unpatched identity vulnerabilities to dump local directory databases. Once inside, they favor a Living-Off-The-Land approaches - using legitmate administrative tools embedded within the federal identity framework to move laterally, elevate their own account permissions, and establish stealthy backdoors inside domain controllers.
 
-### 3. The Islamic Republic of Iran (Access Exploitation and Lateral Movement)
+### <mark style="color:$warning;">3. The Islamic Republic of Iran (Access Exploitation and Lateral Movement)</mark>
 
 Iranian threat groups focus heavily on the Defense Industrial Base (DIB), federal contractors, and aerospace sectors using identity systems as gateways to critical data.
 
 * **Primary Threat Actors: APT35 / APT42** (Charming Kitten) and **MuddyWater.**
 * **ICAM Specific Targeting:** As highlighted in joint adversories issued by CISA and the NSA, Iranian actors actively target known IAM vulnerabilities. They use spearphishing and social engineering to steal valid user credentials, exploit security misconfigurations, and subsequently create fraudulent, highly privileged user accounts inside federal network directories to maintain operational persistence.
 
-### Identity Attack Vector Matrix
+### <mark style="color:$warning;">Identity Attack Vector Matrix</mark>
 
 The following table summarizes how these specific nation-states execute attacks on federal ideneity and access management environments:
 
@@ -954,5 +1015,3 @@ The following table summarizes how these specific nation-states execute attacks 
 | **Iran**     | APT42, MuddyWater   | Spearphishing and social engineering for user credentials, directory account creation, and privilege escalation | Targeted defense intelligence collection and regional tracking                |
 
 Because these nation-states prioritize compromising the identity lifecycle itself, the DoD and Federal Civil Executive Branch (FCEB) are rapidly migrating away from legacy credential networks toward an automated Zero Trust Architecture (ZTA). These modern frameworks mandates continuous authentication, cryptographic PIV/CAC, and real-time behavioral monitoring rather than relying on trusted network perimeters.
-
-*
