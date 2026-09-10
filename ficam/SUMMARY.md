@@ -11,6 +11,9 @@
     * [Federal Cybersecurity ICAM Governance](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/federal-cybersecurity-icam-governance.md)
     * [Connecting a "Dirty Box" to a Federal Environment for AD Posture Assessment / Penetration Test](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/connecting-a-dirty-box-to-a-federal-environment-for-ad-posture-assessment-penetration-test.md)
     * [Personal Writeups](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/personal-writeups.md)
+    * [Silver Ticket Attack Chain](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/silver-ticket-attack-chain.md)
+    * [Active Directory Trust Attacks](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/active-directory-trust-attacks.md)
+    * [Active Directory Trust-Based Attack Vectors Module 1 – Technical Foundations](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/additional-writeups-possible-sections/active-directory-trust-based-attack-vectors-module-1-technical-foundations.md)
   * [Random, But Useful Images For Chapters](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/random-but-useful-images-for-chapters/README.md)
     * [Book Images](contested-terrain-offensive-and-defensive-ficam-security-operations-in-federal-active-directory-envi/random-but-useful-images-for-chapters/book-images.md)
 
@@ -18,7 +21,10 @@
 
 * [Chapter 1 - The Reader's Guide to the Identity Battlefield](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-1-the-readers-guide-to-the-identity-battlefield.md)
 * [Chapter 2 - Mission Discipline, Ethics, and Operational Responsibility in Federal Cybersecurity](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-2-mission-discipline-ethics-and-operational-responsibility-in-federal-cybersecurity.md)
-* [Chapter 3Federal Identity Architecture, Trust, and Governance Foundations](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-3federal-identity-architecture-trust-and-governance-foundations.md)
+* [Chapter 3 - Federal Identity Architecture, Trust, and Governance Foundations](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-3-federal-identity-architecture-trust-and-governance-foundations.md)
+* [Chapter 4 - The Federal Identity Trust System - Boundaries, Dependencies, and Mission Authority](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-4-the-federal-identity-trust-system-boundaries-dependencies-and-mission-authority.md)
+* [Chapter 5 - Legal Authorities, Federal Policies, and Compliance Mechanics in Federal Identity Governance](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-5-legal-authorities-federal-policies-and-compliance-mechanics-in-federal-identity-governance.md)
+* [Chapter 6 - Federal and DoD Cybersecurity Assessment, Security Assurance, and Mission-Risk Validation](part-i-reader-orientation-federal-mission-governance-identity-assurance-and-trust/chapter-6-federal-and-dod-cybersecurity-assessment-security-assurance-and-mission-risk-validation.md)
 
 ## 📔 Appendices
 
