@@ -195,7 +195,7 @@ Federal and Department of Defense (DoD) cybersecurity assessments differs fundam
 * 6.17.7 Testing Multi-Tenant Identity Separation and Cloud-to-On-Premises Trust Boundaries
 * 6.17.8 Assessing Federated Identity Threat Vectors, Token Forgeries, and IdP Compromise Scenarios
 
-### <mark style="color:$warning;">6.18 Assessing Privleged Access Management (PAM) and Credential Vaulting Infrastructure</mark>&#x20;
+### <mark style="color:$warning;">6.18 Assessing Privileged Access Management (PAM) and Credential Vaulting Infrastructure</mark>&#x20;
 
 * 6.18.1 Evaluating Vault Architecture, Master Key Security, and Hardware Security Module (HSM) Integration Baselines
 * 6.18.2 Auditing Password Rotation Automation, Dynamic Credential Generation, and SSH Key Management
@@ -204,12 +204,12 @@ Federal and Department of Defense (DoD) cybersecurity assessments differs fundam
 * 6.18.5 Testing Service Account Discovery, Hardening, and Unmanaged Credential Remediation
 * 6.18.6 Evaluating PAM Break-Glass Emergency Access Procedures and Audit Trail Security
 * 6.18.7 Auditing Administrative Workstation Isolation and Privileged Access Gateway Configurations
-* 6.18.8 Assessomg {rovo;eged Threat Detection, Behavioral Anomaly Scoring, and Vault Evasion Risks
+* 6.18.8 Assessing Threat Detection, Behavioral Anomaly Scoring, and Vault Evasion Risks
 
 ### <mark style="color:$warning;">6.19 Evaluating Zero Trust Identity Architectures and Policy Decision Engines</mark>&#x20;
 
 * 6.19.1 Assessing Policy Decision Point (PDP) and Policy Enforcement Point (PEP) Integration
-* 6.19.2 Validating Dynamic COntextual Risk Scoring and Real-Time Authorization Engine Rules
+* 6.19.2 Validating Dynamic Contextual Risk Scoring and Real-Time Authorization Engine Rules
 * 6.19.3 Evaluating Microsegmentation Enforceability at the Application and Network Layers
 * 6.19.4 Auditing Continuous Multi-Factor Authentication (MFA) and Session Re-Authentication Triggers
 * 6.19.5 Testing Identity-Centric Blast Radius Reduction and Least Privilege Trust Boundaries
@@ -217,7 +217,7 @@ Federal and Department of Defense (DoD) cybersecurity assessments differs fundam
 * 6.19.7 Assessing Cross-Tenant and Multi-Cloud Zero Trust Policy Federation Constraints
 * 6.19.8 Validating Failure Modes, Fail-Secure Baselines, and Policy Engine Resilience
 
-### <mark style="color:$warning;">6.20 Security Control Assessment (SCA) Princples and Methodology Foundations</mark>
+### <mark style="color:$warning;">6.20 Security Control Assessment (SCA) Principles and Methodology Foundations</mark>
 
 * 6.20.1 Independent Assessor Roles, Objectivity, and Conflict-of-Interest Standards
 * 6.20.2 Integrating the NIST SP 800-53A Assessment Procedures Into Federal Identity Enclaves
@@ -231,7 +231,7 @@ Federal and Department of Defense (DoD) cybersecurity assessments differs fundam
 ### <mark style="color:$warning;">6.21 Defining Assessment Scope, Objectives, and Technical Boundaries</mark>
 
 * 6.21.1 Establishing Assessment Boundaries Across Enterprise, Hybrid, and Enclave Architectures
-* 6.21.2 Aligning Assessment Objectices With Federal, DoD, and Organizational Governance Mandates
+* 6.21.2 Aligning Assessment Objectives With Federal, DoD, and Organizational Governance Mandates
 * 6.21.3 Defining System Authorization Boundaries, Interconnections, and Shared Service Dependencies
 * 6.21.4 Categorizing Target Systems and Identity Repositories Based on Impact and Mission Criticality
 * 6.21.5 Establishing Rules of Engagement, Operational Constraints, and Safety Thresholds
@@ -253,7 +253,7 @@ Federal and Department of Defense (DoD) cybersecurity assessments differs fundam
 ### <mark style="color:$warning;">6.23 Comprehensive Assessment Requires Examining Written Security Artifacts</mark>
 
 * 6.23.1 Reviewing System Security Plans (SSP) and Architecture Boundary Definitions
-* 6.23.2 Auditing Identity Governance Documentation, SOPs, and Account LIfecycle Policies
+* 6.23.2 Auditing Identity Governance Documentation, SOPs, and Account Lifecycle Policies
 * 6.23.3 Evaluating Interconnection Security Agreements (ISA) and Cross-Domain Authorization Package Artifacts
 * 6.23.4 Analyzing Configuration Monitoring Plans, Baseline Repositories, and Change Control Logs
 * 6.23.5 Assessing Continuous Monitoring Plans, Vulnerability Reports, and Incident Handling Protocols

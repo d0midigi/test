@@ -28,9 +28,9 @@ Federal cybersecurity operations take place in environments where technical acti
 
 ### <mark style="color:$warning;">**2.3 Federal Cybersecurity Authority Is an Operational Boundary**</mark>
 
-* 2.3.1 Written Atuhorization
+* 2.3.1 Written Authorization
 * 2.3.2 Assessment Authority Scope
-* 2.3.3 System Owner Authorit
+* 2.3.3 System Owner Authority
 * 2.3.4 Mission Owner Authority
 * 2.3.5 Rules of Engagement (RoE)
 * 2.3.6 Test Windows and Operational Timing
@@ -216,7 +216,7 @@ Federal cybersecurity operations take place in environments where technical acti
 
 * 2.20.1 Unintended Service Degradation Thresholds
 * 2.20.2 Authentication Outages and Anomalies
-* 2.20.3 Replication Instability Traiggers
+* 2.20.3 Replication Instability Triggers
 * 2.20.4 Unintended Impact to Privileged Roles
 * 2.20.5 Accidental Out-of-Scope System Reach
 * 2.20.6 Data Corruption Risks
@@ -237,7 +237,7 @@ Federal cybersecurity operations take place in environments where technical acti
 
 * 2.22.1 Standards for Defensible Evidence
 * 2.22.2 Evaluating Domain Dominance vs. Test Objectives
-* 2.22.3 Sufficiency of Read-Access Demonstratio
+* 2.22.3 Sufficiency of Read-Access Demonstration
 * 2.22.4 Sufficiency of Write-Authority Demonstration
 * 2.22.5 Proof of Authentication Path Reach
 * 2.22.6 Proof of Effective Privilege Escalation
@@ -268,7 +268,7 @@ Federal cybersecurity operations take place in environments where technical acti
 
 ### <mark style="color:$warning;">2.25 Environment Cleanup and System Restoration</mark>
 
-* 2.25.1 Temporary Test Account Remova
+* 2.25.1 Temporary Test Account Removal
 * 2.25.2 Active Directory Group Membership Reversion
 * 2.25.3 Access Control List (ACL) Restoration
 * 2.25.4 Temporary Certificate Revocation and Cleanup
@@ -323,7 +323,7 @@ Federal cybersecurity operations take place in environments where technical acti
 
 ### <mark style="color:$warning;">2.30 Core Principles of Operational Responsibility</mark>
 
-* 2.30.1 Primacy of Mission Responsibility Over Technical Curiosit
+* 2.30.1 Primacy of Mission Responsibility Over Technical Curiosity
 * 2.30.2 Preservation of Authorized Scope Boundaries
 * 2.30.3 Rules of Engagement as Hard Technical Boundaries
 * 2.30.4 Pre-Operational Consequence Analysis

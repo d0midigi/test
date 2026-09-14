@@ -158,7 +158,7 @@ Federal Identity, Credential, and Access Management (FICAM) establishes how iden
 * 7.14.7 Session Reuse and Long-Lived Token Risks in Modern Single Sign-On
 * 7.14.8 Determining Effective Authentication Assurance Across Every Accepted Path
 
-### <mark style="color:$warning;">7.15 TEchnical Validation of Mandatory PIV and CAC Enforcement</mark>
+### <mark style="color:$warning;">7.15 Technical Validation of Mandatory PIV and CAC Enforcement</mark>
 
 * 7.15.1 Technical Checks for Real-Time Credential Revocation Status (CRL/OCSP)
 * 7.15.2 Auditing Explicit User-to-Certificate Mapping Rules in Directory Systems
@@ -169,7 +169,7 @@ Federal Identity, Credential, and Access Management (FICAM) establishes how iden
 * 7.15.7 Identifying Unchecked Password Exceptions and Bypass Accounts
 * 7.15.8 Why Turning On Smart Card Features Does Not Prevent Password-Based Attacks
 
-### <mark style="color:$warning;">7.16 Preserving Authentication Assurance in Recovery and Rebinding</mark>
+### <mark style="color:$warning;">7.16 Preserving Authentication Assurance in Recovery and Rebinding Operations</mark>
 
 * 7.16.1 Auditing Self-Service and Help-Desk Password Reset Security Workflows
 * 7.16.2 Safeguards Surrounding Secondary MFA Device Registration and Resets
@@ -400,7 +400,7 @@ Federal Identity, Credential, and Access Management (FICAM) establishes how iden
 * 7.36.7 Conducting Independent Technical Testing to Corroborate Provided Artifacts
 * 7.36.8 Defining Evidence Requirements: Timeliness, Completeness, and Reproducibility
 
-### <mark style="color:$warning;">7.37 Vulnerability Evidence Preovenance and Integrity</mark>
+### <mark style="color:$warning;">7.37 Vulnerability Evidence Provenance and Integrity</mark>
 
 * 7.37.1 Establishing Accountability: Identifying the Evidence Collector
 * 7.37.2 Timestamp Verification: Proving When Evidence Was Extracted
