@@ -1,0 +1,254 @@
+# C Cheatsheet
+
+
+
+<pre><code>-------------------
+--main() Function--
+-------------------
+<strong>  * The main() function is the starting point of the program: int main (int argc, char *argv[])
+</strong>  * The return type of the main() function is an integer (type int) and it is known as the return value of the program.
+  * As a rule of thumb, value 0 means success while non-zero means an error conditions.
+
+-----------------
+--Include Files--
+-----------------
+  * The purpose of these files is to tell the compiler about the existence of external functions which the source code will make use of.
+
+---------------------------
+--Preprocessor Directives--
+---------------------------
+  #include “mine.h” search current working directory first
+  #include &#x3C;stdio.h> search command line directory then system
+  #define TRUE 1 macro substitution, usually use capitals
+  #define min(a,b) (a&#x3C;b)?(a):(b) macro substitution with parameters
+  #define abs(a) (a&#x3C;0)?(-(a)):(a) macro substitution
+  #define note /* comment */ this comment gets inserted every time note appears */ backslash \ at end of a line means continue
+  #undef TRUE undefines a previously defined macroname
+  #error stop compiling at this point
+  #if expression conditional compilation, start if structure
+  #elif expression else if expression != 0 compile following code
+  #else else compile following code
+  #endif end of conditional compiling
+  #ifdef macroname like
+  #if, compiles if macroname defined
+  #ifndef like
+  #if, compiles if macroname undefined
+  #line number [filename] set origin for LINE and FILE
+  #pragma gives the compiler commands
+
+--------------------------------
+--Create and Execute a Program--
+--------------------------------
+In Linux systems:
+  1. Open up a terminal
+  2. Create the program: nano nameProgram.c
+  3. Write the program and save it
+  4. gcc -o nameExecutable nameProgram.c
+
+---------------------
+--32 Reserved Words--
+---------------------
+  Term        Description
+  auto        optional local declaration
+  break       used to exit loop and used to exit switch
+  case        choice in a switch
+  char        basic declaration of a type character
+  const       prefix declaration meaning variable can not be changed
+  continue    go to bottom of loop in for, while and do loops
+  default     optional last case of a switch
+  do          executable statement, do-while loop
+  double      basic declaration double precision floating point
+  else        executable statement, part of “if” structure
+  enum        basic declaration of enumeration type
+  extern      prefix declaration meaning variable is defined externally
+  float       basic declaration of floating point
+  for         executable statement, for loop
+  goto        jump within function to a label
+  if          executable statement
+  int         basic declaration of integer
+  long        prefix declaration applying to many types
+  register    prefix declaration meaning keep variable in register
+  return      executable statement with or without a value
+  short       prefix declaration applying to many types
+  signed      prefix declaration applying to some types
+  sizeof      operator applying to variables and types, gives size in bytes
+  static      prefix declaration to make local variable static
+  struct      declaration of a structure, like a record
+  switch      executable statement for cases
+  typedef     creates a new type name for an existing type
+  union       declaration of variables that are in the same memory locations
+  unsigned    prefix declaration applying to some types
+  void        declaration of a typeless variable
+  volatile    prefix declaration meaning the variable can be changed at any time
+  while       executable statement, while loop or do-while loop
+
+---------------
+--Basic Types--
+---------------
+  Type        Description
+  char        character type, usually one byte (a string is array of char)
+  int         integer type, usually 2 or 4 bytes (default)
+  float       floating point type, usually 4 bytes
+  double      floating point type, usually 8 bytes
+  void        no type, typeless
+  enum        enumeration type (user defines the type name)
+
+------------------------------------------
+--Type Modifiers: Prefix For Basic Types--
+------------------------------------------
+  Modifiers   Description
+  signed      has a sign (default)
+  unsigned    no sign bit in variable
+  long        longer version of type (short or long alone means short int or
+  short       shorter version of type long int because int is the default)
+  const       variable can not be stored into
+
+-----------------
+--Storage Types--
+-----------------
+  Prefix      Description
+  auto        local variable (default)
+  static      permanent when function exits, not auto
+  volatile    can change from outside influence
+  extern      variables are defined elsewhere, externally
+  register    assign variable to register
+
+-------------
+--Operators--
+-------------
+  ( )   grouping parenthesis, function call
+  [ ]   array indexing, also [ ][ ] etc.
+  ->    selector, structure pointer
+  .     select structure element
+  !     relational not, complement, ! a yields true or false
+  ~     bitwise not, ones complement, ~ a
+  ++    increment, pre or post to a variable
+  --    decrement, pre or post to a variable
+  -     unary minus, - a
+  +     unary plus,  + a
+  &#x26;     indirect, the value of a pointer,  * p is value at pointer p address
+  &#x26;     the memory address, &#x26; b is the memory address of variable b sizeof size in bytes, size of a or size of (int) (type) a cast, explicit type conversion, (float) i, (fun)(a,b), (int)x
+  *     multiply, a * b
+  /     divide, a / b % modulo, a % b
+  %     add, a + b
+  -     subtract, a - b
+  &#x3C;&#x3C;    shift left, left operand is shifted left by right operand bits
+  >>    shift right, left operand is shifted right by right operand bits
+  &#x3C;     less than, results are true or false, a%lt; b
+  &#x3C;=    less than or equal, resultis true or false, a &#x3C;= b
+  >     greater than, result is true or false, a > b
+  >=    greater than or equal, result is true or false, a >= b
+  ==    equal, result is true or false, a == b
+  !=    not equal, result is true or false, a != b
+  &#x26;     bitwise and, a &#x26; b
+  ^     bitwise exclusive or, a ^ b
+  |     bitwise or, a | b
+  &#x26;&#x26;  	relational and, result is true or false,  a &#x3C; b &#x26;&#x26; c >= d
+  ||	  relational or, result is true or false,  a &#x3C; b || c >= d
+  ?    	exp1 ? exp2 : exp3  result is exp2 if exp1 != 0, else result is exp3
+  =    	store
+  +=   	add and store
+  -=   	subtract and store
+  *=   	multiply and store
+  /=  	divide and store
+  %= 	  modulo and store
+  &#x3C;&#x3C;=  	shift left and store
+  >>=  	shift right and store
+  &#x26;=   	bitwise and and store
+  ^=   	bitwise exclusive or and store
+  |=   	bitwise or and store
+  ,    	separator as in   (y=x,z=++x)
+  ;     statement terminator
+
+-----------------------
+--Operator Precedence--
+
+--More Precedence--
+-----------------------
+  LR ( ) [ ] -> . x++ x--
+  RL ! ~ - + ++x --x * &#x26; sizeof (type)
+  LR * / %
+  LR + -
+  LR &#x3C;&#x3C; >>
+  LR &#x3C; &#x3C;= > >=
+  LR == !=
+  LR &#x26;
+  LR ^
+  LR |
+  LR &#x26;&#x26;
+  LR ||
+  RL ? :
+  RL = += -= *= /= %= >>= &#x3C;&#x3C;= &#x26;= ^= |=
+  LR ,
+  
+-------------------------
+--Less Precedence--
+
+--Conditional Branching--
+-------------------------
+  if (condition) statement ;
+    else statement_2 ;          /* optional else clause */
+    
+--------------------                                
+--Switch Statement--       
+--------------------
+  switch (expression)           /* constants must be unique */
+    {
+        case constant_1:        /* do nothing for this case */
+          break;
+        case constant_2:        /* drop through and do same as constant_3 */
+        case constant_3:
+          statement_sequence    /* can have but does not need { } */ 
+          break;
+        case constant_4:
+          statement_sequence    /* does this and next */
+                                /* statement_sequence also */
+        case constant_5:
+          statement_sequence
+          break;
+        default:                /* default executes if no constant equals */
+          statement_sequence    /* the expression. This is optional */
+   }
+   
+-----------------------
+--Function Definition--
+-----------------------
+  type function_name(int a, float b, const char * ch,…) { function_body }
+
+  /* only parameters passed by address are modified */
+
+  /* in the calling function, local copy can be modified */
+
+  char * strcpy( char * s1, const char * s2 ) { statements }
+
+----------------------
+--Declarations Forms--
+----------------------
+  basic_type variable;
+
+  type variable[val][val]…[val]={data,data,…}; /* multidimensional array */
+
+  struct struct_name {           /* struct_name is optional */
+    type variable_1;             /* any declaration */
+    …                            /* all variable names must be unique */
+  } variable_1, … ;              /* variables are optional */
+
+  struct struct_name {           /* struct_name is optional */
+    type variable_1: length;     /* any declaration : length in bits */
+        …                        /* type is int, unsigned or signed */
+  } variable_1, … ;              /* variables are optional, they can also be arrays and pointers */
+
+  union union_name {             /* union_name is optional */
+    type variable_1;             /* variable_1 overlays variable_2 */
+    type variable_2;
+        …
+  } variable_a, …;               /* variables are optional */
+
+  enum enum_type                 /* enum_name is optional */
+    { enumeration_name_1,        /* establishes enumeration literals */
+      enumeration_name_2=number, /* optional number, */
+        …                        /* default is 0, 1, 2, … */
+    } variable, …;               /* variables are optional */
+
+  /* use dot notation to select a component of a struct or union */
+</code></pre>

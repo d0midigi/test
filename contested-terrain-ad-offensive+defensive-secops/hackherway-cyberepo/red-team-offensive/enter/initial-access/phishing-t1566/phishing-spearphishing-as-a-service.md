@@ -1,0 +1,7 @@
+# Phishing: Spearphishing as a Service
+
+In this scenario, adversaries leverage social media services, personal webmail, and other non-enterprise controlled platforms to send messages to potential targets. These external services often have less stringent security measures compared to enterprise-controlled systems, making them attractive targets for attackers seeking to exploit vulnerabilities.
+
+By creating fake social media accounts and posing as recruiters or individuals offering job opportunities, adversaries aim to establish trust and rapport with their targets. This approach enables them to gather information about the target organization's services, policies, and software without raising suspicion. Subsequently, attackers may send malicious links or attachments disguised as legitimate content through these channels, attempting to trick unsuspecting recipients into executing harmful actions.
+
+This tactic illustrates the importance of user awareness and vigilance when interacting with external communications, especially on platforms outside of the organization's control. Employees should be cautious of unsolicited messages from unknown individuals and refrain from clicking on suspicious links or downloading attachments from unverified sources to mitigate the risk of falling victim to phishing and other cyber threats. Employing security awareness training and implementing robust email filtering and endpoint protection solutions can help strengthen defenses against these social engineering tactics.

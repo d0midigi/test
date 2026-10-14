@@ -1,0 +1,6 @@
+# WebApp Attacks Tutorials
+
+
+
+<table data-view="cards"><thead><tr><th></th><th align="center"></th><th data-type="content-ref"></th><th></th><th data-hidden data-card-cover data-type="image">Cover image</th></tr></thead><tbody><tr><td><h4>SQL Injection (SQLi) Attack Tutorial</h4></td><td align="center">If you are vulnerable to SQL Injection, attackers can run arbitrary commands against your database.</td><td></td><td><mark style="color:yellow;"><strong>Learn About This Vulnerability</strong> ➜</mark></td><td><a href="../.gitbook/assets/sqli.gif">sqli.gif</a></td></tr><tr><td><h4>Cross-Site Scripting (XSS) Tutorial</h4></td><td align="center">If your site allows users to add content, you need to be sure that attackers cannot inject malicious JavaScript.</td><td></td><td></td><td><a href="../.gitbook/assets/xss.gif">xss.gif</a></td></tr><tr><td>Privilege Escalation + Exploiting Samba Tutorial</td><td align="center"></td><td></td><td></td><td><a href="../.gitbook/assets/samba-exploit.gif">samba-exploit.gif</a></td></tr><tr><td>Windows Privilege Escalation</td><td align="center"></td><td></td><td></td><td><a href="../.gitbook/assets/windows-privesc.gif">windows-privesc.gif</a></td></tr><tr><td>windows ad hardening</td><td align="center"></td><td></td><td></td><td><a href="../.gitbook/assets/ad-hardening.gif">ad-hardening.gif</a></td></tr></tbody></table>
+
